@@ -1,0 +1,298 @@
+#navIcon {
+  width: 22px;
+  height: 28px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+#navIcon span {
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: #000;
+  opacity: 1;
+  left: 0;
+  top: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.25s ease-in-out;
+  -moz-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+}
+
+#navIcon span:nth-child(1) {
+  top: 6px;
+}
+
+#navIcon span:nth-child(2),
+#navIcon span:nth-child(3) {
+  top: 14px;
+}
+
+#navIcon span:nth-child(4) {
+  top: 22px;
+}
+
+#navIcon.open span:nth-child(1) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+
+#navIcon.open span:nth-child(2) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+#navIcon.open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+#navIcon.open span:nth-child(4) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+
+.hide {
+  transform: translateY(-150%);
+  transition: all 700ms;
+}
+
+.show {
+  transform: translateY(0);
+  transition: all 700ms;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.menu {
+  width: 260px;
+  font-family: "trade-gothic-next", sans-serif;
+}
+
+.menuHeader {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  padding: 0 15px;
+  height: 50px;
+  z-index: 110;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #000;
+  background-color: #fff;
+}
+
+.navPageLinks {
+  z-index: 100;
+  position: fixed;
+  background-color: #fff;
+  top: 50px;
+  width: 260px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  transition: all 700ms;
+}
+
+.navPageSingleLink {
+  border: 1px solid #000;
+  border-top: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 15px;
+  font-size: 30px;
+}
+
+.onAirHeader,
+.onMindHeader {
+  font-family: "trade-gothic-next", sans-serif;
+  position: fixed;
+  left: 260px;
+  top: 0;
+  font-size: 30px;
+  font-weight: 700;
+  font-style: italic;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  mix-blend-mode: difference;
+  color: #fff;
+  width: calc(100% - 260px);
+}
+
+.onViewHeader,
+.onScreenHeader {
+  font-family: "trade-gothic-next", sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  font-style: italic;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  color: #000;
+  background: #fff;
+  width: calc(100% - 260px);
+  position: fixed;
+  left: 260px;
+  top: 0;
+}
+
+.onMindHeader {
+  font-family: "freight-text-pro", serif;
+  font-style: normal;
+  justify-content: space-between;
+  width: calc(100% - 260px);
+}
+
+.headerDate {
+  display: block;
+  font-family: "trade-gothic-next", sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  padding-right: 10px;
+}
+
+.onFileHeader {
+  font-family: "trade-gothic-ext", sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 20px;
+  color: #fff;
+  background: #000;
+  width: calc(100% - 260px);
+  position: fixed;
+  left: 260px;
+  top: 0;
+}
+
+.onScreenHeader {
+  font-style: normal;
+}
+
+.headerSearch {
+  font-family: "trade-gothic-next", sans-serif;
+  color: #fff;
+  font-size: 18px;
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+}
+
+.headerSearchIcon {
+  height: 15px;
+  width: 15px;
+  margin-left: 8px;
+}
+
+.onViewHeader span,
+.onScreenHeader span,
+.onFileHeader span,
+.onMindHeader span {
+  font-family: "trade-gothic-next", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin-left: 8px;
+}
+
+.onMindHeader span {
+  font-size: 26px;
+}
+
+.onView {
+  font-family: "trade-gothic-next", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.onScreen {
+  font-family: "trade-gothic-next", sans-serif;
+  font-weight: 700;
+}
+
+.onFile {
+  font-family: "trade-gothic-ext", sans-serif;
+}
+
+.onMind {
+  font-family: Times, serif;
+}
+
+.navPageSingleLink p {
+  font-family: "trade-gothic-next", sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.homeButton {
+  font-family: "trade-gothic-next", sans-serif;
+  font-size: 30px;
+}
+
+.secondaryLinks {
+  display: flex;
+  flex-direction: column;
+  height: 190px;
+  justify-content: center;
+  border: 1px solid #000;
+  border-top: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.secondarySingleLink {
+  display: block;
+  font-size: 26px;
+  padding: 0 15px;
+}
+
+.searchLink,
+.ticketsLink {
+  height: 50px;
+  font-size: 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+  border: 1px solid #000;
+  border-top: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.ticketsLink {
+  border-bottom: 1px solid #000;
+}
