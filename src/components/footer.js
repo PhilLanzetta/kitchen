@@ -6,8 +6,8 @@ const Footer = ({ location }) => {
   return (
     <>
       {location.pathname !== "/" && (
-        <footer>
-          <section className={styles.socialLinkContainer}>
+        <footer className="tgn">
+          <section className={`${styles.socialLinkContainer} tgnHeavy`}>
             <a href="https://www.facebook.com" rel="noreferrer" target="_blank">
               Facebook
             </a>
@@ -26,8 +26,9 @@ const Footer = ({ location }) => {
             </a>
           </section>
           <section className={styles.footerTagline}>
-            New York CITY’s center for experimental art & the AVANT GARDE SINCE
-            1971
+            New York CITY’s <span className="ftpItalic">center for</span>{" "}
+            <span className="tgnHeavy">experimental art</span> &{" "}
+            <span className="tgnHeavyItalic">the AVANT GARDE</span> SINCE 1971
           </section>
           <section className={styles.footerMenu}>
             <article className={styles.hoursLocation}>
@@ -85,7 +86,9 @@ const Footer = ({ location }) => {
               </Link>
             </article>
           </section>
-          <section className={styles.footerCredit}>Site Designed and Developed by Pacific</section>
+          <section className={styles.footerCredit}>
+            Site Designed and Developed by Pacific
+          </section>
         </footer>
       )}
     </>

@@ -85,11 +85,11 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  z-index: 100;
 }
 
 .menu {
   width: 260px;
-  font-family: "trade-gothic-next", sans-serif;
 }
 
 .menuHeader {
@@ -131,61 +131,44 @@
   font-size: 30px;
 }
 
-.onAirHeader,
-.onMindHeader {
-  font-family: "trade-gothic-next", sans-serif;
+.headerTagline {
   position: fixed;
+  z-index: 20;
   left: 260px;
   top: 0;
   font-size: 30px;
-  font-weight: 700;
-  font-style: italic;
   height: 50px;
   display: flex;
   align-items: center;
   padding-left: 20px;
+  width: calc(100% - 260px);
+}
+
+.onAirHeader {
   mix-blend-mode: difference;
   color: #fff;
-  width: calc(100% - 260px);
 }
 
 .onViewHeader,
 .onScreenHeader {
-  font-family: "trade-gothic-next", sans-serif;
-  font-size: 30px;
-  font-weight: 700;
-  font-style: italic;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  padding-left: 20px;
   color: #000;
   background: #fff;
-  width: calc(100% - 260px);
-  position: fixed;
-  left: 260px;
-  top: 0;
 }
 
 .onMindHeader {
-  font-family: "freight-text-pro", serif;
-  font-style: normal;
   justify-content: space-between;
-  width: calc(100% - 260px);
+  color: #000;
+  background: #fff;
 }
 
 .headerDate {
   display: block;
-  font-family: "trade-gothic-next", sans-serif;
-  font-weight: 400;
   font-size: 26px;
   padding-right: 10px;
 }
 
 .onFileHeader {
-  font-family: "trade-gothic-ext", sans-serif;
   font-size: 30px;
-  font-weight: 700;
   height: 50px;
   display: flex;
   align-items: center;
@@ -199,15 +182,9 @@
   top: 0;
 }
 
-.onScreenHeader {
-  font-style: normal;
-}
-
 .headerSearch {
-  font-family: "trade-gothic-next", sans-serif;
   color: #fff;
   font-size: 18px;
-  font-weight: normal;
   display: flex;
   align-items: center;
   padding-right: 10px;
@@ -219,48 +196,18 @@
   margin-left: 8px;
 }
 
-.onViewHeader span,
-.onScreenHeader span,
-.onFileHeader span,
-.onMindHeader span {
-  font-family: "trade-gothic-next", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  margin-left: 8px;
-}
-
 .onMindHeader span {
   font-size: 26px;
 }
 
-.onView {
-  font-family: "trade-gothic-next", sans-serif;
-  font-weight: 700;
-  font-style: italic;
-}
-
-.onScreen {
-  font-family: "trade-gothic-next", sans-serif;
-  font-weight: 700;
-}
-
-.onFile {
-  font-family: "trade-gothic-ext", sans-serif;
-}
-
-.onMind {
-  font-family: Times, serif;
-}
-
 .navPageSingleLink p {
   font-family: "trade-gothic-next", sans-serif;
-  font-size: 12px;
-  font-weight: normal;
   font-style: normal;
+  font-size: 12px;
+  font-weight: 400;
 }
 
 .homeButton {
-  font-family: "trade-gothic-next", sans-serif;
   font-size: 30px;
 }
 

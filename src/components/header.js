@@ -6,26 +6,26 @@ import search from "./assets/search.svg"
 import tix from "./assets/tix.svg"
 
 const pageLabels = [
-  { label: "On Air", labelClass: styles.onAirHeader },
+  { label: "On Air", labelClass: `${styles.onAirHeader} tgnHeavyItalic` },
   {
     label: "ON VIEW:",
     labelTagline: "See What's Happening at The Kitchen",
-    labelClass: styles.onViewHeader,
+    labelClass: `${styles.onViewHeader} tgnHeavyItalic`,
   },
   {
     label: "ON SCREEN:",
     labelTagline: "Watch and Listen",
-    labelClass: styles.onScreenHeader,
+    labelClass: `${styles.onScreenHeader} tgnHeavy`,
   },
   {
     label: "ON FILE:",
     labelTagline: "Explore Our Archive",
-    labelClass: styles.onFileHeader,
+    labelClass: `${styles.onFileHeader} tge`,
   },
   {
     label: "ON MIND:",
     labelTagline: "Read Our Magazine",
-    labelClass: styles.onMindHeader,
+    labelClass: `${styles.onMindHeader} ftpBold`,
   },
 ]
 
@@ -60,7 +60,7 @@ const Header = ({ isOpen, toggleMenu, location }) => {
 
   return (
     <header className={styles.header}>
-      <div className={styles.menu}>
+      <div className={`${styles.menu} tgn`}>
         <div className={styles.menuHeader}>
           <Link
             to="/"
@@ -87,26 +87,20 @@ const Header = ({ isOpen, toggleMenu, location }) => {
         >
           <Link
             to="/on-view"
-            className={`${styles.navPageSingleLink} ${styles.onView}`}
+            className={`${styles.navPageSingleLink} tgnHeavyItalic`}
           >
             ON VIEW<p>See What's Happening at The Kitchen</p>
           </Link>
           <Link
             to="/on-screen"
-            className={`${styles.navPageSingleLink} ${styles.onScreen}`}
+            className={`${styles.navPageSingleLink} tgnHeavy`}
           >
             ON SCREEN<p>Watch and Listen</p>
           </Link>
-          <Link
-            to="/on-file"
-            className={`${styles.navPageSingleLink} ${styles.onFile}`}
-          >
+          <Link to="/on-file" className={`${styles.navPageSingleLink} tge`}>
             ON FILE<p>Explore our Archive</p>
           </Link>
-          <Link
-            to="/on-mind"
-            className={`${styles.navPageSingleLink} ${styles.onMind}`}
-          >
+          <Link to="/on-mind" className={`${styles.navPageSingleLink} ftpBold`}>
             ON MIND<p>Read Our Magazine</p>
           </Link>
           <div className={styles.secondaryLinks}>
@@ -136,12 +130,13 @@ const Header = ({ isOpen, toggleMenu, location }) => {
       </div>
       {pageHeader && (
         <Fade>
-          <div className={pageHeader.labelClass}>
+          <div className={`${pageHeader.labelClass} ${styles.headerTagline}`}>
             <div>
-              {pageHeader.label} <span>{pageHeader.labelTagline}</span>
+              {pageHeader.label}{" "}
+              <span className="tgn">{pageHeader.labelTagline}</span>
             </div>
             {pageHeader.label === "ON MIND:" && (
-              <p className={styles.headerDate}>
+              <p className={`${styles.headerDate} ftpItalic`}>
                 {new Intl.DateTimeFormat("en-US", dateOptions).format(
                   new Date()
                 )}

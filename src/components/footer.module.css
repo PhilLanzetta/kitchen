@@ -1,5 +1,4 @@
 footer {
-  font-family: "trade-gothic-next", sans-serif;
   font-size: 20px;
   color: #fff;
   background: #000;
@@ -14,7 +13,7 @@ footer {
   justify-content: space-between;
   width: 100%;
   text-transform: uppercase;
-  font-weight: 700;
+  letter-spacing: 1.5px;
 }
 
 .footerTagline {
@@ -23,8 +22,6 @@ footer {
   text-transform: uppercase;
   text-align: center;
   font-size: calc(20px + 4.5vw);
-  font-weight: 700;
-  font-style: italic;
 }
 
 .footerMenu {
@@ -96,5 +93,3 @@ footer {
   font-size: 12px;
   margin-top: 80px;
 }
-
-
