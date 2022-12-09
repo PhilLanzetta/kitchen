@@ -85,6 +85,7 @@ const Footer = ({ location }) => {
               </Link>
             </article>
           </section>
+          <section className={styles.footerCredit}>Site Designed and Developed by Pacific</section>
         </footer>
       )}
     </>
