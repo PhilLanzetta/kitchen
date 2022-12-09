@@ -84,7 +84,8 @@
   width: 100%;
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
   z-index: 100;
 }
 
@@ -242,4 +243,16 @@
 
 .ticketsLink {
   border-bottom: 1px solid #000;
+}
+
+@media screen and (max-width: 920px) {
+  .headerTagline {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .menuHeader, .navPageLinks {
+    width: 100%;
+  }
 }
