@@ -30,13 +30,18 @@ footer {
   align-items: flex-start;
   justify-content: space-between;
   flex-wrap: wrap;
+  position: relative;
 }
 
-.hoursLocation {
+.hoursLocationDesktop {
   display: flex;
   flex-direction: column;
   gap: 50px;
   width: 20%;
+}
+
+.hoursLocationMobile {
+  display: none;
 }
 
 .footerPageLinks {
@@ -85,8 +90,8 @@ footer {
 }
 
 .footerIconContainer {
-  height: 190px;
-  width: 200px;
+  height: auto;
+  width: 20%;
 }
 
 .footerCredit {
@@ -96,12 +101,29 @@ footer {
 }
 
 @media screen and (max-width: 1135px) {
-  .footerFormContainer, .hoursLocation, .footerPageLinks {
-    width: 50%;
-    margin-bottom: 20px;
+  .hoursLocationMobile {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
+
+  .hoursLocationDesktop {
+    display: none;
+  }
+
+  .footerFormContainer,
+  .hoursLocationMobile,
+  .footerPageLinks {
+    width: 50%;
+    margin-bottom: 60px;
+  }
+
   .footerTagline {
-    margin-bottom: 80px;
+    margin-bottom: 60px;
+  }
+
+  .footerIconContainer {
+    width: 33%;
   }
 }
 
@@ -109,29 +131,30 @@ footer {
   footer {
     font-size: 14px;
   }
-  .footerFormContainer, .footerPageLinks {
+  .footerFormContainer,
+  .footerPageLinks {
     width: 100%;
     height: 130px;
+  }
+
+  .socialLinkContainer {
+    font-size: 12px;
   }
 
   .footerPageLinks {
     margin-bottom: 40px;
   }
 
-  .footerFormContainer {
-    margin-bottom: 80px;
+  .hoursLocationMobile {
+    width: 60%;
+    margin-bottom: 0;
   }
-  .hoursLocation {
-    position: absolute;
-    gap: 20px;
-    bottom: 40px;
-    left: 20px;
-  }
+
   .footerIconContainer {
-    position: absolute;
-    bottom: 40px;
-    right: 20px;
-    height: 120px;
-    width: 160px;
+    width: 33%;
+  }
+
+  .footerCredit {
+    margin-top: 40px;
   }
 }

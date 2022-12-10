@@ -31,7 +31,7 @@ const Footer = ({ location }) => {
             <span className="tgnHeavyItalic">the AVANT GARDE</span> SINCE 1971
           </section>
           <section className={styles.footerMenu}>
-            <article className={styles.hoursLocation}>
+            <article className={styles.hoursLocationDesktop}>
               <section>
                 512 W 19th St,
                 <br /> New York, NY 10011
@@ -68,6 +68,16 @@ const Footer = ({ location }) => {
                   Submit
                 </button>
               </form>
+            </article>
+            <article className={styles.hoursLocationMobile}>
+              <section>
+                512 W 19th St,
+                <br /> New York, NY 10011
+              </section>
+              <section>
+                Sun–Fri, 10:30 a.m.–5:30 p.m.
+                <br /> Sat, 10:30 a.m.–7:00 p.m.
+              </section>
             </article>
             <article className={styles.footerIconContainer}>
               <Link to="/on-file">

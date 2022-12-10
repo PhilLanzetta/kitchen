@@ -118,6 +118,8 @@
   display: flex;
   flex-direction: column;
   transition: all 700ms;
+  overflow-y: scroll;
+  max-height: calc(100vh - 50px);
 }
 
 .navPageSingleLink {
@@ -252,7 +254,8 @@
 }
 
 @media screen and (max-width: 600px) {
-  .menuHeader, .navPageLinks {
+  .menuHeader,
+  .navPageLinks {
     width: 100%;
   }
 }
