@@ -70,14 +70,18 @@
   }
 
   .videoControls {
-  background: #fff;
-  height: 50px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  padding: 0;
-  padding-left: 30px;
-}
+    background: #fff;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 0;
+    padding-left: 30px;
+  }
+
+  .videoPlayerWrapper {
+    height: calc(100vh - 50px);
+  }
 }
