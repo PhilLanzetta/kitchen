@@ -54,12 +54,14 @@
   .mobileHeading {
     display: block;
     position: absolute;
+    font-size: 20px;
     top: 70px;
     left: 20px;
     color: #fff;
     z-index: 10;
     text-transform: uppercase;
   }
+  
   .mobileVideoTitle {
     display: inline;
     text-transform: none;

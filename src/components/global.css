@@ -29,8 +29,13 @@ a:hover {
 }
 
 main {
-  min-height: 100vh;
   background: #fff;
+}
+
+@media screen and (max-width: 699px) {
+  main {
+    margin-top: 50px;
+  }
 }
 
 @font-face {

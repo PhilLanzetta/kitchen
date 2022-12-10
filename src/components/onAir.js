@@ -75,7 +75,7 @@ const OnAir = () => {
               >
                 <path
                   id="Polygon_4"
-                  dataName="Polygon 4"
+                  dataname="Polygon 4"
                   d="M14.991,0,29.983,26.651H0Z"
                   transform="translate(26.651) rotate(90)"
                   fill="#000"
@@ -93,19 +93,19 @@ const OnAir = () => {
               >
                 <g
                   id="Group_613"
-                  dataName="Group 613"
+                  dataname="Group 613"
                   transform="translate(-111 -1032)"
                 >
                   <rect
                     id="Rectangle_744"
-                    dataName="Rectangle 744"
+                    dataname="Rectangle 744"
                     width="8"
                     height="28"
                     transform="translate(111 1032)"
                   />
                   <rect
                     id="Rectangle_745"
-                    dataName="Rectangle 745"
+                    dataname="Rectangle 745"
                     width="8"
                     height="28"
                     transform="translate(125 1032)"
@@ -156,7 +156,7 @@ const OnAir = () => {
               >
                 <g
                   id="Group_614"
-                  dataName="Group 614"
+                  dataname="Group 614"
                   transform="translate(-198.729 -1033.897)"
                 >
                   <path
@@ -166,7 +166,7 @@ const OnAir = () => {
                   />
                   <rect
                     id="Rectangle_746"
-                    dataName="Rectangle 746"
+                    dataname="Rectangle 746"
                     width="3.294"
                     height="40.629"
                     transform="translate(198.729 1036.227) rotate(-45)"
