@@ -88,42 +88,80 @@ const Header = ({ isOpen, toggleMenu, location }) => {
           <Link
             to="/on-view"
             className={`${styles.navPageSingleLink} tgnHeavyItalic`}
+            onClick={isOpen ? toggleMenu : () => {}}
           >
             ON VIEW<p>See What's Happening at The Kitchen</p>
           </Link>
           <Link
             to="/on-screen"
             className={`${styles.navPageSingleLink} tgnHeavy`}
+            onClick={isOpen ? toggleMenu : () => {}}
           >
             ON SCREEN<p>Watch and Listen</p>
           </Link>
-          <Link to="/on-file" className={`${styles.navPageSingleLink} tge`}>
+          <Link
+            to="/on-file"
+            className={`${styles.navPageSingleLink} tge`}
+            onClick={isOpen ? toggleMenu : () => {}}
+          >
             ON FILE<p>Explore our Archive</p>
           </Link>
-          <Link to="/on-mind" className={`${styles.navPageSingleLink} ftpBold`}>
+          <Link
+            to="/on-mind"
+            className={`${styles.navPageSingleLink} ftpBold`}
+            onClick={isOpen ? toggleMenu : () => {}}
+          >
             ON MIND<p>Read Our Magazine</p>
           </Link>
           <div className={styles.secondaryLinks}>
-            <Link to="/calendar" className={styles.secondarySingleLink}>
+            <Link
+              to="/calendar"
+              className={styles.secondarySingleLink}
+              onClick={isOpen ? toggleMenu : () => {}}
+            >
               Calendar
             </Link>
-            <Link to="/visit" className={styles.secondarySingleLink}>
+            <Link
+              to="/visit"
+              className={styles.secondarySingleLink}
+              onClick={isOpen ? toggleMenu : () => {}}
+            >
               Visit
             </Link>
-            <Link to="/about" className={styles.secondarySingleLink}>
+            <Link
+              to="/about"
+              className={styles.secondarySingleLink}
+              onClick={isOpen ? toggleMenu : () => {}}
+            >
               About
             </Link>
-            <Link to="/support" className={styles.secondarySingleLink}>
+            <Link
+              to="/support"
+              className={styles.secondarySingleLink}
+              onClick={isOpen ? toggleMenu : () => {}}
+            >
               Support
             </Link>
-            <Link to="/shop" className={styles.secondarySingleLink}>
+            <Link
+              to="/shop"
+              className={styles.secondarySingleLink}
+              onClick={isOpen ? toggleMenu : () => {}}
+            >
               Shop
             </Link>
           </div>
-          <Link to="/search" className={styles.searchLink}>
+          <Link
+            to="/search"
+            className={styles.searchLink}
+            onClick={isOpen ? toggleMenu : () => {}}
+          >
             Search <img src={search} alt="search icon"></img>
           </Link>
-          <Link to="/tickets" className={styles.ticketsLink}>
+          <Link
+            to="/tickets"
+            className={styles.ticketsLink}
+            onClick={isOpen ? toggleMenu : () => {}}
+          >
             Tickets <img src={tix} alt="tickets icon"></img>
           </Link>
         </nav>

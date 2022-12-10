@@ -1,22 +1,28 @@
 .videoPlayerWrapper {
   position: relative;
   padding-top: 56.25%;
-  min-height: 100vh;
-  min-width: 100vw;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
 }
 
 .videoPlayer {
   position: absolute;
-  z-index: -10;
   top: 0;
   left: 0;
+}
+
+.videoControlsContainer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .videoControls {
   position: fixed;
   bottom: 0;
   left: 0;
-  z-index: 100;
+  z-index: 50;
   background: #fff;
   height: 50px;
   width: 250px;
@@ -25,4 +31,53 @@
   justify-content: space-around;
   padding: 0 20px;
   border: 1px solid #000;
+}
+
+.desktopTitle {
+  position: fixed;
+  display: flex;
+  height: 50px;
+  align-items: center;
+  font-size: 24px;
+  bottom: 0;
+  left: 280px;
+  z-index: 100;
+  color: #fff;
+  mix-blend-mode: difference;
+}
+
+.mobileHeading {
+  display: none;
+}
+
+@media screen and (max-width: 920px) {
+  .mobileHeading {
+    display: block;
+    position: absolute;
+    top: 70px;
+    left: 20px;
+    color: #fff;
+    z-index: 10;
+    text-transform: uppercase;
+  }
+  .mobileVideoTitle {
+    display: inline;
+    text-transform: none;
+  }
+
+  .desktopTitle {
+    display: none;
+  }
+
+  .videoControls {
+  background: #fff;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 0;
+  padding-left: 30px;
+}
 }
