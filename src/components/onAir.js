@@ -22,7 +22,7 @@ const OnAir = () => {
   }
 
   const handleNextClick = () => {
-    if (data.indexOf(video) !== data.length -1) {
+    if (data.indexOf(video) !== data.length - 1) {
       setVideo(data[data.indexOf(video) + 1])
     } else {
       return
@@ -45,6 +45,7 @@ const OnAir = () => {
           playsinline={true}
           width={"100%"}
           height={"100%"}
+          onPause={() => setPlaying(false)}
         />
       </section>
       <section className={styles.videoControlsContainer}>
