@@ -1,0 +1,19 @@
+.heroContainer {
+  margin-top: 50px;
+}
+
+.fullScreen {
+  width: 100vw;
+  height: calc(100vh - 50px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.halfScreen {
+  display: inline-block;
+  width: 50vw;
+  height: calc(100vh - 50px); 
+  overflow: hidden; 
+}

@@ -1,0 +1,14 @@
+.tagLink {
+  border: solid 1px #fff;
+  border-radius: 100px;
+  background: #000;
+  color: #fff;
+  font-size: 16px;
+  padding: 4px 16px;
+}
+
+.tagLink:hover {
+  color: #000;
+  background: #fff;
+  opacity: 1;
+}

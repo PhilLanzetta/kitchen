@@ -30,6 +30,7 @@ a:hover {
 
 main {
   background: #fff;
+  font-family: 'trade-gothic-next', sans-serif;
 }
 
 @media screen and (max-width: 699px) {
@@ -499,4 +500,25 @@ main {
 
 .tge {
   font-family: "trade-gothic-ext", sans-serif;
+}
+
+.upper {
+  text-transform: uppercase;
+}
+
+
+.on-view-past-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3vw;
+}
+
+.on-view-arrow {
+  width: 15%;
+}
+
+.on-view-past {
+  font-size: calc(20px + 4vw);
+  letter-spacing: 1vw;
 }
