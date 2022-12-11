@@ -1,5 +1,5 @@
 .featuredImage {
-  position: absolute;
+  position: absolute !important;
   top: 0;
   left: 0;
   min-height: 100%;
@@ -54,5 +54,3 @@
   background: #000;
   transition: 400ms;
 }
-
-
