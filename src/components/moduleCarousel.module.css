@@ -1,0 +1,22 @@
+.carouselContainer {
+  padding: 20px;
+}
+
+.dotsContainer {
+  position: absolute;
+  top: -60px;
+  right: 20px;
+}
+
+.dots {
+  height: 20px;
+  width: 20px;
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 100%;
+}
+
+:global(.slick-active) .dots {
+ background: #000;
+ border: 1px solid #fff;
+}

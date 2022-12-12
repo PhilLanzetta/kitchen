@@ -7,8 +7,23 @@
   padding: 4px 16px;
 }
 
+.tagLinkLight {
+  border: solid 1px #000;
+  border-radius: 100px;
+  background: #fff;
+  color: #000;
+  font-size: 16px;
+  padding: 4px 16px;
+}
+
 .tagLink:hover {
   color: #000;
   background: #fff;
+  opacity: 1;
+}
+
+.tagLinkLight:hover {
+  color: #fff;
+  background: #000;
   opacity: 1;
 }

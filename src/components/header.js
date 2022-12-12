@@ -38,24 +38,18 @@ const dateOptions = {
 
 const Header = ({ isOpen, toggleMenu, location }) => {
   let pageHeader
-  switch (location.pathname) {
-    case "/":
-      pageHeader = pageLabels[0]
-      break
-    case "/on-view/":
-      pageHeader = pageLabels[1]
-      break
-    case "/on-screen/":
-      pageHeader = pageLabels[2]
-      break
-    case "/on-file/":
-      pageHeader = pageLabels[3]
-      break
-    case "/on-mind/":
-      pageHeader = pageLabels[4]
-      break
-    default:
-      pageHeader = null
+  if (location.pathname === "/") {
+    pageHeader = pageLabels[0]
+  } else if (location.pathname.includes("/on-view/")) {
+    pageHeader = pageLabels[1]
+  } else if (location.pathname.includes("/on-screen/")) {
+    pageHeader = pageLabels[2]
+  } else if (location.pathname.includes("/on-file/")) {
+    pageHeader = pageLabels[3]
+  } else if (location.pathname.includes("/on-mind/")) {
+    pageHeader = pageLabels[4]
+  } else {
+    pageHeader = null
   }
 
   return (

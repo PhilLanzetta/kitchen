@@ -1,0 +1,15 @@
+.linkButton {
+ display: flex;
+ padding: 5px 10px;
+ border: solid 1px #000;
+ width: 100%;
+ justify-content: space-between;
+ align-items: center;
+ font-size: 22px;
+}
+
+.linkButton:hover {
+ opacity: 1;
+ color: #fff;
+ background: #000;
+}

@@ -5,3 +5,6 @@
  */
 
 // You can delete this file if you're not using it
+
+require("slick-carousel/slick/slick.css")
+require("slick-carousel/slick/slick-theme.css")

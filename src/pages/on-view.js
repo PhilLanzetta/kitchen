@@ -39,15 +39,18 @@ export const query = graphql`
           id
           artist
           exhibitionTitle
+          slug
           startDate
           endDate
           featuredImage {
+            description
             gatsbyImageData(placeholder: BLURRED)
           }
           metadata {
             tags {
               name
               contentful_id
+              id
             }
           }
         }

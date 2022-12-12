@@ -23,26 +23,29 @@ const EventTile = ({ event }) => {
       <GatsbyImage
         image={event.featuredImage.gatsbyImageData}
         className={styles.featuredImage}
+        alt={event.featuredImage.description}
       ></GatsbyImage>
-      <Link to="/" className={styles.eventLink}>
-        <article className={styles.eventInfo}>
-          <p className={`tgnHeavy upper`}>
-            <span>{event.artist}</span>
-          </p>
-          <p className={`tgnHeavyItalic upper`}>
-            <span>{event.exhibitionTitle}</span>
-          </p>
-          <p className={`tgn`}>
-            <span>
-              {startDate} - {endDate}
-            </span>
-          </p>
-        </article>
-      </Link>
-      <section className={styles.tagContainer}>
-        {event.metadata.tags.map(tag => (
-          <TagLink tag={tag}></TagLink>
-        ))}
+      <section className={styles.tileOverlay}>
+        <Link to={`/on-view/${event.slug}`} className={styles.eventLink}>
+          <article className={styles.eventInfo}>
+            <p className={`tgnHeavy upper`}>
+              <span>{event.artist}</span>
+            </p>
+            <p className={`tgnHeavyItalic upper`}>
+              <span>{event.exhibitionTitle}</span>
+            </p>
+            <p className={`tgn`}>
+              <span>
+                {startDate} - {endDate}
+              </span>
+            </p>
+          </article>
+        </Link>
+        <section className={styles.tagContainer}>
+          {event.metadata.tags.map(tag => (
+            <TagLink tag={tag} key={tag.id}></TagLink>
+          ))}
+        </section>
       </section>
     </section>
   )
