@@ -1,18 +1,66 @@
 import React from "react"
 import ModuleCarousel from "./moduleCarousel"
+import TwoColumnImg from "./twoColumnImg"
+import ThreeColumnText from "./threeColumnText"
+import TwoColumnText from "./twoColumnText"
+import InTextImg from "./inTextImg"
+import BlockQuote from "./blockQuote"
+import FullWidthVideo from "./fullWidthVideo"
+import AudioFilePlayer from "./audioFilePlayer"
+import CreditText from "./creditText"
 
 const ModuleContent = ({ data }) => {
   return (
     <section>
       {data.map(item => {
-        if (item.images?.length > 2) {
-          return <ModuleCarousel data={item.images} key={item.id}></ModuleCarousel>
-        } else if (item.images) {
-          return <article>I am a two column image</article>
-        } else if (item.quote) {
-          return <article>I am a quote</article>
-        } else if (item.audioFile) {
-          return <article>I am an audio file</article>
+        if (item.carouselId) {
+          return (
+            <ModuleCarousel
+              data={item.images}
+              key={item.carouselId}
+            ></ModuleCarousel>
+          )
+        } else if (item.twoColumnId) {
+          return (
+            <TwoColumnImg
+              data={item.images}
+              key={item.twoColumnId}
+            ></TwoColumnImg>
+          )
+        } else if (item.quoteId) {
+          return <BlockQuote key={item.quoteId} data={item}></BlockQuote>
+        } else if (item.audioId) {
+          return (
+            <AudioFilePlayer key={item.audioId} data={item}></AudioFilePlayer>
+          )
+        } else if (item.threeColId) {
+          return (
+            <ThreeColumnText
+              data={item.text}
+              key={item.threeColId}
+            ></ThreeColumnText>
+          )
+        } else if (item.twoColTxtId) {
+          return (
+            <TwoColumnText
+              data={item.text}
+              key={item.twoColTxtId}
+            ></TwoColumnText>
+          )
+        } else if (item.inTextImgId) {
+          return (
+            <InTextImg key={item.inTextImgId} data={item.image}></InTextImg>
+          )
+        } else if (item.fullVideoId) {
+          return (
+            <FullWidthVideo key={item.fullVideoId} data={item}></FullWidthVideo>
+          )
+        } else if (item.creditId) {
+          return <CreditText key={item.creditId} data={item.text}></CreditText>
+        } else if (item.inTextVidId) {
+          return (
+            <FullWidthVideo key={item.inTextVidId} data={item} inText></FullWidthVideo>
+          )
         } else {
           return <article>Unknown type</article>
         }

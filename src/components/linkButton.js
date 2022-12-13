@@ -1,6 +1,6 @@
 import React from "react"
 import * as styles from "./linkButton.module.css"
-import tix from "./assets/tix.svg"
+import tix from "../assets/tix.svg"
 
 const LinkButton = ({ link, type }) => {
   if (type === "ticket") {
@@ -28,7 +28,7 @@ const LinkButton = ({ link, type }) => {
       </a>
     )
   } else {
-    return <button className={styles.linkButton}></button>
+    return
   }
 }
 

@@ -521,7 +521,7 @@ p {
 
 @font-face {
   font-family: "trade-gothic-ext";
-  src: url(./assets/fonts/TradeGothicExt.otf);
+  src: url(../assets/fonts/TradeGothicExt.otf);
   font-display: swap;
   font-weight: normal;
 }

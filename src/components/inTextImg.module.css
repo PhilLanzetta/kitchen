@@ -1,0 +1,8 @@
+.imgContainer {
+  width: 50%;
+  margin: 20px auto;
+}
+
+.imgContainer figcaption {
+  padding-left: 0;
+}

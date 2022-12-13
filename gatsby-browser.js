@@ -8,3 +8,4 @@
 
 require("slick-carousel/slick/slick.css")
 require("slick-carousel/slick/slick-theme.css")
+require("react-h5-audio-player/lib/styles.css")

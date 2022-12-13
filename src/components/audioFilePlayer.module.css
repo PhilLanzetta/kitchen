@@ -1,0 +1,26 @@
+.audioContainer {
+  width: 50%;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000;
+  padding: 10px;
+}
+
+.audioPlayer {
+  width: 100%;
+}
+
+:global(.rhap_container) {
+  box-shadow: none;
+}
+
+:global(.rhap_additional-controls), :global(.rhap_volume-controls) {
+ display: none;
+}
+
+:global(.rhap_controls-section) {
+ flex: none;
+}

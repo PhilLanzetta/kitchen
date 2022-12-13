@@ -1,0 +1,27 @@
+.videoPlayerWrapperFull {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  margin: 40px 0;
+}
+
+.videoPlayerWrapper {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  width: 50%;
+  margin: 40px auto;
+}
+
+.videoPlayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.videoCredit {
+  position: absolute;
+  bottom: -30px;
+}
+
+.videoPlayerWrapper .videoCredit {
+  padding-left: 0;
+}

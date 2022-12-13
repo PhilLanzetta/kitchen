@@ -2,8 +2,8 @@ import * as React from "react"
 import * as styles from "./header.module.css"
 import { Link } from "gatsby"
 import Fade from "./fade"
-import search from "./assets/search.svg"
-import tix from "./assets/tix.svg"
+import search from "../assets/search.svg"
+import tix from "../assets/tix.svg"
 
 const pageLabels = [
   { label: "On Air", labelClass: `${styles.onAirHeader} tgnHeavyItalic` },

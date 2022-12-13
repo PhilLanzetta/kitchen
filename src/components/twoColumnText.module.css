@@ -1,0 +1,9 @@
+.columnContainer {
+  width: 50%;
+  margin: 20px auto;
+}
+
+.twoColumn {
+  column-count: 2;
+  column-gap: 20px;
+}

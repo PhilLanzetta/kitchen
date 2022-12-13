@@ -48,34 +48,72 @@ export const query = graphql`
       }
       moduleContent {
         ... on ContentfulAudio {
-          id
+          audioId: id
           audioDescription
-          title
           audioFile {
             file {
               url
             }
           }
+          title
         }
         ... on ContentfulBlockquote {
-          id
+          quoteId: id
           author
           quote {
             quote
           }
         }
+        ... on ContentfulCreditText {
+          creditId: id
+          text {
+            text
+          }
+        }
+        ... on ContentfulFullWidthVideo {
+          fullVideoId: id
+          videoId
+          videoCredit
+        }
         ... on ContentfulImageCarousel {
-          id
+          carouselId: id
           images {
-            id
             gatsbyImageData
+            id
+            description
+          }
+        }
+        ... on ContentfulInTextImage {
+          inTextImgId: id
+          image {
+            gatsbyImageData
+            description
+            id
+          }
+        }
+        ... on ContentfulInTextVideo {
+          inTextVidId: id
+          videoCredit
+          videoId
+        }
+        ... on ContentfulThreeColumnText {
+          threeColId: id
+          text {
+            text
           }
         }
         ... on ContentfulTwoColumnImage {
-          id
+          twoColumnId: id
           images {
-            id
+            description
             gatsbyImageData
+            id
+          }
+        }
+        ... on ContentfulTwoColumnText {
+          twoColTxtId: id
+          text {
+            text
           }
         }
       }
