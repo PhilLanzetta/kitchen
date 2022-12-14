@@ -1,18 +1,19 @@
 .heroContainer {
   padding-top: 50px;
-}
-
-.fullScreen {
   width: 100vw;
+  flex-wrap: wrap;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
 }
 
-.halfScreen {
-  display: inline-block;
-  width: 50vw;
-  height: calc(100vh - 50px); 
-  overflow: hidden; 
+.oneThird {
+  width: 33.33%;
+  aspect-ratio: 4 / 5;
+}
+
+.full {
+  width: 100%;
+  aspect-ratio: 16 / 9;
 }

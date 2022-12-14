@@ -4,7 +4,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import * as styles from "./eventTile.module.css"
 import TagLink from "./tagLink"
 
-const EventTile = ({ event }) => {
+const EventTile = ({ event, size }) => {
   const dateOptions = {
     month: "short",
     day: "numeric",
@@ -19,7 +19,7 @@ const EventTile = ({ event }) => {
   )
 
   return (
-    <section className={styles.eventTileContainer}>
+    <section className={`${styles.eventTileContainer} ${styles[size]}`}>
       <GatsbyImage
         image={event.featuredImage.gatsbyImageData}
         className={styles.featuredImage}
@@ -36,7 +36,7 @@ const EventTile = ({ event }) => {
             </p>
             <p className={`tgn`}>
               <span>
-                {startDate} - {endDate}
+                {startDate} {startDate !== endDate ? `- ${endDate}` : ``}
               </span>
             </p>
           </article>

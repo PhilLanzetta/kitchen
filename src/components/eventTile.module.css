@@ -1,4 +1,5 @@
 .featuredImage {
+  position: absolute !important;
   min-height: 100%;
   min-width: 100%;
 }
@@ -10,7 +11,7 @@
   min-width: 100%;
 }
 
-.eventLink {
+.full .eventLink {
   display: block;
   max-width: 60%;
 }
@@ -25,11 +26,18 @@
   opacity: 1;
 }
 
-.tileOverlay {
+.full .tileOverlay {
   position: absolute;
   width: calc(100% - 6vw);
   bottom: 3vw;
   left: 3vw;
+}
+
+.oneThird .tileOverlay {
+  position: absolute;
+  width: calc(100% - 4vw);
+  bottom: 2vw;
+  left: 2vw;
 }
 
 .eventInfo {
@@ -39,8 +47,12 @@
   color: #fff;
 }
 
-.eventInfo p {
+.full .eventInfo p {
   font-size: calc(1rem + 2vw);
+}
+
+.oneThird .eventInfo p {
+  font-size: calc(1rem + 0.75vw);
 }
 
 .tagContainer {

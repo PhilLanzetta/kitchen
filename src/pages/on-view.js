@@ -8,8 +8,8 @@ const OnView = ({ location, data }) => {
   const exhibits = data.allContentfulExhibition.edges
   return (
     <Layout location={location}>
-      <OnViewHero exhibits={exhibits}></OnViewHero>
-      <Link className="on-view-past-link" to="/">
+      <OnViewHero exhibits={exhibits} width="full"></OnViewHero>
+      <Link className="on-view-past-link" to="/on-view/past/">
         <p className="tgnHeavyItalic upper on-view-past">Past Events</p>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +33,10 @@ export const Head = () => <Seo title="ON VIEW" />
 
 export const query = graphql`
   query {
-    allContentfulExhibition(sort: { startDate: ASC }) {
+    allContentfulExhibition(
+      sort: { startDate: ASC }
+      filter: { hasEnded: { eq: false } }
+    ) {
       edges {
         node {
           id

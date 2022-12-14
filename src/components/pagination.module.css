@@ -1,0 +1,19 @@
+.pageNumberContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.pageLink {
+  font-weight: 800;
+  font-size: 3rem;
+  color: transparent;
+  -webkit-text-stroke-color: #000;
+  -webkit-text-stroke-width: 1px;
+}
+
+.active {
+  color: #000;
+}
