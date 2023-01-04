@@ -12,7 +12,7 @@ const FixedContent = ({ data }) => {
     metadata,
     openingHours,
     exhibitionLocation,
-    ticketLink,
+    links,
     exhibitionHours,
     introductionHeading,
     introductionBody,
@@ -56,16 +56,16 @@ const FixedContent = ({ data }) => {
               <p>{exhibitionHours}</p>
             </article>
           )}
-          {metadata.tags && (
+          {metadata?.tags && (
             <article className={styles.tagContainer}>
               {metadata.tags.map(tag => (
                 <TagLink key={tag.id} tag={tag} light={true}></TagLink>
               ))}
             </article>
           )}
-          {ticketLink && (
-            <LinkButton link={ticketLink} type="ticket"></LinkButton>
-          )}
+          {links?.map((item, index) => (
+            <LinkButton key={index} data={item}></LinkButton>
+          ))}
         </section>
         <section className={styles.exhibitCopy}>
           <h3>{introductionHeading?.introductionHeading}</h3>

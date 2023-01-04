@@ -10,14 +10,14 @@ exports.createPages = async ({ graphql, actions }) => {
   const result = await graphql(
     `
       query GetData {
-        allContentfulExhibition(sort: { startDate: ASC }) {
+        allContentfulOnViewExhibition(sort: { startDate: ASC }) {
           edges {
             node {
               slug
             }
           }
         }
-        passedOnView: allContentfulExhibition(
+        passedOnView: allContentfulOnViewExhibition(
           filter: { hasEnded: { eq: true } }
         ) {
           edges {
@@ -26,19 +26,41 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
+        allContentfulOnFileArchivePost(sort: { endDate: ASC }) {
+          edges {
+            node {
+              slug
+            }
+          }
+        }
       }
     `
   )
 
-  const events = result.data.allContentfulExhibition.edges
+  const events = result.data.allContentfulOnViewExhibition.edges
 
   const pastEvents = result.data.passedOnView.edges
+
+  const archivePosts = result.data.allContentfulOnFileArchivePost.edges
 
   events.forEach(({ node }, index) => {
     const eventSlug = node.slug
     createPage({
       path: `/on-view/${eventSlug}`,
       component: path.resolve(`src/templates/onView-template.js`),
+      context: {
+        slug: node.slug,
+        prev: index === 0 ? null : events[index - 1].node,
+        next: index === events.length - 1 ? null : events[index + 1].node,
+      },
+    })
+  })
+
+  archivePosts.forEach(({ node }, index) => {
+    const archiveSlug = node.slug
+    createPage({
+      path: `/on-file/${archiveSlug}`,
+      component: path.resolve(`src/templates/onFile-template.js`),
       context: {
         slug: node.slug,
         prev: index === 0 ? null : events[index - 1].node,

@@ -5,7 +5,7 @@ import Seo from "../components/seo"
 import OnViewHero from "../components/onViewHero"
 
 const OnView = ({ location, data }) => {
-  const exhibits = data.allContentfulExhibition.edges
+  const exhibits = data.allContentfulOnViewExhibition.edges
   return (
     <Layout location={location}>
       <OnViewHero exhibits={exhibits} width="full"></OnViewHero>
@@ -33,7 +33,7 @@ export const Head = () => <Seo title="ON VIEW" />
 
 export const query = graphql`
   query {
-    allContentfulExhibition(
+    allContentfulOnViewExhibition(
       sort: { startDate: ASC }
       filter: { hasEnded: { eq: false } }
     ) {

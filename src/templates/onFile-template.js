@@ -2,32 +2,40 @@ import React from "react"
 import { graphql } from "gatsby"
 import Seo from "../components/seo"
 import Layout from "../components/layout"
-import HeroImage from "../components/heroImage"
-import FixedContent from "../components/fixedContent"
+import ArchiveFixedContent from "../components/archiveFixedContent"
 import ModuleContent from "../components/moduleContent"
 
-const OnViewExhibit = ({ data, pageContext, location }) => {
-  const { heroImage, moduleContent } = data.contentfulOnViewExhibition
+const OnFilePost = ({ data, pageContext, location }) => {
+  const { moduleContent } = data.contentfulOnFileArchivePost
   return (
     <Layout location={location}>
-      <HeroImage image={heroImage}></HeroImage>
-      <FixedContent data={data.contentfulOnViewExhibition}></FixedContent>
-      <ModuleContent data={moduleContent}></ModuleContent>
+      <section
+        style={{ background: "#000000", color: "#ffffff", paddingTop: "100px" }}
+      >
+        <ArchiveFixedContent
+          data={data.contentfulOnFileArchivePost}
+        ></ArchiveFixedContent>
+        <ModuleContent data={moduleContent}></ModuleContent>
+      </section>
     </Layout>
   )
 }
 
 export const query = graphql`
-  query getSingleExhibit($slug: String) {
-    contentfulOnViewExhibition(slug: { eq: $slug }) {
+  query getSingleArchivePost($slug: String) {
+    contentfulOnFileArchivePost(slug: { eq: $slug }) {
       id
       artist
-      exhibitionTitle
+      title
       startDate
       endDate
-      exhibitionLocation
-      openingHours
-      exhibitionHours
+      category
+      introductionHeading {
+        introductionHeading
+      }
+      introductionBody {
+        introductionBody
+      }
       links {
         ... on ContentfulPdfLink {
           pdfId: id
@@ -37,7 +45,7 @@ export const query = graphql`
           }
           linkIcon {
             description
-            url
+            gatsbyImageData
           }
         }
         ... on ContentfulUrlLink {
@@ -46,25 +54,8 @@ export const query = graphql`
           linkUrl
           linkIcon {
             description
-            url
+            gatsbyImageData
           }
-        }
-      }
-      introductionHeading {
-        introductionHeading
-      }
-      introductionBody {
-        introductionBody
-      }
-      heroImage {
-        description
-        gatsbyImageData(placeholder: BLURRED)
-      }
-      metadata {
-        tags {
-          id
-          name
-          contentful_id
         }
       }
       moduleContent {
@@ -142,6 +133,6 @@ export const query = graphql`
   }
 `
 
-export const Head = () => <Seo title="ON VIEW" />
+export const Head = () => <Seo title="ON FILE" />
 
-export default OnViewExhibit
+export default OnFilePost
