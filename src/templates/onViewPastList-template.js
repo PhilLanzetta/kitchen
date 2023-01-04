@@ -6,7 +6,7 @@ import OnViewHero from "../components/onViewHero"
 import Pagination from "../components/pagination"
 
 const OnViewPastList = ({ data, location, pageContext }) => {
-  const exhibits = data.allContentfulExhibition.edges
+  const exhibits = data.allContentfulOnViewExhibition.edges
   return (
     <Layout location={location}>
       <OnViewHero exhibits={exhibits} width="oneThird"></OnViewHero>
