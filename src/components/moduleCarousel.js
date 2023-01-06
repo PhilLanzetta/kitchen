@@ -35,6 +35,7 @@ const ModuleCarousel = ({ data }) => {
       </div>
     ),
     customPaging: i => <div className={styles.dots}></div>,
+    arrows: false,
   }
   return (
     <section

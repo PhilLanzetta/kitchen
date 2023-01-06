@@ -57,9 +57,9 @@ const ArchiveFixedContent = ({ data }) => {
           )}
           {links?.map(item => {
             if (item.pdfId) {
-              return <LinkButton data={item}></LinkButton>
+              return <LinkButton data={item} onFile></LinkButton>
             } else if (item.linkId) {
-              return <LinkButton data={item}></LinkButton>
+              return <LinkButton data={item} onFile></LinkButton>
             } else {
               return <article>Unknown Link</article>
             }

@@ -13,3 +13,14 @@
  color: #fff;
  background: #000;
 }
+
+.onFile {
+ border: 1px solid #fff;
+ margin-bottom: 20px;
+}
+
+.onFile:hover {
+ opacity: 1;
+ color: #000;
+ background: #fff;
+}
