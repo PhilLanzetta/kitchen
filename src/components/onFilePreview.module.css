@@ -1,0 +1,25 @@
+.container {
+  width: calc(25% - 20px);
+}
+
+.dates {
+  font-size: 0.75rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.container h3 {
+  font-weight: normal;
+  margin-top: 0;
+}
+
+.container h4 {
+  font-weight: bold;
+}
+
+.tagContainer {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
