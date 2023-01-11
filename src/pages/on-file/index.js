@@ -1,10 +1,10 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-import OnFileHero from "../components/onFileHero"
-import OnFileSpotlight from "../components/onFileSpotlight"
-import OnFileYearLinks from "../components/onFileYearLinks"
+import Layout from "../../components/layout"
+import Seo from "../../components/seo"
+import OnFileHero from "../../components/onFileHero"
+import OnFileSpotlight from "../../components/onFileSpotlight"
+import OnFileYearLinks from "../../components/onFileYearLinks"
 
 const OnFile = ({ location, data }) => {
   const spotlightPosts = data.allContentfulOnFileSpotlight.nodes

@@ -5,6 +5,8 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@table-library/react-table-library": "^4.0.23",
     "framer-motion": "^7.6.19",
     "gatsby": "^5.2.0",
     "gatsby-plugin-image": "^3.2.0",
