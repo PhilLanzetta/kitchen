@@ -63,16 +63,16 @@ const OnFileSearch = ({ location }) => {
     setSearch(event.target.value)
   }
 
-  const handleCategoryClick = category => {
+  const handleCategoryClick = newCategory => {
     setShuffle(false)
     setSearch("")
-    setCategory(category)
+    category === newCategory ? setCategory("") : setCategory(newCategory)
   }
 
-  const handleYearClick = year => {
+  const handleYearClick = newYear => {
     setShuffle(false)
     setSearch("")
-    setYear(year)
+    year[0] === newYear[0] ? setYear([]) : setYear(newYear)
   }
 
   const shuffleData = array => {
@@ -114,7 +114,6 @@ const OnFileSearch = ({ location }) => {
         const date = new Intl.DateTimeFormat("en-US", {
           year: "numeric",
         }).format(new Date(item.endDate))
-        console.log(date, year)
         return date >= year[0] && date <= year[1]
       }),
     }
