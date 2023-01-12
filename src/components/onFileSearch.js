@@ -44,9 +44,9 @@ const OnFileSearch = ({ location }) => {
 
   const [ids, setIds] = useState([])
   const [search, setSearch] = useState("")
-  const [category, setCategory] = useState(location.state.category || "")
-  const [year, setYear] = useState(location.state.year || [])
-  const [shuffle, setShuffle] = useState(location.state.shuffle || false)
+  const [category, setCategory] = useState(location.state?.category || "")
+  const [year, setYear] = useState(location.state?.year || [])
+  const [shuffle, setShuffle] = useState(location.state?.shuffle || false)
 
   const handleExpand = item => {
     if (ids.includes(item.id)) {
