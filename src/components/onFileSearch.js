@@ -18,7 +18,7 @@ import * as styles from "./onFileSearch.module.css"
 import THEME from "./onFileSearchTheme"
 import { GatsbyImage } from "gatsby-plugin-image"
 
-const OnFileSearch = () => {
+const OnFileSearch = ({ location }) => {
   const data = useStaticQuery(graphql`
     query {
       allContentfulOnFileArchivePost {
@@ -44,8 +44,9 @@ const OnFileSearch = () => {
 
   const [ids, setIds] = useState([])
   const [search, setSearch] = useState("")
-  const [category, setCategory] = useState("")
-  const [year, setYear] = useState("")
+  const [category, setCategory] = useState(location.state.category || "")
+  const [year, setYear] = useState(location.state.year || [])
+  const [shuffle, setShuffle] = useState(location.state.shuffle || false)
 
   const handleExpand = item => {
     if (ids.includes(item.id)) {
@@ -56,36 +57,58 @@ const OnFileSearch = () => {
   }
 
   const handleSearch = event => {
+    setShuffle(false)
     setCategory("")
     setYear("")
     setSearch(event.target.value)
   }
 
   const handleCategoryClick = category => {
+    setShuffle(false)
     setSearch("")
     setCategory(category)
   }
 
   const handleYearClick = year => {
+    setShuffle(false)
     setSearch("")
     setYear(year)
   }
 
+  const shuffleData = array => {
+    let currentIndex = array.length,
+      randomIndex
+
+    // While there remain elements to shuffle.
+    while (currentIndex !== 0) {
+      // Pick a remaining element.
+      randomIndex = Math.floor(Math.random() * currentIndex)
+      currentIndex--
+
+      // And swap it with the current element.
+      ;[array[currentIndex], array[randomIndex]] = [
+        array[randomIndex],
+        array[currentIndex],
+      ]
+    }
+
+    return array
+  }
+
   let tableData
 
-  if (category && year) {
+  if (category && year.length > 0) {
     tableData = {
       nodes: data.allContentfulOnFileArchivePost.nodes.filter(item => {
         const date = new Intl.DateTimeFormat("en-US", {
           year: "numeric",
         }).format(new Date(item.endDate))
-        console.log(date, year)
         return (
           date >= year[0] && date <= year[1] && item.category.includes(category)
         )
       }),
     }
-  } else if (year) {
+  } else if (year.length > 0) {
     tableData = {
       nodes: data.allContentfulOnFileArchivePost.nodes.filter(item => {
         const date = new Intl.DateTimeFormat("en-US", {
@@ -100,6 +123,10 @@ const OnFileSearch = () => {
       nodes: data.allContentfulOnFileArchivePost.nodes.filter(item =>
         item.category.includes(category)
       ),
+    }
+  } else if (shuffle) {
+    tableData = {
+      nodes: shuffleData(data.allContentfulOnFileArchivePost.nodes),
     }
   } else {
     tableData = {

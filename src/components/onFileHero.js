@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import * as styles from "./onFileHero.module.css"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { motion, AnimatePresence } from "framer-motion"
@@ -57,62 +57,71 @@ const OnFileHero = () => {
   return (
     <section className={styles.heroContainer}>
       <ul>
-        <li
+        <Link
+          to="/on-file/search"
+          state={{ category: "Exhibitions" }}
           className={`tgnHeavy ${styles.hoverUnderline}`}
           onMouseEnter={() => setHeroImage(data.pageHero.exhibitionsImage)}
-          role="presentation"
         >
           Exhibitions,
-        </li>
-        <li
+        </Link>
+        <Link
+          to="/on-file/search"
+          state={{ category: "Talks" }}
           className={`tgnHeavyItalic ${styles.hoverUnderline}`}
           onMouseEnter={() => setHeroImage(data.pageHero.talksImage)}
-          role="presentation"
         >
           Talks,
-        </li>
-        <li
+        </Link>
+        <Link
+          to="/on-file/search"
+          state={{ category: "Performance" }}
           className={`tgn ${styles.hoverUnderline}`}
           onMouseEnter={() => setHeroImage(data.pageHero.performanceImage)}
           role="presentation"
         >
           Performance,
-        </li>
-        <li
+        </Link>
+        <Link
+          to="/on-file/search"
+          state={{ category: "Dance" }}
           className={`ftpItalic ${styles.hoverUnderline}`}
           onMouseEnter={() => setHeroImage(data.pageHero.danceImage)}
-          role="presentation"
         >
           Dance,
-        </li>
-        <li
+        </Link>
+        <Link
+          to="/on-file/search"
+          state={{ category: "Music" }}
           className={`tgnHeavy ${styles.hoverUnderline}`}
           onMouseEnter={() => setHeroImage(data.pageHero.musicImage)}
-          role="presentation"
         >
           Music,
-        </li>
-        <li
+        </Link>
+        <Link
+          to="/on-file/search"
+          state={{ category: "Video" }}
           className={`tgnHeavyItalic ${styles.hoverUnderline}`}
           onMouseEnter={() => setHeroImage(data.pageHero.filmvideoImage)}
-          role="presentation"
         >
           Film/Video,
-        </li>
-        <li
+        </Link>
+        <Link
+          to="/on-file/search"
+          state={{ category: "Literature" }}
           className={`tgn ${styles.hoverUnderline}`}
           onMouseEnter={() => setHeroImage(data.pageHero.literatureImage)}
-          role="presentation"
         >
           Literature,
-        </li>
-        <li
+        </Link>
+        <Link
+          to="/on-file/search"
+          state={{ category: "Residency" }}
           className={`tgnItalic ${styles.hoverUnderline}`}
           onMouseEnter={() => setHeroImage(data.pageHero.residencyImage)}
-          role="presentation"
         >
           Residency
-        </li>
+        </Link>
       </ul>
       <AnimatePresence>
         {heroImage && (

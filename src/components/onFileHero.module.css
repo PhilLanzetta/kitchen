@@ -11,12 +11,16 @@
   z-index: 10;
 }
 
-.heroContainer ul li {
+.heroContainer ul a {
   display: inline-block;
   margin-right: 2vw;
   font-size: calc(1rem + 6vw);
   text-transform: uppercase;
   cursor: pointer;
+}
+
+.heroContainer ul a:hover {
+  opacity: 1;
 }
 
 .hoverUnderline {
