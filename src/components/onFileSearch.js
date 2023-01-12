@@ -43,6 +43,9 @@ const OnFileSearch = () => {
   `)
 
   const [ids, setIds] = useState([])
+  const [search, setSearch] = useState("")
+  const [category, setCategory] = useState("")
+  const [year, setYear] = useState("")
 
   const handleExpand = item => {
     if (ids.includes(item.id)) {
@@ -52,7 +55,63 @@ const OnFileSearch = () => {
     }
   }
 
-  const tableData = { nodes: data.allContentfulOnFileArchivePost.nodes }
+  const handleSearch = event => {
+    setCategory("")
+    setYear("")
+    setSearch(event.target.value)
+  }
+
+  const handleCategoryClick = category => {
+    setSearch("")
+    setCategory(category)
+  }
+
+  const handleYearClick = year => {
+    setSearch("")
+    setYear(year)
+  }
+
+  let tableData
+
+  if (category && year) {
+    tableData = {
+      nodes: data.allContentfulOnFileArchivePost.nodes.filter(item => {
+        const date = new Intl.DateTimeFormat("en-US", {
+          year: "numeric",
+        }).format(new Date(item.endDate))
+        console.log(date, year)
+        return (
+          date >= year[0] && date <= year[1] && item.category.includes(category)
+        )
+      }),
+    }
+  } else if (year) {
+    tableData = {
+      nodes: data.allContentfulOnFileArchivePost.nodes.filter(item => {
+        const date = new Intl.DateTimeFormat("en-US", {
+          year: "numeric",
+        }).format(new Date(item.endDate))
+        console.log(date, year)
+        return date >= year[0] && date <= year[1]
+      }),
+    }
+  } else if (category) {
+    tableData = {
+      nodes: data.allContentfulOnFileArchivePost.nodes.filter(item =>
+        item.category.includes(category)
+      ),
+    }
+  } else {
+    tableData = {
+      nodes: data.allContentfulOnFileArchivePost.nodes.filter(
+        item =>
+          item.title.toLowerCase().includes(search.toLowerCase()) ||
+          item.artist.toLowerCase().includes(search.toLowerCase()) ||
+          item.category.toLowerCase().includes(search.toLowerCase()) ||
+          item.endDate.includes(search.toLowerCase())
+      ),
+    }
+  }
 
   const sort = useSort(tableData, null, {
     sortFns: {
@@ -78,24 +137,91 @@ const OnFileSearch = () => {
             type="text"
             placeholder="Type Here"
             className={styles.searchInput}
+            value={search}
+            onChange={handleSearch}
           ></input>
         </label>
         <article className={styles.searchButtons}>
-          <button>Exhibitions</button>
-          <button>Talks</button>
-          <button>Performance</button>
-          <button>Dance</button>
-          <button>Music</button>
-          <button>Film/Video</button>
-          <button>Literature</button>
+          <button
+            onClick={() => handleCategoryClick("Exhibitions")}
+            className={`${category === "Exhibitions" ? styles.active : ""}`}
+          >
+            Exhibitions
+          </button>
+          <button
+            onClick={() => handleCategoryClick("Talks")}
+            className={`${category === "Talks" ? styles.active : ""}`}
+          >
+            Talks
+          </button>
+          <button
+            onClick={() => handleCategoryClick("Performance")}
+            className={`${category === "Performance" ? styles.active : ""}`}
+          >
+            Performance
+          </button>
+          <button
+            onClick={() => handleCategoryClick("Dance")}
+            className={`${category === "Dance" ? styles.active : ""}`}
+          >
+            Dance
+          </button>
+          <button
+            onClick={() => handleCategoryClick("Music")}
+            className={`${category === "Music" ? styles.active : ""}`}
+          >
+            Music
+          </button>
+          <button
+            onClick={() => handleCategoryClick("Video")}
+            className={`${category === "Video" ? styles.active : ""}`}
+          >
+            Film/Video
+          </button>
+          <button
+            onClick={() => handleCategoryClick("Literature")}
+            className={`${category === "Literature" ? styles.active : ""}`}
+          >
+            Literature
+          </button>
         </article>
         <article className={styles.searchButtons}>
-          <button>1970-79</button>
-          <button>1980-89</button>
-          <button>1990-99</button>
-          <button>2000-09</button>
-          <button>2010-19</button>
-          <button>2020-now</button>
+          <button
+            onClick={() => handleYearClick([1970, 1979])}
+            className={`${year.includes(1970) ? styles.active : ""}`}
+          >
+            1970-79
+          </button>
+          <button
+            onClick={() => handleYearClick([1980, 1989])}
+            className={`${year.includes(1980) ? styles.active : ""}`}
+          >
+            1980-89
+          </button>
+          <button
+            onClick={() => handleYearClick([1990, 1999])}
+            className={`${year.includes(1990) ? styles.active : ""}`}
+          >
+            1990-99
+          </button>
+          <button
+            onClick={() => handleYearClick([2000, 2009])}
+            className={`${year.includes(2000) ? styles.active : ""}`}
+          >
+            2000-09
+          </button>
+          <button
+            onClick={() => handleYearClick([2010, 2019])}
+            className={`${year.includes(2010) ? styles.active : ""}`}
+          >
+            2010-19
+          </button>
+          <button
+            onClick={() => handleYearClick([2020, 2029])}
+            className={`${year.includes(2020) ? styles.active : ""}`}
+          >
+            2020-now
+          </button>
         </article>
       </section>
       <Table
@@ -142,18 +268,21 @@ const OnFileSearch = () => {
                         color: "#fff",
                       }}
                     >
-                      <td>
+                      <td className={styles.previewRow}>
                         <GatsbyImage
                           image={item.featuredImage.gatsbyImageData}
                           alt={item.featuredImage.description}
+                          className={styles.previewImg}
                         ></GatsbyImage>
-                        <article>
+                        <article className={styles.previewText}>
                           {item.introductionHeading.introductionHeading}
                         </article>
-                        <article>
-                          <p>Artist(s): {item.artist}</p>
+                        <article className={styles.previewInfo}>
                           <p>
-                            Date:{" "}
+                            <strong>Artist(s):</strong> {item.artist}
+                          </p>
+                          <p>
+                            <strong>Date:</strong>{" "}
                             {new Intl.DateTimeFormat("en-US", {
                               month: "short",
                               day: "numeric",
@@ -165,7 +294,12 @@ const OnFileSearch = () => {
                               year: "numeric",
                             }).format(new Date(item.endDate))}
                           </p>
-                          <Link to={`/on-file/${item.slug}`}>VIEW</Link>
+                          <Link
+                            to={`/on-file/${item.slug}`}
+                            className={styles.viewBtn}
+                          >
+                            VIEW
+                          </Link>
                         </article>
                       </td>
                     </tr>

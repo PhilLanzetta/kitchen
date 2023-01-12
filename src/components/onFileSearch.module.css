@@ -48,10 +48,48 @@
 }
 
 .searchButtons button:hover {
- color: #fff;
- opacity: 1;
+  color: #fff;
+  opacity: 1;
+  transition: all 400ms;
+}
+
+.previewRow {
+  display: flex;
+  padding: 20px;
+  border-bottom: 1px solid #fff;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.previewImg {
+  width: 30%;
+  aspect-ratio: 1.5 / 1;
+}
+
+.previewText {
+  font-size: 0.75rem;
+  width: 45%;
+}
+
+.previewInfo p {
+ margin-bottom: 20px;
+}
+
+.viewBtn {
+ border: 1px solid #fff;
+ border-radius: 400px;
+ display: inline-block;
+ padding: 8px 35px;
+ font-size: 0.75rem;
  transition: all 400ms;
 }
 
+.viewBtn:hover {
+ opacity: 1;
+ background: #fff;
+ color: #000;
+}
 
-
+.active {
+ color: #fff !important;
+}
