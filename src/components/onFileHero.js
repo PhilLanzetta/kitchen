@@ -60,7 +60,7 @@ const OnFileHero = () => {
         <Link
           to="/on-file/search"
           state={{ category: "Exhibitions" }}
-          className={`tgnHeavy ${styles.hoverUnderline}`}
+          className={`tgnHeavy ${styles.hoverUnderline} ${styles.category}`}
           onMouseEnter={() => setHeroImage(data.pageHero.exhibitionsImage)}
         >
           Exhibitions,
@@ -68,7 +68,7 @@ const OnFileHero = () => {
         <Link
           to="/on-file/search"
           state={{ category: "Talks" }}
-          className={`tgnHeavyItalic ${styles.hoverUnderline}`}
+          className={`tgnHeavyItalic ${styles.hoverUnderline} ${styles.category}`}
           onMouseEnter={() => setHeroImage(data.pageHero.talksImage)}
         >
           Talks,
@@ -76,16 +76,15 @@ const OnFileHero = () => {
         <Link
           to="/on-file/search"
           state={{ category: "Performance" }}
-          className={`tgn ${styles.hoverUnderline}`}
+          className={`tgn ${styles.hoverUnderline} ${styles.category}`}
           onMouseEnter={() => setHeroImage(data.pageHero.performanceImage)}
-          role="presentation"
         >
           Performance,
         </Link>
         <Link
           to="/on-file/search"
           state={{ category: "Dance" }}
-          className={`ftpItalic ${styles.hoverUnderline}`}
+          className={`ftpItalic ${styles.hoverUnderline} ${styles.category}`}
           onMouseEnter={() => setHeroImage(data.pageHero.danceImage)}
         >
           Dance,
@@ -93,7 +92,7 @@ const OnFileHero = () => {
         <Link
           to="/on-file/search"
           state={{ category: "Music" }}
-          className={`tgnHeavy ${styles.hoverUnderline}`}
+          className={`tgnHeavy ${styles.hoverUnderline} ${styles.category}`}
           onMouseEnter={() => setHeroImage(data.pageHero.musicImage)}
         >
           Music,
@@ -101,7 +100,7 @@ const OnFileHero = () => {
         <Link
           to="/on-file/search"
           state={{ category: "Video" }}
-          className={`tgnHeavyItalic ${styles.hoverUnderline}`}
+          className={`tgnHeavyItalic ${styles.hoverUnderline} ${styles.category} ${styles.category}`}
           onMouseEnter={() => setHeroImage(data.pageHero.filmvideoImage)}
         >
           Film/Video,
@@ -109,7 +108,7 @@ const OnFileHero = () => {
         <Link
           to="/on-file/search"
           state={{ category: "Literature" }}
-          className={`tgn ${styles.hoverUnderline}`}
+          className={`tgn ${styles.hoverUnderline} ${styles.category}`}
           onMouseEnter={() => setHeroImage(data.pageHero.literatureImage)}
         >
           Literature,
@@ -117,7 +116,7 @@ const OnFileHero = () => {
         <Link
           to="/on-file/search"
           state={{ category: "Residency" }}
-          className={`tgnItalic ${styles.hoverUnderline}`}
+          className={`tgnItalic ${styles.hoverUnderline} ${styles.category}`}
           onMouseEnter={() => setHeroImage(data.pageHero.residencyImage)}
         >
           Residency

@@ -11,7 +11,7 @@
   z-index: 10;
 }
 
-.heroContainer ul a {
+.category {
   display: inline-block;
   margin-right: 2vw;
   font-size: calc(1rem + 6vw);
@@ -19,7 +19,7 @@
   cursor: pointer;
 }
 
-.heroContainer ul a:hover {
+.category:hover {
   opacity: 1;
 }
 

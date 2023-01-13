@@ -6,16 +6,16 @@ import search from "../assets/search.svg"
 import tix from "../assets/tix.svg"
 
 const pageLabels = [
-  { label: "On Air", labelClass: `${styles.onAirHeader} tgnHeavyItalic` },
+  { label: "On Air", labelClass: `tgnHeavyItalic` },
   {
     label: "ON VIEW:",
     labelTagline: "See What's Happening at The Kitchen",
-    labelClass: `${styles.onViewHeader} tgnHeavyItalic`,
+    labelClass: `tgnHeavyItalic`,
   },
   {
     label: "ON SCREEN:",
     labelTagline: "Watch and Listen",
-    labelClass: `${styles.onScreenHeader} tgnHeavy`,
+    labelClass: `tgnHeavy`,
   },
   {
     label: "ON FILE:",

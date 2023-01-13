@@ -52,6 +52,6 @@
 .shuffle:hover {
   background: #fff;
   color: #000;
-  opacity: 1;
+  opacity: 1 !important;
   transition: all 400ms;
 }

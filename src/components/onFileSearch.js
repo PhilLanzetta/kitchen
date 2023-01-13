@@ -95,6 +95,13 @@ const OnFileSearch = ({ location }) => {
     return array
   }
 
+  let shuffledData
+
+  if (shuffle) {
+    shuffledData = shuffleData(data.allContentfulOnFileArchivePost.nodes)
+    setShuffle(false)
+  }
+
   let tableData
 
   if (category && year.length > 0) {
@@ -125,7 +132,7 @@ const OnFileSearch = ({ location }) => {
     }
   } else if (shuffle) {
     tableData = {
-      nodes: shuffleData(data.allContentfulOnFileArchivePost.nodes),
+      nodes: shuffledData,
     }
   } else {
     tableData = {
