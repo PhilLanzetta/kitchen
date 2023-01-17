@@ -1,11 +1,12 @@
 import React from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import OnMindHome from "../components/onMindHome"
 
 const OnMind = ({ location }) => {
   return (
     <Layout location={location}>
-      <div>OnMind</div>
+      <OnMindHome></OnMindHome>
     </Layout>
   )
 }

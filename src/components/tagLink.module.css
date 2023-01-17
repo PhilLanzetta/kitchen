@@ -10,7 +10,7 @@
 .tagLinkLight {
   border: solid 1px #000;
   border-radius: 100px;
-  background: #fff;
+  background: transparent;
   color: #000;
   font-size: 0.75rem;
   padding: 0.25rem 1rem;
