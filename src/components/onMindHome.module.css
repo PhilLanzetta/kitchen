@@ -182,3 +182,26 @@
   padding-left: 30px;
   padding-right: 30px;
 }
+
+.loadMore {
+  display: flex;
+  justify-content: center;
+}
+
+.loadMoreBtn {
+  font-weight: 800;
+  font-size: 12vw;
+  color: transparent;
+  font-family: "freight-text-pro", serif;
+  text-transform: uppercase;
+  font-style: italic;
+  -webkit-text-stroke-color: #000;
+  -webkit-text-stroke-width: 1px;
+  transition: all 400ms;
+}
+
+.loadMoreBtn:hover {
+  color: #000;
+  opacity: 1;
+  transition: all 400ms;
+}

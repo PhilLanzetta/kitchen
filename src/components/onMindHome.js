@@ -34,6 +34,42 @@ const OnMindHome = () => {
   const [fixed, setFixed] = useState(false)
   const headerRef = useRef()
 
+  // Array of all onMind articles, updated by header buttons
+  const [allData, setAllData] = useState(data.allContentfulOnMindArticle.nodes)
+
+  // State for the list
+  const [list, setList] = useState([...allData.slice(0, 7)])
+
+  // State to trigger oad more
+  const [loadMore, setLoadMore] = useState(false)
+
+  // State of whether there is more to load
+  const [hasMore, setHasMore] = useState(allData.length > 7)
+
+  // Load more button click
+  const handleLoadMore = () => {
+    setLoadMore(true)
+  }
+
+  // Handle loading more articles
+  useEffect(() => {
+    if (loadMore && hasMore) {
+      const currentLength = list.length
+      const isMore = currentLength < allData.length
+      const nextResults = isMore
+        ? allData.slice(currentLength, currentLength + 10)
+        : []
+      setList([...list, ...nextResults])
+      setLoadMore(false)
+    }
+  }, [loadMore, hasMore])
+
+  //Check if there is more
+  useEffect(() => {
+    const isMore = list.length < allData.length
+    setHasMore(isMore)
+  }, [list])
+
   const handleScroll = () => {
     const headerPosition = headerRef.current.getBoundingClientRect()
     if (headerPosition.bottom <= 50) {
@@ -73,7 +109,7 @@ const OnMindHome = () => {
           fixed ? styles.extraPadding : ""
         }`}
       >
-        {data.allContentfulOnMindArticle.nodes.map(post => (
+        {list.map(post => (
           <article key={post.id}>
             <GatsbyImage
               image={post.featuredImage.gatsbyImageData}
@@ -105,6 +141,15 @@ const OnMindHome = () => {
             </section>
           </article>
         ))}
+      </section>
+      <section className={styles.loadMore}>
+        {hasMore ? (
+          <button onClick={handleLoadMore} className={styles.loadMoreBtn}>
+            Explore More
+          </button>
+        ) : (
+          <div></div>
+        )}
       </section>
     </section>
   )
