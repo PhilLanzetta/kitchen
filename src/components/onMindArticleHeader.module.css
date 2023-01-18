@@ -1,0 +1,67 @@
+.fixedDiv {
+  position: fixed;
+  height: 50px;
+  width: 100%;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  background: #fff;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 50px;
+  background-color: #fff;
+  align-items: center;
+  height: 60px;
+  padding: 0 20px;
+  width: 100%;
+  z-index: 10;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  font-family: 'freight-text-pro', serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 30px;
+}
+
+.hoverUnderline {
+  position: relative;
+}
+
+.hoverUnderline:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  transform-origin: bottom right;
+  transition: transform 400ms ease-out;
+}
+
+.hoverUnderline:hover:after {
+  cursor: pointer;
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.active {
+  position: relative;
+}
+
+.active::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+}

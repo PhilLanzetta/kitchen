@@ -5,16 +5,18 @@ import Layout from "../components/layout"
 import HeroImage from "../components/heroImage"
 import OnMindFixedContent from "../components/onMindFixedContent"
 import ModuleContent from "../components/moduleContent"
+import OnMindArticleHeader from "../components/onMindArticleHeader"
 
 const OnMindArticle = ({ data, pageContext, location }) => {
-  const { featuredImage, moduleContent } = data.contentfulOnMindArticle
+  const { featuredImage, moduleContent, category } = data.contentfulOnMindArticle
   return (
     <Layout location={location}>
-      <HeroImage image={featuredImage}></HeroImage>
+      <OnMindArticleHeader category={category}></OnMindArticleHeader>
+      <HeroImage image={featuredImage} margin></HeroImage>
       <OnMindFixedContent
         data={data.contentfulOnMindArticle}
       ></OnMindFixedContent>
-      <ModuleContent data={moduleContent}></ModuleContent>
+      <ModuleContent data={moduleContent} font="ftp"></ModuleContent>
     </Layout>
   )
 }

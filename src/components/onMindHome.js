@@ -4,7 +4,7 @@ import * as styles from "./onMindHome.module.css"
 import { GatsbyImage } from "gatsby-plugin-image"
 import TagLink from "./tagLink"
 
-const OnMindHome = () => {
+const OnMindHome = ({ location }) => {
   const data = useStaticQuery(graphql`
     query {
       allContentfulOnMindArticle(sort: { articleDate: DESC }) {
@@ -35,8 +35,12 @@ const OnMindHome = () => {
   const headerRef = useRef()
 
   // Array of all onMind articles, updated by header buttons
-  const [allData, setAllData] = useState(data.allContentfulOnMindArticle.nodes)
-  const [category, setCategory] = useState("")
+  const [category, setCategory] = useState(location.state?.category || "")
+  const [allData, setAllData] = useState(
+    data.allContentfulOnMindArticle.nodes.filter(item =>
+      item.category.includes(category)
+    )
+  )
 
   // State for the list
   const [list, setList] = useState([...allData.slice(0, 7)])

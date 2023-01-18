@@ -1,6 +1,5 @@
 import React from "react"
-import * as styles from "./archiveFixedContent.module.css"
-import LinkButton from "./linkButton"
+import * as styles from "./onMindFixedContent.module.css"
 import TagLink from "./tagLink"
 
 const OnMindFixedContent = ({ data }) => {
@@ -26,12 +25,14 @@ const OnMindFixedContent = ({ data }) => {
   return (
     <section className={styles.fixedSection}>
       <article className={styles.heading}>
-        <h1 className="tge upper">{title}</h1>
+        <h1 className={styles.title}>{title}</h1>
       </article>
       <article className={styles.exhibitInfo}>
         <section className={styles.exhibitDetails}>
           <article>
-           <p>Credits:</p>
+            <p>
+              <strong>Credits:</strong>
+            </p>
             {credits.map(item => (
               <p>{item}</p>
             ))}
@@ -45,7 +46,7 @@ const OnMindFixedContent = ({ data }) => {
           )}
         </section>
         <section className={styles.exhibitCopy}>
-          <p>{dateOfArticle}</p>
+          <p className={`${styles.date} tgn upper`}>{dateOfArticle}</p>
           <h3>{introductionHeading?.introductionHeading}</h3>
           <p>{introductionBody?.introductionBody}</p>
         </section>

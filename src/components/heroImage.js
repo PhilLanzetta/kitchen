@@ -2,9 +2,9 @@ import React from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
 import * as styles from "./heroImage.module.css"
 
-const HeroImage = ({ image }) => {
+const HeroImage = ({ image, margin }) => {
   return (
-    <figure>
+    <figure style={margin ? { marginTop: "100px" } : {}}>
       <GatsbyImage
         image={image.gatsbyImageData}
         alt={image.description}

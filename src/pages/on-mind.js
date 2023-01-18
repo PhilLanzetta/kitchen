@@ -6,7 +6,7 @@ import OnMindHome from "../components/onMindHome"
 const OnMind = ({ location }) => {
   return (
     <Layout location={location}>
-      <OnMindHome></OnMindHome>
+      <OnMindHome location={location}></OnMindHome>
     </Layout>
   )
 }

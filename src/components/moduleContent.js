@@ -9,9 +9,9 @@ import FullWidthVideo from "./fullWidthVideo"
 import AudioFilePlayer from "./audioFilePlayer"
 import CreditText from "./creditText"
 
-const ModuleContent = ({ data }) => {
+const ModuleContent = ({ data, font }) => {
   return (
-    <section>
+    <section className={`${font ? font : ""}`}>
       {data.map(item => {
         if (item.carouselId) {
           return (
@@ -28,7 +28,7 @@ const ModuleContent = ({ data }) => {
             ></TwoColumnImg>
           )
         } else if (item.quoteId) {
-          return <BlockQuote key={item.quoteId} data={item}></BlockQuote>
+          return <BlockQuote key={item.quoteId} data={item} font={font}></BlockQuote>
         } else if (item.audioId) {
           return (
             <AudioFilePlayer key={item.audioId} data={item}></AudioFilePlayer>
@@ -59,7 +59,11 @@ const ModuleContent = ({ data }) => {
           return <CreditText key={item.creditId} data={item.text}></CreditText>
         } else if (item.inTextVidId) {
           return (
-            <FullWidthVideo key={item.inTextVidId} data={item} inText></FullWidthVideo>
+            <FullWidthVideo
+              key={item.inTextVidId}
+              data={item}
+              inText
+            ></FullWidthVideo>
           )
         } else {
           return <article>Unknown type</article>

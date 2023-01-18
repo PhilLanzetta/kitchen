@@ -28,7 +28,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 50px;
+  height: 60px;
   padding: 0 20px;
   width: 100%;
   z-index: 10;
@@ -64,7 +64,7 @@
 }
 
 .extraPadding {
-  margin-top: 50px;
+  margin-top: 60px;
 }
 
 .previewContainer {
