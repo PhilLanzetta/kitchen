@@ -8,6 +8,7 @@ const HeroImage = ({ image }) => {
       <GatsbyImage
         image={image.gatsbyImageData}
         alt={image.description}
+        className={styles.heroImage}
       ></GatsbyImage>
       <figcaption>{image.description}</figcaption>
     </figure>

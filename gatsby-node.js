@@ -33,6 +33,13 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
+        allContentfulOnMindArticle(sort: { articleDate: DESC }) {
+          edges {
+            node {
+              slug
+            }
+          }
+        }
       }
     `
   )
@@ -42,6 +49,8 @@ exports.createPages = async ({ graphql, actions }) => {
   const pastEvents = result.data.passedOnView.edges
 
   const archivePosts = result.data.allContentfulOnFileArchivePost.edges
+
+  const onMindArticles = result.data.allContentfulOnMindArticle.edges
 
   events.forEach(({ node }, index) => {
     const eventSlug = node.slug
@@ -63,8 +72,21 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`src/templates/onFile-template.js`),
       context: {
         slug: node.slug,
-        prev: index === 0 ? null : events[index - 1].node,
-        next: index === events.length - 1 ? null : events[index + 1].node,
+        prev: index === 0 ? null : archivePosts[index - 1].node,
+        next: index === archivePosts.length - 1 ? null : archivePosts[index + 1].node,
+      },
+    })
+  })
+
+  onMindArticles.forEach(({ node }, index) => {
+    const articleSlug = node.slug
+    createPage({
+      path: `/on-mind/${articleSlug}`,
+      component: path.resolve(`src/templates/onMind-template.js`),
+      context: {
+        slug: node.slug,
+        prev: index === 0 ? null : onMindArticles[index - 1].node,
+        next: index === onMindArticles.length - 1 ? null : onMindArticles[index + 1].node,
       },
     })
   })

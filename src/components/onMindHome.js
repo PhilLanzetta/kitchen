@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery, Link } from "gatsby"
 import * as styles from "./onMindHome.module.css"
 import { GatsbyImage } from "gatsby-plugin-image"
 import TagLink from "./tagLink"
@@ -36,11 +36,27 @@ const OnMindHome = () => {
 
   // Array of all onMind articles, updated by header buttons
   const [allData, setAllData] = useState(data.allContentfulOnMindArticle.nodes)
+  const [category, setCategory] = useState("")
 
   // State for the list
   const [list, setList] = useState([...allData.slice(0, 7)])
 
-  // State to trigger oad more
+  // Handle change in category
+  const handleCategoryClick = newCategory => {
+    if (category === newCategory) {
+      setCategory("")
+      setAllData(data.allContentfulOnMindArticle.nodes)
+    } else {
+      setCategory(newCategory)
+      setAllData(
+        data.allContentfulOnMindArticle.nodes.filter(item =>
+          item.category.includes(newCategory)
+        )
+      )
+    }
+  }
+
+  // State to trigger load more
   const [loadMore, setLoadMore] = useState(false)
 
   // State of whether there is more to load
@@ -51,24 +67,28 @@ const OnMindHome = () => {
     setLoadMore(true)
   }
 
+  useEffect(() => {
+    setList([...allData.slice(0, 7)])
+  }, [allData])
+
   // Handle loading more articles
   useEffect(() => {
     if (loadMore && hasMore) {
       const currentLength = list.length
       const isMore = currentLength < allData.length
       const nextResults = isMore
-        ? allData.slice(currentLength, currentLength + 10)
+        ? allData.slice(currentLength, currentLength + 7)
         : []
       setList([...list, ...nextResults])
       setLoadMore(false)
     }
-  }, [loadMore, hasMore])
+  }, [loadMore, hasMore, allData, list])
 
   //Check if there is more
   useEffect(() => {
     const isMore = list.length < allData.length
     setHasMore(isMore)
-  }, [list])
+  }, [list, allData.length])
 
   const handleScroll = () => {
     const headerPosition = headerRef.current.getBoundingClientRect()
@@ -89,7 +109,11 @@ const OnMindHome = () => {
 
   return (
     <section className="ftp">
-      <h1 className={`${styles.onMindBanner} ftpBold upper`} ref={headerRef}>
+      <h1
+        className={`${styles.onMindBanner} ftpBold upper`}
+        ref={headerRef}
+        id="top"
+      >
         On Mind
       </h1>
       <div className={`${fixed ? styles.fixedDiv : ""}`}></div>
@@ -98,11 +122,48 @@ const OnMindHome = () => {
           fixed ? styles.fixed : styles.relative
         }`}
       >
-        <button>News</button>
-        <button>Essays</button>
-        <button>Conversations</button>
-        <button>Diaries</button>
-        <button>The Kitchen Archives</button>
+        <button
+          onClick={() => handleCategoryClick("News")}
+          className={`${
+            category === "News" ? styles.active : styles.hoverUnderline
+          }`}
+        >
+          News
+        </button>
+        <button
+          onClick={() => handleCategoryClick("Essays")}
+          className={`${
+            category === "Essays" ? styles.active : styles.hoverUnderline
+          }`}
+        >
+          Essays
+        </button>
+        <button
+          onClick={() => handleCategoryClick("Conversations")}
+          className={`${
+            category === "Conversations" ? styles.active : styles.hoverUnderline
+          }`}
+        >
+          Conversations
+        </button>
+        <button
+          onClick={() => handleCategoryClick("Diaries")}
+          className={`${
+            category === "Diaries" ? styles.active : styles.hoverUnderline
+          }`}
+        >
+          Diaries
+        </button>
+        <button
+          onClick={() => handleCategoryClick("The Kitchen Archives")}
+          className={`${
+            category === "The Kitchen Archives"
+              ? styles.active
+              : styles.hoverUnderline
+          }`}
+        >
+          The Kitchen Archives
+        </button>
       </section>
       <section
         className={`${styles.previewContainer} ${
@@ -124,14 +185,18 @@ const OnMindHome = () => {
                   year: "numeric",
                 }).format(new Date(post.articleDate))}{" "}
               </p>
-              <h2>{post.title}</h2>
+              <Link to={`/on-mind/${post.slug}`}>
+                <h2>{post.title}</h2>
+              </Link>
               <p className={styles.excerpt}>{post.previewTextExcerpt}</p>
               <aside className={styles.creditTagContainer}>
-                {post.credits.map((credit, index) => (
-                  <p className={styles.credit} key={index}>
-                    {credit}
-                  </p>
-                ))}
+                <div>
+                  {post.credits.map((credit, index) => (
+                    <p className={styles.credit} key={index}>
+                      {credit}
+                    </p>
+                  ))}
+                </div>
                 <div className={styles.tagContainer}>
                   {post.metadata.tags.map(tag => (
                     <TagLink tag={tag} key={tag.id} light></TagLink>
@@ -148,7 +213,9 @@ const OnMindHome = () => {
             Explore More
           </button>
         ) : (
-          <div></div>
+          <a href="#top" className={styles.loadMoreBtn}>
+            Back to top
+          </a>
         )}
       </section>
     </section>
