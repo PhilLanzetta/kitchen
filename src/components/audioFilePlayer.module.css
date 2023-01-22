@@ -17,10 +17,18 @@
   box-shadow: none;
 }
 
-:global(.rhap_additional-controls), :global(.rhap_volume-controls) {
- display: none;
+:global(.rhap_additional-controls),
+:global(.rhap_volume-controls) {
+  display: none;
 }
 
 :global(.rhap_controls-section) {
- flex: none;
+  flex: none;
+}
+
+@media screen and (max-width: 920px) {
+  .audioContainer {
+    width: calc(100% - 40px);
+    margin: 20px;
+  }
 }

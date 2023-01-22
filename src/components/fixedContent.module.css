@@ -1,38 +1,97 @@
 .fixedSection {
- padding: 20px;
+  padding: 20px;
 }
 
 .heading {
- margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 
 .exhibitInfo {
- display: flex;
- width: 100%;
- justify-content: flex-start;
- gap: 5%;
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  gap: 5%;
 }
 
 .exhibitDetails {
- display: flex;
- flex-direction: column;
- width: 20%;
+  display: flex;
+  flex-direction: column;
+  width: 20%;
 }
 
-.exhibitDetails article {
- padding-bottom: 30px;
+.exhibitDetails article,
+.exhibitDetails aside {
+  padding-bottom: 30px;
 }
 
 .tagContainer {
- display: flex;
- flex-wrap: wrap;
- gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.linksContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 1rem;
 }
 
 .exhibitCopy {
- width: 50%;
+  width: 50%;
 }
 
 .exhibitCopy h3 {
- margin-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 920px) {
+  .fixedSection {
+    padding: 0px;
+  }
+
+  .heading {
+    padding: 20px;
+  }
+
+  .exhibitInfo {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .exhibitDetails {
+    width: 100%;
+    position: relative;
+    margin-top: 10px;
+  }
+
+  .tagContainer {
+    position: absolute;
+    margin-top: -50px;
+    margin-left: 20px;
+  }
+
+  .exhibitCopy {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .exhibitDetails article {
+    padding: 15px 20px;
+    border-top: 1px solid #000;
+    border-right: 1px solid #000;
+    border-left: 1px solid #000;
+  }
+
+  .linksContainer {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .linksContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+  }
 }

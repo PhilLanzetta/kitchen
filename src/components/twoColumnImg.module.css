@@ -1,10 +1,30 @@
 .imgContainer {
- display: flex;
- padding: 20px;
- gap: 20px;
+  display: flex;
+  padding: 20px;
+  gap: 20px;
 }
 
 .imgContainer figcaption {
- padding-left: 0;
- font-family: 'trade-gothic-next', sans-serif;
+  padding-left: 0;
+  font-family: "trade-gothic-next", sans-serif;
+}
+
+@media screen and (max-width: 920px) {
+  .imgContainer {
+    padding: 20px 0;
+    gap: 10px;
+    margin-bottom: 40px;
+  }
+
+  .imgContainer figcaption {
+  padding-left: 10px;
+  margin-top: 0px;
+}
+
+.imgContainer figure:nth-of-type(2) figcaption {
+  right: 0;
+  text-align: right;
+  margin-top: 0px;
+  padding-right: 10px;
+}
 }

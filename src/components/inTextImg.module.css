@@ -5,5 +5,18 @@
 
 .imgContainer figcaption {
   padding-left: 0;
-  font-family: 'trade-gothic-next', sans-serif;
+  font-family: "trade-gothic-next", sans-serif;
+}
+
+@media screen and (max-width: 920px) {
+  .imgContainer {
+    width: 100%;
+    padding: 0 20px;
+    margin-bottom: 40px;
+  }
+
+  .imgContainer figcaption {
+    margin-top: 0px;
+    padding-left: 0px;
+  }
 }

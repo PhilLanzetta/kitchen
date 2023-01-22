@@ -1,4 +1,10 @@
 .textContainer {
- padding: 20px;
- width: 75%;
+  padding: 20px;
+  width: 75%;
+}
+
+@media screen and (max-width: 920px) {
+  .textContainer {
+    width: 100%;
+  }
 }

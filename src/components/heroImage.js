@@ -4,7 +4,7 @@ import * as styles from "./heroImage.module.css"
 
 const HeroImage = ({ image, margin }) => {
   return (
-    <figure style={margin ? { marginTop: "100px" } : {}}>
+    <figure className={margin ? styles.marginTop : styles.mobileMarginTop}>
       <GatsbyImage
         image={image.gatsbyImageData}
         alt={image.description}

@@ -8,6 +8,7 @@
 
 html {
   font-size: 20px;
+  background: #fff;
 }
 
 button {
@@ -552,4 +553,19 @@ p {
 .on-view-past {
   font-size: calc(20px + 4vw);
   letter-spacing: 1vw;
+}
+
+@media screen and (max-width: 920px) {
+  html {
+    font-size: 18px;
+  }
+  .slick-slide {
+    padding: 0 10px 0 0 !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 16px;
+  }
 }

@@ -57,15 +57,19 @@ const FixedContent = ({ data }) => {
             </article>
           )}
           {metadata?.tags && (
-            <article className={styles.tagContainer}>
+            <aside className={styles.tagContainer}>
               {metadata.tags.map(tag => (
                 <TagLink key={tag.id} tag={tag} light={true}></TagLink>
               ))}
-            </article>
+            </aside>
           )}
-          {links?.map((item, index) => (
-            <LinkButton key={index} data={item}></LinkButton>
-          ))}
+          {links?.map && (
+            <aside className={styles.linksContainer}>
+              {links.map((item, index) => (
+                <LinkButton key={index} data={item}></LinkButton>
+              ))}
+            </aside>
+          )}
         </section>
         <section className={styles.exhibitCopy}>
           <h3>{introductionHeading?.introductionHeading}</h3>

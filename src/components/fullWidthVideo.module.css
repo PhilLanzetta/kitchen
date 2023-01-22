@@ -20,9 +20,19 @@
 .videoCredit {
   position: absolute;
   bottom: -30px;
-  font-family: 'trade-gothic-next', sans-serif;
+  font-family: "trade-gothic-next", sans-serif;
 }
 
 .videoPlayerWrapper .videoCredit {
   padding-left: 0;
+}
+
+@media screen and (max-width: 920px) {
+  .videoPlayerWrapper {
+    width: 100%;
+  }
+
+  .videoPlayerWrapper .videoCredit {
+    padding-left: 20px;
+  }
 }

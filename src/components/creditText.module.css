@@ -1,8 +1,19 @@
 .creditContainer {
- width: 50%;
- margin: 20px auto;
+  width: 50%;
+  margin: 20px auto;
 }
 
 .creditContainer p {
- font-size: 0.5rem;
+  font-size: 0.5rem;
+}
+
+@media screen and (max-width: 920px) {
+  .creditContainer {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .creditContainer p {
+    font-size: 0.75rem;
+  }
 }

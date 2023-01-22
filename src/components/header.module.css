@@ -223,20 +223,55 @@
 }
 
 @media screen and (max-width: 920px) {
-  .headerTagline,
-  .onMindHeader span {
-    font-size: 16px;
+  .menuHeader,
+  .navPageLinks {
+    width: 100%;
   }
 
-  .headerSearch,
+  .headerTagline,
+  .onMindHeader span {
+    top: 50px;
+    left: 0;
+    font-size: calc(1rem + 1vw);
+    width: 100%;
+    padding: 10px 20px;
+  }
+
+  .onAirTagline {
+    display: none;
+  }
+
   .headerDate {
+    display: none;
+  }
+
+  .onFileHeader {
+    flex-direction: column-reverse;
+    padding: 0;
+    gap: 10px;
+    align-items: flex-start;
+    mix-blend-mode: normal;
+    height: 100px;
+  }
+
+  .onFileHeader div {
+    mix-blend-mode: difference;
+    padding-left: 20px;
+    height: 50px;
+  }
+
+  .headerSearch {
+    border: 1px solid #fff;
+    width: 100%;
+    height: 50px;
+    padding-left: 20px;
+    background-color: #000;
+  }
+
+  .hide {
     display: none;
   }
 }
 
 @media screen and (max-width: 600px) {
-  .menuHeader,
-  .navPageLinks {
-    width: 100%;
-  }
 }

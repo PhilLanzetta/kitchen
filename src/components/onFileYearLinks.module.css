@@ -55,3 +55,19 @@
   opacity: 1 !important;
   transition: all 400ms;
 }
+
+@media screen and (max-width: 920px) {
+  .yearBox {
+    width: calc(50% - 5px);
+    padding-left: 0;
+    justify-content: center;
+    aspect-ratio: 2 / 1;
+    margin-bottom: 10px;
+  }
+
+  .shuffle {
+    margin-top: 10px;
+    font-size: 18vw;
+    letter-spacing: 1vw;
+  }
+}

@@ -6,7 +6,7 @@ import search from "../assets/search.svg"
 import tix from "../assets/tix.svg"
 
 const pageLabels = [
-  { label: "On Air", labelClass: `tgnHeavyItalic` },
+  { label: "On Air", labelClass: `${styles.onAirTagline} tgnHeavyItalic` },
   {
     label: "ON VIEW:",
     labelTagline: "See What's Happening at The Kitchen",
@@ -21,6 +21,13 @@ const pageLabels = [
     label: "ON FILE:",
     labelTagline: "Explore Our Archive",
     labelClass: `${styles.onFileHeader} tge`,
+    home: true,
+  },
+  {
+    label: "ON FILE:",
+    labelTagline: "Explore Our Archive",
+    labelClass: `${styles.onFileHeader} tge`,
+    home: false,
   },
   {
     label: "ON MIND:",
@@ -44,10 +51,12 @@ const Header = ({ isOpen, toggleMenu, location }) => {
     pageHeader = pageLabels[1]
   } else if (location.pathname.includes("/on-screen/")) {
     pageHeader = pageLabels[2]
-  } else if (location.pathname.includes("/on-file/")) {
+  } else if (location.pathname === "/on-file/") {
     pageHeader = pageLabels[3]
-  } else if (location.pathname.includes("/on-mind/")) {
+  } else if (location.pathname.includes("/on-file/")) {
     pageHeader = pageLabels[4]
+  } else if (location.pathname.includes("/on-mind/")) {
+    pageHeader = pageLabels[5]
   } else {
     pageHeader = null
   }
@@ -175,7 +184,9 @@ const Header = ({ isOpen, toggleMenu, location }) => {
               </p>
             )}
             {pageHeader.label === "ON FILE:" && (
-              <button className={styles.headerSearch}>
+              <button
+                className={`${styles.headerSearch} ${pageHeader.home ? "" : styles.hide}`}
+              >
                 Search our Archive
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

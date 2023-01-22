@@ -1,8 +1,30 @@
 figcaption {
- font-size: 12px;
- padding: 10px 20px;
+  font-size: 12px;
+  padding: 10px 20px;
 }
 
 .heroImage {
- width: 100%;
+  width: 100%;
+}
+
+.marginTop {
+  margin-top: 100px;
+}
+
+@media screen and (max-width: 920px) {
+  .mobileMarginTop {
+    margin-top: 100px;
+  }
+
+  figure {
+    position: relative;
+  }
+
+  figcaption {
+    position: absolute;
+    padding: 10px 20px;
+    margin-top: -40px;
+    color: #fff;
+    mix-blend-mode: difference;
+  }
 }
