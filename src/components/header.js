@@ -185,7 +185,7 @@ const Header = ({ isOpen, toggleMenu, location }) => {
             )}
             {pageHeader.label === "ON FILE:" && (
               <button
-                className={`${styles.headerSearch} ${pageHeader.home ? "" : styles.hide}`}
+                className={`${styles.headerSearch} ${pageHeader.home ? "" : styles.noDisplay}`}
               >
                 Search our Archive
                 <svg

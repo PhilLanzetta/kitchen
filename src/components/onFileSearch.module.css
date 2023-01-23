@@ -36,6 +36,7 @@
   gap: 20px;
   flex-wrap: wrap;
   border-bottom: 1px solid #fff;
+  transition: all 400ms;
 }
 
 .searchButtons button {
@@ -72,24 +73,82 @@
 }
 
 .previewInfo p {
- margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .viewBtn {
- border: 1px solid #fff;
- border-radius: 400px;
- display: inline-block;
- padding: 8px 35px;
- font-size: 0.75rem;
- transition: all 400ms;
+  border: 1px solid #fff;
+  border-radius: 400px;
+  display: inline-block;
+  padding: 8px 35px;
+  font-size: 0.75rem;
+  transition: all 400ms;
 }
 
 .viewBtn:hover {
- opacity: 1;
- background: #fff;
- color: #000;
+  opacity: 1;
+  background: #fff;
+  color: #000;
 }
 
 .active {
- color: #fff !important;
+  color: #fff !important;
+}
+
+@media screen and (max-width: 920px) {
+  .inputsContainer {
+    padding-top: 110px;
+  }
+
+  .searchInput {
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: none;
+    border-bottom: none;
+    border-right: none;
+    margin-left: 40px;
+  }
+
+  .searchLabel {
+    height: auto;
+    font-size: calc(0.5rem + 1vw);
+    border-right: none;
+  }
+
+  .searchButtons button {
+    font-size: calc(0.75rem + 1vw);
+  }
+
+  .dropDownButtonContainer {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #fff;
+    font-size: 0.75rem;
+  }
+
+  .dropDownSvg {
+    width: 20px;
+    transition: all 400ms;
+  }
+
+  .rotateUp {
+    transform: rotate(180deg);
+    transition: all 400ms;
+  }
+
+  .hideCategory {
+    height: 0;
+    padding: 0 20px;
+    border: none;
+    overflow: hidden;
+    transition: all 400ms;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .inputsContainer {
+    padding-top: 100px;
+  }
 }

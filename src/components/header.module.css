@@ -235,6 +235,7 @@
     font-size: calc(1rem + 1vw);
     width: 100%;
     padding: 10px 20px;
+    height: auto;
   }
 
   .onAirTagline {
@@ -247,28 +248,26 @@
 
   .onFileHeader {
     flex-direction: column-reverse;
-    padding: 0;
     gap: 10px;
     align-items: flex-start;
     mix-blend-mode: normal;
-    height: 100px;
   }
 
   .onFileHeader div {
     mix-blend-mode: difference;
-    padding-left: 20px;
-    height: 50px;
   }
 
   .headerSearch {
     border: 1px solid #fff;
-    width: 100%;
+    width: calc(100% + 40px);
+    margin-left: -20px;
+    margin-top: -10px;
     height: 50px;
     padding-left: 20px;
     background-color: #000;
   }
 
-  .hide {
+  .noDisplay {
     display: none;
   }
 }

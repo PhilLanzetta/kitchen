@@ -23,3 +23,9 @@
   gap: 10px;
   flex-wrap: wrap;
 }
+
+@media screen and (max-width: 920px) {
+  .container {
+    width: 100%;
+  }
+}

@@ -17,6 +17,7 @@ import { useTheme } from "@table-library/react-table-library/theme"
 import * as styles from "./onFileSearch.module.css"
 import THEME from "./onFileSearchTheme"
 import { GatsbyImage } from "gatsby-plugin-image"
+import useWindowSize from "../utils/useWindowSize"
 
 const OnFileSearch = ({ location }) => {
   const data = useStaticQuery(graphql`
@@ -47,6 +48,8 @@ const OnFileSearch = ({ location }) => {
   const [category, setCategory] = useState(location.state?.category || "")
   const [year, setYear] = useState(location.state?.year || [])
   const [shuffle, setShuffle] = useState(location.state?.shuffle || false)
+  const { width } = useWindowSize()
+  const [categoryOpen, setCategoryOpen] = useState(false)
 
   const handleExpand = item => {
     if (ids.includes(item.id)) {
@@ -174,50 +177,98 @@ const OnFileSearch = ({ location }) => {
             onChange={handleSearch}
           ></input>
         </label>
-        <article className={styles.searchButtons}>
-          <button
-            onClick={() => handleCategoryClick("Exhibitions")}
-            className={`${category === "Exhibitions" ? styles.active : ""}`}
+        <section>
+          <article className={styles.dropDownButtonContainer}>
+            Category
+            <button
+              className={styles.categoryDropButton}
+              onClick={() => setCategoryOpen(!categoryOpen)}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 19.725 10.707"
+                className={`${styles.dropDownSvg} ${
+                  categoryOpen ? styles.rotateUp : ""
+                }`}
+              >
+                <g
+                  id="Group_872"
+                  data-name="Group 872"
+                  transform="translate(0.354 0.354)"
+                >
+                  <line
+                    id="Line_165"
+                    data-name="Line 165"
+                    x2="10"
+                    y2="10"
+                    transform="translate(0)"
+                    fill="none"
+                    stroke="#fff"
+                    stroke-width="1"
+                  />
+                  <line
+                    id="Line_166"
+                    data-name="Line 166"
+                    x1="9"
+                    y2="10"
+                    transform="translate(10)"
+                    fill="none"
+                    stroke="#fff"
+                    stroke-width="1"
+                  />
+                </g>
+              </svg>
+            </button>
+          </article>
+          <article
+            className={`${styles.searchButtons} ${
+              categoryOpen ? "" : styles.hideCategory
+            }`}
           >
-            Exhibitions
-          </button>
-          <button
-            onClick={() => handleCategoryClick("Talks")}
-            className={`${category === "Talks" ? styles.active : ""}`}
-          >
-            Talks
-          </button>
-          <button
-            onClick={() => handleCategoryClick("Performance")}
-            className={`${category === "Performance" ? styles.active : ""}`}
-          >
-            Performance
-          </button>
-          <button
-            onClick={() => handleCategoryClick("Dance")}
-            className={`${category === "Dance" ? styles.active : ""}`}
-          >
-            Dance
-          </button>
-          <button
-            onClick={() => handleCategoryClick("Music")}
-            className={`${category === "Music" ? styles.active : ""}`}
-          >
-            Music
-          </button>
-          <button
-            onClick={() => handleCategoryClick("Video")}
-            className={`${category === "Video" ? styles.active : ""}`}
-          >
-            Film/Video
-          </button>
-          <button
-            onClick={() => handleCategoryClick("Literature")}
-            className={`${category === "Literature" ? styles.active : ""}`}
-          >
-            Literature
-          </button>
-        </article>
+            <button
+              onClick={() => handleCategoryClick("Exhibitions")}
+              className={`${category === "Exhibitions" ? styles.active : ""}`}
+            >
+              Exhibitions
+            </button>
+            <button
+              onClick={() => handleCategoryClick("Talks")}
+              className={`${category === "Talks" ? styles.active : ""}`}
+            >
+              Talks
+            </button>
+            <button
+              onClick={() => handleCategoryClick("Performance")}
+              className={`${category === "Performance" ? styles.active : ""}`}
+            >
+              Performance
+            </button>
+            <button
+              onClick={() => handleCategoryClick("Dance")}
+              className={`${category === "Dance" ? styles.active : ""}`}
+            >
+              Dance
+            </button>
+            <button
+              onClick={() => handleCategoryClick("Music")}
+              className={`${category === "Music" ? styles.active : ""}`}
+            >
+              Music
+            </button>
+            <button
+              onClick={() => handleCategoryClick("Video")}
+              className={`${category === "Video" ? styles.active : ""}`}
+            >
+              Film/Video
+            </button>
+            <button
+              onClick={() => handleCategoryClick("Literature")}
+              className={`${category === "Literature" ? styles.active : ""}`}
+            >
+              Literature
+            </button>
+          </article>
+        </section>
         <article className={styles.searchButtons}>
           <button
             onClick={() => handleYearClick([1970, 1979])}
