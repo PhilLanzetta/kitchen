@@ -1,0 +1,12 @@
+.heading {
+ background: #C4C4C4;
+ width: 100%;
+ text-transform: uppercase;
+ padding: 10px 20px;
+}
+
+.image {
+ min-width: 100%;
+ min-height: 100%;
+ aspect-ratio: 1 / 0.9;
+}
