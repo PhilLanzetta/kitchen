@@ -3,6 +3,7 @@ import { graphql, useStaticQuery, Link } from "gatsby"
 import * as styles from "./onMindHome.module.css"
 import { GatsbyImage } from "gatsby-plugin-image"
 import TagLink from "./tagLink"
+import useWindowSize from "../utils/useWindowSize"
 
 const OnMindHome = ({ location }) => {
   const data = useStaticQuery(graphql`
@@ -12,6 +13,7 @@ const OnMindHome = ({ location }) => {
           articleDate
           category
           credits
+          backgroundColor
           featuredImage {
             gatsbyImageData
             description
@@ -32,6 +34,8 @@ const OnMindHome = ({ location }) => {
   `)
 
   const [fixed, setFixed] = useState(false)
+  const { width } = useWindowSize()
+  const [threshold, setThreshold] = useState(width > 920 ? 60 : 100)
   const headerRef = useRef()
 
   // Array of all onMind articles, updated by header buttons
@@ -96,7 +100,7 @@ const OnMindHome = ({ location }) => {
 
   const handleScroll = () => {
     const headerPosition = headerRef.current.getBoundingClientRect()
-    if (headerPosition.bottom <= 50) {
+    if (headerPosition.bottom <= threshold) {
       setFixed(true)
     } else {
       setFixed(false)
@@ -181,6 +185,10 @@ const OnMindHome = ({ location }) => {
               alt={post.featuredImage.description}
               className={styles.previewImg}
             ></GatsbyImage>
+            <div
+              className={styles.background}
+              style={{ background: `#${post.backgroundColor}` }}
+            ></div>
             <section className={styles.infoContainer}>
               <p className={styles.date}>
                 {new Intl.DateTimeFormat("en-US", {

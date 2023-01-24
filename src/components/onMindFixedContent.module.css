@@ -49,3 +49,65 @@
 .date {
   margin-bottom: 20px;
 }
+
+.creditItem {
+  padding-top: 10px;
+}
+
+@media screen and (max-width: 920px) {
+  .fixedSection {
+    padding: 0px;
+  }
+
+  .heading {
+    padding: 20px;
+  }
+
+  .exhibitInfo {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .exhibitDetails {
+    width: 100%;
+    position: relative;
+    margin-top: 10px;
+  }
+
+  .tagContainer {
+    position: absolute;
+    margin-top: -50px;
+    margin-left: 20px;
+  }
+
+  .exhibitCopy {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .linksContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+  }
+
+  .creditsLabel {
+    display: none;
+  }
+
+  .creditItem {
+    padding: 15px 20px;
+    border-top: 1px solid #000;
+    border-right: 1px solid #000;
+    border-left: 1px solid #000;
+  }
+
+  .creditPrefix {
+    display: block;
+    text-transform: uppercase;
+  }
+
+  .exhibitDetails p:last-of-type {
+    border-bottom: 1px solid #000;
+  }
+}

@@ -53,7 +53,7 @@ const ArchiveFixedContent = ({ data }) => {
               ))}
             </aside>
           )}
-          {links?.map && (
+          {links?.map ? (
             <aside className={styles.linksContainer}>
               {links?.map(item => {
                 if (item.pdfId) {
@@ -65,6 +65,8 @@ const ArchiveFixedContent = ({ data }) => {
                 }
               })}
             </aside>
+          ) : (
+            <div className={styles.noLinks}></div>
           )}
         </section>
         <section className={styles.exhibitCopy}>

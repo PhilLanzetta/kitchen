@@ -238,11 +238,16 @@
     height: auto;
   }
 
-  .onAirTagline {
-    display: none;
+  .onMindHeader span {
+    padding: 10px 0px;
   }
 
   .headerDate {
+    font-size: 1rem;
+    padding: 0;
+  }
+
+  .onAirTagline {
     display: none;
   }
 
@@ -272,5 +277,8 @@
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 400px) {
+  .headerDate {
+    display: none;
+  }
 }
