@@ -9,9 +9,11 @@ import FullWidthVideo from "./fullWidthVideo"
 import AudioFilePlayer from "./audioFilePlayer"
 import CreditText from "./creditText"
 
-const ModuleContent = ({ data, font }) => {
+const ModuleContent = ({ data, font, dark }) => {
   return (
-    <section className={`${font ? font : ""}`}>
+    <section
+      className={`${font ? font : ""}`}
+    >
       {data.map(item => {
         if (item.carouselId) {
           return (
@@ -28,10 +30,12 @@ const ModuleContent = ({ data, font }) => {
             ></TwoColumnImg>
           )
         } else if (item.quoteId) {
-          return <BlockQuote key={item.quoteId} data={item} font={font}></BlockQuote>
+          return (
+            <BlockQuote key={item.quoteId} data={item} font={font}></BlockQuote>
+          )
         } else if (item.audioId) {
           return (
-            <AudioFilePlayer key={item.audioId} data={item}></AudioFilePlayer>
+            <AudioFilePlayer key={item.audioId} data={item} dark={dark}></AudioFilePlayer>
           )
         } else if (item.threeColId) {
           return (

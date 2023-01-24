@@ -32,7 +32,7 @@
 .searchButtons {
   display: flex;
   padding: 20px;
-  justify-content: space-between;
+  justify-content: space-evenly;
   gap: 20px;
   flex-wrap: wrap;
   border-bottom: 1px solid #fff;
@@ -57,19 +57,24 @@
 .previewRow {
   display: flex;
   padding: 20px;
+  align-items: flex-start;
   border-bottom: 1px solid #fff;
   flex-wrap: wrap;
   gap: 20px;
 }
 
 .previewImg {
-  width: 30%;
+  width: calc(30% - 13px);
   aspect-ratio: 1.5 / 1;
 }
 
 .previewText {
   font-size: 0.75rem;
-  width: 45%;
+  width: calc(45% - 13px);
+}
+
+.previewInfo {
+  width: calc(25% - 14px);
 }
 
 .previewInfo p {
@@ -93,6 +98,11 @@
 
 .active {
   color: #fff !important;
+}
+
+.dropDownButtonContainer {
+  height: 0;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 920px) {
@@ -121,6 +131,7 @@
   }
 
   .dropDownButtonContainer {
+    height: auto;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
@@ -145,10 +156,38 @@
     overflow: hidden;
     transition: all 400ms;
   }
+
+  .previewImg {
+    width: calc(20% - 6px);
+    aspect-ratio: 1.5 / 1;
+  }
+
+  .previewText {
+    font-size: 0.75rem;
+    width: calc(40% - 7px);
+  }
+
+  .previewInfo {
+    width: calc(40% - 7px);
+  }
+
+  .previewRow {
+    gap: 10px;
+  }
+
+  .yearButtons button {
+    font-size: 0.75rem;
+  }
 }
 
 @media screen and (max-width: 600px) {
   .inputsContainer {
     padding-top: 100px;
+  }
+}
+
+@media screen and (min-width: 1305px) {
+  .searchButtons {
+    justify-content: space-between;
   }
 }

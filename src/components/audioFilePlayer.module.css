@@ -9,6 +9,10 @@
   padding: 10px;
 }
 
+.dark {
+  border: 1px solid #fff;
+}
+
 .audioPlayer {
   width: 100%;
 }

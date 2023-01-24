@@ -10,13 +10,10 @@ const ArchiveFixedContent = ({ data }) => {
     startDate,
     endDate,
     metadata,
-    category,
     introductionHeading,
     introductionBody,
     links,
   } = data
-
-  console.log(links)
 
   const dateOptions = {
     month: "long",
@@ -40,30 +37,35 @@ const ArchiveFixedContent = ({ data }) => {
         <section className={styles.exhibitDetails}>
           <article>
             <p className="tgn">
-              <strong>Artist(s):</strong> {artist}
+              <strong className={styles.artist}>Artist(s):</strong> {artist}
             </p>
           </article>
           <article>
             <p className="tgn">
-              <strong>Date:</strong> {archiveStart} - {archiveEnd}
+              <strong className={styles.artist}>Date:</strong> {archiveStart} -{" "}
+              {archiveEnd}
             </p>
           </article>
           {metadata?.tags && (
-            <article className={styles.tagContainer}>
+            <aside className={styles.tagContainer}>
               {metadata.tags.map(tag => (
-                <TagLink key={tag.id} tag={tag} light={true}></TagLink>
+                <TagLink key={tag.id} tag={tag}></TagLink>
               ))}
-            </article>
+            </aside>
           )}
-          {links?.map(item => {
-            if (item.pdfId) {
-              return <LinkButton data={item} onFile></LinkButton>
-            } else if (item.linkId) {
-              return <LinkButton data={item} onFile></LinkButton>
-            } else {
-              return <article>Unknown Link</article>
-            }
-          })}
+          {links?.map && (
+            <aside className={styles.linksContainer}>
+              {links?.map(item => {
+                if (item.pdfId) {
+                  return <LinkButton data={item} onFile></LinkButton>
+                } else if (item.linkId) {
+                  return <LinkButton data={item} onFile></LinkButton>
+                } else {
+                  return <article>Unknown Link</article>
+                }
+              })}
+            </aside>
+          )}
         </section>
         <section className={styles.exhibitCopy}>
           <h3>{introductionHeading?.introductionHeading}</h3>

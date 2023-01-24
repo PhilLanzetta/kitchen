@@ -10,12 +10,17 @@ const OnFilePost = ({ data, pageContext, location }) => {
   return (
     <Layout location={location}>
       <section
-        style={{ background: "#000000", color: "#ffffff", paddingTop: "100px" }}
+        style={{
+          background: "#000000",
+          color: "#ffffff",
+          paddingTop: "100px",
+          paddingBottom: "40px",
+        }}
       >
         <ArchiveFixedContent
           data={data.contentfulOnFileArchivePost}
         ></ArchiveFixedContent>
-        <ModuleContent data={moduleContent}></ModuleContent>
+        <ModuleContent data={moduleContent} dark={true}></ModuleContent>
       </section>
     </Layout>
   )
@@ -56,6 +61,13 @@ export const query = graphql`
             description
             gatsbyImageData
           }
+        }
+      }
+      metadata {
+        tags {
+          id
+          name
+          contentful_id
         }
       }
       moduleContent {
