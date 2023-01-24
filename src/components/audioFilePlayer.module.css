@@ -19,6 +19,12 @@
 
 :global(.rhap_container) {
   box-shadow: none;
+  background-color: transparent;
+}
+
+:global(.rhap_time) {
+  color: #fff;
+  mix-blend-mode: difference;
 }
 
 :global(.rhap_additional-controls),
@@ -28,6 +34,11 @@
 
 :global(.rhap_controls-section) {
   flex: none;
+}
+
+:global(.rhap_main-controls-button) {
+  color: #fff;
+  mix-blend-mode: difference;
 }
 
 @media screen and (max-width: 920px) {
