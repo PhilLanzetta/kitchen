@@ -26,6 +26,13 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
+        allOnScreen: allContentfulOnScreenVideo(sort: { endDate: DESC }) {
+          edges {
+            node {
+              id
+            }
+          }
+        }
         allContentfulOnFileArchivePost(sort: { endDate: ASC }) {
           edges {
             node {
@@ -52,6 +59,8 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const onMindArticles = result.data.allContentfulOnMindArticle.edges
 
+  const onScreenVideos = result.data.allOnScreen.edges
+
   events.forEach(({ node }, index) => {
     const eventSlug = node.slug
     createPage({
@@ -73,7 +82,10 @@ exports.createPages = async ({ graphql, actions }) => {
       context: {
         slug: node.slug,
         prev: index === 0 ? null : archivePosts[index - 1].node,
-        next: index === archivePosts.length - 1 ? null : archivePosts[index + 1].node,
+        next:
+          index === archivePosts.length - 1
+            ? null
+            : archivePosts[index + 1].node,
       },
     })
   })
@@ -86,13 +98,18 @@ exports.createPages = async ({ graphql, actions }) => {
       context: {
         slug: node.slug,
         prev: index === 0 ? null : onMindArticles[index - 1].node,
-        next: index === onMindArticles.length - 1 ? null : onMindArticles[index + 1].node,
+        next:
+          index === onMindArticles.length - 1
+            ? null
+            : onMindArticles[index + 1].node,
       },
     })
   })
 
   const postsPerPage = 6
+  const videosPerPage = 8
   const numPages = Math.ceil(pastEvents.length / postsPerPage)
+  const vidNumPages = Math.ceil(onScreenVideos.length / videosPerPage)
 
   Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
@@ -102,6 +119,19 @@ exports.createPages = async ({ graphql, actions }) => {
         limit: postsPerPage,
         skip: i * postsPerPage,
         numPages,
+        currentPage: i + 1,
+      },
+    })
+  })
+
+Array.from({ length: numPages }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? `on-screen/all/` : `on-screen/all/${i + 1}`,
+      component: path.resolve(`src/templates/onScreenAll-template.js`),
+      context: {
+        limit: videosPerPage,
+        skip: i * videosPerPage,
+        vidNumPages,
         currentPage: i + 1,
       },
     })

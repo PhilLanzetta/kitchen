@@ -3,10 +3,10 @@ import { Link } from "gatsby"
 import * as styles from "./pagination.module.css"
 
 const Pagination = ({ data, location }) => {
-  const { currentPage, numPages } = data
+  const { currentPage, numPages, vidNumPages } = data
   return (
     <section className={styles.pageNumberContainer}>
-      {Array.from({ length: numPages }, (_, i) => (
+      {Array.from({ length: numPages || vidNumPages }, (_, i) => (
         <Link
           key={`pagination-number${i + 1}`}
           to={`${location}/${i === 0 ? "" : i + 1}`}

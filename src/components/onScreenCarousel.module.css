@@ -10,3 +10,50 @@
  min-height: 100%;
  aspect-ratio: 1 / 0.9;
 }
+
+.videoContainer {
+ position: relative;
+}
+
+.eventLink:hover .videoInfo span {
+  background: #fff;
+  color: #000;
+  transition: 400ms;
+}
+
+.eventLink:hover {
+  opacity: 1;
+}
+
+.tileOverlay {
+  position: absolute;
+  width: calc(100% - 3vw);
+  bottom: 1.5vw;
+  left: 1.5vw;
+}
+
+.videoInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #fff;
+}
+
+.videoInfo p {
+  font-size: calc(1rem + 0.5vw);
+}
+
+.tagContainer {
+  position: relative;
+  display: inline-flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 10px;
+  background: #000;
+}
+
+.videoInfo span {
+  background: #000;
+  transition: 400ms;
+}

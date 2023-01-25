@@ -51,6 +51,14 @@ export const query = graphql`
         seriesCoverPhoto {
           gatsbyImageData
         }
+        metadata {
+          tags {
+            id
+            name
+            contentful_id
+          }
+        }
+        slug
       }
     }
     allContentfulOnScreenVideo(limit: 4, sort: { endDate: DESC }) {
@@ -62,6 +70,13 @@ export const query = graphql`
           gatsbyImageData
         }
         slug
+        metadata {
+          tags {
+            id
+            name
+            contentful_id
+          }
+        }
       }
     }
   }

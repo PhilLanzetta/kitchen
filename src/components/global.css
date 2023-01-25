@@ -560,7 +560,7 @@ p {
   html {
     font-size: 18px;
   }
-  .slick-slide {
+  .module-carousel .slick-slide {
     padding: 0 10px 0 0 !important;
   }
 }

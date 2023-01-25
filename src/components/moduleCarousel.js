@@ -46,7 +46,7 @@ const ModuleCarousel = ({ data }) => {
   }
 
   return (
-    <>
+    <section className="module-carousel">
       {width > 920 && (
         <section
           className={styles.carouselContainer}
@@ -119,7 +119,7 @@ const ModuleCarousel = ({ data }) => {
           ))}
         </Slider>
       )}
-    </>
+    </section>
   )
 }
 
