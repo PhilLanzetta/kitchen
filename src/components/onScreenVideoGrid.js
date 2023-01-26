@@ -17,7 +17,7 @@ const OnScreenVideoGrid = ({ data }) => {
             <section className={styles.tileOverlay}>
               <Link
                 to={`/on-screen/${video.node.slug}`}
-                className={styles.eventLink}
+                className={styles.videoLink}
               >
                 <article className={styles.videoInfo}>
                   <p className={`tgnHeavy upper`}>
@@ -30,7 +30,7 @@ const OnScreenVideoGrid = ({ data }) => {
               </Link>
               <section className={styles.tagContainer}>
                 {video.node.metadata.tags?.map(tag => (
-                  <TagLink tag={tag} key={tag.id}></TagLink>
+                  <TagLink tag={tag} key={tag.id} light></TagLink>
                 ))}
               </section>
             </section>
