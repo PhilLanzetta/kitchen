@@ -12,9 +12,8 @@ const OnScreenVideoGrid = ({ data }) => {
           <article key={video.node.id} className={styles.videoTile}>
             <GatsbyImage
               image={video.node.featuredImage.gatsbyImageData}
-              className={styles.image}
             ></GatsbyImage>
-            <section className={styles.tileOverlay}>
+            <section>
               <Link
                 to={`/on-screen/${video.node.slug}`}
                 className={styles.videoLink}

@@ -1,18 +1,28 @@
 .heading {
- background: #C4C4C4;
- width: 100%;
- text-transform: uppercase;
- padding: 10px 20px;
+  background: #c4c4c4;
+  width: 100%;
+  text-transform: uppercase;
+  padding: 10px 20px;
 }
 
 .image {
- min-width: 100%;
- min-height: 100%;
- aspect-ratio: 1 / 0.9;
+  min-width: 100%;
+  min-height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
 }
 
 .videoContainer {
- position: relative;
+  position: relative;
+  aspect-ratio: 1 / 0.9;
+  overflow: hidden;
+  display: flex !important;
+  flex-direction: column;
+  padding: 1.5vw;
+  justify-content: flex-end;
+  height: 100%;
 }
 
 .eventLink:hover .videoInfo span {
@@ -26,10 +36,8 @@
 }
 
 .tileOverlay {
-  position: absolute;
   width: calc(100% - 3vw);
-  bottom: 1.5vw;
-  left: 1.5vw;
+  z-index: 25;
 }
 
 .videoInfo {
@@ -55,5 +63,19 @@
 
 .videoInfo span {
   background: #000;
+  padding-left: 10px;
+  padding-right: 10px;
   transition: 400ms;
+}
+
+.cursor {
+  position: fixed;
+  height: 20px;
+  width: 60px;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+}
+
+.carouselContainer {
+  cursor: none;
 }
