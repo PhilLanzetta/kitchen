@@ -30,6 +30,7 @@ exports.createPages = async ({ graphql, actions }) => {
           edges {
             node {
               id
+              slug
             }
           }
         }
@@ -106,6 +107,22 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
+  onScreenVideos.forEach(({ node }, index) => {
+    const videoSlug = node.slug
+    createPage({
+      path: `/on-screen/${videoSlug}`,
+      component: path.resolve(`src/templates/onScreen-template.js`),
+      context: {
+        slug: node.slug,
+        prev: index === 0 ? null : onScreenVideos[index - 1].node,
+        next:
+          index === onScreenVideos.length - 1
+            ? null
+            : onScreenVideos[index + 1].node,
+      },
+    })
+  })
+
   const postsPerPage = 6
   const videosPerPage = 8
   const numPages = Math.ceil(pastEvents.length / postsPerPage)
@@ -124,7 +141,7 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-Array.from({ length: numPages }).forEach((_, i) => {
+  Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
       path: i === 0 ? `on-screen/all/` : `on-screen/all/${i + 1}`,
       component: path.resolve(`src/templates/onScreenAll-template.js`),
