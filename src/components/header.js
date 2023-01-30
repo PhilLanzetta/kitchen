@@ -34,6 +34,11 @@ const pageLabels = [
     labelTagline: "Read Our Magazine",
     labelClass: `${styles.onMindHeader} ftpBold`,
   },
+  {
+    label: "Visit",
+    labelTagline: "",
+    labelClass: `tgn`,
+  },
 ]
 
 const dateOptions = {
@@ -57,6 +62,8 @@ const Header = ({ isOpen, toggleMenu, location }) => {
     pageHeader = pageLabels[4]
   } else if (location.pathname.includes("/on-mind/")) {
     pageHeader = pageLabels[5]
+  } else if (location.pathname.includes("/visit/")) {
+    pageHeader = pageLabels[6]
   } else {
     pageHeader = null
   }
@@ -185,7 +192,9 @@ const Header = ({ isOpen, toggleMenu, location }) => {
             )}
             {pageHeader.label === "ON FILE:" && (
               <button
-                className={`${styles.headerSearch} ${pageHeader.home ? "" : styles.noDisplay}`}
+                className={`${styles.headerSearch} ${
+                  pageHeader.home ? "" : styles.noDisplay
+                }`}
               >
                 Search our Archive
                 <svg

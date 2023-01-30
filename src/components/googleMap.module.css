@@ -1,0 +1,11 @@
+.mapContainer {
+  width: 65%;
+  aspect-ratio: 2 / 1;
+  filter: grayscale(100%);
+}
+
+@media screen and (max-width: 720px) {
+  .mapContainer {
+    width: 100%;
+  }
+}

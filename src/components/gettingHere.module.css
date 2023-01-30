@@ -1,0 +1,39 @@
+.container {
+ margin: 20px;
+ border: solid 1px #707070;
+ padding: 20px;
+}
+
+.container h2 {
+  font-size: calc(1rem + 1.5vw);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.directionsContainer {
+ display: flex;
+ gap: 20px;
+}
+
+.directions h3 {
+  text-transform: uppercase;
+  font-size: calc(1rem + 0.25vw);
+}
+
+@media screen and (max-width: 920px) {
+ .directionsContainer {
+  flex-wrap: wrap;
+ }
+
+ .directions {
+  width: calc(50% - 10px);
+ }
+}
+
+@media screen and (max-width: 720px) {
+ .container {
+  margin: 0;
+  border: solid 1px #000;
+  border-bottom: none;
+ }
+}

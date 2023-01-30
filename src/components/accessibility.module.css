@@ -1,0 +1,33 @@
+.container {
+  margin: 20px;
+  border: solid 1px #707070;
+  padding: 20px;
+}
+
+.container h2 {
+  font-size: calc(1rem + 1.5vw);
+  text-transform: uppercase;
+  display: inline;
+}
+
+.container p {
+  display: inline;
+  margin-left: 10px;
+}
+
+@media screen and (max-width: 720px) {
+  .container {
+    margin: 0;
+    border: 1px solid #000;
+    border-bottom: none;
+  }
+  .container h2 {
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .container p {
+    display: block;
+    margin-left: 0;
+  }
+}

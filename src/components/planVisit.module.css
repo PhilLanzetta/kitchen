@@ -1,0 +1,109 @@
+.addedPadding {
+  width: 100%;
+  height: 50px;
+}
+
+.visitContainer {
+  margin: 20px;
+  border: solid 1px #707070;
+  padding: 20px;
+}
+
+.visitContainer h2 {
+  font-size: calc(1rem + 1.5vw);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.addressHours {
+  display: flex;
+  gap: 20px;
+}
+
+.addressHours h3 {
+  text-transform: uppercase;
+  font-size: calc(1rem + 0.25vw);
+}
+
+.addressHoursText {
+  margin-bottom: 20px;
+}
+
+.link {
+  display: flex;
+  position: relative;
+  padding: 10px;
+  justify-content: center;
+  border: 1px solid #000;
+  transition: all 400ms;
+}
+
+.link:hover {
+  background: #000;
+  color: #fff;
+  opacity: 1;
+  transition: all 400ms;
+}
+
+.outArrow {
+  position: absolute;
+  right: 10px;
+}
+
+.linkContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mobileLinkContainer {
+  display: none;
+}
+
+@media screen and (max-width: 920px) {
+  .addedPadding {
+    height: 100px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .addedPadding {
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+  }
+
+  .addressHours {
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .visitContainer {
+    border: solid 1px #000;
+    margin: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .textContainer {
+    width: 100%;
+  }
+
+  .linkContainer {
+    display: none;
+  }
+
+  .mobileLinkContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    padding-bottom: 20px;
+  }
+}
