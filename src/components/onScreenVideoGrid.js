@@ -9,28 +9,46 @@ const OnScreenVideoGrid = ({ data }) => {
     <section className={styles.heroContainer}>
       {data.map(video => {
         return (
-          <article key={video.node.id} className={styles.videoTile}>
+          <article
+            key={video.node?.id || video.id}
+            className={styles.videoTile}
+          >
             <GatsbyImage
-              image={video.node.featuredImage.gatsbyImageData}
+              image={
+                video.node?.featuredImage.gatsbyImageData ||
+                video.featuredImage.gatsbyImageData
+              }
             ></GatsbyImage>
             <section>
-              <Link
-                to={`/on-screen/${video.node.slug}`}
-                className={styles.videoLink}
-              >
-                <article className={styles.videoInfo}>
-                  <p className={`tgnHeavy upper`}>
-                    <span>{video.node.artist}</span>
-                  </p>
-                  <p className={`tgn`}>
-                    <span>{`"${video.node.videoTitle}"`}</span>
-                  </p>
-                </article>
-              </Link>
+              <article className={styles.videoLinks}>
+                <Link
+                  to={`/on-screen/${video.node?.slug || video.slug}`}
+                  className={styles.videoLink}
+                >
+                  <article className={styles.videoInfo}>
+                    <p className={`tgnHeavy upper`}>
+                      <span>{video.node?.artist || video.artist}</span>
+                    </p>
+                    <p className={`tgn`}>
+                      <span>{`"${
+                        video.node?.videoTitle || video.videoTitle
+                      }"`}</span>
+                    </p>
+                  </article>
+                </Link>
+                {video.node?.seriesLabel && (
+                  <aside className={styles.series}>
+                    {video.node.seriesLabel}
+                  </aside>
+                )}
+              </article>
               <section className={styles.tagContainer}>
-                {video.node.metadata.tags?.map(tag => (
+                {video.node?.metadata.tags?.map(tag => (
                   <TagLink tag={tag} key={tag.id} light></TagLink>
-                ))}
+                )) ||
+                  video.metadata.tags?.map(tag => (
+                    <TagLink tag={tag} key={tag.id} light></TagLink>
+                  ))}
               </section>
             </section>
           </article>

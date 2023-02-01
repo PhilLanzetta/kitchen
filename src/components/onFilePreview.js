@@ -31,18 +31,20 @@ const OnFilePreview = ({ data }) => {
         image={featuredImage.gatsbyImageData}
         alt={featuredImage.description}
       ></GatsbyImage>
-      <p className={styles.dates}>
-        {start} - {end}
-      </p>
-      <h3>{title}:</h3>
-      <h4>{artist}</h4>
-      {metadata?.tags && (
-        <article className={`${styles.tagContainer} tgn`}>
-          {metadata.tags.map(tag => (
-            <TagLink key={tag.id} tag={tag} light={false}></TagLink>
-          ))}
-        </article>
-      )}
+      <Link to={`/on-file/${slug}`}>
+        <p className={styles.dates}>
+          {start} - {end}
+        </p>
+        <h3>{title}:</h3>
+        <h4>{artist}</h4>
+        {metadata?.tags && (
+          <article className={`${styles.tagContainer} tgn`}>
+            {metadata.tags.map(tag => (
+              <TagLink key={tag.id} tag={tag} light={false}></TagLink>
+            ))}
+          </article>
+        )}
+      </Link>
     </article>
   )
 }

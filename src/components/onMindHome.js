@@ -49,12 +49,16 @@ const OnMindHome = ({ location }) => {
   // State for the list
   const [list, setList] = useState([...allData.slice(0, 7)])
 
+  const scrollToTop = () => headerRef.current.scrollIntoView()
+
   // Handle change in category
   const handleCategoryClick = newCategory => {
     if (category === newCategory) {
+      scrollToTop()
       setCategory("")
       setAllData(data.allContentfulOnMindArticle.nodes)
     } else {
+      scrollToTop()
       setCategory(newCategory)
       setAllData(
         data.allContentfulOnMindArticle.nodes.filter(item =>

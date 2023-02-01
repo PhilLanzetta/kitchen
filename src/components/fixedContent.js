@@ -7,6 +7,7 @@ const FixedContent = ({ data }) => {
   const {
     artist,
     exhibitionTitle,
+    videoTitle,
     startDate,
     endDate,
     metadata,
@@ -16,6 +17,8 @@ const FixedContent = ({ data }) => {
     exhibitionHours,
     introductionHeading,
     introductionBody,
+    screeningTime,
+    onViewLocation,
   } = data
 
   const dateOptions = {
@@ -34,7 +37,9 @@ const FixedContent = ({ data }) => {
     <section className={styles.fixedSection}>
       <article className={styles.heading}>
         <h1 className="tgnHeavy upper">{artist}</h1>
-        <h2 className="tgnHeavyItalic upper">{exhibitionTitle}</h2>
+        <h2 className="tgnHeavyItalic upper">
+          {exhibitionTitle || videoTitle}
+        </h2>
       </article>
       <article className={styles.exhibitInfo}>
         <section className={styles.exhibitDetails}>
@@ -42,7 +47,7 @@ const FixedContent = ({ data }) => {
             <p className="tgnBold upper">
               On View: {exhibitStart}-{exhibitEnd}
             </p>
-            <p>{exhibitionLocation}</p>
+            <p>{exhibitionLocation || onViewLocation}</p>
           </article>
           {openingHours && (
             <article>
@@ -54,6 +59,12 @@ const FixedContent = ({ data }) => {
             <article>
               <p className="tgnBold upper">Exhibition Hours:</p>
               <p>{exhibitionHours}</p>
+            </article>
+          )}
+          {screeningTime && (
+            <article>
+              <p className="tgnBold upper">Screening Time</p>
+              <p>{screeningTime}</p>
             </article>
           )}
           {metadata?.tags && (

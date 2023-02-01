@@ -3,6 +3,7 @@ import "./global.css"
 import { useState } from "react"
 import Header from "./header"
 import Footer from "./footer"
+import Fade from "./fade"
 
 const Layout = ({ children, location }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -14,7 +15,9 @@ const Layout = ({ children, location }) => {
   return (
     <>
       <Header toggleMenu={toggleMenu} isOpen={isOpen} location={location} />
-      <main>{children}</main>
+      <Fade>
+        <main>{children}</main>
+      </Fade>
       <Footer location={location} />
     </>
   )

@@ -66,13 +66,13 @@ const OnScreenCarousel = ({ heading, data }) => {
               role="presentation"
               onMouseEnter={() => setHover(true)}
             >
-              <GatsbyImage
-                image={
-                  item.featuredImage?.gatsbyImageData ||
-                  item.seriesCoverPhoto?.gatsbyImageData
-                }
-                className={styles.image}
-              ></GatsbyImage>
+                <GatsbyImage
+                  image={
+                    item.featuredImage?.gatsbyImageData ||
+                    item.seriesCoverPhoto?.gatsbyImageData
+                  }
+                  className={styles.image}
+                ></GatsbyImage>
               <section className={styles.tileOverlay}>
                 <Link
                   to={`/on-screen/${item.slug}`}

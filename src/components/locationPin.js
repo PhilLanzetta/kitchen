@@ -4,7 +4,7 @@ import * as styles from "./locationPin.module.css"
 
 const LocationPin = () => {
   return (
-    <aside className={styles.marker}>
+    <aside>
       <HiLocationMarker className={styles.markerIcon}></HiLocationMarker>
       <div className={styles.text}>
         <p className={styles.heading}>The Kitchen</p>

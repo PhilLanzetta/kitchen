@@ -7,7 +7,7 @@ const GoogleMap = ({ location }) => {
   const mapLocation = { lat: location.lat, lng: location.lon }
 
   const API_KEY = process.env.GOOGLE_MAP_KEY
-  console.log(API_KEY)
+  
   return (
     <section className={styles.mapContainer}>
       <GoogleMapReact

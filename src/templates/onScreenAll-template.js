@@ -27,6 +27,7 @@ export const query = graphql`
           id
           artist
           videoTitle
+          seriesLabel
           slug
           featuredImage {
             description

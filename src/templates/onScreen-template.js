@@ -12,7 +12,7 @@ const OnScreenVideo = ({ data, pageContext, location }) => {
     <Layout location={location}>
       <HeroImage image={featuredImage}></HeroImage>
       <FixedContent data={data.contentfulOnScreenVideo}></FixedContent>
-      <ModuleContent data={moduleContent}></ModuleContent>
+      <ModuleContent data={moduleContent} onScreen></ModuleContent>
     </Layout>
   )
 }
@@ -23,6 +23,8 @@ export const query = graphql`
       id
       artist
       videoTitle
+      screeningTime
+      onViewLocation
       featuredImage {
         id
         description

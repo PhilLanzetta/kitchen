@@ -14,7 +14,6 @@
 
 .videoLink {
   display: block;
-  margin-top: 20px;
 }
 
 .videoInfo {
@@ -23,7 +22,21 @@
 
 .tagContainer {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
+}
+
+.videoLinks {
+  display: flex;
+  margin: 20px 0;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.series {
+  font-weight: bold;
+  font-size: 0.5rem;
+  text-align: right;
 }
 
 @media screen and (max-width: 1200px) {
@@ -40,5 +53,9 @@
 
   .videoTile {
     width: calc(50% - 10px);
+  }
+
+  .videoLinks {
+    margin: 10px 0;
   }
 }
