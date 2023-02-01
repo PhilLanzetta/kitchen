@@ -1,7 +1,8 @@
 import { GatsbyImage } from "gatsby-plugin-image"
 import TagLink from "./tagLink"
 import React from "react"
-import * as styles from './onFilePreview.module.css'
+import * as styles from "./onFilePreview.module.css"
+import { Link } from "gatsby"
 
 const OnFilePreview = ({ data }) => {
   const { title, slug, artist, startDate, endDate, metadata, featuredImage } =
