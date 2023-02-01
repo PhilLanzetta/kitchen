@@ -1,0 +1,36 @@
+.textBox {
+  border: solid 1px #707070;
+  padding: 40px;
+  margin: 40px 20px;
+}
+
+.textBox h2,
+.textBox p {
+  font-size: calc(1rem + 2vw);
+  display: inline;
+}
+
+.textBox h2 {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.textBox p {
+  margin-left: 1rem;
+}
+
+@media screen and (max-width: 720px) {
+  .textBox {
+    margin: 0;
+    border-color: #000;
+    border-right: none;
+    border-left: none;
+    border-bottom: none;
+    padding: 20px;
+  }
+
+  .textBox h2,
+  .textBox p {
+    font-size: calc(1rem + 1.5vw);
+  }
+}

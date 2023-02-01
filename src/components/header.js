@@ -39,6 +39,12 @@ const pageLabels = [
     labelTagline: "",
     labelClass: `tgn`,
   },
+  {
+    label: "About:",
+    labelTagline:
+      "Mission & Values, History & Timeline, Land Acknowledgement, Team, Board,  Contact",
+    labelClass: `tgn ${styles.aboutTagline}`,
+  },
 ]
 
 const dateOptions = {
@@ -64,6 +70,8 @@ const Header = ({ isOpen, toggleMenu, location }) => {
     pageHeader = pageLabels[5]
   } else if (location.pathname.includes("/visit/")) {
     pageHeader = pageLabels[6]
+  } else if (location.pathname.includes("/about/")) {
+    pageHeader = pageLabels[7]
   } else {
     pageHeader = null
   }

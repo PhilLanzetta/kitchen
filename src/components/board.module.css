@@ -1,0 +1,56 @@
+.boardContainer {
+  border-top: solid 1px #707070;
+  margin: 40px 0px;
+  padding: 20px;
+}
+
+.boardContainer h2 {
+  font-size: calc(1rem + 2vw);
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+.boardContainer p {
+  font-size: calc(1rem + 0.5vw);
+}
+
+.listContainer {
+  display: flex;
+}
+
+.leaderContainer {
+  width: 25%;
+  padding-right: 20px;
+}
+
+.rightSide {
+  width: calc(50% + 10px);
+  display: flex;
+}
+
+.leaderContainer article,
+.emeritusContainer article {
+  margin-bottom: 40px;
+}
+
+.memberContainer {
+  width: calc(50% + 10px);
+  padding-right: 20px;
+}
+
+@media screen and (max-width: 920px) {
+ .leaderContainer {
+  width: calc(50% + 10px);
+ }
+
+ .rightSide {
+  flex-direction: column;
+ }
+
+ .memberContainer {
+  width: 100%;
+  margin-bottom: 40px;
+ }
+}
+
+@

@@ -26,6 +26,7 @@
     margin: 0;
     flex-direction: column;
     gap: 5px;
+    padding: 5px;
   }
 
   .link:first-of-type {

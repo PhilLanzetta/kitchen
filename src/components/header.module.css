@@ -222,6 +222,10 @@
   border-bottom: 1px solid #000;
 }
 
+.aboutTagline {
+  height: auto;
+}
+
 @media screen and (max-width: 920px) {
   .menuHeader,
   .navPageLinks {

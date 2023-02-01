@@ -556,12 +556,27 @@ p {
   letter-spacing: 1vw;
 }
 
+.about-page {
+  padding-top: 100px;
+}
+
 @media screen and (max-width: 920px) {
   html {
     font-size: 18px;
   }
   .module-carousel .slick-slide {
     padding: 0 10px 0 0 !important;
+  }
+
+  .about-page {
+    padding-top: 150px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .about-page {
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
   }
 }
 
