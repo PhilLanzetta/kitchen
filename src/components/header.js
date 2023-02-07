@@ -45,6 +45,11 @@ const pageLabels = [
       "Mission & Values, History & Timeline, Land Acknowledgement, Team, Board,  Contact",
     labelClass: `tgn ${styles.aboutTagline}`,
   },
+  {
+    label: "SHOP:",
+    labelTagline: "Support the Future of the Avant Garde",
+    labelClass: `tgn ${styles.shopTagline}`,
+  },
 ]
 
 const dateOptions = {
@@ -72,6 +77,8 @@ const Header = ({ isOpen, toggleMenu, location }) => {
     pageHeader = pageLabels[6]
   } else if (location.pathname.includes("/about/")) {
     pageHeader = pageLabels[7]
+  } else if (location.pathname.includes("/shop/")) {
+    pageHeader = pageLabels[8]
   } else {
     pageHeader = null
   }
