@@ -23,8 +23,11 @@ export const query = graphql`
         seriesLabel
         slug
         featuredImage {
-          description
-          gatsbyImageData(placeholder: BLURRED)
+          creditText
+          image {
+            description
+            gatsbyImageData
+          }
         }
         metadata {
           tags {

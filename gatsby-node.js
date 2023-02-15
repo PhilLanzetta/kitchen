@@ -41,6 +41,13 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
+        allShopifyCollection {
+          edges {
+            node {
+              handle
+            }
+          }
+        }
         allContentfulOnFileArchivePost(sort: { endDate: ASC }) {
           edges {
             node {
@@ -79,6 +86,8 @@ exports.createPages = async ({ graphql, actions }) => {
   const onScreenSeries = result.data.allContentfulOnScreenSeries.edges
 
   const allProducts = result.data.allShopifyProduct.edges
+
+  const collections = result.data.allShopifyCollection.edges
 
   events.forEach(({ node }, index) => {
     const eventSlug = node.slug
@@ -167,6 +176,17 @@ exports.createPages = async ({ graphql, actions }) => {
         prev: index === 0 ? null : allProducts[index - 1].node,
         next:
           index === allProducts.length - 1 ? null : allProducts[index + 1].node,
+      },
+    })
+  })
+
+  collections.forEach(({ node }, index) => {
+    const collectionSlug = node.handle
+    createPage({
+      path: `/shop/${collectionSlug}`,
+      component: path.resolve(`src/templates/shopCollection-template.js`),
+      context: {
+        handle: node.handle,
       },
     })
   })

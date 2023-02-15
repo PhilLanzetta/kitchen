@@ -21,9 +21,9 @@ const EventTile = ({ event, size }) => {
   return (
     <section className={`${styles.eventTileContainer} ${styles[size]}`}>
       <GatsbyImage
-        image={event.featuredImage.gatsbyImageData}
+        image={event.featuredImage.image.gatsbyImageData}
         className={styles.featuredImage}
-        alt={event.featuredImage.description}
+        alt={event.featuredImage.image.description}
       ></GatsbyImage>
       <section className={styles.tileOverlay}>
         <Link to={`/on-view/${event.slug}`} className={styles.eventLink}>

@@ -44,8 +44,11 @@ export const query = graphql`
           startDate
           title
           featuredImage {
-            description
-            gatsbyImageData
+            creditText
+            image {
+              description
+              gatsbyImageData
+            }
           }
         }
       }

@@ -48,19 +48,13 @@ export const query = graphql`
           pdf {
             url
           }
-          linkIcon {
-            description
-            gatsbyImageData
-          }
+          linkIcon
         }
         ... on ContentfulUrlLink {
           linkId: id
           linkText
           linkUrl
-          linkIcon {
-            description
-            gatsbyImageData
-          }
+          linkIcon
         }
       }
       metadata {
@@ -100,19 +94,23 @@ export const query = graphql`
           videoCredit
         }
         ... on ContentfulImageCarousel {
-          carouselId: id
+          id
           images {
-            gatsbyImageData
-            id
-            description
+            creditText
+            image {
+              description
+              gatsbyImageData
+            }
           }
         }
         ... on ContentfulInTextImage {
           inTextImgId: id
           image {
-            gatsbyImageData
-            description
-            id
+            creditText
+            image {
+              description
+              gatsbyImageData
+            }
           }
         }
         ... on ContentfulInTextVideo {
@@ -129,9 +127,11 @@ export const query = graphql`
         ... on ContentfulTwoColumnImage {
           twoColumnId: id
           images {
-            description
-            gatsbyImageData
-            id
+            creditText
+            image {
+              description
+              gatsbyImageData
+            }
           }
         }
         ... on ContentfulTwoColumnText {

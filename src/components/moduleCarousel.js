@@ -61,12 +61,12 @@ const ModuleCarousel = ({ data }) => {
         >
           <Slider ref={sliderRef} {...settings}>
             {data.map(image => (
-              <figure key={image.id}>
+              <figure key={image.image.id}>
                 <GatsbyImage
-                  image={image.gatsbyImageData}
-                  alt={image.description}
+                  image={image.image.gatsbyImageData}
+                  alt={image.image.description}
                 ></GatsbyImage>
-                <figcaption>{image.description}</figcaption>
+                <figcaption>{image.creditText}</figcaption>
               </figure>
             ))}
           </Slider>

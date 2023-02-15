@@ -34,8 +34,11 @@ const OnFileSearch = ({ location }) => {
           }
           startDate
           featuredImage {
-            description
-            gatsbyImageData
+            creditText
+            image {
+              description
+              gatsbyImageData
+            }
           }
         }
       }
@@ -397,8 +400,8 @@ const OnFileSearch = ({ location }) => {
                     >
                       <td className={styles.previewRow}>
                         <GatsbyImage
-                          image={item.featuredImage.gatsbyImageData}
-                          alt={item.featuredImage.description}
+                          image={item.featuredImage.image.gatsbyImageData}
+                          alt={item.featuredImage.image.description}
                           className={styles.previewImg}
                         ></GatsbyImage>
                         <article className={styles.previewText}>

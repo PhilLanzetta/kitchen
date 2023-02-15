@@ -2,8 +2,7 @@ import * as React from "react"
 import * as styles from "./header.module.css"
 import { Link } from "gatsby"
 import Fade from "./fade"
-import search from "../assets/search.svg"
-import tix from "../assets/tix.svg"
+import { IoSearch, IoTicket } from "react-icons/io5"
 
 const pageLabels = [
   { label: "On Air", labelClass: `${styles.onAirTagline} tgnHeavyItalic` },
@@ -180,14 +179,14 @@ const Header = ({ isOpen, toggleMenu, location }) => {
             className={styles.searchLink}
             onClick={isOpen ? toggleMenu : () => {}}
           >
-            Search <img src={search} alt="search icon"></img>
+            Search <IoSearch></IoSearch>
           </Link>
           <Link
             to="/tickets"
             className={styles.ticketsLink}
             onClick={isOpen ? toggleMenu : () => {}}
           >
-            Tickets <img src={tix} alt="tickets icon"></img>
+            Tickets <IoTicket></IoTicket>
           </Link>
         </nav>
       </div>

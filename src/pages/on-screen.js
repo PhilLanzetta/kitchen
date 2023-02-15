@@ -49,7 +49,11 @@ export const query = graphql`
         id
         seriesTitle
         seriesCoverPhoto {
-          gatsbyImageData
+          creditText
+          image {
+            description
+            gatsbyImageData
+          }
         }
         metadata {
           tags {
@@ -67,7 +71,11 @@ export const query = graphql`
         id
         videoTitle
         featuredImage {
-          gatsbyImageData
+          creditText
+          image {
+            description
+            gatsbyImageData
+          }
         }
         slug
         metadata {

@@ -15,8 +15,11 @@ const OnMindHome = ({ location }) => {
           credits
           backgroundColor
           featuredImage {
-            gatsbyImageData
-            description
+            creditText
+            image {
+              description
+              gatsbyImageData
+            }
           }
           id
           slug
@@ -185,8 +188,8 @@ const OnMindHome = ({ location }) => {
         {list.map(post => (
           <article key={post.id}>
             <GatsbyImage
-              image={post.featuredImage.gatsbyImageData}
-              alt={post.featuredImage.description}
+              image={post.featuredImage.image.gatsbyImageData}
+              alt={post.featuredImage.image.description}
               className={styles.previewImg}
             ></GatsbyImage>
             <div

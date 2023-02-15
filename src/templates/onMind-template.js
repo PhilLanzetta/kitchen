@@ -28,8 +28,11 @@ export const query = graphql`
       category
       credits
       featuredImage {
-        gatsbyImageData
-        description
+        creditText
+        image {
+          description
+          gatsbyImageData
+        }
       }
       id
       title
@@ -76,19 +79,23 @@ export const query = graphql`
           videoCredit
         }
         ... on ContentfulImageCarousel {
-          carouselId: id
+          id
           images {
-            gatsbyImageData
-            id
-            description
+            creditText
+            image {
+              description
+              gatsbyImageData
+            }
           }
         }
         ... on ContentfulInTextImage {
           inTextImgId: id
           image {
-            gatsbyImageData
-            description
-            id
+            creditText
+            image {
+              description
+              gatsbyImageData
+            }
           }
         }
         ... on ContentfulInTextVideo {
@@ -105,9 +112,11 @@ export const query = graphql`
         ... on ContentfulTwoColumnImage {
           twoColumnId: id
           images {
-            description
-            gatsbyImageData
-            id
+            creditText
+            image {
+              description
+              gatsbyImageData
+            }
           }
         }
         ... on ContentfulTwoColumnText {

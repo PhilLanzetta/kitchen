@@ -26,9 +26,11 @@ export const query = graphql`
       screeningTime
       onViewLocation
       featuredImage {
-        id
-        description
-        gatsbyImageData
+        creditText
+        image {
+          description
+          gatsbyImageData
+        }
       }
       startDate
       endDate
@@ -39,19 +41,13 @@ export const query = graphql`
           pdf {
             url
           }
-          linkIcon {
-            description
-            url
-          }
+          linkIcon
         }
         ... on ContentfulUrlLink {
           linkId: id
           linkText
           linkUrl
-          linkIcon {
-            description
-            url
-          }
+          linkIcon
         }
       }
       introductionHeading {
@@ -61,8 +57,11 @@ export const query = graphql`
         introductionBody
       }
       heroImage {
-        description
-        gatsbyImageData(placeholder: BLURRED)
+        creditText
+        image {
+          description
+          gatsbyImageData
+        }
       }
       metadata {
         tags {
@@ -101,19 +100,23 @@ export const query = graphql`
           videoCredit
         }
         ... on ContentfulImageCarousel {
-          carouselId: id
+          id
           images {
-            gatsbyImageData
-            id
-            description
+            creditText
+            image {
+              description
+              gatsbyImageData
+            }
           }
         }
         ... on ContentfulInTextImage {
           inTextImgId: id
           image {
-            gatsbyImageData
-            description
-            id
+            creditText
+            image {
+              description
+              gatsbyImageData
+            }
           }
         }
         ... on ContentfulInTextVideo {
@@ -130,9 +133,11 @@ export const query = graphql`
         ... on ContentfulTwoColumnImage {
           twoColumnId: id
           images {
-            description
-            gatsbyImageData
-            id
+            creditText
+            image {
+              description
+              gatsbyImageData
+            }
           }
         }
         ... on ContentfulTwoColumnText {

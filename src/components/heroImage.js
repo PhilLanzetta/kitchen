@@ -6,11 +6,11 @@ const HeroImage = ({ image, margin }) => {
   return (
     <figure className={margin ? styles.marginTop : styles.mobileMarginTop}>
       <GatsbyImage
-        image={image.gatsbyImageData}
-        alt={image.description}
+        image={image.image.gatsbyImageData}
+        alt={image.image.description}
         className={styles.heroImage}
       ></GatsbyImage>
-      <figcaption>{image.description}</figcaption>
+      <figcaption>{image.creditText}</figcaption>
     </figure>
   )
 }

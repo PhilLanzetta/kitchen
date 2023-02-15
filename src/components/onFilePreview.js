@@ -29,8 +29,8 @@ const OnFilePreview = ({ data }) => {
   return (
     <article className={styles.container}>
       <GatsbyImage
-        image={featuredImage.gatsbyImageData}
-        alt={featuredImage.description}
+        image={featuredImage.image.gatsbyImageData}
+        alt={featuredImage.image.description}
       ></GatsbyImage>
       <Link to={`/on-file/${slug}`}>
         <p className={styles.dates}>

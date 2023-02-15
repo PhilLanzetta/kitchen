@@ -5,8 +5,8 @@ import * as styles from './inTextImg.module.css'
 const InTextImg = ({data}) => {
   return (
     <figure className={styles.imgContainer}>
-     <GatsbyImage image={data.gatsbyImageData} alt={data.description}></GatsbyImage>
-     <figcaption>{data.description}</figcaption>
+     <GatsbyImage image={data.image.gatsbyImageData} alt={data.image.description}></GatsbyImage>
+     <figcaption>{data.creditText}</figcaption>
      </figure>
   )
 }

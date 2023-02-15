@@ -15,8 +15,12 @@ const OnScreenVideoGrid = ({ data }) => {
           >
             <GatsbyImage
               image={
-                video.node?.featuredImage.gatsbyImageData ||
-                video.featuredImage.gatsbyImageData
+                video.node?.featuredImage.image.gatsbyImageData ||
+                video.featuredImage.image.gatsbyImageData
+              }
+              alt={
+                video.node?.featuredImage.image.description ||
+                video.featuredImage.image.description
               }
             ></GatsbyImage>
             <section>
