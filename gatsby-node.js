@@ -62,6 +62,13 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
+        allContentfulFlexPage {
+          edges {
+            node {
+              slug
+            }
+          }
+        }
         allContentfulOnMindArticle(sort: { articleDate: DESC }) {
           edges {
             node {
@@ -86,6 +93,8 @@ exports.createPages = async ({ graphql, actions }) => {
   const onScreenSeries = result.data.allContentfulOnScreenSeries.edges
 
   const allProducts = result.data.allShopifyProduct.edges
+
+  const flexPages = result.data.allContentfulFlexPage.edges
 
   const collections = result.data.allShopifyCollection.edges
 
@@ -146,6 +155,17 @@ exports.createPages = async ({ graphql, actions }) => {
           index === onScreenVideos.length - 1
             ? null
             : onScreenVideos[index + 1].node,
+      },
+    })
+  })
+
+  flexPages.forEach(({ node }, index) => {
+    const slug = node.slug
+    createPage({
+      path: `/${slug}`,
+      component: path.resolve(`src/templates/flexPage-template.js`),
+      context: {
+        slug: node.slug,
       },
     })
   })

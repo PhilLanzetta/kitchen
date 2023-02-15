@@ -5,7 +5,7 @@ import Header from "./header"
 import Footer from "./footer"
 import Fade from "./fade"
 
-const Layout = ({ children, location }) => {
+const Layout = ({ children, location, title, tagline }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const toggleMenu = () => {
@@ -14,7 +14,7 @@ const Layout = ({ children, location }) => {
 
   return (
     <>
-      <Header toggleMenu={toggleMenu} isOpen={isOpen} location={location} />
+      <Header toggleMenu={toggleMenu} isOpen={isOpen} location={location} title={title} tagline={tagline} />
       <Fade>
         <main>{children}</main>
       </Fade>

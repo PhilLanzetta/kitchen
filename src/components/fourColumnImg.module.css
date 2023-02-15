@@ -1,0 +1,15 @@
+.imageContainer {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.imageContainer figcaption {
+  padding-left: 0;
+  font-family: "trade-gothic-next", sans-serif;
+}
+
+.image {
+  width: calc(25% - 20px);
+}

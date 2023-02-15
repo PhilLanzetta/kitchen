@@ -82,7 +82,7 @@ const ModuleCarousel = ({ data }) => {
                   d="M16.875,67.769l60,49.7-5.133,6.1L0,63.616,71.741,4l5.141,6.09L16.867,59.8H191.309v7.971Z"
                   transform="translate(0 -4)"
                   fill="#fff"
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                 />
               </svg>
             </div>
@@ -99,7 +99,7 @@ const ModuleCarousel = ({ data }) => {
                   d="M174.434,67.77l-60,49.7,5.133,6.1,71.741-59.951L119.568,4l-5.141,6.09L174.441,59.8H0V67.77Z"
                   transform="translate(0 -4)"
                   fill="#fff"
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                 />
               </svg>
             </div>
@@ -109,12 +109,12 @@ const ModuleCarousel = ({ data }) => {
       {width <= 920 && (
         <Slider {...mobileSettings}>
           {data.map(image => (
-            <figure key={image.id}>
+            <figure key={image.image.id}>
               <GatsbyImage
-                image={image.gatsbyImageData}
-                alt={image.description}
+                image={image.image.gatsbyImageData}
+                alt={image.image.description}
               ></GatsbyImage>
-              <figcaption>{image.description}</figcaption>
+              <figcaption>{image.creditText}</figcaption>
             </figure>
           ))}
         </Slider>

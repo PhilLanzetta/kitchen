@@ -1,0 +1,12 @@
+.pageContainer {
+  padding-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+@media screen and (max-width: 920px) {
+  .pageContainer {
+    padding-top: 100px;
+  }
+}

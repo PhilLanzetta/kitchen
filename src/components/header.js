@@ -58,8 +58,8 @@ const dateOptions = {
   day: "numeric",
 }
 
-const Header = ({ isOpen, toggleMenu, location }) => {
-  let pageHeader
+const Header = ({ isOpen, toggleMenu, location, title, tagline }) => {
+  let pageHeader = {}
   if (location.pathname === "/") {
     pageHeader = pageLabels[0]
   } else if (location.pathname.includes("/on-view/")) {
@@ -79,9 +79,18 @@ const Header = ({ isOpen, toggleMenu, location }) => {
   } else if (location.pathname.includes("/shop/")) {
     pageHeader = pageLabels[8]
   } else {
-    pageHeader = null
+    if (title) {
+      pageHeader = {
+        label: `${title}${tagline ? ":" : ""}`,
+        labelTagline: tagline,
+        labelClass: "tgn",
+      }
+    } else {
+      pageHeader = null
+    }
   }
 
+  console.log(pageHeader)
   return (
     <header className={styles.header}>
       <div className={`${styles.menu} tgn`}>

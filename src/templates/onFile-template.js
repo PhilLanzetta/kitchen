@@ -94,10 +94,11 @@ export const query = graphql`
           videoCredit
         }
         ... on ContentfulImageCarousel {
-          id
+          carouselId: id
           images {
             creditText
             image {
+              id
               description
               gatsbyImageData
             }
@@ -129,6 +130,7 @@ export const query = graphql`
           images {
             creditText
             image {
+              id
               description
               gatsbyImageData
             }

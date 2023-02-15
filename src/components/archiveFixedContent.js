@@ -57,9 +57,21 @@ const ArchiveFixedContent = ({ data }) => {
             <aside className={styles.linksContainer}>
               {links?.map(item => {
                 if (item.pdfId) {
-                  return <LinkButton data={item} onFile></LinkButton>
+                  return (
+                    <LinkButton
+                      key={item.pdfId}
+                      data={item}
+                      onFile
+                    ></LinkButton>
+                  )
                 } else if (item.linkId) {
-                  return <LinkButton data={item} onFile></LinkButton>
+                  return (
+                    <LinkButton
+                      key={item.linkId}
+                      data={item}
+                      onFile
+                    ></LinkButton>
+                  )
                 } else {
                   return <article>Unknown Link</article>
                 }

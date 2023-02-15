@@ -1,0 +1,23 @@
+.textBox {
+  margin: 10px 20px;
+  padding: 20px;
+}
+
+.half {
+  width: calc(50% - 40px);
+}
+
+.border {
+  border: 1px solid #000;
+}
+
+.textBox span {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 920px) {
+  .half {
+    width: 100%;
+  }
+}
