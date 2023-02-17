@@ -1,0 +1,45 @@
+.linkBox {
+  display: flex;
+  aspect-ratio: 2 / 1;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000;
+  padding: 20px;
+  margin: 20px;
+  text-align: center;
+  transition: all 400ms;
+}
+
+.linkBox:hover {
+  opacity: 1;
+  background: #000;
+  color: #fff;
+  transition: all 400ms;
+}
+
+.half {
+  width: calc(50% - 40px);
+}
+
+.quarter {
+  width: calc(25% - 40px);
+}
+
+@media screen and (max-width: 920px) {
+  .linkBox {
+    flex-direction: column;
+  }
+
+  .quarter,
+  .half {
+    margin: 0;
+    width: 50%;
+    margin-top: -1px;
+  }
+
+  .quarter:nth-of-type(even),
+  .half:nth-of-type(even) {
+    margin-left: -1px;
+    width: calc(50% + 1px);
+  }
+}

@@ -37,6 +37,8 @@ const FlexContent = ({ content }) => {
           )
         } else if (item.linkBoxId) {
           return <FlexLinkBox key={item.linkBoxId} data={item}></FlexLinkBox>
+        } else {
+          return null
         }
       })}
     </section>
