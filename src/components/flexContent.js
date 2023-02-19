@@ -5,6 +5,8 @@ import * as styles from "./flexContent.module.css"
 import FourColumnImg from "./fourColumnImg"
 import HeadlineText from "./headlineText"
 import FlexLinkBox from "./flexLinkBox"
+import ColumnText from "./columnText"
+import ImageText from "./imageText"
 
 const FlexContent = ({ content }) => {
   return (
@@ -37,6 +39,10 @@ const FlexContent = ({ content }) => {
           )
         } else if (item.linkBoxId) {
           return <FlexLinkBox key={item.linkBoxId} data={item}></FlexLinkBox>
+        } else if (item.columnTextId) {
+          return <ColumnText key={item.columnTextId} data={item}></ColumnText>
+        } else if (item.imageTextId) {
+          return <ImageText key={item.imageTextId} data={item}></ImageText>
         } else {
           return null
         }

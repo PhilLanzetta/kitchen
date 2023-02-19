@@ -29,7 +29,10 @@ const FourColumnImg = ({ images }) => {
           ))}
         </section>
       ) : (
-        <Slider {...mobileSettings} className="module-carousel">
+        <Slider
+          {...mobileSettings}
+          className={`${styles.carousel} module-carousel`}
+        >
           {images.map(image => (
             <figure key={image.image.id}>
               <GatsbyImage

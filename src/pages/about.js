@@ -9,7 +9,7 @@ import Board from "../components/board"
 import VisitLink from "../components/visitLink"
 
 const About = ({ location, data }) => {
-  const { missionValues, history, landAcknowledgment } =
+  const { missionValues, history, landAcknowledgment, timeline } =
     data.contentfulAboutPage
   return (
     <Layout location={location}>
@@ -19,7 +19,7 @@ const About = ({ location, data }) => {
           text={missionValues.missionValues}
         ></TextBox>
         <TextBox heading="History" text={history.history}></TextBox>
-        <Timeline></Timeline>
+        <Timeline data={timeline}></Timeline>
         <TextBox
           heading="Land Acknowledgment"
           text={landAcknowledgment.landAcknowledgment}
@@ -45,6 +45,20 @@ export const query = graphql`
       }
       landAcknowledgment {
         landAcknowledgment
+      }
+      timeline {
+        id
+        image {
+          creditText
+          image {
+            description
+            gatsbyImageData
+          }
+        }
+        text {
+          text
+        }
+        year
       }
     }
   }

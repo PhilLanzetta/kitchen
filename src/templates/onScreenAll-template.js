@@ -7,9 +7,10 @@ import Pagination from "../components/pagination"
 
 const OnScreenAll = ({ data, location, pageContext }) => {
   const videos = data.allContentfulOnScreenVideo.edges
+  console.log(videos)
   return (
     <Layout location={location}>
-     <OnScreenVideoGrid data={videos}></OnScreenVideoGrid>
+      <OnScreenVideoGrid data={videos}></OnScreenVideoGrid>
       <Pagination data={pageContext} location="/on-screen/all"></Pagination>
     </Layout>
   )

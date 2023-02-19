@@ -13,3 +13,7 @@
 .image {
   width: calc(25% - 20px);
 }
+
+.carousel {
+  margin: 20px 0;
+}

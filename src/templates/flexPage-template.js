@@ -58,6 +58,28 @@ export const query = graphql`
             }
           }
         }
+        ... on ContentfulColumnText {
+          columnTextId: id
+          numberOfColumns
+          text {
+            text
+          }
+        }
+        ... on ContentfulImageWithText {
+          imageTextId: id
+          textOnLeftSide
+          text {
+            text
+          }
+          images {
+            image {
+              description
+              gatsbyImageData
+            }
+            id
+            creditText
+          }
+        }
         ... on ContentfulTwoColumnImage {
           twoColumnId: id
           images {

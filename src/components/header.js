@@ -89,8 +89,6 @@ const Header = ({ isOpen, toggleMenu, location, title, tagline }) => {
       pageHeader = null
     }
   }
-
-  console.log(pageHeader)
   return (
     <header className={styles.header}>
       <div className={`${styles.menu} tgn`}>
