@@ -1,0 +1,36 @@
+.pageContainer {
+  padding-top: 50px;
+}
+
+.header {
+  display: flex;
+  text-transform: uppercase;
+  padding: 20px;
+}
+
+.header h2 {
+  font-size: calc(1rem + 1vw);
+}
+
+.eventHeader {
+  width: 70%;
+  padding-right: 20px;
+}
+
+.calendarHeader {
+  width: 30%;
+}
+
+.infoContainer {
+ display: flex;
+ padding: 20px;
+}
+
+.eventsContainer {
+ width: 70%;
+ padding-right: 20px;
+}
+
+.calendarContainer {
+ width: 30%;
+}
