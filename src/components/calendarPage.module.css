@@ -22,15 +22,77 @@
 }
 
 .infoContainer {
- display: flex;
- padding: 20px;
+  display: flex;
+  padding: 20px;
 }
 
 .eventsContainer {
- width: 70%;
- padding-right: 20px;
+  width: 70%;
+  padding-right: 20px;
 }
 
 .calendarContainer {
- width: 30%;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.visitLink {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  border: 1px solid #000;
+  transition: all 400ms;
+}
+
+.visitLink:hover {
+  opacity: 1;
+  background: #000;
+  color: #fff;
+  transition: all 400ms;
+}
+
+.arrow {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+@media screen and (max-width: 920px) {
+  .pageContainer {
+    padding-top: 120px;
+    border-right: 1px solid #000;
+    border-left: 1px solid #000;
+  }
+  .eventHeader,
+  .calendarHeader {
+    width: auto;
+  }
+  .header {
+    justify-content: space-between;
+    border-top: 1px solid #000;
+  }
+  .eventsContainer,
+  .calendarContainer {
+    width: calc(100% + 2px);
+    margin-left: -1px;
+    padding-right: 0;
+  }
+  .infoContainer {
+    flex-direction: column-reverse;
+    padding: 0px;
+  }
+
+  .visitLink {
+    margin: 0 20px;
+  }
+
+  .dateLabel {
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    margin: 20px 0;
+    padding: 10px 20px;
+  }
 }
