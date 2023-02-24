@@ -16,14 +16,44 @@
   width: 50%;
 }
 
+.featuredImage figcaption {
+  padding-left: 0;
+}
+
 .onView,
 .onScreen {
   font-family: "trade-gothic-next", sans-serif;
   font-weight: 800;
+  font-size: calc(1rem + 1vw);
+  margin-bottom: 1rem;
 }
 
 .onView {
   font-style: italic;
+}
+
+.artist {
+  text-transform: uppercase;
+  font-weight: normal;
+  font-size: calc(1rem + 1vw);
+}
+
+.title {
+  font-weight: normal;
+  font-size: calc(1rem + 1vw);
+}
+
+.learnMore {
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+
+.links {
+  width: 50%;
 }
 
 @media screen and (max-width: 920px) {
@@ -40,5 +70,9 @@
 
   .eventInfo {
     padding: 10px;
+  }
+
+  .featuredImage figcaption {
+    padding-left: 10px;
   }
 }

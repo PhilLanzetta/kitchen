@@ -69,45 +69,61 @@ const Calendar = ({ location, data }) => {
         </section>
         <section className={styles.infoContainer}>
           <article className={styles.eventsContainer}>
-            {dateRange.map((day, index) => (
-              <article key={index}>
-                <h3 className={styles.dateLabel}>
-                  {new Intl.DateTimeFormat("en-US", dateOptions).format(
-                    new Date(day)
+            {dateRange.map((day, index) => {
+              let hasEvent = false
+              return (
+                <article key={index}>
+                  <h3 className={styles.dateLabel}>
+                    {new Intl.DateTimeFormat("en-US", dateOptions).format(
+                      new Date(day)
+                    )}
+                  </h3>
+                  {data.allContentfulOnViewExhibition.nodes.map(node => {
+                    const eventDateRange = getDatesBetween(
+                      node.startDate,
+                      node.endDate
+                    )
+                    if (
+                      eventDateRange.find(
+                        item => item.getTime() === day.getTime()
+                      )
+                    ) {
+                      hasEvent = true
+                      return (
+                        <CalendarTile
+                          key={node.id}
+                          data={node}
+                          onView
+                        ></CalendarTile>
+                      )
+                    } else {
+                      return null
+                    }
+                  })}
+                  {data.allContentfulOnScreenVideo.nodes.map(node => {
+                    const eventDateRange = getDatesBetween(
+                      node.startDate,
+                      node.endDate
+                    )
+                    if (
+                      eventDateRange.find(
+                        item => item.getTime() === day.getTime()
+                      )
+                    ) {
+                      hasEvent = true
+                      return (
+                        <CalendarTile key={node.id} data={node}></CalendarTile>
+                      )
+                    } else {
+                      return null
+                    }
+                  })}
+                  {!hasEvent && (
+                    <p className={styles.noEvents}>No Programs Scheduled</p>
                   )}
-                </h3>
-                {data.allContentfulOnViewExhibition.nodes.map(node => {
-                  const eventDateRange = getDatesBetween(
-                    node.startDate,
-                    node.endDate
-                  )
-                  if (
-                    eventDateRange.find(item => item.getTime() === day.getTime())
-                  ) {
-                    return (
-                      <CalendarTile key={node.id} data={node} onView></CalendarTile>
-                    )
-                  } else {
-                    return null
-                  }
-                })}
-                {data.allContentfulOnScreenVideo.nodes.map(node => {
-                  const eventDateRange = getDatesBetween(
-                    node.startDate,
-                    node.endDate
-                  )
-                  if (
-                    eventDateRange.find(item => item.getTime() === day.getTime())
-                  ) {
-                    return (
-                      <CalendarTile key={node.id} data={node}></CalendarTile>
-                    )
-                  } else {
-                    return null
-                  }
-                })}
-              </article>
-            ))}
+                </article>
+              )
+            })}
           </article>
           <article className={styles.calendarContainer}>
             <CalendarPicker

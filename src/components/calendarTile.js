@@ -22,14 +22,23 @@ const CalendarTile = ({ data, onView }) => {
         <p className={`${onView ? styles.onView : styles.onScreen}`}>
           {onView ? "ON VIEW" : "ON SCREEN"}
         </p>
-        <h3>{artist}</h3>
-        <h4>{exhibitionTitle || videoTitle}</h4>
-        {exhibitionHours && <h4>{exhibitionHours}</h4>}
-        <Link to={onView ? `/on-view/${slug}` : `/on-screen/${slug}`}>
+        <h3 className={styles.artist}>{artist}</h3>
+        <h4 className={styles.title}>{exhibitionTitle || videoTitle}</h4>
+        {exhibitionHours && <h4 className={styles.title}>{exhibitionHours}</h4>}
+        <Link
+          to={onView ? `/on-view/${slug}` : `/on-screen/${slug}`}
+          className={styles.learnMore}
+        >
           Learn More <HiArrowRight></HiArrowRight>
         </Link>
-        {links.map(link =>
-          link.id ? <LinkButton key={link.id} data={link}></LinkButton> : null
+        {links.length && (
+          <article className={styles.links}>
+            {links.map(link =>
+              link.id ? (
+                <LinkButton key={link.id} data={link}></LinkButton>
+              ) : null
+            )}
+          </article>
         )}
       </article>
       <figure className={styles.featuredImage}>
