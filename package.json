@@ -8,6 +8,7 @@
     "@emotion/react": "^11.10.5",
     "@googlemaps/react-wrapper": "^1.1.35",
     "@table-library/react-table-library": "^4.0.23",
+    "@vimeo/player": "^2.18.0",
     "framer-motion": "^7.6.19",
     "gatsby": "^5.2.0",
     "gatsby-plugin-image": "^3.5.0",
@@ -27,7 +28,8 @@
     "react-icons": "^4.7.1",
     "react-player": "^2.11.0",
     "react-slick": "^0.29.0",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "vimeo": "^2.1.1"
   },
   "devDependencies": {
     "prettier": "^2.7.1"

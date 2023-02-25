@@ -1,29 +1,42 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import ReactPlayer from "react-player"
 import Fade from "./fade"
 import * as styles from "./onAir.module.css"
 
-const data = [
-  { id: "411109621", title: "Matt Evans, 2020" },
-  { id: "32535442", title: "Beastie Boys, 1983" },
-]
-
 const OnAir = () => {
-  const [video, setVideo] = useState(data[0])
+  const [data, setData] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [video, setVideo] = useState(0)
   const [playing, setPlaying] = useState(true)
   const [muted, setMuted] = useState(true)
 
+  const Token = "c930b08be056af14c4dde3467b751e80"
+
+  useEffect(() => {
+    fetch("https://api.vimeo.com/users/4252371/albums/7035685/videos", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${Token}`,
+      },
+    })
+      .then(res => res.json())
+      .then(result => {
+        setData(result)
+        setLoading(false)
+      })
+  }, [])
+
   const handlePrevClick = () => {
-    if (data.indexOf(video) !== 0) {
-      setVideo(data[data.indexOf(video) - 1])
+    if (video !== 0) {
+      setVideo(prev => prev - 1)
     } else {
       return
     }
   }
 
   const handleNextClick = () => {
-    if (data.indexOf(video) !== data.length - 1) {
-      setVideo(data[data.indexOf(video) + 1])
+    if (video !== data.data.length - 1) {
+      setVideo(prev => prev + 1)
     } else {
       return
     }
@@ -33,21 +46,27 @@ const OnAir = () => {
     <>
       <section className={`${styles.mobileHeading} tgnHeavyItalic`}>
         On Air:{" "}
-        <p className={`${styles.mobileVideoTitle} tgn`}>{video.title}</p>
+        {data && (
+          <p className={`${styles.mobileVideoTitle} tgn`}>
+            {data.data[video].name}
+          </p>
+        )}
       </section>
-      <section className={styles.videoPlayerWrapper}>
-        <ReactPlayer
-          url={`https://player.vimeo.com/video/${video.id}`}
-          className={styles.videoPlayer}
-          playing={playing}
-          muted={muted}
-          volume={1}
-          playsinline={true}
-          width={"100%"}
-          height={"100%"}
-          onPause={() => setPlaying(false)}
-        />
-      </section>
+      {data && (
+        <section className={styles.videoPlayerWrapper}>
+          <ReactPlayer
+            url={data.data[video].link}
+            className={styles.videoPlayer}
+            playing={playing}
+            muted={muted}
+            volume={1}
+            playsinline={true}
+            width={"100%"}
+            height={"100%"}
+            onPause={() => setPlaying(false)}
+          />
+        </section>
+      )}
       <section className={styles.videoControlsContainer}>
         <article className={styles.videoControls}>
           <button onClick={handlePrevClick}>
@@ -177,9 +196,11 @@ const OnAir = () => {
           )}
         </article>
         <Fade>
-          <article className={`tgn ${styles.desktopTitle}`}>
-            {video.title}
-          </article>
+          {data && (
+            <article className={`tgn ${styles.desktopTitle}`}>
+              {data.data[video].name}
+            </article>
+          )}
         </Fade>
       </section>
     </>
