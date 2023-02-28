@@ -62,6 +62,13 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
+        allContentfulPressRelease {
+          edges {
+            node {
+              slug
+            }
+          }
+        }
         allContentfulFlexPage {
           edges {
             node {
@@ -97,6 +104,8 @@ exports.createPages = async ({ graphql, actions }) => {
   const flexPages = result.data.allContentfulFlexPage.edges
 
   const collections = result.data.allShopifyCollection.edges
+
+  const pressReleases = result.data.allContentfulPressRelease.edges
 
   events.forEach(({ node }, index) => {
     const eventSlug = node.slug
@@ -164,6 +173,17 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `/${slug}`,
       component: path.resolve(`src/templates/flexPage-template.js`),
+      context: {
+        slug: node.slug,
+      },
+    })
+  })
+
+  pressReleases.forEach(({ node }, index) => {
+    const slug = node.slug
+    createPage({
+      path: `/press/${slug}`,
+      component: path.resolve(`src/templates/pressRelease-template.js`),
       context: {
         slug: node.slug,
       },

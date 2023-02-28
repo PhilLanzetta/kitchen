@@ -44,7 +44,7 @@ const Footer = ({ location }) => {
             <article className={styles.footerPageLinks}>
               <Link to="/contact">Contact</Link>
               <Link to="/contact">Jobs & Internships</Link>
-              <Link to="/contact">Press Room</Link>
+              <Link to="/press">Press Room</Link>
               <Link to="/contact">Accessibility</Link>
               <Link to="/contact">Support</Link>
               <Link to="/contact">Donate</Link>
