@@ -76,6 +76,14 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
+        allContentfulTag {
+          edges {
+            node {
+              contentful_id
+              name
+            }
+          }
+        }
         allContentfulOnMindArticle(sort: { articleDate: DESC }) {
           edges {
             node {
@@ -106,6 +114,8 @@ exports.createPages = async ({ graphql, actions }) => {
   const collections = result.data.allShopifyCollection.edges
 
   const pressReleases = result.data.allContentfulPressRelease.edges
+
+  const tags = result.data.allContentfulTag.edges
 
   events.forEach(({ node }, index) => {
     const eventSlug = node.slug
@@ -175,6 +185,18 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`src/templates/flexPage-template.js`),
       context: {
         slug: node.slug,
+      },
+    })
+  })
+
+  tags.forEach(({ node }, index) => {
+    const slug = node.contentful_id
+    createPage({
+      path: `/tags/${slug}`,
+      component: path.resolve(`src/templates/tagPage-template.js`),
+      context: {
+        slug: node.contentful_id,
+        name: node.name,
       },
     })
   })
