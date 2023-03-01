@@ -6,7 +6,12 @@
   justify-content: center;
 }
 
-.item {
+.related {
+  justify-content: flex-start;
+}
+
+.item,
+.relatedItem {
   width: calc(25% - 15px);
 }
 

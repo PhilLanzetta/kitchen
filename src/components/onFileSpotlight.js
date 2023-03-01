@@ -27,7 +27,7 @@ const OnFileSpotlight = ({ data }) => {
         </article>
       )}
       {width <= 920 && (
-        <Slider {...settings}>
+        <Slider {...settings} className="on-file-spotlight">
           {spotlightArchivePosts.map(post => (
             <OnFilePreview key={post.id} data={post}></OnFilePreview>
           ))}

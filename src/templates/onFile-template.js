@@ -4,9 +4,10 @@ import Seo from "../components/seo"
 import Layout from "../components/layout"
 import ArchiveFixedContent from "../components/archiveFixedContent"
 import ModuleContent from "../components/moduleContent"
+import TagGrid from "../components/tagGrid"
 
 const OnFilePost = ({ data, pageContext, location }) => {
-  const { moduleContent } = data.contentfulOnFileArchivePost
+  const { moduleContent, relatedContent } = data.contentfulOnFileArchivePost
   return (
     <Layout location={location}>
       <section
@@ -21,6 +22,19 @@ const OnFilePost = ({ data, pageContext, location }) => {
           data={data.contentfulOnFileArchivePost}
         ></ArchiveFixedContent>
         <ModuleContent data={moduleContent} dark={true}></ModuleContent>
+        {relatedContent && (
+          <section style={{ margin: "20px 0px" }}>
+            <h2
+              style={{
+                paddingLeft: "20px",
+                letterSpacing: "3px",
+              }}
+            >
+              RELATED
+            </h2>
+            <TagGrid data={relatedContent} related dark></TagGrid>
+          </section>
+        )}
       </section>
     </Layout>
   )
@@ -141,6 +155,83 @@ export const query = graphql`
           text {
             text
           }
+        }
+      }
+      relatedContent {
+        ... on ContentfulOnFileArchivePost {
+          id
+          artist
+          featuredImage {
+            image {
+              gatsbyImageData
+              description
+            }
+          }
+          metadata {
+            tags {
+              contentful_id
+              id
+              name
+            }
+          }
+          onFileSlug: slug
+          title
+        }
+        ... on ContentfulOnMindArticle {
+          id
+          featuredImage {
+            image {
+              description
+              gatsbyImageData
+            }
+          }
+          metadata {
+            tags {
+              contentful_id
+              id
+              name
+            }
+          }
+          onMindSlug: slug
+          title
+        }
+        ... on ContentfulOnScreenVideo {
+          id
+          artist
+          featuredImage {
+            image {
+              gatsbyImageData
+              description
+            }
+          }
+          metadata {
+            tags {
+              contentful_id
+              id
+              name
+            }
+          }
+          onScreenSlug: slug
+          videoTitle
+        }
+        ... on ContentfulOnViewExhibition {
+          id
+          artist
+          exhibitionTitle
+          featuredImage {
+            image {
+              description
+              gatsbyImageData
+            }
+          }
+          metadata {
+            tags {
+              contentful_id
+              id
+              name
+            }
+          }
+          onViewSlug: slug
         }
       }
     }

@@ -568,7 +568,8 @@ p {
   html {
     font-size: 18px;
   }
-  .module-carousel .slick-slide {
+  .module-carousel .slick-slide,
+  .on-file-spotlight .slick-slide {
     padding: 0 10px 0 0 !important;
   }
 

@@ -5,14 +5,29 @@ import Layout from "../components/layout"
 import HeroImage from "../components/heroImage"
 import FixedContent from "../components/fixedContent"
 import ModuleContent from "../components/moduleContent"
+import TagGrid from "../components/tagGrid"
 
 const OnViewExhibit = ({ data, pageContext, location }) => {
-  const { heroImage, moduleContent } = data.contentfulOnViewExhibition
+  const { heroImage, moduleContent, relatedContent } =
+    data.contentfulOnViewExhibition
   return (
     <Layout location={location}>
       <HeroImage image={heroImage}></HeroImage>
       <FixedContent data={data.contentfulOnViewExhibition}></FixedContent>
       <ModuleContent data={moduleContent}></ModuleContent>
+      {relatedContent && (
+        <section style={{ margin: "20px 0px" }}>
+          <h2
+            style={{
+              paddingLeft: "20px",
+              letterSpacing: "3px",
+            }}
+          >
+            RELATED
+          </h2>
+          <TagGrid data={relatedContent} related></TagGrid>
+        </section>
+      )}
     </Layout>
   )
 }
@@ -140,6 +155,83 @@ export const query = graphql`
           text {
             text
           }
+        }
+      }
+      relatedContent {
+        ... on ContentfulOnFileArchivePost {
+          id
+          artist
+          featuredImage {
+            image {
+              gatsbyImageData
+              description
+            }
+          }
+          metadata {
+            tags {
+              contentful_id
+              id
+              name
+            }
+          }
+          onFileSlug: slug
+          title
+        }
+        ... on ContentfulOnMindArticle {
+          id
+          featuredImage {
+            image {
+              description
+              gatsbyImageData
+            }
+          }
+          metadata {
+            tags {
+              contentful_id
+              id
+              name
+            }
+          }
+          onMindSlug: slug
+          title
+        }
+        ... on ContentfulOnScreenVideo {
+          id
+          artist
+          featuredImage {
+            image {
+              gatsbyImageData
+              description
+            }
+          }
+          metadata {
+            tags {
+              contentful_id
+              id
+              name
+            }
+          }
+          onScreenSlug: slug
+          videoTitle
+        }
+        ... on ContentfulOnViewExhibition {
+          id
+          artist
+          exhibitionTitle
+          featuredImage {
+            image {
+              description
+              gatsbyImageData
+            }
+          }
+          metadata {
+            tags {
+              contentful_id
+              id
+              name
+            }
+          }
+          onViewSlug: slug
         }
       }
     }

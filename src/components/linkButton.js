@@ -5,13 +5,13 @@ import { HiArrowDown, HiArrowRight, HiArrowUpRight } from "react-icons/hi2"
 
 const LinkButton = ({ data, onFile }) => {
   let linkIcon
-  if (data.linkIcon === "Tickets Icon") {
+  if (data.linkIcon.toLowerCase() === "tickets icon") {
     linkIcon = <IoTicket></IoTicket>
-  } else if (data.linkIcon === "Upward diagonal arrow") {
+  } else if (data.linkIcon.toLowerCase() === "upward diagonal arrow") {
     linkIcon = <HiArrowUpRight></HiArrowUpRight>
-  } else if (data.linkIcon === "Right Arrow") {
+  } else if (data.linkIcon.toLowerCase() === "right arrow") {
     linkIcon = <HiArrowRight></HiArrowRight>
-  } else if (data.linkIcon === "Down arrow") {
+  } else if (data.linkIcon.toLowerCase() === "down arrow") {
     linkIcon = <HiArrowDown></HiArrowDown>
   } else {
     linkIcon = null

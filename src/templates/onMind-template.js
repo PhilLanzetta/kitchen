@@ -6,9 +6,10 @@ import HeroImage from "../components/heroImage"
 import OnMindFixedContent from "../components/onMindFixedContent"
 import ModuleContent from "../components/moduleContent"
 import OnMindArticleHeader from "../components/onMindArticleHeader"
+import TagGrid from "../components/tagGrid"
 
 const OnMindArticle = ({ data, pageContext, location }) => {
-  const { featuredImage, moduleContent, category } = data.contentfulOnMindArticle
+  const { featuredImage, moduleContent, category, relatedContent } = data.contentfulOnMindArticle
   return (
     <Layout location={location}>
       <OnMindArticleHeader category={category}></OnMindArticleHeader>
@@ -17,6 +18,19 @@ const OnMindArticle = ({ data, pageContext, location }) => {
         data={data.contentfulOnMindArticle}
       ></OnMindFixedContent>
       <ModuleContent data={moduleContent} font="ftp"></ModuleContent>
+      {relatedContent && (
+        <section style={{ margin: "20px 0px" }}>
+          <h2
+            style={{
+              paddingLeft: "20px",
+              letterSpacing: "3px",
+            }}
+          >
+            RELATED
+          </h2>
+          <TagGrid data={relatedContent} related></TagGrid>
+        </section>
+      )}
     </Layout>
   )
 }
@@ -124,6 +138,83 @@ export const query = graphql`
           text {
             text
           }
+        }
+      }
+      relatedContent {
+        ... on ContentfulOnFileArchivePost {
+          id
+          artist
+          featuredImage {
+            image {
+              gatsbyImageData
+              description
+            }
+          }
+          metadata {
+            tags {
+              contentful_id
+              id
+              name
+            }
+          }
+          onFileSlug: slug
+          title
+        }
+        ... on ContentfulOnMindArticle {
+          id
+          featuredImage {
+            image {
+              description
+              gatsbyImageData
+            }
+          }
+          metadata {
+            tags {
+              contentful_id
+              id
+              name
+            }
+          }
+          onMindSlug: slug
+          title
+        }
+        ... on ContentfulOnScreenVideo {
+          id
+          artist
+          featuredImage {
+            image {
+              gatsbyImageData
+              description
+            }
+          }
+          metadata {
+            tags {
+              contentful_id
+              id
+              name
+            }
+          }
+          onScreenSlug: slug
+          videoTitle
+        }
+        ... on ContentfulOnViewExhibition {
+          id
+          artist
+          exhibitionTitle
+          featuredImage {
+            image {
+              description
+              gatsbyImageData
+            }
+          }
+          metadata {
+            tags {
+              contentful_id
+              id
+              name
+            }
+          }
+          onViewSlug: slug
         }
       }
     }
