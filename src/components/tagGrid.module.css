@@ -1,51 +1,57 @@
 .container {
- display: flex;
- flex-wrap: wrap;
- gap: 20px;
- padding: 20px;
- justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
 }
 
 .item {
- width: calc(25% - 15px);
+  width: calc(25% - 15px);
 }
 
 .info {
- display: flex;
- gap: 10px;
- justify-content: space-between;
- margin: 10px 0;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  margin: 10px 0;
 }
 
 .info p {
- min-width: 100px;
- text-align: right;
+  min-width: 100px;
+  text-align: right;
 }
 
 .artist {
- text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .heading {
- font-size: 1rem;
- font-weight: normal;
+  font-size: 1rem;
+  font-weight: normal;
 }
 
 .tagContainer {
- display: flex;
- flex-wrap: wrap;
- gap: 10px;
- margin: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0;
 }
 
 @media screen and (max-width: 1040px) {
- .item {
- width: calc(33% - 11px);
-}
+  .item {
+    width: calc(33% - 11px);
+  }
 }
 
 @media screen and (max-width: 920px) {
- .item {
- width: calc(50% - 10px);
+  .item {
+    width: calc(50% - 10px);
+  }
 }
+
+@media screen and (max-width: 600px) {
+  .item {
+    width: 100%;
+  }
 }

@@ -29,6 +29,7 @@ const OnMindHome = ({ location }) => {
             tags {
               id
               name
+              contentful_id
             }
           }
         }

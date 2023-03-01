@@ -38,6 +38,7 @@ export const query = graphql`
             tags {
               id
               name
+              contentful_id
             }
           }
           slug
