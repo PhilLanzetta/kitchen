@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import ReactPlayer from "react-player"
 import Fade from "./fade"
 import * as styles from "./onAir.module.css"
+import Loader from "./loader"
 
 const OnAir = () => {
   const [data, setData] = useState(null)
@@ -52,8 +53,9 @@ const OnAir = () => {
           </p>
         )}
       </section>
-      {data && (
-        <section className={styles.videoPlayerWrapper}>
+      <section className={styles.videoPlayerWrapper}>
+        {loading && <Loader></Loader>}
+        {data && (
           <ReactPlayer
             url={data.data[video].link}
             className={styles.videoPlayer}
@@ -64,9 +66,10 @@ const OnAir = () => {
             width={"100%"}
             height={"100%"}
             onPause={() => setPlaying(false)}
+            onEnded={handleNextClick}
           />
-        </section>
-      )}
+        )}
+      </section>
       <section className={styles.videoControlsContainer}>
         <article className={styles.videoControls}>
           <button onClick={handlePrevClick}>
