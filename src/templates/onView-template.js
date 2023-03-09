@@ -14,7 +14,7 @@ const OnViewExhibit = ({ data, pageContext, location }) => {
     <Layout location={location}>
       <HeroImage image={heroImage}></HeroImage>
       <FixedContent data={data.contentfulOnViewExhibition}></FixedContent>
-      <ModuleContent data={moduleContent}></ModuleContent>
+      {moduleContent && <ModuleContent data={moduleContent}></ModuleContent>}
       {relatedContent && (
         <section style={{ margin: "20px 0px" }}>
           <h2
