@@ -31,7 +31,7 @@ const CalendarTile = ({ data, onView }) => {
         >
           Learn More <HiArrowRight></HiArrowRight>
         </Link>
-        {links.length && (
+        {links?.length && (
           <article className={styles.links}>
             {links.map(link =>
               link.id ? (
