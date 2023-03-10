@@ -71,6 +71,7 @@ h3 {
 
 p {
   font-size: 0.85rem;
+  margin-bottom: 20px;
 }
 
 @font-face {
@@ -562,10 +563,6 @@ p {
 
 .module-carousel {
   width: 100%;
-}
-
-p {
-  padding-bottom: 20px;
 }
 
 @media screen and (max-width: 920px) {
