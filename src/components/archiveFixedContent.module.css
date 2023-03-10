@@ -20,7 +20,8 @@
 }
 
 .exhibitDetails article,
-.exhibitDetails aside {
+.exhibitDetails aside,
+.intro p {
   padding-bottom: 30px;
 }
 

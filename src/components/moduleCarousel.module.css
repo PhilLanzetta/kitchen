@@ -9,6 +9,10 @@
   padding: 10px 0;
 }
 
+.image {
+  width: 100%;
+}
+
 .cursor {
   position: fixed;
   height: 20px;

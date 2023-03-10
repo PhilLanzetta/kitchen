@@ -1,5 +1,6 @@
 .creditContainer {
-  width: 50%;
+  width: fit-content;
+  max-width: 50%;
   margin: 20px auto;
 }
 
@@ -9,7 +10,7 @@
 
 @media screen and (max-width: 920px) {
   .creditContainer {
-    width: 100%;
+    max-width: 100%;
     padding: 20px;
   }
 

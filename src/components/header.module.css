@@ -140,7 +140,8 @@
   left: 260px;
   top: 0;
   font-size: 30px;
-  height: 50px;
+  height: fit-content;
+  min-height: 50px;
   display: flex;
   align-items: center;
   padding: 0 20px;

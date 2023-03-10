@@ -65,6 +65,7 @@ const ModuleCarousel = ({ data }) => {
                 <GatsbyImage
                   image={image.image.gatsbyImageData}
                   alt={image.image.description}
+                  className={styles.image}
                 ></GatsbyImage>
                 <figcaption>{image.creditText}</figcaption>
               </figure>

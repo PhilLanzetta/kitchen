@@ -573,6 +573,10 @@ p {
     padding: 0 10px 0 0 !important;
   }
 
+  .module-carousel {
+    padding: 20px 0;
+  }
+
   .about-page {
     padding-top: 150px;
   }

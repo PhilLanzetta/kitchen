@@ -2,6 +2,7 @@ import React from "react"
 import * as styles from "./fixedContent.module.css"
 import LinkButton from "./linkButton"
 import TagLink from "./tagLink"
+import { marked } from "marked"
 
 const FixedContent = ({ data }) => {
   const {
@@ -83,8 +84,22 @@ const FixedContent = ({ data }) => {
           )}
         </section>
         <section className={styles.exhibitCopy}>
-          <h3>{introductionHeading?.introductionHeading}</h3>
-          <p>{introductionBody?.introductionBody}</p>
+          {introductionHeading && (
+            <article
+              className={styles.intro}
+              dangerouslySetInnerHTML={{
+                __html: marked.parse(introductionHeading.introductionHeading),
+              }}
+            ></article>
+          )}
+          {introductionBody && (
+            <article
+              className={styles.intro}
+              dangerouslySetInnerHTML={{
+                __html: marked.parse(introductionBody.introductionBody),
+              }}
+            ></article>
+          )}
         </section>
       </article>
     </section>
