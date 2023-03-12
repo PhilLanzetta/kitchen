@@ -59,11 +59,8 @@ export const query = graphql`
           linkIcon
         }
       }
-      introductionHeading {
-        introductionHeading
-      }
-      introductionBody {
-        introductionBody
+      introductionText {
+        introductionText
       }
       heroImage {
         creditText

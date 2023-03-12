@@ -57,11 +57,8 @@ export const query = graphql`
           contentful_id
         }
       }
-      introductionHeading {
-        introductionHeading
-      }
-      introductionBody {
-        introductionBody
+      introductionText {
+        introductionText
       }
       moduleContent {
         ... on ContentfulAudio {

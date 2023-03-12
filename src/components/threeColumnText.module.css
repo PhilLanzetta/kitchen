@@ -3,6 +3,10 @@
   width: 75%;
 }
 
+.textContainer p {
+  margin-bottom: 20px;
+}
+
 @media screen and (max-width: 920px) {
   .textContainer {
     width: 100%;

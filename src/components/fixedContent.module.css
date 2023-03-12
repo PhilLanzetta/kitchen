@@ -20,8 +20,7 @@
 }
 
 .exhibitDetails article,
-.exhibitDetails aside,
-.intro p {
+.exhibitDetails aside {
   padding-bottom: 30px;
 }
 
@@ -43,8 +42,16 @@
   width: 50%;
 }
 
-.exhibitCopy h3 {
+.exhibitCopy h3,
+.exhibitCopy h1,
+.exhibitCopy h2,
+.exhibitCopy p {
   margin-bottom: 20px;
+}
+
+.exhibitCopy h1,
+.exhibitCopy h2 {
+  font-size: calc(1rem + 0.5vw);
 }
 
 @media screen and (max-width: 920px) {

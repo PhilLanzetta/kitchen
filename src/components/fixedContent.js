@@ -16,8 +16,7 @@ const FixedContent = ({ data }) => {
     exhibitionLocation,
     links,
     exhibitionHours,
-    introductionHeading,
-    introductionBody,
+    introductionText,
     screeningTime,
     onViewLocation,
   } = data
@@ -83,24 +82,14 @@ const FixedContent = ({ data }) => {
             </aside>
           )}
         </section>
-        <section className={styles.exhibitCopy}>
-          {introductionHeading && (
-            <article
-              className={styles.intro}
-              dangerouslySetInnerHTML={{
-                __html: marked.parse(introductionHeading.introductionHeading),
-              }}
-            ></article>
-          )}
-          {introductionBody && (
-            <article
-              className={styles.intro}
-              dangerouslySetInnerHTML={{
-                __html: marked.parse(introductionBody.introductionBody),
-              }}
-            ></article>
-          )}
-        </section>
+        {introductionText && (
+          <section
+            className={styles.exhibitCopy}
+            dangerouslySetInnerHTML={{
+              __html: marked.parse(introductionText.introductionText),
+            }}
+          ></section>
+        )}
       </article>
     </section>
   )

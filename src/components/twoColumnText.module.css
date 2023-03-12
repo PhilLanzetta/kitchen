@@ -8,6 +8,10 @@
   column-gap: 20px;
 }
 
+.twoColumn p {
+  margin-bottom: 20px;
+}
+
 @media screen and (max-width: 920px) {
   .columnContainer {
     width: 100%;

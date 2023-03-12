@@ -1,16 +1,10 @@
 import React from "react"
 import * as styles from "./onMindFixedContent.module.css"
 import TagLink from "./tagLink"
+import { marked } from "marked"
 
 const OnMindFixedContent = ({ data }) => {
-  const {
-    credits,
-    title,
-    articleDate,
-    metadata,
-    introductionHeading,
-    introductionBody,
-  } = data
+  const { credits, title, articleDate, metadata, introductionText } = data
 
   const dateOptions = {
     month: "long",
@@ -55,8 +49,13 @@ const OnMindFixedContent = ({ data }) => {
         </section>
         <section className={styles.exhibitCopy}>
           <p className={`${styles.date} tgn upper`}>{dateOfArticle}</p>
-          <h3>{introductionHeading?.introductionHeading}</h3>
-          <p>{introductionBody?.introductionBody}</p>
+          {introductionText && (
+            <article
+              dangerouslySetInnerHTML={{
+                __html: marked.parse(introductionText.introductionText),
+              }}
+            ></article>
+          )}
         </section>
       </article>
     </section>

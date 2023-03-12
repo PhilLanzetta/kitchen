@@ -49,11 +49,8 @@ export const query = graphql`
       startDate
       endDate
       category
-      introductionHeading {
-        introductionHeading
-      }
-      introductionBody {
-        introductionBody
+      introductionText {
+        introductionText
       }
       links {
         ... on ContentfulPdfLink {

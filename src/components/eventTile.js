@@ -41,11 +41,13 @@ const EventTile = ({ event, size }) => {
             </p>
           </article>
         </Link>
-        <section className={styles.tagContainer}>
-          {event.metadata.tags.map(tag => (
-            <TagLink tag={tag} key={tag.id}></TagLink>
-          ))}
-        </section>
+        {event.metadata.tags?.length !== 0 && (
+          <section className={styles.tagContainer}>
+            {event.metadata.tags.map(tag => (
+              <TagLink tag={tag} key={tag.id}></TagLink>
+            ))}
+          </section>
+        )}
       </section>
     </section>
   )

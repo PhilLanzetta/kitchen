@@ -11,7 +11,6 @@ const OnScreenVideo = ({ data, pageContext, location }) => {
   const { featuredImage, moduleContent, relatedContent } =
     data.contentfulOnScreenVideo
 
-  console.log(moduleContent)
   return (
     <Layout location={location}>
       <HeroImage image={featuredImage}></HeroImage>
@@ -67,11 +66,8 @@ export const query = graphql`
           linkIcon
         }
       }
-      introductionHeading {
-        introductionHeading
-      }
-      introductionBody {
-        introductionBody
+      introductionText {
+        introductionText
       }
       heroImage {
         creditText

@@ -25,7 +25,7 @@
   display: flex;
   flex-direction: column;
   width: 20%;
-  font-family: 'trade-gothic-next', serif;
+  font-family: "trade-gothic-next", serif;
 }
 
 .exhibitDetails article {
@@ -42,8 +42,16 @@
   width: 50%;
 }
 
-.exhibitCopy h3 {
+.exhibitCopy h3,
+.exhibitCopy h2,
+.exhibitCopy h1,
+.exhibitCopy p {
   margin-bottom: 20px;
+}
+
+.exhibitCopy h1,
+.exhibitCopy h2 {
+  font-size: calc(1rem + 0.5vw);
 }
 
 .date {
