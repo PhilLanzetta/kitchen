@@ -29,8 +29,8 @@ const OnFileSearch = ({ location }) => {
           endDate
           title
           slug
-          introductionHeading {
-            introductionHeading
+          introductionText {
+            introductionText
           }
           startDate
           featuredImage {
@@ -404,9 +404,9 @@ const OnFileSearch = ({ location }) => {
                           alt={item.featuredImage.image.description}
                           className={styles.previewImg}
                         ></GatsbyImage>
-                        <article className={styles.previewText}>
-                          {item.introductionHeading.introductionHeading}
-                        </article>
+                        {item.introductionText && (
+                          <article className={styles.previewText}></article>
+                        )}
                         <article className={styles.previewInfo}>
                           <p>
                             <strong>Artist(s):</strong> {item.artist}
