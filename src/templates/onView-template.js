@@ -153,6 +153,12 @@ export const query = graphql`
             text
           }
         }
+        ... on ContentfulSingleColumnText {
+          singleId: id
+          text {
+            text
+          }
+        }
       }
       relatedContent {
         ... on ContentfulOnFileArchivePost {

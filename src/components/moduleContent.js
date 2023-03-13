@@ -8,12 +8,11 @@ import BlockQuote from "./blockQuote"
 import FullWidthVideo from "./fullWidthVideo"
 import AudioFilePlayer from "./audioFilePlayer"
 import CreditText from "./creditText"
+import SingleColText from "./singleColText"
 
 const ModuleContent = ({ data, font, dark }) => {
   return (
-    <section
-      className={`${font ? font : ""}`}
-    >
+    <section className={`${font ? font : ""}`}>
       {data.map(item => {
         if (item.carouselId) {
           return (
@@ -35,7 +34,11 @@ const ModuleContent = ({ data, font, dark }) => {
           )
         } else if (item.audioId) {
           return (
-            <AudioFilePlayer key={item.audioId} data={item} dark={dark}></AudioFilePlayer>
+            <AudioFilePlayer
+              key={item.audioId}
+              data={item}
+              dark={dark}
+            ></AudioFilePlayer>
           )
         } else if (item.threeColId) {
           return (
@@ -68,6 +71,10 @@ const ModuleContent = ({ data, font, dark }) => {
               data={item}
               inText
             ></FullWidthVideo>
+          )
+        } else if (item.singleId) {
+          return (
+            <SingleColText key={item.singleId} data={item.text}></SingleColText>
           )
         } else {
           return <article>Unknown type</article>

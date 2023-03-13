@@ -1,0 +1,23 @@
+.textContainer {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.textContainer h3,
+.textContainer h1,
+.textContainer h2,
+.textContainer p {
+  margin-bottom: 20px;
+}
+
+.textContainer h1,
+.textContainer h2 {
+  font-size: calc(1rem + 0.5vw);
+}
+
+@media screen and (max-width: 920px) {
+  .textContainer {
+    width: 100%;
+    padding: 20px;
+  }
+}
