@@ -3,6 +3,7 @@ import * as styles from "./productInfo.module.css"
 import Slider from "react-slick"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
+import useStore from "../context/StoreContext"
 
 const ProductInfo = ({ data }) => {
   const {
@@ -13,6 +14,8 @@ const ProductInfo = ({ data }) => {
     descriptionHtml,
     collections,
   } = data
+
+  const { addVariantToCart } = useStore()
 
   const filteredCollections = collections.filter(
     collection => collection.title !== "New" && collection.title !== "Featured"
@@ -76,7 +79,12 @@ const ProductInfo = ({ data }) => {
             className={styles.productDescription}
             dangerouslySetInnerHTML={{ __html: descriptionHtml }}
           ></div>
-          <button className={styles.addCart}>Add to Cart</button>
+          <button
+            className={styles.addCart}
+            onClick={() => addVariantToCart(data, 1)}
+          >
+            Add to Cart
+          </button>
         </section>
       </article>
       <article className={styles.supplemental}>

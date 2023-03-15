@@ -1,8 +1,11 @@
-import * as React from "react"
+import React, { useState } from "react"
 import * as styles from "./header.module.css"
 import { Link } from "gatsby"
 import Fade from "./fade"
 import { IoSearch, IoTicket } from "react-icons/io5"
+import { HiOutlineShoppingBag } from "react-icons/hi2"
+import Cart from "./cart"
+import useStore from "../context/StoreContext"
 
 const pageLabels = [
   { label: "On Air", labelClass: `${styles.onAirTagline} tgnHeavyItalic` },
@@ -58,7 +61,15 @@ const dateOptions = {
   day: "numeric",
 }
 
-const Header = ({ isOpen, toggleMenu, location, title, tagline }) => {
+const Header = ({
+  isOpen,
+  toggleMenu,
+  location,
+  title,
+  tagline,
+  isCartOpen,
+  toggleCart,
+}) => {
   let pageHeader = {}
   if (location.pathname === "/") {
     pageHeader = pageLabels[0]
@@ -89,6 +100,9 @@ const Header = ({ isOpen, toggleMenu, location, title, tagline }) => {
       pageHeader = null
     }
   }
+
+  const { cart } = useStore()
+
   return (
     <header className={styles.header}>
       <div className={`${styles.menu} tgn`}>
@@ -236,6 +250,21 @@ const Header = ({ isOpen, toggleMenu, location, title, tagline }) => {
             )}
           </div>
         </Fade>
+      )}
+      {pageHeader.label === "SHOP:" && (
+        <div className={styles.cartContainer}>
+          <button className={styles.shopping} onClick={toggleCart}>
+            <HiOutlineShoppingBag
+              className={styles.shoppingIcon}
+            ></HiOutlineShoppingBag>{" "}
+            {cart.length > 0 ? cart.length : ""}
+          </button>
+          {isCartOpen && (
+            <Fade>
+              <Cart toggleCart={toggleCart}></Cart>
+            </Fade>
+          )}
+        </div>
       )}
     </header>
   )

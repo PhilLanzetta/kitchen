@@ -15,6 +15,9 @@ export const query = graphql`
   query getSingleProduct($handle: String) {
     shopifyProduct(handle: { eq: $handle }) {
       id
+      variants {
+        shopifyId
+      }
       collections {
         title
         handle

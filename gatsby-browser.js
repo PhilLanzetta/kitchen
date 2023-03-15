@@ -1,11 +1,7 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/
- */
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
+import "react-h5-audio-player/lib/styles.css"
 
-// You can delete this file if you're not using it
+import CombinedProvider from "./src/context/CombinedProvider"
 
-require("slick-carousel/slick/slick.css")
-require("slick-carousel/slick/slick-theme.css")
-require("react-h5-audio-player/lib/styles.css")
+export const wrapRootElement = CombinedProvider
