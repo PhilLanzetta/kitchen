@@ -251,7 +251,7 @@ const Header = ({
           </div>
         </Fade>
       )}
-      {pageHeader.label === "SHOP:" && (
+      {pageHeader?.label === "SHOP:" && (
         <div className={styles.cartContainer}>
           <button className={styles.shopping} onClick={toggleCart}>
             <HiOutlineShoppingBag
