@@ -25,15 +25,15 @@ const Cart = ({ toggleCart }) => {
       <article className={styles.cartSummary}>
         <div className={styles.checkoutInfo}>
           <div>SUBTOTAL</div>
-          <div>${checkout.subtotalPrice.amount}</div>
+          <div>${checkout.subtotalPrice?.amount || 0}</div>
         </div>
         <div className={styles.checkoutInfo}>
           <div>TAX</div>
-          <div>${checkout.totalTax.amount}</div>
+          <div>${checkout.totalTax?.amount || 0}</div>
         </div>
         <div className={styles.checkoutInfo}>
           <div>TOTAL</div>
-          <div>${checkout.totalPrice.amount}</div>
+          <div>${checkout.totalPrice?.amount || 0}</div>
         </div>
         <button
           disabled={cart.length === 0}
