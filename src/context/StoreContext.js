@@ -15,6 +15,8 @@ const defaultValues = {
   loading: false,
   addVariantToCart: () => {},
   removeLineItem: () => {},
+  lowerCartItemQuantity: () => {},
+  addCartItemQuantity: () => {},
   client,
   checkout: {
     id: "",
@@ -29,7 +31,15 @@ const isBrowser = typeof window !== `undefined`
 const localStorageKey = `shopify_checkout_id`
 
 export const StoreProvider = ({ children }) => {
-  const [cart, setCart] = useState(defaultValues.cart)
+  const [cart, setCart] = useState(function () {
+    let savedCart = []
+    try {
+      savedCart = JSON.parse(localStorage.getItem("cart")) || []
+    } catch (error) {
+      savedCart = []
+    }
+    return savedCart
+  })
   const [checkout, setCheckout] = useState(defaultValues.checkout)
   const [loading, setLoading] = useState(false)
 
@@ -67,6 +77,12 @@ export const StoreProvider = ({ children }) => {
 
     initializeCheckout()
   }, [])
+
+  useEffect(() => {
+    if (cart) {
+      localStorage.setItem("cart", JSON.stringify(cart))
+    }
+  }, [cart])
 
   const addVariantToCart = async (product, quantity) => {
     setLoading(true)
@@ -124,6 +140,130 @@ export const StoreProvider = ({ children }) => {
     }
   }
 
+  const lowerCartItemQuantity = async variantId => {
+    setLoading(true)
+
+    if (checkout.id === "") {
+      console.error("No checkout ID assigned.")
+      return
+    }
+
+    const checkoutID = checkout.id
+    let lineItemID = ""
+    let currentQuantity = ""
+    checkout.lineItems?.forEach(item => {
+      if (item.variant.id === variantId) {
+        lineItemID = item.id
+        currentQuantity = item.quantity
+      }
+    })
+
+    if (!lineItemID) {
+      console.log("Product not in cart")
+      return
+    }
+
+    const lineItemsToUpdate = [
+      {
+        id: lineItemID,
+        quantity: currentQuantity - 1,
+      },
+    ]
+
+    try {
+      const res = await client.checkout.updateLineItems(
+        checkoutID,
+        lineItemsToUpdate
+      )
+      setCheckout(res)
+
+      const itemIsInCart = cart.find(
+        item => item.product.variants[0]?.shopifyId === variantId
+      )
+
+      let updatedCart = []
+      if (itemIsInCart) {
+        const newProduct = {
+          product: { ...itemIsInCart.product },
+          quantity: itemIsInCart.quantity > 1 ? itemIsInCart.quantity - 1 : 1,
+        }
+        const otherItems = cart.filter(
+          item => item.product.variants[0]?.shopifyId !== variantId
+        )
+        updatedCart = [...otherItems, newProduct]
+      } else {
+        return
+      }
+      setCart(updatedCart)
+      setLoading(false)
+    } catch (error) {
+      setLoading(false)
+      console.error(`Error in lowerCartItemQuatinty: ${error}`)
+    }
+  }
+
+  const addCartItemQuantity = async variantId => {
+    setLoading(true)
+
+    if (checkout.id === "") {
+      console.error("No checkout ID assigned.")
+      return
+    }
+
+    const checkoutID = checkout.id
+    let lineItemID = ""
+    let currentQuantity = ""
+    checkout.lineItems?.forEach(item => {
+      if (item.variant.id === variantId) {
+        lineItemID = item.id
+        currentQuantity = item.quantity
+      }
+    })
+
+    if (!lineItemID) {
+      console.log("Product not in cart")
+      return
+    }
+
+    const lineItemsToUpdate = [
+      {
+        id: lineItemID,
+        quantity: currentQuantity + 1,
+      },
+    ]
+
+    try {
+      const res = await client.checkout.updateLineItems(
+        checkoutID,
+        lineItemsToUpdate
+      )
+      setCheckout(res)
+
+      const itemIsInCart = cart.find(
+        item => item.product.variants[0]?.shopifyId === variantId
+      )
+
+      let updatedCart = []
+      if (itemIsInCart) {
+        const newProduct = {
+          product: { ...itemIsInCart.product },
+          quantity: itemIsInCart.quantity + 1,
+        }
+        const otherItems = cart.filter(
+          item => item.product.variants[0]?.shopifyId !== variantId
+        )
+        updatedCart = [...otherItems, newProduct]
+      } else {
+        return
+      }
+      setCart(updatedCart)
+      setLoading(false)
+    } catch (error) {
+      setLoading(false)
+      console.error(`Error in lowerCartItemQuatinty: ${error}`)
+    }
+  }
+
   const removeLineItem = async variantId => {
     setLoading(true)
     try {
@@ -131,7 +271,7 @@ export const StoreProvider = ({ children }) => {
 
       let lineItemID = ""
       checkout.lineItems?.forEach(item => {
-        if (item.variableValues.lineItems[0]?.variantId === variantId) {
+        if (item.variant.id === variantId) {
           lineItemID = item.id
         }
       })
@@ -163,6 +303,8 @@ export const StoreProvider = ({ children }) => {
         ...defaultValues,
         addVariantToCart,
         removeLineItem,
+        lowerCartItemQuantity,
+        addCartItemQuantity,
         cart,
         checkout,
         loading,

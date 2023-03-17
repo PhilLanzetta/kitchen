@@ -257,7 +257,11 @@ const Header = ({
             <HiOutlineShoppingBag
               className={styles.shoppingIcon}
             ></HiOutlineShoppingBag>{" "}
-            {cart.length > 0 ? cart.length : ""}
+            {cart.length > 0
+              ? cart
+                  .map(item => item.quantity)
+                  .reduce((prev, next) => prev + next)
+              : ""}
           </button>
           {isCartOpen && (
             <Fade>

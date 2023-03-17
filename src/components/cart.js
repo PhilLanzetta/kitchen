@@ -5,7 +5,7 @@ import * as styles from "./cart.module.css"
 import { HiOutlineXMark } from "react-icons/hi2"
 
 const Cart = ({ toggleCart }) => {
-  const { cart } = useStore()
+  const { cart, checkout } = useStore()
 
   return (
     <section className={styles.container}>
@@ -15,11 +15,34 @@ const Cart = ({ toggleCart }) => {
           <HiOutlineXMark></HiOutlineXMark>
         </button>
       </article>
-      {cart.length > 0 ? (
-        cart.map((item, index) => <ProductRow key={index} item={item} />)
-      ) : (
-        <p>Your cart is empty.</p>
-      )}
+      <article>
+        {cart.length > 0 ? (
+          cart.map((item, index) => <ProductRow key={index} item={item} />)
+        ) : (
+          <p>Your cart is empty.</p>
+        )}
+      </article>
+      <article className={styles.cartSummary}>
+        <div className={styles.checkoutInfo}>
+          <div>SUBTOTAL</div>
+          <div>${checkout.subtotalPrice.amount}</div>
+        </div>
+        <div className={styles.checkoutInfo}>
+          <div>TAX</div>
+          <div>${checkout.totalTax.amount}</div>
+        </div>
+        <div className={styles.checkoutInfo}>
+          <div>TOTAL</div>
+          <div>${checkout.totalPrice.amount}</div>
+        </div>
+        <button
+          disabled={cart.length === 0}
+          onClick={() => window.open(checkout.webUrl)}
+          className={styles.checkoutBtn}
+        >
+          CHECK OUT
+        </button>
+      </article>
     </section>
   )
 }

@@ -7,10 +7,37 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  max-height: 100vh;
+  overflow-y: scroll;
 }
 
 .heading {
   display: flex;
   gap: 10px;
   align-items: center;
+}
+
+.cartSummary {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.checkoutInfo {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  border: 1px solid #000;
+  padding: 10px;
+  font-size: 0.85rem;
+}
+
+.checkoutBtn {
+  color: #fff;
+  background: #000;
+  padding: 10px;
+  border: 1px solid #000;
+  border-radius: 400px;
 }
