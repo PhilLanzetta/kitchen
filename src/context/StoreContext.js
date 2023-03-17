@@ -69,10 +69,10 @@ export const StoreProvider = ({ children }) => {
         } catch (e) {
           localStorage.setItem(localStorageKey, null)
         }
+      } else {
+        const newCheckout = await client.checkout.create()
+        setCheckoutItem(newCheckout)
       }
-
-      const newCheckout = await client.checkout.create()
-      setCheckoutItem(newCheckout)
     }
 
     initializeCheckout()
