@@ -13,6 +13,26 @@ const OnAir = () => {
 
   const Token = "c930b08be056af14c4dde3467b751e80"
 
+  const shuffleData = array => {
+    let currentIndex = array.length,
+      randomIndex
+
+    // While there remain elements to shuffle.
+    while (currentIndex !== 0) {
+      // Pick a remaining element.
+      randomIndex = Math.floor(Math.random() * currentIndex)
+      currentIndex--
+
+      // And swap it with the current element.
+      ;[array[currentIndex], array[randomIndex]] = [
+        array[randomIndex],
+        array[currentIndex],
+      ]
+    }
+
+    return array
+  }
+
   useEffect(() => {
     fetch("https://api.vimeo.com/users/4252371/albums/7035685/videos", {
       method: "GET",
@@ -22,7 +42,7 @@ const OnAir = () => {
     })
       .then(res => res.json())
       .then(result => {
-        setData(result)
+        setData(shuffleData(result.data))
         setLoading(false)
       })
   }, [])
@@ -36,7 +56,7 @@ const OnAir = () => {
   }
 
   const handleNextClick = () => {
-    if (video !== data.data.length - 1) {
+    if (video !== data.length - 1) {
       setVideo(prev => prev + 1)
     } else {
       return
@@ -49,7 +69,7 @@ const OnAir = () => {
         On Air:{" "}
         {data && (
           <p className={`${styles.mobileVideoTitle} tgn`}>
-            {data.data[video].name}
+            {data[video].name}
           </p>
         )}
       </section>
@@ -57,7 +77,7 @@ const OnAir = () => {
         {loading && <Loader></Loader>}
         {data && (
           <ReactPlayer
-            url={data.data[video].link}
+            url={data[video].link}
             className={styles.videoPlayer}
             playing={playing}
             muted={muted}
@@ -201,7 +221,7 @@ const OnAir = () => {
         <Fade>
           {data && (
             <article className={`tgn ${styles.desktopTitle}`}>
-              {data.data[video].name}
+              {data[video].name}
             </article>
           )}
         </Fade>
