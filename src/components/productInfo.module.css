@@ -168,9 +168,10 @@
   }
 
   .productDescription {
-    grid-column: 1 / -1;
+    grid-column: 1 / 10;
     padding: 10px 20px;
     border-bottom: 1px solid #000;
+    height: fit-content;
   }
 
   .supplemental {
