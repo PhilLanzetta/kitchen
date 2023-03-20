@@ -234,6 +234,10 @@
   z-index: 30;
 }
 
+.shopTagline {
+  flex-wrap: wrap;
+}
+
 .shopping {
   position: fixed;
   top: 0;
@@ -246,6 +250,17 @@
   align-items: center;
   gap: 10px;
   font-size: calc(1rem + 1vw);
+}
+
+.shopLinks {
+  display: flex;
+  gap: 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  width: 100%;
+  justify-content: space-between;
+  margin-right: 80px;
+  margin-top: 5px;
 }
 
 @media screen and (max-width: 920px) {

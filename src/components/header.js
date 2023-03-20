@@ -248,6 +248,15 @@ const Header = ({
                 </svg>
               </button>
             )}
+            {pageHeader.label === "SHOP:" && (
+              <article className={styles.shopLinks}>
+                <Link to="/shop/artist-editions">Artist Editions</Link>
+                <Link to="/shop/posters">Posters</Link>
+                <Link to="/shop/music">Music</Link>
+                <Link to="/shop/apparel">Apparel</Link>
+                <Link to="/shop/books">Books</Link>
+              </article>
+            )}
           </div>
         </Fade>
       )}
