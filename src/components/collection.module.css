@@ -1,0 +1,38 @@
+.productContainer {
+  padding-top: 80px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.productCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 33.3vw;
+  height: calc(33.3vw * 1.5);
+  justify-content: flex-end;
+}
+
+.image {
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.productInfoContainer {
+  position: relative;
+  z-index: 10;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.productInfo {
+ font-size: calc(0.75rem + 1vw);
+ font-weight: 700;
+}
+
+.productInfo span {
+ color: #fff;
+ background: #000;
+ padding: 0 10px;
+}
