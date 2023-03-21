@@ -43,18 +43,17 @@ const Footer = ({ location }) => {
             </article>
             <article className={styles.footerPageLinks}>
               <Link to="/contact">Contact</Link>
-              <Link to="/contact">Jobs & Internships</Link>
+              <Link to="/jobs-internships">Jobs & Internships</Link>
               <Link to="/press">Press Room</Link>
-              <Link to="/contact">Accessibility</Link>
-              <Link to="/contact">Support</Link>
-              <Link to="/contact">Donate</Link>
+              <Link to="/accessibility">Accessibility</Link>
+              <Link to="/support">Support</Link>
+              <Link to="/donate">Donate</Link>
               <Link to="/contact">The Next 50</Link>
-              <Link to="/contact">FAQs</Link>
-              <Link to="/contact">Press</Link>
-              <Link to="/contact">Artist Submissions</Link>
-              <Link to="/contact">Digital Guide</Link>
-              <Link to="/contact">Privacy Policy</Link>
-              <Link to="/contact">Shipping & Returns</Link>
+              <Link to="/faqs">FAQs</Link>
+              <Link to="/artist-submissions">Artist Submissions</Link>
+              <Link to="/digital-guide">Digital Guide</Link>
+              <Link to="/privacy-policy">Privacy Policy</Link>
+              <Link to="/shipping-and-returns">Shipping & Returns</Link>
             </article>
             <article className={styles.footerFormContainer}>
               <form>
