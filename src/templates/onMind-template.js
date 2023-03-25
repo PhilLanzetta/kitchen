@@ -8,7 +8,7 @@ import ModuleContent from "../components/moduleContent"
 import OnMindArticleHeader from "../components/onMindArticleHeader"
 import TagGrid from "../components/tagGrid"
 
-const OnMindArticle = ({ data, pageContext, location }) => {
+const OnMindArticle = ({ data, location }) => {
   const { featuredImage, moduleContent, category, relatedContent } = data.contentfulOnMindArticle
   return (
     <Layout location={location}>

@@ -31,7 +31,7 @@ const VisitContact = () => {
   return (
     <section className={styles.container}>
       <h2>Contact</h2>
-      <p>{renderRichText(contact, renderOptions)}</p>
+      {renderRichText(contact, renderOptions)}
       <p>
         Phone: <a href={`tel:${phoneNumber}`}>{formattedPhone}</a>
       </p>

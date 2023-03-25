@@ -7,7 +7,7 @@ import FixedContent from "../components/fixedContent"
 import ModuleContent from "../components/moduleContent"
 import TagGrid from "../components/tagGrid"
 
-const OnViewExhibit = ({ data, pageContext, location }) => {
+const OnViewExhibit = ({ data, location }) => {
   const { heroImage, moduleContent, relatedContent } =
     data.contentfulOnViewExhibition
   return (

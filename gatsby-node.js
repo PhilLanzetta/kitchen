@@ -14,6 +14,16 @@ exports.createPages = async ({ graphql, actions }) => {
           edges {
             node {
               slug
+              artist
+              title: exhibitionTitle
+              introductionText {
+                introductionText
+              }
+              metadata {
+                tags {
+                  name
+                }
+              }
             }
           }
         }
@@ -31,6 +41,17 @@ exports.createPages = async ({ graphql, actions }) => {
             node {
               id
               slug
+              artist
+              title: videoTitle
+              introductionText {
+                introductionText
+              }
+              metadata {
+                tags {
+                  id
+                  name
+                }
+              }
             }
           }
         }
@@ -38,6 +59,11 @@ exports.createPages = async ({ graphql, actions }) => {
           edges {
             node {
               handle
+              metafields {
+                value
+                key
+              }
+              title
             }
           }
         }
@@ -45,6 +71,7 @@ exports.createPages = async ({ graphql, actions }) => {
           edges {
             node {
               handle
+              title
             }
           }
         }
@@ -52,6 +79,18 @@ exports.createPages = async ({ graphql, actions }) => {
           edges {
             node {
               slug
+              artist
+              title
+              category
+              introductionText {
+                introductionText
+              }
+              metadata {
+                tags {
+                  id
+                  name
+                }
+              }
             }
           }
         }
@@ -59,6 +98,12 @@ exports.createPages = async ({ graphql, actions }) => {
           edges {
             node {
               slug
+              title: seriesTitle
+              metadata {
+                tags {
+                  name
+                }
+              }
             }
           }
         }
@@ -66,6 +111,8 @@ exports.createPages = async ({ graphql, actions }) => {
           edges {
             node {
               slug
+              title
+              subtitle
             }
           }
         }
@@ -73,6 +120,8 @@ exports.createPages = async ({ graphql, actions }) => {
           edges {
             node {
               slug
+              title
+              headerTagline
             }
           }
         }
@@ -80,7 +129,7 @@ exports.createPages = async ({ graphql, actions }) => {
           edges {
             node {
               contentful_id
-              name
+              title: name
             }
           }
         }
@@ -88,6 +137,17 @@ exports.createPages = async ({ graphql, actions }) => {
           edges {
             node {
               slug
+              category
+              credits
+              title
+              metadata {
+                tags {
+                  name
+                }
+              }
+              introductionText {
+                introductionText
+              }
             }
           }
         }
@@ -124,8 +184,8 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`src/templates/onView-template.js`),
       context: {
         slug: node.slug,
-        prev: index === 0 ? null : events[index - 1].node,
-        next: index === events.length - 1 ? null : events[index + 1].node,
+        node: node,
+        category: "On View",
       },
     })
   })
@@ -137,11 +197,8 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`src/templates/onFile-template.js`),
       context: {
         slug: node.slug,
-        prev: index === 0 ? null : archivePosts[index - 1].node,
-        next:
-          index === archivePosts.length - 1
-            ? null
-            : archivePosts[index + 1].node,
+        node: node,
+        category: "On File",
       },
     })
   })
@@ -153,11 +210,8 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`src/templates/onMind-template.js`),
       context: {
         slug: node.slug,
-        prev: index === 0 ? null : onMindArticles[index - 1].node,
-        next:
-          index === onMindArticles.length - 1
-            ? null
-            : onMindArticles[index + 1].node,
+        node: node,
+        category: "On Mind",
       },
     })
   })
@@ -169,11 +223,8 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`src/templates/onScreen-template.js`),
       context: {
         slug: node.slug,
-        prev: index === 0 ? null : onScreenVideos[index - 1].node,
-        next:
-          index === onScreenVideos.length - 1
-            ? null
-            : onScreenVideos[index + 1].node,
+        node: node,
+        category: "On Screen",
       },
     })
   })
@@ -185,6 +236,8 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`src/templates/flexPage-template.js`),
       context: {
         slug: node.slug,
+        node: node,
+        category: "Page",
       },
     })
   })
@@ -196,7 +249,9 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`src/templates/tagPage-template.js`),
       context: {
         slug: node.contentful_id,
-        name: node.name,
+        name: node.title,
+        node: node,
+        category: "Tag",
       },
     })
   })
@@ -208,6 +263,8 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`src/templates/pressRelease-template.js`),
       context: {
         slug: node.slug,
+        node: node,
+        category: "Press",
       },
     })
   })
@@ -219,11 +276,8 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`src/templates/onScreenSeries-template.js`),
       context: {
         slug: node.slug,
-        prev: index === 0 ? null : onScreenSeries[index - 1].node,
-        next:
-          index === onScreenSeries.length - 1
-            ? null
-            : onScreenSeries[index + 1].node,
+        node: node,
+        category: "On Screen",
       },
     })
   })
@@ -235,9 +289,8 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`src/templates/shopProduct-template.js`),
       context: {
         handle: node.handle,
-        prev: index === 0 ? null : allProducts[index - 1].node,
-        next:
-          index === allProducts.length - 1 ? null : allProducts[index + 1].node,
+        node: node,
+        category: "Shop",
       },
     })
   })
@@ -248,6 +301,8 @@ exports.createPages = async ({ graphql, actions }) => {
       path: `/shop/${collectionSlug}`,
       component: path.resolve(`src/templates/shopCollection-template.js`),
       context: {
+        node: node,
+        category: "Shop",
         handle: node.handle,
       },
     })
@@ -263,6 +318,7 @@ exports.createPages = async ({ graphql, actions }) => {
       path: i === 0 ? `on-view/past/` : `on-view/past/${i + 1}`,
       component: path.resolve(`src/templates/onViewPastList-template.js`),
       context: {
+        node: { title: "On View" },
         limit: postsPerPage,
         skip: i * postsPerPage,
         numPages,
@@ -276,6 +332,9 @@ exports.createPages = async ({ graphql, actions }) => {
       path: i === 0 ? `on-screen/all/` : `on-screen/all/${i + 1}`,
       component: path.resolve(`src/templates/onScreenAll-template.js`),
       context: {
+        node: {
+          title: "On Screen",
+        },
         limit: videosPerPage,
         skip: i * videosPerPage,
         vidNumPages,
@@ -283,4 +342,207 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+}
+
+exports.onCreatePage = ({ page, actions }) => {
+  const { createPage, deletePage } = actions
+  const newPage = Object.assign({}, page)
+
+  if (page.path === "/visit/") {
+    deletePage(page)
+    newPage.context = {
+      category: "Information",
+      node: {
+        title: "Visit",
+        keywords: [
+          "subway",
+          "car",
+          "train",
+          "bike",
+          "accessibility",
+          "contact",
+          "hours",
+          "address",
+          "map",
+        ],
+      },
+    }
+
+    createPage(newPage)
+  }
+
+  if (page.path === "/about/") {
+    deletePage(page)
+    newPage.context = {
+      category: "Information",
+      node: {
+        title: "About",
+        keywords: [
+          "history",
+          "mission",
+          "timeline",
+          "land acknowledgment",
+          "values",
+          "staff",
+          "board",
+          "leadership",
+        ],
+      },
+    }
+
+    createPage(newPage)
+  }
+
+  if (page.path === "/on-file/") {
+    deletePage(page)
+    newPage.context = {
+      category: "On File",
+      node: {
+        title: "On File",
+        keywords: ["archive", "performance", "history", "artists", "past"],
+      },
+    }
+
+    createPage(newPage)
+  }
+
+  if (page.path === "/on-file/search/") {
+    deletePage(page)
+    newPage.context = {
+      category: "On File",
+      node: {
+        title: "On File Search",
+        keywords: ["archive", "performance", "history", "artists", "past"],
+      },
+    }
+
+    createPage(newPage)
+  }
+
+  if (page.path === "/calendar/") {
+    deletePage(page)
+    newPage.context = {
+      category: "Information",
+      node: {
+        title: "Calendar",
+        keywords: [
+          "events",
+          "performance",
+          "tickets",
+          "artists",
+          "past",
+          "upcoming",
+        ],
+      },
+    }
+
+    createPage(newPage)
+  }
+
+  if (page.path === "/on-mind/") {
+    deletePage(page)
+    newPage.context = {
+      category: "On Mind",
+      node: {
+        title: "On Mind",
+        keywords: [
+          "articles",
+          "on mind",
+          "news",
+          "essays",
+          "conversations",
+          "diaries",
+          "the kitchen archives",
+        ],
+      },
+    }
+
+    createPage(newPage)
+  }
+
+  if (page.path === "/on-screen/") {
+    deletePage(page)
+    newPage.context = {
+      category: "On Screen",
+      node: {
+        title: "On Screen",
+        keywords: ["on screen", "videos", "series", "watch"],
+      },
+    }
+
+    createPage(newPage)
+  }
+
+  if (page.path === "/on-view/") {
+    deletePage(page)
+    newPage.context = {
+      category: "On View",
+      node: {
+        title: "On View",
+        keywords: ["on view", "performance", "past events", "exhibit"],
+      },
+    }
+
+    createPage(newPage)
+  }
+
+  if (page.path === "/press/") {
+    deletePage(page)
+    newPage.context = {
+      category: "Information",
+      node: {
+        title: "Press Home",
+        keywords: ["press", "press releases", "hi-res images"],
+      },
+    }
+
+    createPage(newPage)
+  }
+
+  if (page.path === "/search/") {
+    deletePage(page)
+    newPage.context = {
+      category: "Information",
+      node: {
+        title: "Search Page",
+        keywords: ["search"],
+      },
+    }
+
+    createPage(newPage)
+  }
+
+  if (page.path === "/shop/") {
+    deletePage(page)
+    newPage.context = {
+      category: "Shop",
+      node: {
+        title: "Shop",
+        keywords: ["on view", "performance", "past events", "exhibit"],
+      },
+    }
+
+    createPage(newPage)
+  }
+
+  if (page.path === "/support/") {
+    deletePage(page)
+    newPage.context = {
+      category: "Information",
+      node: {
+        title: "Support",
+        keywords: [
+          "donate",
+          "membership",
+          "support",
+          "capital campaign",
+          "corporate partnerships",
+          "special events",
+          "patron programs",
+        ],
+      },
+    }
+
+    createPage(newPage)
+  }
 }

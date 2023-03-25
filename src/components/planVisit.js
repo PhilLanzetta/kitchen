@@ -44,11 +44,11 @@ const PlanVisit = () => {
             <h2>Plan Your Visit</h2>
             <article className={styles.addressHoursText}>
               <h3>Address</h3>
-              <p>{renderRichText(addressText, renderOptions)}</p>
+              {renderRichText(addressText, renderOptions)}
             </article>
             <article className={styles.addressHoursText}>
               <h3>Hours</h3>
-              <p>{renderRichText(hours, renderOptions)}</p>
+              {renderRichText(hours, renderOptions)}
             </article>
             <article className={styles.linkContainer}>
               <a

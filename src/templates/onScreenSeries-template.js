@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import OnScreenVideoGrid from "../components/onScreenVideoGrid"
 
-const OnScreenSeries = ({ data, location, pageContext }) => {
+const OnScreenSeries = ({ data, location }) => {
   const videos = data.contentfulOnScreenSeries.videosInSeries
   return (
     <Layout location={location}>

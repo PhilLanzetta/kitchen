@@ -7,7 +7,7 @@ import FixedContent from "../components/fixedContent"
 import ModuleContent from "../components/moduleContent"
 import TagGrid from "../components/tagGrid"
 
-const OnScreenVideo = ({ data, pageContext, location }) => {
+const OnScreenVideo = ({ data, location }) => {
   const { featuredImage, moduleContent, relatedContent } =
     data.contentfulOnScreenVideo
 

@@ -23,22 +23,24 @@ const OnMindFixedContent = ({ data }) => {
       </article>
       <article className={styles.exhibitInfo}>
         <section className={styles.exhibitDetails}>
-          <article>
-            <p className={styles.creditsLabel}>
-              <strong>Credits:</strong>
-            </p>
-            {credits.map(item => {
-              const text = item.split(":")
-              return (
-                <p className={styles.creditItem}>
-                  <strong className={styles.creditPrefix}>
-                    {text[1] ? `${text[0]}:` : ""}
-                  </strong>{" "}
-                  {text[1] ? text[1] : text[0]}
-                </p>
-              )
-            })}
-          </article>
+          {credits && (
+            <article>
+              <p className={styles.creditsLabel}>
+                <strong>Credits:</strong>
+              </p>
+              {credits.map(item => {
+                const text = item.split(":")
+                return (
+                  <p className={styles.creditItem}>
+                    <strong className={styles.creditPrefix}>
+                      {text[1] ? `${text[0]}:` : ""}
+                    </strong>{" "}
+                    {text[1] ? text[1] : text[0]}
+                  </p>
+                )
+              })}
+            </article>
+          )}
           {metadata?.tags && (
             <article className={styles.tagContainer}>
               {metadata.tags.map(tag => (

@@ -6,7 +6,7 @@ import ArchiveFixedContent from "../components/archiveFixedContent"
 import ModuleContent from "../components/moduleContent"
 import TagGrid from "../components/tagGrid"
 
-const OnFilePost = ({ data, pageContext, location }) => {
+const OnFilePost = ({ data, location }) => {
   const { moduleContent, relatedContent } = data.contentfulOnFileArchivePost
   return (
     <Layout location={location}>
