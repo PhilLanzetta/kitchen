@@ -318,11 +318,12 @@ exports.createPages = async ({ graphql, actions }) => {
       path: i === 0 ? `on-view/past/` : `on-view/past/${i + 1}`,
       component: path.resolve(`src/templates/onViewPastList-template.js`),
       context: {
-        node: { title: "On View" },
+        node: { title: "Past On View" },
         limit: postsPerPage,
         skip: i * postsPerPage,
         numPages,
         currentPage: i + 1,
+        category: "On View",
       },
     })
   })
@@ -333,12 +334,13 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`src/templates/onScreenAll-template.js`),
       context: {
         node: {
-          title: "On Screen",
+          title: "Past On Screen",
         },
         limit: videosPerPage,
         skip: i * videosPerPage,
         vidNumPages,
         currentPage: i + 1,
+        category: "On Screen",
       },
     })
   })

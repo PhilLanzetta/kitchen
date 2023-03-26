@@ -1,12 +1,7 @@
 import { Link } from "gatsby"
 import { default as React } from "react"
-import {
-  connectStateResults,
-  Highlight,
-  Hits,
-  Index,
-  Snippet,
-} from "react-instantsearch-dom"
+import * as styles from "./searchResult.module.css"
+import { connectStateResults, Hits, Index } from "react-instantsearch-dom"
 
 const HitCount = connectStateResults(({ searchResults }) => {
   const hitCount = searchResults && searchResults.nbHits
@@ -18,20 +13,31 @@ const HitCount = connectStateResults(({ searchResults }) => {
   ) : null
 })
 
-const PageHit = ({ hit }) => (
-  <div>
-    <Link to={hit.path}>
-      <h4>
-        <Highlight
-          attribute="pageContext.node.title"
-          hit={hit}
-          tagName="mark"
-        />
-      </h4>
-    </Link>
-    <Snippet attribute="excerpt" hit={hit} tagName="mark" />
-  </div>
-)
+const PageHit = ({ hit }) => {
+  const { node, category } = hit.pageContext
+  let categoryClass = ""
+
+  if (category === "On View") {
+    categoryClass = styles.onView
+  } else if (category === "On Screen") {
+    categoryClass = styles.onScreen
+  } else if (category === "On Mind") {
+    categoryClass = styles.onMind
+  } else if (category === "On File") {
+    categoryClass = styles.onFile
+  }
+
+  return (
+    <>
+      {hit.path !== "/" && hit.path !== "/404/" && hit.path !== "/404.html" && (
+        <Link to={hit.path} className={styles.pageHitContainer}>
+          <p>{node?.title}</p>
+          <p className={`${categoryClass}`}>{category}</p>
+        </Link>
+      )}
+    </>
+  )
+}
 
 const HitsInIndex = ({ index }) => (
   <Index indexName={index.name}>

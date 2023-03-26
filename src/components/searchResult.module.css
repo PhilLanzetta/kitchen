@@ -1,0 +1,25 @@
+.pageHitContainer {
+  display: flex;
+  border-top: 1px solid #000;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.onView {
+  text-transform: uppercase;
+  font-weight: 800;
+  font-style: italic;
+}
+
+.onScreen {
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.onFile {
+  font-family: "trade-gothic-ext", sans-serif;
+}
+
+.onMind {
+  font-family: "freight-text-pro", serif;
+}
