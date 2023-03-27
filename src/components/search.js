@@ -49,7 +49,7 @@ function EmptyQueryBoundary({ children, fallback }) {
   return children
 }
 
-export default function Search({ indices }) {
+export default function Search({ indices, initialSearch }) {
   const searchClient = useMemo(
     () =>
       algoliasearch(
@@ -61,7 +61,11 @@ export default function Search({ indices }) {
 
   return (
     <div className={styles.searchContainer}>
-      <InstantSearch searchClient={searchClient} indexName={indices[0].name}>
+      <InstantSearch
+        searchClient={searchClient}
+        indexName={indices[0].name}
+        initialUiState={{ Page: { query: initialSearch.value } }}
+      >
         <SearchBox
           placeholder="Search our Site"
           searchAsYouType={false}
@@ -69,6 +73,7 @@ export default function Search({ indices }) {
             root: styles.searchBox,
             form: styles.searchForm,
             input: styles.searchInput,
+            reset: styles.searchReset,
           }}
         />
         <EmptyQueryBoundary fallback={null}>

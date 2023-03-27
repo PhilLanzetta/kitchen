@@ -5,7 +5,10 @@ import Search from "../components/search"
 const SearchPage = ({ location }) => {
   return (
     <Layout location={location} title="Search">
-      <Search indices={[{ name: `Page`, title: `Page` }]}></Search>
+      <Search
+        indices={[{ name: `Page`, title: `Page` }]}
+        initialSearch={location.state}
+      ></Search>
     </Layout>
   )
 }

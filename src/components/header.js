@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import * as styles from "./header.module.css"
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 import Fade from "./fade"
 import { IoSearch, IoTicket } from "react-icons/io5"
 import { HiOutlineShoppingBag } from "react-icons/hi2"
@@ -102,6 +102,7 @@ const Header = ({
   }
 
   const { cart } = useStore()
+  const [searchTerm, setSearchTerm] = useState("")
 
   return (
     <header className={styles.header}>
@@ -195,13 +196,26 @@ const Header = ({
               Shop
             </Link>
           </div>
-          <Link
-            to="/search"
+          <form
             className={styles.searchLink}
-            onClick={isOpen ? toggleMenu : () => {}}
+            onSubmit={e => {
+              e.preventDefault()
+              navigate("/search", { state: { value: searchTerm } })
+            }}
           >
-            Search <IoSearch></IoSearch>
-          </Link>
+            <input
+              type="text"
+              placeholder="Search"
+              disabled={title === "Search"}
+              onChange={e => setSearchTerm(e.target.value)}
+            ></input>
+            <button
+              type="submit"
+              disabled={title === "Search" || searchTerm.length < 1}
+            >
+              <IoSearch></IoSearch>
+            </button>
+          </form>
           <Link
             to="/tickets"
             className={styles.ticketsLink}
