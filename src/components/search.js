@@ -64,7 +64,7 @@ export default function Search({ indices, initialSearch }) {
       <InstantSearch
         searchClient={searchClient}
         indexName={indices[0].name}
-        initialUiState={{ Page: { query: initialSearch.value } }}
+        initialUiState={{ Page: { query: initialSearch?.value } }}
       >
         <SearchBox
           placeholder="Search our Site"
