@@ -48,7 +48,13 @@ const Footer = ({ location }) => {
               <Link to="/accessibility">Accessibility</Link>
               <Link to="/support">Support</Link>
               <Link to="/donate">Donate</Link>
-              <Link to="/contact">The Next 50</Link>
+              <a
+                href="https://thenext50.thekitchen.org/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                The Next 50
+              </a>
               <Link to="/faqs">FAQs</Link>
               <Link to="/artist-submissions">Artist Submissions</Link>
               <Link to="/digital-guide">Digital Guide</Link>

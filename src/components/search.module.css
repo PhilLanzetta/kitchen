@@ -1,3 +1,87 @@
 .searchContainer {
-  margin-top: 200px;
+  margin-top: 80px;
+}
+
+.searchBox {
+  border: 1px solid #000;
+  width: clamp(300px, 100%, 920px);
+  margin: 20px auto;
+}
+
+.searchForm {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-right: 20px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 10px 20px;
+}
+
+.searchInput:focus {
+  outline: #000 solid 1px;
+}
+
+.paginationContainer {
+  margin: 20px;
+}
+
+.paginationList {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  width: 100%;
+  justify-content: center;
+}
+
+.paginationItem {
+  font-weight: 800;
+  font-size: 3rem;
+  color: transparent;
+  -webkit-text-stroke-color: #000;
+  -webkit-text-stroke-width: 1px;
+}
+
+.selected,
+.arrow {
+  color: #000;
+}
+
+.disabled {
+  color: #707070;
+  -webkit-text-stroke-color: #707070;
+}
+
+.noContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.noResult {
+  padding: 20px;
+}
+
+
+@media screen and (max-width: 920px) {
+  .searchContainer {
+  margin-top: 49px;
+}
+
+.searchBox {
+  height: 50px;
+  margin-bottom: 0;
+}
+
+.searchForm {
+  position: relative;
+  z-index: 1000;
+  width: 80%;
+  margin-left: 20%;
+  border-left: 1px solid #000;
+  height: 100%;
+}
 }

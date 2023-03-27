@@ -1,5 +1,6 @@
 .pageHitContainer {
   display: flex;
+  gap: 10px;
   border-top: 1px solid #000;
   justify-content: space-between;
   padding: 10px 20px;
@@ -22,4 +23,8 @@
 
 .onMind {
   font-family: "freight-text-pro", serif;
+}
+
+.title {
+  max-width: 85%;
 }

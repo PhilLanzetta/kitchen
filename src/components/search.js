@@ -1,15 +1,55 @@
 import algoliasearch from "algoliasearch/lite"
-import { createRef, default as React, useState, useMemo } from "react"
-import { InstantSearch } from "react-instantsearch-dom"
-import SearchBox from "./searchBox"
-import SearchResult from "./searchResult"
-import useClickOutside from "../utils/useClickOutside"
-import * as styles from './search.module.css'
+import { default as React, useMemo } from "react"
+import {
+  InstantSearch,
+  SearchBox,
+  Hits,
+  Pagination,
+  useInstantSearch,
+} from "react-instantsearch-hooks-web"
+import Hit from "./searchResult"
+import * as styles from "./search.module.css"
+
+function NoResultsBoundary({ children, fallback }) {
+  const { results } = useInstantSearch()
+
+  // The `__isArtificial` flag makes sure not to display the No Results message
+  // when no hits have been returned yet.
+  if (!results.__isArtificial && results.nbHits === 0) {
+    return (
+      <>
+        {fallback}
+        <div hidden>{children}</div>
+      </>
+    )
+  }
+
+  return children
+}
+
+function NoResults() {
+  const { indexUiState } = useInstantSearch()
+
+  return (
+    <div className={styles.noContainer}>
+      <p className={styles.noResult}>
+        No results for <q>{indexUiState.query}</q>.
+      </p>
+    </div>
+  )
+}
+
+function EmptyQueryBoundary({ children, fallback }) {
+  const { indexUiState } = useInstantSearch()
+
+  if (!indexUiState.query) {
+    return fallback
+  }
+
+  return children
+}
 
 export default function Search({ indices }) {
-  const rootRef = createRef()
-  const [query, setQuery] = useState()
-  const [hasFocus, setFocus] = useState(false)
   const searchClient = useMemo(
     () =>
       algoliasearch(
@@ -19,20 +59,36 @@ export default function Search({ indices }) {
     []
   )
 
-  useClickOutside(rootRef, () => setFocus(false))
-
   return (
-    <div ref={rootRef} className={styles.searchContainer}>
-      <InstantSearch
-        searchClient={searchClient}
-        indexName={indices[0].name}
-        onSearchStateChange={({ query }) => setQuery(query)}
-      >
-        <SearchBox onFocus={() => setFocus(true)} hasFocus={hasFocus} />
-        <SearchResult
-          show={query && query.length > 0 && hasFocus}
-          indices={indices}
+    <div className={styles.searchContainer}>
+      <InstantSearch searchClient={searchClient} indexName={indices[0].name}>
+        <SearchBox
+          placeholder="Search our Site"
+          searchAsYouType={false}
+          classNames={{
+            root: styles.searchBox,
+            form: styles.searchForm,
+            input: styles.searchInput,
+          }}
         />
+        <EmptyQueryBoundary fallback={null}>
+          <NoResultsBoundary fallback={<NoResults />}>
+            <Hits hitComponent={Hit} />
+          </NoResultsBoundary>
+          <Pagination
+            classNames={{
+              root: styles.paginationContainer,
+              list: styles.paginationList,
+              item: styles.paginationItem,
+              selectedItem: styles.selected,
+              firstPageItem: styles.arrow,
+              previousPageItem: styles.arrow,
+              lastPageItem: styles.arrow,
+              nextPageItem: styles.arrow,
+              disabledItem: styles.disabled,
+            }}
+          />
+        </EmptyQueryBoundary>
       </InstantSearch>
     </div>
   )

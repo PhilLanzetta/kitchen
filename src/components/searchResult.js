@@ -1,19 +1,8 @@
 import { Link } from "gatsby"
 import { default as React } from "react"
 import * as styles from "./searchResult.module.css"
-import { connectStateResults, Hits, Index } from "react-instantsearch-dom"
 
-const HitCount = connectStateResults(({ searchResults }) => {
-  const hitCount = searchResults && searchResults.nbHits
-
-  return hitCount > 0 ? (
-    <div className="HitCount">
-      {hitCount} result{hitCount !== 1 ? `s` : ``}
-    </div>
-  ) : null
-})
-
-const PageHit = ({ hit }) => {
+const Hit = ({ hit }) => {
   const { node, category } = hit.pageContext
   let categoryClass = ""
 
@@ -31,7 +20,7 @@ const PageHit = ({ hit }) => {
     <>
       {hit.path !== "/" && hit.path !== "/404/" && hit.path !== "/404.html" && (
         <Link to={hit.path} className={styles.pageHitContainer}>
-          <p>{node?.title}</p>
+          <p className={styles.title}>{node?.title}</p>
           <p className={`${categoryClass}`}>{category}</p>
         </Link>
       )}
@@ -39,19 +28,4 @@ const PageHit = ({ hit }) => {
   )
 }
 
-const HitsInIndex = ({ index }) => (
-  <Index indexName={index.name}>
-    <HitCount />
-    <Hits className="Hits" hitComponent={PageHit} />
-  </Index>
-)
-
-const SearchResult = ({ indices, className }) => (
-  <div className={className}>
-    {indices.map(index => (
-      <HitsInIndex index={index} key={index.name} />
-    ))}
-  </div>
-)
-
-export default SearchResult
+export default Hit

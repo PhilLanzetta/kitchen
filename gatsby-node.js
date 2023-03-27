@@ -237,7 +237,7 @@ exports.createPages = async ({ graphql, actions }) => {
       context: {
         slug: node.slug,
         node: node,
-        category: "Page",
+        category: "Information",
       },
     })
   })
@@ -251,7 +251,7 @@ exports.createPages = async ({ graphql, actions }) => {
         slug: node.contentful_id,
         name: node.title,
         node: node,
-        category: "Tag",
+        category: "Category",
       },
     })
   })
