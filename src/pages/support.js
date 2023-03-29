@@ -2,14 +2,19 @@ import React, { useEffect } from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SupportTile from "../components/supportTile"
+import * as styles from "../components/supportTile.module.css"
 
 const Support = ({ location, data }) => {
   const { nodes } = data.allContentfulSupportTile
   return (
     <Layout location={location} title="Support">
-      <section>
-        {nodes.map(tile => (
-          <SupportTile key={tile.id} data={tile}></SupportTile>
+      <section className={styles.pageContainer}>
+        {nodes.map((tile, index) => (
+          <SupportTile
+            headingClass={`heading${index.toString()}`}
+            key={tile.id}
+            data={tile}
+          ></SupportTile>
         ))}
       </section>
     </Layout>
