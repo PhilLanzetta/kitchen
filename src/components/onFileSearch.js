@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useRef, useLayoutEffect } from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import {
   Table,
@@ -54,6 +54,12 @@ const OnFileSearch = ({ location }) => {
     location.state?.category || false
   )
   const [yearOpen, setYearOpen] = useState(location.state?.year || false)
+
+  const searchRef = useRef()
+
+  useLayoutEffect(() => {
+    searchRef.current.focus()
+  }, [])
 
   const handleExpand = item => {
     if (ids.includes(item.id)) {
@@ -179,6 +185,7 @@ const OnFileSearch = ({ location }) => {
             className={styles.searchInput}
             value={search}
             onChange={handleSearch}
+            ref={searchRef}
           ></input>
         </label>
         <section>

@@ -240,7 +240,7 @@ const Header = ({
               </p>
             )}
             {pageHeader.label === "ON FILE:" && (
-              <button
+              <Link to="/on-file/search"
                 className={`${styles.headerSearch} ${
                   pageHeader.home ? "" : styles.noDisplay
                 }`}
@@ -260,7 +260,7 @@ const Header = ({
                     fillRule="evenodd"
                   />
                 </svg>
-              </button>
+              </Link>
             )}
             {pageHeader.label === "SHOP:" && (
               <article className={styles.shopLinks}>
