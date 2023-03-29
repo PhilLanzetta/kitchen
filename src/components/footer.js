@@ -8,21 +8,33 @@ const Footer = ({ location }) => {
       {location.pathname !== "/" && (
         <footer className="tgn">
           <section className={`${styles.socialLinkContainer} tgnHeavy`}>
-            <a href="https://www.facebook.com" rel="noreferrer" target="_blank">
+            <a
+              href="https://www.facebook.com/thekitchenNYC/"
+              rel="noreferrer"
+              target="_blank"
+            >
               Facebook
             </a>
             <a
-              href="https://www.instagram.com"
+              href="https://www.instagram.com/thekitchen_nyc/"
               rel="noreferrer"
               target="_blank"
             >
               Instagram
             </a>
-            <a href="https://www.twitter.com" rel="noreferrer" target="_blank">
+            <a
+              href="https://twitter.com/thekitchen_nyc"
+              rel="noreferrer"
+              target="_blank"
+            >
               Twitter
             </a>
-            <a href="https://www.youtube.com" rel="noreferrer" target="_blank">
-              Youtube
+            <a
+              href="https://vimeo.com/thekitchen"
+              rel="noreferrer"
+              target="_blank"
+            >
+              Vimeo
             </a>
           </section>
           <section className={styles.footerTagline}>

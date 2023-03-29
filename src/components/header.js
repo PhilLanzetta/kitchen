@@ -16,7 +16,7 @@ const pageLabels = [
   },
   {
     label: "ON SCREEN:",
-    labelTagline: "Watch and Listen",
+    labelTagline: "Stream Online Programming",
     labelClass: `tgnHeavy`,
   },
   {
@@ -143,7 +143,7 @@ const Header = ({
             className={`${styles.navPageSingleLink} tgnHeavy`}
             onClick={isOpen ? toggleMenu : () => {}}
           >
-            ON SCREEN<p>Watch and Listen</p>
+            ON SCREEN<p>Stream Online Programming</p>
           </Link>
           <Link
             to="/on-file"
