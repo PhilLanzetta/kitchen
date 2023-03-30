@@ -1,4 +1,4 @@
-import { Link } from "gatsby"
+import { Link, Script } from "gatsby"
 import React from "react"
 import * as styles from "./footer.module.css"
 
@@ -76,14 +76,10 @@ const Footer = ({ location }) => {
             <article className={styles.footerFormContainer}>
               <form>
                 JOIN OUR COMMUNITY
-                <input
-                  className={styles.emailInput}
-                  type="email"
-                  placeholder="Email Address"
-                ></input>
-                <button type="submit" className={styles.emailSubmit}>
-                  Submit
-                </button>
+                <div
+                  className="ctct-inline-form"
+                  data-form-id="19ca2047-86ba-41bd-a393-d9b54085c2ef"
+                ></div>
               </form>
             </article>
             <article className={styles.hoursLocationMobile}>
@@ -116,6 +112,13 @@ const Footer = ({ location }) => {
           <section className={styles.footerCredit}>
             Site Designed and Developed by Pacific
           </section>
+          <Script>var _ctct_m = "c856d4cf1f0033afd6454d37c7fc8431"</Script>
+          <Script
+            id="signupScript"
+            src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js"
+            async
+            defer
+          ></Script>
         </footer>
       )}
     </>

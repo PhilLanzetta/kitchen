@@ -727,3 +727,66 @@ Calendar
 .react-calendar abbr {
   text-decoration: none;
 }
+
+#gdpr_text,
+.ctct-form-footer {
+  display: none;
+}
+
+div.ctct-form-embed div.ctct-form-defaults {
+  background: transparent !important;
+  color: #fff !important;
+  font-family: "trade-gothic-next", sans-serif !important;
+  font-size: 20px !important;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 0 !important;
+}
+
+.ctct-form-element {
+  display: block;
+  background: transparent;
+  border: 1px solid #fff;
+  width: 100%;
+  font-size: 20px;
+  padding: 8px 12px;
+  color: #fff;
+}
+
+.ctct-form-button {
+  border: 1px solid #fff;
+  padding: 8px 12px;
+  text-align: left;
+  font-family: "trade-gothic-next", sans-serif;
+  font-weight: 600;
+  transition: all 400ms;
+}
+
+.ctct-form-button:hover {
+  opacity: 1;
+  color: #000;
+  background: #fff;
+  transition: all 400ms;
+}
+
+.grecaptcha-badge {
+  display: none !important;
+}
+
+.ctct-form-label {
+  font-weight: 600;
+}
+
+h2.ctct-form-header {
+  color: #fff !important;
+  font-family: "trade-gothic-next", sans-serif !important;
+}
+
+.ctct-form-text {
+  display: none !important;
+}
+
+div.ctct-form-success {
+  min-height: 50px !important;
+}
