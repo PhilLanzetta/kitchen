@@ -5,13 +5,13 @@
 }
 
 .boardContainer h2 {
-  font-size: calc(1rem + 2vw);
+  font-size: calc(1rem + 1.5vw);
   text-transform: uppercase;
   margin-bottom: 40px;
 }
 
 .boardContainer p {
-  font-size: calc(1rem + 0.5vw);
+  font-size: 1rem;
 }
 
 .listContainer {

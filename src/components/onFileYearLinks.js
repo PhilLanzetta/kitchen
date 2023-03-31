@@ -1,8 +1,41 @@
 import { Link } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
 import * as styles from "./onFileYearLinks.module.css"
 
 const OnFileYearLinks = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      allContentfulOnFileArchivePost(limit: 1000) {
+        nodes {
+          slug
+        }
+      }
+    }
+  `)
+
+  const shuffleData = array => {
+    let currentIndex = array.length,
+      randomIndex
+
+    // While there remain elements to shuffle.
+    while (currentIndex !== 0) {
+      // Pick a remaining element.
+      randomIndex = Math.floor(Math.random() * currentIndex)
+      currentIndex--
+
+      // And swap it with the current element.
+      ;[array[currentIndex], array[randomIndex]] = [
+        array[randomIndex],
+        array[currentIndex],
+      ]
+    }
+
+    return array
+  }
+
+  const randomArchive = shuffleData(data.allContentfulOnFileArchivePost.nodes)
+
   const dateRanges = [
     [1970, 1979],
     [1980, 1989],
@@ -36,8 +69,7 @@ const OnFileYearLinks = () => {
         })}
       </article>
       <Link
-        to="/on-file/search"
-        state={{ shuffle: true }}
+        to={`/on-file/${randomArchive[0].slug}`}
         className={`${styles.shuffle} ftpItalic upper`}
       >
         Shuffle

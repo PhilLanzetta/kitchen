@@ -69,8 +69,15 @@
 }
 
 .previewText {
-  font-size: 0.75rem;
   width: calc(45% - 13px);
+}
+
+.previewText p,
+.previewText h1,
+.previewText h2,
+.previewText h3 {
+  font-size: 0.75rem;
+  font-weight: normal;
 }
 
 .previewInfo {

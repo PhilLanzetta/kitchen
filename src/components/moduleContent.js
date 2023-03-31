@@ -1,7 +1,6 @@
 import React from "react"
 import ModuleCarousel from "./moduleCarousel"
 import TwoColumnImg from "./twoColumnImg"
-import ThreeColumnText from "./threeColumnText"
 import TwoColumnText from "./twoColumnText"
 import InTextImg from "./inTextImg"
 import BlockQuote from "./blockQuote"
@@ -39,13 +38,6 @@ const ModuleContent = ({ data, font, dark }) => {
               data={item}
               dark={dark}
             ></AudioFilePlayer>
-          )
-        } else if (item.threeColId) {
-          return (
-            <ThreeColumnText
-              data={item.text}
-              key={item.threeColId}
-            ></ThreeColumnText>
           )
         } else if (item.twoColTxtId) {
           return (

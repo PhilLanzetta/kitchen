@@ -1,8 +1,40 @@
-import { Link, Script } from "gatsby"
+import { Link, Script, graphql, useStaticQuery } from "gatsby"
 import React from "react"
 import * as styles from "./footer.module.css"
 
 const Footer = ({ location }) => {
+  const data = useStaticQuery(graphql`
+    query {
+      allContentfulOnFileArchivePost(limit: 1000) {
+        nodes {
+          slug
+        }
+      }
+    }
+  `)
+
+  const shuffleData = array => {
+    let currentIndex = array.length,
+      randomIndex
+
+    // While there remain elements to shuffle.
+    while (currentIndex !== 0) {
+      // Pick a remaining element.
+      randomIndex = Math.floor(Math.random() * currentIndex)
+      currentIndex--
+
+      // And swap it with the current element.
+      ;[array[currentIndex], array[randomIndex]] = [
+        array[randomIndex],
+        array[currentIndex],
+      ]
+    }
+
+    return array
+  }
+
+  const randomArchive = shuffleData(data.allContentfulOnFileArchivePost.nodes)
+
   return (
     <>
       {location.pathname !== "/" && (
@@ -93,7 +125,7 @@ const Footer = ({ location }) => {
               </section>
             </article>
             <article className={styles.footerIconContainer}>
-              <Link to="/on-file">
+              <Link to={`/on-file/${randomArchive[0].slug}`}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 268.978 228.09"

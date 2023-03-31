@@ -1,4 +1,5 @@
 import React, { useState, useRef, useLayoutEffect } from "react"
+import { marked } from "marked"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import {
   Table,
@@ -49,7 +50,6 @@ const OnFileSearch = ({ location }) => {
   const [search, setSearch] = useState("")
   const [category, setCategory] = useState(location.state?.category || "")
   const [year, setYear] = useState(location.state?.year || [])
-  const [shuffle, setShuffle] = useState(location.state?.shuffle || false)
   const [categoryOpen, setCategoryOpen] = useState(
     location.state?.category || false
   )
@@ -70,49 +70,19 @@ const OnFileSearch = ({ location }) => {
   }
 
   const handleSearch = event => {
-    setShuffle(false)
     setCategory("")
     setYear("")
     setSearch(event.target.value)
   }
 
   const handleCategoryClick = newCategory => {
-    setShuffle(false)
     setSearch("")
     category === newCategory ? setCategory("") : setCategory(newCategory)
   }
 
   const handleYearClick = newYear => {
-    setShuffle(false)
     setSearch("")
     year[0] === newYear[0] ? setYear([]) : setYear(newYear)
-  }
-
-  const shuffleData = array => {
-    let currentIndex = array.length,
-      randomIndex
-
-    // While there remain elements to shuffle.
-    while (currentIndex !== 0) {
-      // Pick a remaining element.
-      randomIndex = Math.floor(Math.random() * currentIndex)
-      currentIndex--
-
-      // And swap it with the current element.
-      ;[array[currentIndex], array[randomIndex]] = [
-        array[randomIndex],
-        array[currentIndex],
-      ]
-    }
-
-    return array
-  }
-
-  let shuffledData
-
-  if (shuffle) {
-    shuffledData = shuffleData(data.allContentfulOnFileArchivePost.nodes)
-    setShuffle(false)
   }
 
   let tableData
@@ -142,10 +112,6 @@ const OnFileSearch = ({ location }) => {
       nodes: data.allContentfulOnFileArchivePost.nodes.filter(item =>
         item.category.includes(category)
       ),
-    }
-  } else if (shuffle) {
-    tableData = {
-      nodes: shuffledData,
     }
   } else {
     tableData = {
@@ -382,8 +348,12 @@ const OnFileSearch = ({ location }) => {
               {tableList.map(item => (
                 <React.Fragment key={item.id}>
                   <Row item={item}>
-                    <Cell>{item.title}</Cell>
-                    <Cell>{item.artist}</Cell>
+                    <Cell>
+                      <Link to={`/on-file/${item.slug}`}>{item.title}</Link>
+                    </Cell>
+                    <Cell>
+                      <Link to={`/on-file/${item.slug}`}>{item.artist}</Link>
+                    </Cell>
                     <Cell>{item.category}</Cell>
                     <Cell>
                       {new Intl.DateTimeFormat("en-US", {
@@ -406,13 +376,28 @@ const OnFileSearch = ({ location }) => {
                       }}
                     >
                       <td className={styles.previewRow}>
-                        <GatsbyImage
-                          image={item.featuredImage.image.gatsbyImageData}
-                          alt={item.featuredImage.image.description}
+                        <Link
+                          to={`/on-file/${item.slug}`}
                           className={styles.previewImg}
-                        ></GatsbyImage>
-                        {item.introductionText && (
-                          <article className={styles.previewText}></article>
+                        >
+                          <GatsbyImage
+                            image={item.featuredImage.image.gatsbyImageData}
+                            alt={item.featuredImage.image.description}
+                          ></GatsbyImage>
+                        </Link>
+                        {item.introductionText ? (
+                          <article
+                            className={styles.previewText}
+                            dangerouslySetInnerHTML={{
+                              __html: marked.parse(
+                                item.introductionText.introductionText
+                              ),
+                            }}
+                          ></article>
+                        ) : (
+                          <article className={styles.previewText}>
+                            <p>No Preview Text Available</p>
+                          </article>
                         )}
                         <article className={styles.previewInfo}>
                           <p>

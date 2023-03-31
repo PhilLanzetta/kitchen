@@ -14,21 +14,17 @@ const About = ({ location, data }) => {
   return (
     <Layout location={location}>
       <section className="about-page">
-        <TextBox
-          heading="Mission & Values"
-          text={missionValues.missionValues}
-        ></TextBox>
-        <TextBox heading="History" text={history.history}></TextBox>
+        <TextBox text={missionValues.missionValues}></TextBox>
+        <TextBox text={history.history}></TextBox>
         <Timeline data={timeline}></Timeline>
-        <TextBox
-          heading="Land Acknowledgment"
-          text={landAcknowledgment.landAcknowledgment}
-        ></TextBox>
+        <TextBox text={landAcknowledgment.landAcknowledgment}></TextBox>
         <Team></Team>
         <Board></Board>
         <VisitContact></VisitContact>
-        <VisitLink text="Jobs + Internships" slug="/jobs/"></VisitLink>
-        <VisitLink text="Visit" slug="/visit/"></VisitLink>
+        <div style={{ display: "flex" }}>
+          <VisitLink text="Jobs + Internships" slug="/jobs/"></VisitLink>
+          <VisitLink text="Visit" slug="/visit/"></VisitLink>
+        </div>
       </section>
     </Layout>
   )

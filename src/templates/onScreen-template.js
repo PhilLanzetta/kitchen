@@ -137,12 +137,6 @@ export const query = graphql`
           videoCredit
           videoId
         }
-        ... on ContentfulThreeColumnText {
-          threeColId: id
-          text {
-            text
-          }
-        }
         ... on ContentfulTwoColumnImage {
           twoColumnId: id
           images {
