@@ -11,6 +11,10 @@
   margin-bottom: 1rem;
 }
 
+.textBox p {
+  margin-bottom: 20px;
+}
+
 @media screen and (max-width: 720px) {
   .textBox {
     margin: 0;
