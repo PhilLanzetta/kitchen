@@ -1,3 +1,7 @@
+.previewContainer {
+  scroll-behavior: smooth;
+}
+
 .onMindBanner {
   text-align: center;
   font-size: 22vw;

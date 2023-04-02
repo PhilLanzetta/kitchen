@@ -28,11 +28,11 @@ const OnFilePreview = ({ data }) => {
   )
   return (
     <article className={styles.container}>
-      <GatsbyImage
-        image={featuredImage.image.gatsbyImageData}
-        alt={featuredImage.image.description}
-      ></GatsbyImage>
       <Link to={`/on-file/${slug}`}>
+        <GatsbyImage
+          image={featuredImage.image.gatsbyImageData}
+          alt={featuredImage.image.description}
+        ></GatsbyImage>
         <p className={styles.dates}>
           {start} - {end}
         </p>

@@ -53,7 +53,8 @@ const OnMindHome = ({ location }) => {
   // State for the list
   const [list, setList] = useState([...allData.slice(0, 7)])
 
-  const scrollToTop = () => headerRef.current.scrollIntoView()
+  const scrollToTop = () =>
+    headerRef.current.scrollIntoView({ behavior: "smooth" })
 
   // Handle change in category
   const handleCategoryClick = newCategory => {
@@ -115,6 +116,14 @@ const OnMindHome = ({ location }) => {
     }
   }
 
+  const handleScrollToTop = () => {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    })
+  }
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true })
 
@@ -125,11 +134,7 @@ const OnMindHome = ({ location }) => {
 
   return (
     <section className="ftp">
-      <h1
-        className={`${styles.onMindBanner} ftpBold upper`}
-        ref={headerRef}
-        id="top"
-      >
+      <h1 className={`${styles.onMindBanner} ftpBold upper`} ref={headerRef}>
         On Mind
       </h1>
       <div className={`${fixed ? styles.fixedDiv : ""}`}></div>
@@ -211,7 +216,7 @@ const OnMindHome = ({ location }) => {
               <p className={styles.excerpt}>{post.previewTextExcerpt}</p>
               <aside className={styles.creditTagContainer}>
                 <div>
-                  {post.credits.map((credit, index) => (
+                  {post.credits?.map((credit, index) => (
                     <p className={styles.credit} key={index}>
                       {credit}
                     </p>
@@ -233,9 +238,9 @@ const OnMindHome = ({ location }) => {
             Explore More
           </button>
         ) : (
-          <a href="#top" className={styles.loadMoreBtn}>
+          <button onClick={handleScrollToTop} className={styles.loadMoreBtn}>
             Back to top
-          </a>
+          </button>
         )}
       </section>
     </section>

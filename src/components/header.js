@@ -8,49 +8,61 @@ import Cart from "./cart"
 import useStore from "../context/StoreContext"
 
 const pageLabels = [
-  { label: "On Air", labelClass: `${styles.onAirTagline} tgnHeavyItalic` },
+  {
+    label: "On Air",
+    labelClass: `${styles.onAirTagline} tgnHeavyItalic`,
+    slug: "/",
+  },
   {
     label: "ON VIEW:",
     labelTagline: "See What's Happening at The Kitchen",
     labelClass: `tgnHeavyItalic`,
+    slug: "/on-view",
   },
   {
     label: "ON SCREEN:",
     labelTagline: "Stream Online Programming",
     labelClass: `tgnHeavy`,
+    slug: "/on-screen",
   },
   {
     label: "ON FILE:",
     labelTagline: "Explore Our Archive",
     labelClass: `${styles.onFileHeader} tge`,
-    home: true,
+    searchPage: true,
+    slug: "/on-file",
   },
   {
     label: "ON FILE:",
     labelTagline: "Explore Our Archive",
     labelClass: `${styles.onFileHeader} tge`,
-    home: false,
+    searchPage: false,
+    slug: "/on-file",
   },
   {
     label: "ON MIND:",
     labelTagline: "Read Our Magazine",
     labelClass: `${styles.onMindHeader} ftpBold`,
+    slug: "/on-mind",
   },
   {
     label: "Visit",
     labelTagline: "",
     labelClass: `tgn`,
+    slug: "/visit",
   },
   {
     label: "About:",
     labelTagline:
       "Mission & Values, History & Timeline, Land Acknowledgement, Team, Board,  Contact",
     labelClass: `tgn ${styles.aboutTagline}`,
+    slug: "/about",
   },
   {
     label: "SHOP:",
     labelTagline: "Support the Future of the Avant Garde",
     labelClass: `tgn ${styles.shopTagline}`,
+    slug: "/shop",
   },
 ]
 
@@ -77,7 +89,7 @@ const Header = ({
     pageHeader = pageLabels[1]
   } else if (location.pathname.includes("/on-screen/")) {
     pageHeader = pageLabels[2]
-  } else if (location.pathname === "/on-file/") {
+  } else if (location.pathname === "/on-file/search/") {
     pageHeader = pageLabels[3]
   } else if (location.pathname.includes("/on-file/")) {
     pageHeader = pageLabels[4]
@@ -95,6 +107,7 @@ const Header = ({
         label: `${title}${tagline ? ":" : ""}`,
         labelTagline: tagline,
         labelClass: "tgn",
+        slug: `/${title}/`,
       }
     } else {
       pageHeader = null
@@ -228,10 +241,10 @@ const Header = ({
       {pageHeader && (
         <Fade>
           <div className={`${pageHeader.labelClass} ${styles.headerTagline}`}>
-            <div>
+            <Link to={pageHeader.slug}>
               {pageHeader.label}{" "}
               <span className="tgn">{pageHeader.labelTagline}</span>
-            </div>
+            </Link>
             {pageHeader.label === "ON MIND:" && (
               <p className={`${styles.headerDate} ftpItalic`}>
                 {new Intl.DateTimeFormat("en-US", dateOptions).format(
@@ -240,9 +253,10 @@ const Header = ({
               </p>
             )}
             {pageHeader.label === "ON FILE:" && (
-              <Link to="/on-file/search"
+              <Link
+                to="/on-file/search"
                 className={`${styles.headerSearch} ${
-                  pageHeader.home ? "" : styles.noDisplay
+                  pageHeader.searchPage ? styles.noDisplay : ""
                 }`}
               >
                 Search our Archive

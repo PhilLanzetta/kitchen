@@ -4,6 +4,7 @@
   border-top: 1px solid #000;
   justify-content: space-between;
   padding: 10px 20px;
+  transition: all 400ms;
 }
 
 .onView {
@@ -27,4 +28,11 @@
 
 .title {
   max-width: 85%;
+}
+
+.pageHitContainer:hover {
+  opacity: 1;
+  color: #fff;
+  background: #000;
+  transition: all 400ms;
 }

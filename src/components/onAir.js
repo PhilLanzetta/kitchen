@@ -34,7 +34,7 @@ const OnAir = () => {
   }
 
   useEffect(() => {
-    fetch("https://api.vimeo.com/users/4252371/albums/7035685/videos", {
+    fetch("https://api.vimeo.com/users/4252371/albums/10302071/videos", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${Token}`,
@@ -68,9 +68,7 @@ const OnAir = () => {
       <section className={`${styles.mobileHeading} tgnHeavyItalic`}>
         On Air:{" "}
         {data && (
-          <p className={`${styles.mobileVideoTitle} tgn`}>
-            {data[video].name}
-          </p>
+          <p className={`${styles.mobileVideoTitle} tgn`}>{data[video].name}</p>
         )}
       </section>
       <section className={styles.videoPlayerWrapper}>

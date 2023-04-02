@@ -1,5 +1,5 @@
 figcaption {
-  font-size: 12px;
+  font-size: 0.5rem;
   padding: 10px 20px;
 }
 
@@ -22,11 +22,7 @@ figcaption {
   }
 
   figcaption {
-    position: absolute;
     padding: 10px 20px;
-    margin-top: -40px;
-    color: #fff;
-    mix-blend-mode: difference;
   }
 }
 

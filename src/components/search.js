@@ -81,6 +81,10 @@ export default function Search({ indices, initialSearch }) {
             <Hits hitComponent={Hit} />
           </NoResultsBoundary>
           <Pagination
+            showFirst={false}
+            showLast={false}
+            showNext={false}
+            showPrevious={false}
             classNames={{
               root: styles.paginationContainer,
               list: styles.paginationList,

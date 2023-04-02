@@ -22,7 +22,10 @@ const About = ({ location, data }) => {
         <Board></Board>
         <VisitContact></VisitContact>
         <div style={{ display: "flex" }}>
-          <VisitLink text="Jobs + Internships" slug="/jobs/"></VisitLink>
+          <VisitLink
+            text="Jobs + Internships"
+            slug="/jobs-internships/"
+          ></VisitLink>
           <VisitLink text="Visit" slug="/visit/"></VisitLink>
         </div>
       </section>

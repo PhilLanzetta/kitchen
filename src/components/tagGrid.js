@@ -56,11 +56,11 @@ const TagGrid = ({ data, related, dark }) => {
                 key={node.id}
                 className={related ? styles.relatedItem : styles.item}
               >
-                <GatsbyImage
-                  image={node.featuredImage.image.gatsbyImageData}
-                  alt={node.featuredImage.image.description}
-                ></GatsbyImage>
                 <Link to={category.slug}>
+                  <GatsbyImage
+                    image={node.featuredImage.image.gatsbyImageData}
+                    alt={node.featuredImage.image.description}
+                  ></GatsbyImage>
                   <section>
                     <article className={styles.info}>
                       <div>
