@@ -63,13 +63,20 @@
   gap: 20px;
 }
 
+.previewImgText {
+  width: calc(75% - 30px);
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
 .previewImg {
-  width: calc(30% - 13px);
+  width: 40%;
   aspect-ratio: 1.5 / 1;
 }
 
 .previewText {
-  width: calc(45% - 13px);
+  width: 60%;
 }
 
 .previewText p,
@@ -164,32 +171,33 @@
     transition: all 400ms;
   }
 
-  .previewImg {
-    width: calc(20% - 6px);
-    aspect-ratio: 1.5 / 1;
-  }
-
   .previewText {
     font-size: 0.75rem;
-    width: calc(40% - 7px);
   }
 
   .previewInfo {
-    width: calc(40% - 7px);
-  }
-
-  .previewRow {
-    gap: 10px;
+    width: calc(40% - 15px);
   }
 
   .yearButtons button {
     font-size: 0.75rem;
   }
+
+  .previewImgText {
+    width: calc(60% - 10px);
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .previewImg,
+  .previewText {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 600px) {
   .inputsContainer {
-    padding-top: 100px;
+    padding-top: 120px;
   }
 }
 

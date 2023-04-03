@@ -40,7 +40,9 @@ export const query = graphql`
     contentfulOnMindArticle(slug: { eq: $slug }) {
       articleDate
       category
-      credits
+      credits {
+        credits
+      }
       featuredImage {
         creditText
         image {

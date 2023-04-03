@@ -28,17 +28,11 @@ const OnMindFixedContent = ({ data }) => {
               <p className={styles.creditsLabel}>
                 <strong>Credits:</strong>
               </p>
-              {credits.map(item => {
-                const text = item.split(":")
-                return (
-                  <p className={styles.creditItem}>
-                    <strong className={styles.creditPrefix}>
-                      {text[1] ? `${text[0]}:` : ""}
-                    </strong>{" "}
-                    {text[1] ? text[1] : text[0]}
-                  </p>
-                )
-              })}
+              <div className={styles.credits}
+                dangerouslySetInnerHTML={{
+                  __html: marked.parse(credits.credits),
+                }}
+              ></div>
             </article>
           )}
           {metadata?.tags && (

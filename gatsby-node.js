@@ -138,7 +138,9 @@ exports.createPages = async ({ graphql, actions }) => {
             node {
               slug
               category
-              credits
+              credits {
+                credits
+              }
               title
               metadata {
                 tags {

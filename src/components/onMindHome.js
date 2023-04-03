@@ -4,6 +4,7 @@ import * as styles from "./onMindHome.module.css"
 import { GatsbyImage } from "gatsby-plugin-image"
 import TagLink from "./tagLink"
 import useWindowSize from "../utils/useWindowSize"
+import { marked } from "marked"
 
 const OnMindHome = ({ location }) => {
   const data = useStaticQuery(graphql`
@@ -12,7 +13,9 @@ const OnMindHome = ({ location }) => {
         nodes {
           articleDate
           category
-          credits
+          credits {
+            credits
+          }
           backgroundColor
           featuredImage {
             creditText
@@ -193,11 +196,13 @@ const OnMindHome = ({ location }) => {
       >
         {list.map(post => (
           <article key={post.id}>
-            <GatsbyImage
-              image={post.featuredImage.image.gatsbyImageData}
-              alt={post.featuredImage.image.description}
-              className={styles.previewImg}
-            ></GatsbyImage>
+            <Link to={`/on-mind/${post.slug}`}>
+              <GatsbyImage
+                image={post.featuredImage.image.gatsbyImageData}
+                alt={post.featuredImage.image.description}
+                className={styles.previewImg}
+              ></GatsbyImage>
+            </Link>
             <div
               className={styles.background}
               style={{ background: `#${post.backgroundColor}` }}
@@ -215,13 +220,13 @@ const OnMindHome = ({ location }) => {
               </Link>
               <p className={styles.excerpt}>{post.previewTextExcerpt}</p>
               <aside className={styles.creditTagContainer}>
-                <div>
-                  {post.credits?.map((credit, index) => (
-                    <p className={styles.credit} key={index}>
-                      {credit}
-                    </p>
-                  ))}
-                </div>
+                {post.credits && (
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: marked.parse(post.credits.credits),
+                    }}
+                  ></div>
+                )}
                 <div className={styles.tagContainer}>
                   {post.metadata.tags.map(tag => (
                     <TagLink tag={tag} key={tag.id} light></TagLink>

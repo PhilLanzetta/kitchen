@@ -376,29 +376,28 @@ const OnFileSearch = ({ location }) => {
                       }}
                     >
                       <td className={styles.previewRow}>
-                        <Link
-                          to={`/on-file/${item.slug}`}
-                          className={styles.previewImg}
-                        >
+                        <Link to={`/on-file/${item.slug}`} className={styles.previewImgText}>
                           <GatsbyImage
                             image={item.featuredImage.image.gatsbyImageData}
                             alt={item.featuredImage.image.description}
+                            className={styles.previewImg}
                           ></GatsbyImage>
+
+                          {item.introductionText ? (
+                            <article
+                              className={styles.previewText}
+                              dangerouslySetInnerHTML={{
+                                __html: marked.parse(
+                                  item.introductionText.introductionText
+                                ),
+                              }}
+                            ></article>
+                          ) : (
+                            <article className={styles.previewText}>
+                              <p>No Preview Text Available</p>
+                            </article>
+                          )}
                         </Link>
-                        {item.introductionText ? (
-                          <article
-                            className={styles.previewText}
-                            dangerouslySetInnerHTML={{
-                              __html: marked.parse(
-                                item.introductionText.introductionText
-                              ),
-                            }}
-                          ></article>
-                        ) : (
-                          <article className={styles.previewText}>
-                            <p>No Preview Text Available</p>
-                          </article>
-                        )}
                         <article className={styles.previewInfo}>
                           <p>
                             <strong>Artist(s):</strong> {item.artist}
