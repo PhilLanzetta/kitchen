@@ -1,5 +1,5 @@
 .productContainer {
-  padding-top: 50px;
+  padding-top: 80px;
 }
 
 .productInfo {
@@ -103,7 +103,7 @@
 
 @media screen and (max-width: 920px) {
   .productContainer {
-    padding-top: 100px;
+    padding-top: 160px;
   }
 
   .productInfo {
@@ -171,7 +171,7 @@
     grid-column: 1 / 10;
     padding: 10px 20px;
     border-bottom: 1px solid #000;
-    height: fit-content;
+    min-height: 300px;
   }
 
   .supplemental {
