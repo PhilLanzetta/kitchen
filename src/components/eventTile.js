@@ -5,9 +5,21 @@ import * as styles from "./eventTile.module.css"
 import TagLink from "./tagLink"
 
 const EventTile = ({ event, size }) => {
-  const dateOptions = {
-    month: "short",
-    day: "numeric",
+  let dateOptions
+  if (
+    new Date(event.startDate).getFullYear() !==
+    new Date(event.endDate).getFullYear()
+  ) {
+    dateOptions = {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    }
+  } else {
+    dateOptions = {
+      month: "short",
+      day: "numeric",
+    }
   }
 
   const startDate = new Intl.DateTimeFormat("en-US", dateOptions).format(
