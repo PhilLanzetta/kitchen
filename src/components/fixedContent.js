@@ -26,13 +26,28 @@ const FixedContent = ({ data }) => {
     day: "numeric",
   }
 
+  const fullDateOptions = {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  }
+
   const exhibitStart = new Intl.DateTimeFormat("en-US", dateOptions).format(
     new Date(startDate)
   )
 
-  const exhibitEnd = new Intl.DateTimeFormat("en-US", dateOptions).format(
-    new Date(endDate)
-  )
+  let exhibitEnd
+
+  if (new Date().getFullYear() > new Date(endDate).getFullYear()) {
+    exhibitEnd = new Intl.DateTimeFormat("en-US", fullDateOptions).format(
+      new Date(endDate)
+    )
+  } else {
+    exhibitEnd = new Intl.DateTimeFormat("en-US", dateOptions).format(
+      new Date(endDate)
+    )
+  }
+
   return (
     <section className={styles.fixedSection}>
       <article className={styles.heading}>
@@ -45,7 +60,10 @@ const FixedContent = ({ data }) => {
         <section className={styles.exhibitDetails}>
           <article>
             <p className="tgnBold upper">
-              On View: {exhibitStart}-{exhibitEnd}
+              On View:{" "}
+              {startDate === endDate
+                ? exhibitStart
+                : `${exhibitStart}-${exhibitEnd}`}
             </p>
             <p>{exhibitionLocation || onViewLocation}</p>
           </article>
