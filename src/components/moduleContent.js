@@ -12,7 +12,7 @@ import SingleColText from "./singleColText"
 const ModuleContent = ({ data, font, dark }) => {
   return (
     <section className={`${font ? font : ""}`}>
-      {data.map(item => {
+      {data?.map(item => {
         if (item.carouselId) {
           return (
             <ModuleCarousel
