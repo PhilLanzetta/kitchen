@@ -32,9 +32,8 @@ if (process.env.CONTEXT === "production") {
 module.exports = {
   siteMetadata: {
     title: `The Kitchen`,
-    description: `This is the preview branch of our main repository`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    description: `The Kitchen is one of New York City’s oldest nonprofit spaces, showing innovative work by emerging and established artists across disciplines. Our programs range from dance, music, performance, and theater, to video, film, and art, in addition to literary events, artists’ talks, and lecture series. Since its inception, The Kitchen has been a powerful force in shaping the cultural landscape of this country, and has helped launch the careers of many artists who have gone on to worldwide prominence.`,
+    siteUrl: `https://thekitchen.org`,
   },
   plugins: [
     `gatsby-plugin-image`,
