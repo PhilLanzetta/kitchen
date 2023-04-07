@@ -32,7 +32,7 @@ if (process.env.CONTEXT === "production") {
 module.exports = {
   siteMetadata: {
     title: `The Kitchen`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    description: `This is the preview branch of our main repository`,
     author: `@gatsbyjs`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
