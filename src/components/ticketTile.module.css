@@ -1,0 +1,49 @@
+.container {
+  padding: 20px;
+  color: #fff;
+  background: #000;
+  width: calc(33.3% - 13px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid #000;
+  transition: all 400ms;
+}
+
+.container:hover {
+  opacity: 1;
+  color: #000;
+  background: #fff;
+  transition: all 400ms;
+}
+
+.container:disabled {
+ background: rgba(0,0,0,0.8);
+}
+
+.dateAndTime {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.dateAndTime h2 {
+  font-size: calc(1rem + 1vw);
+}
+
+.cta {
+  text-align: center;
+  font-size: calc(1rem + 1vw);
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    width: calc(50% - 10px);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: 100%;
+  }
+}

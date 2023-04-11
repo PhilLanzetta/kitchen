@@ -1,0 +1,15 @@
+.pageContainer {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  padding-top: 80px;
+  gap: 20px;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+@media screen and (max-width: 920px) {
+  .pageContainer {
+    padding-top: 120px;
+  }
+}
