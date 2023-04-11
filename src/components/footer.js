@@ -101,6 +101,7 @@ const Footer = ({ location }) => {
               </a>
               <Link to="/faqs">FAQs</Link>
               <Link to="/artist-submissions">Artist Submissions</Link>
+              <Link to="/space-rental">Space Rental</Link>
               <Link to="/digital-guide">Digital Guide</Link>
               <Link to="/privacy-policy">Privacy Policy</Link>
               <Link to="/shipping-and-returns">Shipping & Returns</Link>
