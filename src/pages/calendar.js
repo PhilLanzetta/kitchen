@@ -78,7 +78,7 @@ const Calendar = ({ location, data }) => {
                       new Date(day)
                     )}
                   </h3>
-                  {data.allContentfulOnViewExhibition.nodes.map(node => {
+                  {data.allContentfulOnView.nodes.map(node => {
                     const eventDateRange = getDatesBetween(
                       node.startDate,
                       node.endDate
@@ -176,7 +176,7 @@ export const query = graphql`
         slug
       }
     }
-    allContentfulOnViewExhibition(sort: { endDate: ASC }) {
+    allContentfulOnView(sort: { endDate: ASC }) {
       nodes {
         artist
         endDate

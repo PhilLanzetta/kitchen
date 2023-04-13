@@ -10,7 +10,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const result = await graphql(
     `
       query GetData {
-        allContentfulOnViewExhibition(sort: { startDate: ASC }) {
+        allContentfulOnView(sort: { startDate: ASC }) {
           edges {
             node {
               slug
@@ -27,7 +27,7 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
-        passedOnView: allContentfulOnViewExhibition(
+        passedOnView: allContentfulOnView(
           filter: { hasEnded: { eq: true } }
         ) {
           edges {
@@ -157,7 +157,7 @@ exports.createPages = async ({ graphql, actions }) => {
     `
   )
 
-  const events = result.data.allContentfulOnViewExhibition.edges
+  const events = result.data.allContentfulOnView.edges
 
   const pastEvents = result.data.passedOnView.edges
 

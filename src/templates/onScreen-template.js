@@ -217,7 +217,7 @@ export const query = graphql`
           onScreenSlug: slug
           videoTitle
         }
-        ... on ContentfulOnViewExhibition {
+        ... on ContentfulOnView {
           id
           artist
           exhibitionTitle

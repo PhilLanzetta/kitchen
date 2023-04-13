@@ -27,7 +27,7 @@ const TagPage = ({ data, pageContext, location }) => {
     data.allContentfulOnFileArchivePost.nodes.concat(
       data.allContentfulOnMindArticle.nodes.concat(
         data.allContentfulOnScreenVideo.nodes.concat(
-          data.allContentfulOnViewExhibition.nodes
+          data.allContentfulOnView.nodes
         )
       )
     )
@@ -122,7 +122,7 @@ export const query = graphql`
         videoTitle
       }
     }
-    allContentfulOnViewExhibition(
+    allContentfulOnView(
       filter: {
         metadata: { tags: { elemMatch: { contentful_id: { eq: $slug } } } }
       }

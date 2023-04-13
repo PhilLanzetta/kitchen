@@ -4,7 +4,6 @@ import { HiArrowUpRight } from "react-icons/hi2"
 import * as styles from "./flexLinkBox.module.css"
 
 const FlexLinkBox = ({ data }) => {
-  console.log(data)
   return (
     <>
       {data.internalLink ? (

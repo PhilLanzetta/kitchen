@@ -6,7 +6,7 @@ import OnViewHero from "../components/onViewHero"
 import Pagination from "../components/pagination"
 
 const OnViewPastList = ({ data, location, pageContext }) => {
-  const exhibits = data.allContentfulOnViewExhibition.edges
+  const exhibits = data.allContentfulOnView.edges
   return (
     <Layout location={location}>
       <OnViewHero exhibits={exhibits} width="oneThird"></OnViewHero>
@@ -17,7 +17,7 @@ const OnViewPastList = ({ data, location, pageContext }) => {
 
 export const query = graphql`
   query getPastExhibits($skip: Int!, $limit: Int!) {
-    allContentfulOnViewExhibition(
+    allContentfulOnView(
       filter: { hasEnded: { eq: true } }
       sort: { endDate: DESC }
       limit: $limit

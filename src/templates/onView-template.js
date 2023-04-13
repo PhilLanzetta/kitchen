@@ -9,11 +9,11 @@ import TagGrid from "../components/tagGrid"
 
 const OnViewExhibit = ({ data, location }) => {
   const { heroImage, moduleContent, relatedContent } =
-    data.contentfulOnViewExhibition
+    data.contentfulOnView
   return (
     <Layout location={location}>
       <HeroImage image={heroImage}></HeroImage>
-      <FixedContent data={data.contentfulOnViewExhibition}></FixedContent>
+      <FixedContent data={data.contentfulOnView}></FixedContent>
       {moduleContent && <ModuleContent data={moduleContent}></ModuleContent>}
       {relatedContent && (
         <section style={{ margin: "20px 0px" }}>
@@ -34,7 +34,7 @@ const OnViewExhibit = ({ data, location }) => {
 
 export const query = graphql`
   query getSingleExhibit($slug: String) {
-    contentfulOnViewExhibition(slug: { eq: $slug }) {
+    contentfulOnView(slug: { eq: $slug }) {
       id
       artist
       exhibitionTitle
@@ -211,7 +211,7 @@ export const query = graphql`
           onScreenSlug: slug
           videoTitle
         }
-        ... on ContentfulOnViewExhibition {
+        ... on ContentfulOnView {
           id
           artist
           exhibitionTitle
