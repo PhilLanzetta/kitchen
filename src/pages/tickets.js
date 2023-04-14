@@ -8,7 +8,9 @@ import FlexLinkBox from "../components/flexLinkBox"
 const Tickets = ({ location, data }) => {
   const [events, setEvents] = useState(null)
   const [loading, setLoading] = useState(true)
-  const [production, setProduction] = useState(null)
+  const [production, setProduction] = useState(
+    location.state?.production || null
+  )
   const [productionDate, setProductionDate] = useState(null)
   const [time, setTime] = useState(null)
 
@@ -31,7 +33,7 @@ const Tickets = ({ location, data }) => {
     ]
   }
 
-  if (production) {
+  if (production && events) {
     const performanceDates = events.performances.filter(
       performance => performance.productionId.toString() === production
     )

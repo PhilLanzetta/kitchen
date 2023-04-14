@@ -8,8 +8,7 @@ import ModuleContent from "../components/moduleContent"
 import TagGrid from "../components/tagGrid"
 
 const OnViewExhibit = ({ data, location }) => {
-  const { heroImage, moduleContent, relatedContent } =
-    data.contentfulOnView
+  const { heroImage, moduleContent, relatedContent } = data.contentfulOnView
   return (
     <Layout location={location}>
       <HeroImage image={heroImage}></HeroImage>
@@ -57,6 +56,10 @@ export const query = graphql`
           linkText
           linkUrl
           linkIcon
+        }
+        ... on ContentfulTicketsLink {
+          tixId: id
+          productionId
         }
       }
       introductionText {
