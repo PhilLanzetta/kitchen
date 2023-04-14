@@ -2,19 +2,15 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import OnScreenCarousel from "../components/onScreenCarousel"
-import useWindowSize from "../utils/useWindowSize"
 import Seo from "../components/seo"
 
 const OnScreen = ({ location, data }) => {
   const featuredStreaming = data.allContentfulOnScreenVideo.nodes
   const series = data.allContentfulOnScreenSeries.nodes
-  const { width } = useWindowSize()
   return (
     <Layout location={location}>
-      <div
-        style={{ width: "100%", height: `${width > 920 ? "50px" : "100px"}` }}
-      ></div>
       <OnScreenCarousel
+        padding
         heading="Streaming Now"
         data={featuredStreaming}
       ></OnScreenCarousel>

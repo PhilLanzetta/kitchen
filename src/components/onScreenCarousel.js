@@ -6,7 +6,7 @@ import { Link } from "gatsby"
 import TagLink from "./tagLink"
 import useWindowSize from "../utils/useWindowSize"
 
-const OnScreenCarousel = ({ heading, data }) => {
+const OnScreenCarousel = ({ heading, data, padding }) => {
   const [mousePos, setMousePos] = useState(null)
   const [position, setPosition] = useState({})
   const [hover, setHover] = useState(true)
@@ -45,7 +45,7 @@ const OnScreenCarousel = ({ heading, data }) => {
   }
 
   return (
-    <div>
+    <div className={padding ? styles.padding : ''}>
       <h2 className={`${styles.heading} tgnHeavyItalic`}>{heading}</h2>
       <div
         onMouseMove={handleMouseMove}
@@ -58,7 +58,7 @@ const OnScreenCarousel = ({ heading, data }) => {
         role="presentation"
         className={styles.carouselContainer}
       >
-        <Slider ref={sliderRef} {...settings}>
+        <Slider ref={sliderRef} {...settings} className={styles.slider}>
           {data.map(item => (
             <article
               key={item.id}

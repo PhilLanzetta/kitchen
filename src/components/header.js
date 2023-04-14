@@ -107,7 +107,7 @@ const Header = ({
         label: `${title}${tagline ? ":" : ""}`,
         labelTagline: tagline,
         labelClass: "tgn",
-        slug: `/${title}/`,
+        slug: "",
       }
     } else {
       pageHeader = null

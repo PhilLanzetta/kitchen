@@ -5,6 +5,10 @@
   padding: 10px 20px;
 }
 
+.slider {
+  background: #c4c4c4;
+}
+
 .image {
   min-width: 100%;
   min-height: 100%;
@@ -16,12 +20,8 @@
 
 .videoContainer {
   position: relative;
-  aspect-ratio: 1 / 0.9;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
-  display: flex !important;
-  flex-direction: column;
-  padding: 1.5vw;
-  justify-content: flex-end;
   height: 100%;
 }
 
@@ -37,6 +37,14 @@
 
 .tileOverlay {
   width: calc(100% - 3vw);
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.5vw;
   z-index: 25;
 }
 
@@ -55,6 +63,7 @@
   position: relative;
   display: inline-flex;
   align-items: flex-start;
+  width: fit-content;
   flex-wrap: wrap;
   gap: 20px;
   padding: 10px;
@@ -78,4 +87,20 @@
 
 .carouselContainer {
   cursor: none;
+}
+
+.padding {
+  padding-top: 50px;
+}
+
+@media screen and (max-width: 920px) {
+  .padding {
+    padding-top: 100px;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .padding {
+    padding-top: 120px;
+  }
 }
