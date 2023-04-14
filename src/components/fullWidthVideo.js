@@ -10,7 +10,6 @@ const FullWidthVideo = ({ data, inText }) => {
       <ReactPlayer
         url={`https://player.vimeo.com/video/${data.videoId}`}
         controls
-        light
         width={"100%"}
         height={"100%"}
         className={styles.videoPlayer}
