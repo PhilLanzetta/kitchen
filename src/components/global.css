@@ -8,8 +8,6 @@
 html {
   font-size: 20px;
   background: #fff;
-  overflow-x: hidden;
-  width: 100vw;
 }
 
 button {
@@ -41,6 +39,8 @@ a:hover {
 main {
   background: #fff;
   font-family: "trade-gothic-next", sans-serif;
+  overflow-x: hidden;
+  width: 100vw;
 }
 
 h1,
