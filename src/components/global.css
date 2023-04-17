@@ -39,8 +39,8 @@ a:hover {
 main {
   background: #fff;
   font-family: "trade-gothic-next", sans-serif;
+  max-width: 100vw;
   overflow-x: hidden;
-  width: 100vw;
 }
 
 h1,
