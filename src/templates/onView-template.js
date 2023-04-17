@@ -14,7 +14,7 @@ const OnViewExhibit = ({ data, location }) => {
       <HeroImage image={heroImage}></HeroImage>
       <FixedContent data={data.contentfulOnView}></FixedContent>
       {moduleContent && <ModuleContent data={moduleContent}></ModuleContent>}
-      {/* {relatedContent && (
+      {relatedContent && (
         <section style={{ margin: "20px 0px" }}>
           <h2
             style={{
@@ -26,7 +26,7 @@ const OnViewExhibit = ({ data, location }) => {
           </h2>
           <TagGrid data={relatedContent} related></TagGrid>
         </section>
-      )} */}
+      )}
     </Layout>
   )
 }
