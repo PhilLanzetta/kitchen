@@ -32,6 +32,7 @@ const OnScreenCarousel = ({ heading, data, padding }) => {
   const settings = {
     slidesToShow: 2.35,
     infinite: false,
+    useTransform: false,
     dots: false,
     arrows: false,
     responsive: [
@@ -45,7 +46,7 @@ const OnScreenCarousel = ({ heading, data, padding }) => {
   }
 
   return (
-    <div className={padding ? styles.padding : ''}>
+    <div className={padding ? styles.padding : ""}>
       <h2 className={`${styles.heading} tgnHeavyItalic`}>{heading}</h2>
       <div
         onMouseMove={handleMouseMove}
@@ -66,13 +67,13 @@ const OnScreenCarousel = ({ heading, data, padding }) => {
               role="presentation"
               onMouseEnter={() => setHover(true)}
             >
-                <GatsbyImage
-                  image={
-                    item.featuredImage?.image.gatsbyImageData ||
-                    item.seriesCoverPhoto?.image.gatsbyImageData
-                  }
-                  className={styles.image}
-                ></GatsbyImage>
+              <GatsbyImage
+                image={
+                  item.featuredImage?.image.gatsbyImageData ||
+                  item.seriesCoverPhoto?.image.gatsbyImageData
+                }
+                className={styles.image}
+              ></GatsbyImage>
               <section className={styles.tileOverlay}>
                 <Link
                   to={`/on-screen/${item.slug}`}
