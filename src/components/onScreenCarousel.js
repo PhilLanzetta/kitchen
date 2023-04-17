@@ -36,7 +36,7 @@ const OnScreenCarousel = ({ heading, data, padding }) => {
     arrows: false,
     responsive: [
       {
-        breakpoint: 900,
+        breakpoint: 920,
         settings: {
           slidesToShow: 1.35,
         },
