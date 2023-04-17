@@ -47,6 +47,7 @@ const ShopFeatured = () => {
     slidesToShow: 3,
     infinite: true,
     dots: false,
+    useTransform: false,
     arrows: false,
     responsive: [
       {

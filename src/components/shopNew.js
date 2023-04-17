@@ -62,6 +62,7 @@ const ShopNew = () => {
     slidesToShow: 1,
     infinite: true,
     dots: false,
+    useTransform: false,
     arrows: false,
     responsive: [
       {
