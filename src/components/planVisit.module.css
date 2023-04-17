@@ -36,6 +36,10 @@
   margin-bottom: 20px;
 }
 
+.address p {
+  margin-bottom: 20px;
+}
+
 .link {
   display: flex;
   position: relative;

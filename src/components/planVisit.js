@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
-import { renderRichText } from "gatsby-source-contentful/rich-text"
+import { marked } from "marked"
 import GoogleMap from "./googleMap"
 import * as styles from "./planVisit.module.css"
 import { HiArrowUpRight } from "react-icons/hi2"
@@ -11,27 +11,19 @@ const PlanVisit = () => {
       allContentfulVisitPage {
         nodes {
           addressText {
-            raw
+            addressText
           }
           addressCoordinates {
             lat
             lon
           }
           hours {
-            raw
+            hours
           }
         }
       }
     }
   `)
-
-  const renderOptions = {
-    renderText: text => {
-      return text.split("\n").reduce((children, textSegment, index) => {
-        return [...children, index > 0 && <br key={index} />, textSegment]
-      }, [])
-    },
-  }
 
   const { addressText, addressCoordinates, hours } =
     data.allContentfulVisitPage.nodes[0]
@@ -44,22 +36,23 @@ const PlanVisit = () => {
             <h2>Plan Your Visit</h2>
             <article className={styles.addressHoursText}>
               <h3>Address</h3>
-              {renderRichText(addressText, renderOptions)}
+              <div className={styles.address}
+                dangerouslySetInnerHTML={{
+                  __html: marked.parse(addressText.addressText),
+                }}
+              ></div>
             </article>
             <article className={styles.addressHoursText}>
               <h3>Hours</h3>
-              {renderRichText(hours, renderOptions)}
+              <div
+                dangerouslySetInnerHTML={{ __html: marked.parse(hours.hours) }}
+              ></div>
             </article>
             <article className={styles.linkContainer}>
-              <a
-                href="https://www.google.com"
-                target="_blank"
-                rel="noreferrer"
-                className={styles.link}
-              >
+              <Link to="/tickets" className={styles.link}>
                 <p>Tickets</p>
                 <HiArrowUpRight className={styles.outArrow}></HiArrowUpRight>
-              </a>
+              </Link>
               <a
                 href="https://goo.gl/maps/EhjKMsC7jHCZwiCf7"
                 target="_blank"

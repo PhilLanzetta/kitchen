@@ -11,6 +11,7 @@
   text-transform: uppercase;
   border: solid 1px #707070;
   transition: all 400ms;
+  text-align: center;
 }
 
 .link:hover {
@@ -27,9 +28,11 @@
     flex-direction: column;
     gap: 5px;
     padding: 5px;
+    border-left: none;
+    border-right: none;
   }
 
   .link:first-of-type {
-   border-right: none;
+    border-right: 1px solid #000;
   }
 }

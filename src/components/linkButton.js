@@ -20,16 +20,26 @@ const LinkButton = ({ data, onFile }) => {
 
   return (
     <>
-      {data.pdfId ||
-        (data.linkId && (
-          <a
-            href={data.pdfId ? data.pdf.url : data.linkUrl}
-            className={`${styles.linkButton} ${onFile ? styles.onFile : ""}`}
-          >
-            <p>{data.linkText}</p>
-            {data.linkIcon && linkIcon}
-          </a>
-        ))}
+      {data.pdfId && (
+        <a
+          href={data.pdf.url}
+          className={`${styles.linkButton} ${onFile ? styles.onFile : ""}`}
+        >
+          <p>{data.linkText}</p>
+          {data.linkIcon && linkIcon}
+        </a>
+      )}
+      {data.linkId && (
+        <a
+          href={data.linkUrl}
+          className={`${styles.linkButton} ${onFile ? styles.onFile : ""}`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <p>{data.linkText}</p>
+          {data.linkIcon && linkIcon}
+        </a>
+      )}
       {data.tixId && (
         <Link
           to="/tickets/"

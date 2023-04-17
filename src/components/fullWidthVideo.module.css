@@ -19,7 +19,7 @@
 
 .videoCredit {
   position: absolute;
-  bottom: -30px;
+  top: 100%;
   font-family: "trade-gothic-next", sans-serif;
 }
 

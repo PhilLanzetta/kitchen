@@ -58,6 +58,7 @@ const ProductInfo = ({ data }) => {
                     }
                     className={styles.productImage}
                     imgStyle={{ objectFit: "contain" }}
+                    alt="Product Image"
                   ></GatsbyImage>
                 </div>
               </div>
@@ -72,7 +73,7 @@ const ProductInfo = ({ data }) => {
           </div>
           <div className={styles.artistAndTitle}>
             <p className={styles.artist}>{artist[0].value}</p>
-            <p className={styles.title}>{title}</p>
+            <p>{title}</p>
           </div>
           <p className={styles.price}>${priceRangeV2.minVariantPrice.amount}</p>
           <div
@@ -93,7 +94,11 @@ const ProductInfo = ({ data }) => {
           <p className={styles.body}>{body[0].value}</p>
         </div>
         {nonProductImg.length > 0 && (
-          <img src={nonProductImg[0].value} className={styles.bodyImage} />
+          <img
+            src={nonProductImg[0].value}
+            className={styles.bodyImage}
+            alt=""
+          />
         )}
       </article>
     </section>

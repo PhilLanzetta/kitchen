@@ -291,9 +291,7 @@ const Header = ({
       {pageHeader?.label === "SHOP:" && (
         <div className={styles.cartContainer}>
           <button className={styles.shopping} onClick={toggleCart}>
-            <HiOutlineShoppingBag
-              className={styles.shoppingIcon}
-            ></HiOutlineShoppingBag>{" "}
+            <HiOutlineShoppingBag></HiOutlineShoppingBag>{" "}
             {cart.length > 0
               ? cart
                   .map(item => item.quantity)

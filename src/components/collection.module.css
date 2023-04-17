@@ -38,6 +38,10 @@
 }
 
 @media screen and (max-width: 920px) {
+  .productContainer {
+  padding-top: 160px;
+}
+
   .productCard {
     width: 50vw;
     height: calc(50vw * 1.5);

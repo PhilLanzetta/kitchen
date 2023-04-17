@@ -98,4 +98,8 @@
     flex-direction: row;
     gap: 0;
   }
+
+  .exhibitDetails aside:last-of-type {
+    padding-bottom: 0;
+  }
 }
