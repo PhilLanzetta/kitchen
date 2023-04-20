@@ -72,7 +72,7 @@ const ProductInfo = ({ data }) => {
             ))}
           </div>
           <div className={styles.artistAndTitle}>
-            <p className={styles.artist}>{artist[0].value}</p>
+            <p className={styles.artist}>{artist[0]?.value}</p>
             <p>{title}</p>
           </div>
           <p className={styles.price}>${priceRangeV2.minVariantPrice.amount}</p>
