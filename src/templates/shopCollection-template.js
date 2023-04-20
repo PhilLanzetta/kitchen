@@ -13,14 +13,14 @@ const ShopCollection = ({ data, location }) => {
           <Link to={`/shop/${product.handle}`} className={styles.productCard}>
             <GatsbyImage
               image={
-                product.featuredImage.localFile.childImageSharp.gatsbyImageData
+                product.featuredImage?.localFile.childImageSharp.gatsbyImageData
               }
               alt={product.title}
               className={styles.image}
             ></GatsbyImage>
             <article className={styles.productInfoContainer}>
               <h2 className={styles.productInfo}>
-                <span>{product.metafield.value}</span>
+                <span>{product.metafield?.value}</span>
               </h2>
               <h3 className={styles.productInfo}>
                 <span>{product.title}</span>
