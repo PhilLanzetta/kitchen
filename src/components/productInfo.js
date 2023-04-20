@@ -90,8 +90,8 @@ const ProductInfo = ({ data }) => {
       </article>
       <article className={styles.supplemental}>
         <div>
-          <h2 className={styles.heading}>{heading[0].value}</h2>
-          <p className={styles.body}>{body[0].value}</p>
+          <h2 className={styles.heading}>{heading[0]?.value}</h2>
+          <p className={styles.body}>{body[0]?.value}</p>
         </div>
         {nonProductImg.length > 0 && (
           <img
