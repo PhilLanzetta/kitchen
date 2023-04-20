@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SupportTile from "../components/supportTile"
@@ -30,11 +30,7 @@ export const query = graphql`
         descriptionText {
           descriptionText
         }
-        links {
-          linkIcon
-          linkText
-          linkUrl
-        }
+        learnMoreLink
       }
     }
   }

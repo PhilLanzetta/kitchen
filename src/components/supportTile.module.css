@@ -23,17 +23,20 @@
   margin-top: 40px;
 }
 
-.linkContainer {
+.linkButton {
   display: flex;
-  gap: 20px;
-  width: 100%;
+  padding: 5px 10px;
+  border: solid 1px #000;
   justify-content: center;
+  align-items: center;
+  font-size: inherit;
+  min-width: 50%;
 }
 
-.linkContainer a {
-  min-width: 45%;
-  max-width: 75%;
-  justify-content: center;
+.linkButton:hover {
+  opacity: 1;
+  color: #fff;
+  background: #000;
 }
 
 .heading0 {
@@ -71,7 +74,7 @@
     width: calc(100% - 40px);
   }
 
-  .linkContainer a {
-    justify-content: center !important;
+  .linkButton {
+    padding: 5px 20px;
   }
 }

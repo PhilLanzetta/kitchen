@@ -1,10 +1,10 @@
 import React from "react"
 import { marked } from "marked"
-import LinkButton from "./linkButton"
 import * as styles from "./supportTile.module.css"
+import { Link } from "gatsby"
 
 const SupportTile = ({ data, headingClass }) => {
-  const { title, descriptionText, links } = data
+  const { title, descriptionText, learnMoreLink } = data
   return (
     <div className={styles.container}>
       <h3 className={styles[headingClass]}>{title}</h3>
@@ -13,11 +13,9 @@ const SupportTile = ({ data, headingClass }) => {
           __html: marked.parse(descriptionText.descriptionText),
         }}
       ></div>
-      <div className={styles.linkContainer}>
-        {links.map(link => (
-          <LinkButton data={link}></LinkButton>
-        ))}
-      </div>
+      <Link className={styles.linkButton} to={learnMoreLink}>
+        Learn More
+      </Link>
     </div>
   )
 }
