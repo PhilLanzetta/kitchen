@@ -75,7 +75,7 @@ const FixedContent = ({ data }) => {
           )}
           {exhibitionHours && (
             <article>
-              <p className="tgnBold upper">Exhibition Hours:</p>
+              <p className="tgnBold upper">Time:</p>
               <p>{exhibitionHours}</p>
             </article>
           )}
