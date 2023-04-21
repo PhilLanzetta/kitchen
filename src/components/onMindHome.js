@@ -178,7 +178,7 @@ const OnMindHome = ({ location }) => {
               : styles.hoverUnderline
           }`}
         >
-          The Kitchen Archives
+          From the Archives
         </button>
       </section>
       <section
