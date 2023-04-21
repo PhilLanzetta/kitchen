@@ -171,17 +171,9 @@ const OnMindHome = ({ location }) => {
           Conversations
         </button>
         <button
-          onClick={() => handleCategoryClick("Diaries")}
+          onClick={() => handleCategoryClick("From the Archives")}
           className={`${
-            category === "Diaries" ? styles.active : styles.hoverUnderline
-          }`}
-        >
-          Diaries
-        </button>
-        <button
-          onClick={() => handleCategoryClick("The Kitchen Archives")}
-          className={`${
-            category === "The Kitchen Archives"
+            category === "From the Archives"
               ? styles.active
               : styles.hoverUnderline
           }`}
