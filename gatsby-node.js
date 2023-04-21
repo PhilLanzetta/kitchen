@@ -16,9 +16,6 @@ exports.createPages = async ({ graphql, actions }) => {
               slug
               artist
               title: exhibitionTitle
-              introductionText {
-                introductionText
-              }
               metadata {
                 tags {
                   name
@@ -27,9 +24,7 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
-        passedOnView: allContentfulOnView(
-          filter: { hasEnded: { eq: true } }
-        ) {
+        passedOnView: allContentfulOnView(filter: { hasEnded: { eq: true } }) {
           edges {
             node {
               id
