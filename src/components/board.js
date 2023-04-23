@@ -69,21 +69,22 @@ const Board = () => {
             ))}
           </article>
         </section>
-        <section className={styles.advisoryBoard}>
-          <div
+      </section>
+      <h2 className={styles.advisoryTitle}>Advisory Board</h2>
+      <section>
+        <div
           className={styles.advisoryHeading}
-            dangerouslySetInnerHTML={{
-              __html: marked.parse(
-                advisoryBoardDescription.advisoryBoardDescription
-              ),
-            }}
-          ></div>
-          {advisoryBoard.map(person => (
-            <article key={person.id}>
-              <p>{person.name}</p>
-            </article>
-          ))}
-        </section>
+          dangerouslySetInnerHTML={{
+            __html: marked.parse(
+              advisoryBoardDescription.advisoryBoardDescription
+            ),
+          }}
+        ></div>
+        {advisoryBoard.map(person => (
+          <article key={person.id}>
+            <p>{person.name}</p>
+          </article>
+        ))}
       </section>
     </section>
   )

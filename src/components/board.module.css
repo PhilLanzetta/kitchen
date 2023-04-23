@@ -19,12 +19,12 @@
 }
 
 .leaderContainer {
-  width: 25%;
+  width: calc(25% + 10px);
   padding-right: 20px;
 }
 
 .rightSide {
-  width: 50%;
+  width: calc(50% + 10px);
   display: flex;
 }
 
@@ -38,32 +38,32 @@
   padding-right: 20px;
 }
 
-.advisoryBoard {
-  width: 25%;
-}
-
 .advisoryHeading p {
   font-size: 0.75rem;
   margin-bottom: 20px;
 }
 
+.advisoryTitle {
+  padding-top: 2rem;
+  margin-top: 2rem;
+  width: calc(100% + 40px);
+  margin-left: -20px;
+  padding-left: 20px;
+  border-top: 1px solid #000;
+}
+
 @media screen and (max-width: 920px) {
   .leaderContainer {
-    width: 33%;
+    width: 50%;
   }
 
   .rightSide {
-    width: 33%;
     flex-direction: column;
   }
 
   .memberContainer {
     width: 100%;
     margin-bottom: 40px;
-  }
-
-  .advisoryBoard {
-    width: 33%;
   }
 }
 
@@ -72,20 +72,5 @@
     border-top: solid 1px #000;
     border-bottom: solid 1px #000;
     margin-bottom: 0;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .listContainer {
-    flex-wrap: wrap;
-  }
-
-  .leaderContainer,
-  .rightSide {
-    width: 50%;
-  }
-
-  .advisoryBoard {
-    width: 100%;
   }
 }
