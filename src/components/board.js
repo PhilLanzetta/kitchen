@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import * as styles from './board.module.css'
+import * as styles from "./board.module.css"
+import { marked } from "marked"
 
 const Board = () => {
   const data = useStaticQuery(graphql`
@@ -20,11 +21,24 @@ const Board = () => {
           id
           name
         }
+        advisoryBoardDescription {
+          advisoryBoardDescription
+        }
+        advisoryBoard {
+          id
+          name
+          title
+        }
       }
     }
   `)
-  const { boardLeadership, boardEmeritus, boardMembers } =
-    data.contentfulAboutPage
+  const {
+    boardLeadership,
+    boardEmeritus,
+    boardMembers,
+    advisoryBoard,
+    advisoryBoardDescription,
+  } = data.contentfulAboutPage
 
   return (
     <section className={styles.boardContainer}>
@@ -54,6 +68,21 @@ const Board = () => {
               </article>
             ))}
           </article>
+        </section>
+        <section className={styles.advisoryBoard}>
+          <div
+          className={styles.advisoryHeading}
+            dangerouslySetInnerHTML={{
+              __html: marked.parse(
+                advisoryBoardDescription.advisoryBoardDescription
+              ),
+            }}
+          ></div>
+          {advisoryBoard.map(person => (
+            <article key={person.id}>
+              <p>{person.name}</p>
+            </article>
+          ))}
         </section>
       </section>
     </section>

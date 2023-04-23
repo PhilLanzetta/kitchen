@@ -24,7 +24,7 @@
 }
 
 .rightSide {
-  width: calc(50% + 10px);
+  width: 50%;
   display: flex;
 }
 
@@ -38,18 +38,32 @@
   padding-right: 20px;
 }
 
+.advisoryBoard {
+  width: 25%;
+}
+
+.advisoryHeading p {
+  font-size: 0.75rem;
+  margin-bottom: 20px;
+}
+
 @media screen and (max-width: 920px) {
   .leaderContainer {
-    width: calc(50% + 10px);
+    width: 33%;
   }
 
   .rightSide {
+    width: 33%;
     flex-direction: column;
   }
 
   .memberContainer {
     width: 100%;
     margin-bottom: 40px;
+  }
+
+  .advisoryBoard {
+    width: 33%;
   }
 }
 
@@ -58,5 +72,20 @@
     border-top: solid 1px #000;
     border-bottom: solid 1px #000;
     margin-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .listContainer {
+    flex-wrap: wrap;
+  }
+
+  .leaderContainer,
+  .rightSide {
+    width: 50%;
+  }
+
+  .advisoryBoard {
+    width: 100%;
   }
 }
