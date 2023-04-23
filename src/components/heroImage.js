@@ -6,8 +6,8 @@ const HeroImage = ({ image, margin }) => {
   return (
     <figure className={margin ? styles.marginTop : styles.mobileMarginTop}>
       <GatsbyImage
-        image={image?.image.gatsbyImageData}
-        alt={image?.image.description}
+        image={image?.image?.gatsbyImageData}
+        alt={image?.image?.description}
         className={styles.heroImage}
       ></GatsbyImage>
       <figcaption>{image?.creditText}</figcaption>
