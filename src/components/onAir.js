@@ -1,10 +1,22 @@
 import React, { useState, useEffect } from "react"
+import { useStaticQuery, graphql } from "gatsby"
 import ReactPlayer from "react-player"
 import Fade from "./fade"
 import * as styles from "./onAir.module.css"
 import Loader from "./loader"
 
 const OnAir = () => {
+  const liveData = useStaticQuery(graphql`
+    {
+      contentfulOnAir {
+        isLive
+        vimeoLink
+      }
+    }
+  `)
+
+  const { isLive, vimeoLink } = liveData.contentfulOnAir
+
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [video, setVideo] = useState(0)
@@ -34,18 +46,23 @@ const OnAir = () => {
   }
 
   useEffect(() => {
-    fetch("https://api.vimeo.com/users/4252371/albums/10302071/videos", {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${Token}`,
-      },
-    })
-      .then(res => res.json())
-      .then(result => {
-        setData(shuffleData(result.data))
-        setLoading(false)
+    if (!isLive) {
+      fetch("https://api.vimeo.com/users/4252371/albums/10302071/videos", {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${Token}`,
+        },
       })
-  }, [])
+        .then(res => res.json())
+        .then(result => {
+          setData(shuffleData(result.data))
+          setLoading(false)
+        })
+    } else {
+      const timer = setTimeout(() => setLoading(false), "2000")
+      return () => clearTimeout(timer)
+    }
+  }, [isLive])
 
   const handlePrevClick = () => {
     if (video !== 0) {
@@ -65,10 +82,22 @@ const OnAir = () => {
 
   return (
     <>
+      <section>
+        {isLive && (
+          <p className={`${styles.desktopLiveTitle} tgnBoldItalic`}>
+            <div className={styles.recording}></div>Live
+          </p>
+        )}
+      </section>
       <section className={`${styles.mobileHeading} tgnHeavyItalic`}>
         On Air:{" "}
         {data && (
           <p className={`${styles.mobileVideoTitle} tgn`}>{data[video].name}</p>
+        )}
+        {isLive && (
+          <p className={`${styles.mobileVideoTitle} tgnBoldItalic`}>
+            <div className={styles.recording}></div>Live
+          </p>
         )}
       </section>
       <section className={styles.videoPlayerWrapper}>
@@ -87,25 +116,42 @@ const OnAir = () => {
             onEnded={handleNextClick}
           />
         )}
+        {isLive && (
+          <ReactPlayer
+            url={vimeoLink}
+            className={styles.videoPlayer}
+            playing={playing}
+            muted={muted}
+            volume={1}
+            playsinline={true}
+            width={"100%"}
+            height={"100%"}
+            onPause={() => setPlaying(false)}
+          />
+        )}
       </section>
       <section className={styles.videoControlsContainer}>
-        <article className={styles.videoControls}>
-          <button onClick={handlePrevClick}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24.196"
-              height="16.979"
-              viewBox="0 0 24.196 16.979"
-            >
-              <path
-                id="fast-forward-svgrepo-com"
-                d="M.18,16.643,11.642,8.578a.424.424,0,0,1,.669.347v7.546L23.527,8.583a.425.425,0,0,1,.669.348V25.05a.425.425,0,0,1-.229.377.433.433,0,0,1-.2.047.427.427,0,0,1-.244-.077L12.31,17.509v7.546a.424.424,0,0,1-.669.347L.18,17.337a.424.424,0,0,1,0-.694Z"
-                transform="translate(0 -8.5)"
-                fill="#000"
-              />
-            </svg>
-          </button>
-          {!playing && (
+        <article
+          className={isLive ? styles.liveVideoControls : styles.videoControls}
+        >
+          {!isLive && (
+            <button onClick={handlePrevClick}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24.196"
+                height="16.979"
+                viewBox="0 0 24.196 16.979"
+              >
+                <path
+                  id="fast-forward-svgrepo-com"
+                  d="M.18,16.643,11.642,8.578a.424.424,0,0,1,.669.347v7.546L23.527,8.583a.425.425,0,0,1,.669.348V25.05a.425.425,0,0,1-.229.377.433.433,0,0,1-.2.047.427.427,0,0,1-.244-.077L12.31,17.509v7.546a.424.424,0,0,1-.669.347L.18,17.337a.424.424,0,0,1,0-.694Z"
+                  transform="translate(0 -8.5)"
+                  fill="#000"
+                />
+              </svg>
+            </button>
+          )}
+          {!isLive && !playing && (
             <button onClick={() => setPlaying(true)}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -123,7 +169,7 @@ const OnAir = () => {
               </svg>
             </button>
           )}
-          {playing && (
+          {!isLive && playing && (
             <button onClick={() => setPlaying(false)}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -154,21 +200,23 @@ const OnAir = () => {
               </svg>
             </button>
           )}
-          <button onClick={handleNextClick}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24.196"
-              height="16.979"
-              viewBox="0 0 24.196 16.979"
-            >
-              <path
-                id="fast-forward-svgrepo-com"
-                d="M24.015,16.643,12.554,8.578a.424.424,0,0,0-.669.347v7.546L.669,8.583A.425.425,0,0,0,0,8.93V25.05a.425.425,0,0,0,.229.377.433.433,0,0,0,.2.047A.427.427,0,0,0,.669,25.4l11.217-7.888v7.546a.424.424,0,0,0,.669.347l11.461-8.065a.424.424,0,0,0,0-.694Z"
-                transform="translate(0 -8.5)"
-                fill="#000"
-              />
-            </svg>
-          </button>
+          {!isLive && (
+            <button onClick={handleNextClick}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24.196"
+                height="16.979"
+                viewBox="0 0 24.196 16.979"
+              >
+                <path
+                  id="fast-forward-svgrepo-com"
+                  d="M24.015,16.643,12.554,8.578a.424.424,0,0,0-.669.347v7.546L.669,8.583A.425.425,0,0,0,0,8.93V25.05a.425.425,0,0,0,.229.377.433.433,0,0,0,.2.047A.427.427,0,0,0,.669,25.4l11.217-7.888v7.546a.424.424,0,0,0,.669.347l11.461-8.065a.424.424,0,0,0,0-.694Z"
+                  transform="translate(0 -8.5)"
+                  fill="#000"
+                />
+              </svg>
+            </button>
+          )}
           {!muted && (
             <button onClick={() => setMuted(true)}>
               <svg

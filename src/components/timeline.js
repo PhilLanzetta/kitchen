@@ -12,6 +12,7 @@ const Timeline = ({ data }) => {
     slidesToShow: 1.25,
     infinite: false,
     beforeChange: (current, next) => setSlideIndex(next),
+    adaptiveHeight: true,
   }
 
   return (

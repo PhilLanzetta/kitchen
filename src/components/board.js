@@ -70,7 +70,7 @@ const Board = () => {
           </article>
         </section>
       </section>
-      <h2 className={styles.advisoryTitle}>Advisory Board</h2>
+      <h2 className={styles.advisoryTitle}>Advisory Council</h2>
       <section>
         <div
           className={styles.advisoryHeading}

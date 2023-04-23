@@ -33,6 +33,21 @@
   border: 1px solid #000;
 }
 
+.liveVideoControls {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 50;
+  background: #fff;
+  height: 50px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 20px;
+  border: 1px solid #000;
+}
+
 .desktopTitle {
   position: fixed;
   display: flex;
@@ -50,6 +65,45 @@
   display: none;
 }
 
+.desktopLiveTitle {
+  color: #fff;
+  position: absolute;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  left: 375px;
+  z-index: 1000;
+}
+
+.recording {
+  display: inline-block;
+  height: 0.85rem;
+  width: 0.85rem;
+  background: red;
+  border-radius: 100%;
+  margin: 0 0.5rem;
+  box-shadow: 0 0 0 0 rgba(255, 0, 0, 1);
+  transform: scale(1);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+  }
+}
+
 @media screen and (max-width: 920px) {
   .mobileHeading {
     display: block;
@@ -61,7 +115,7 @@
     z-index: 10;
     text-transform: uppercase;
   }
-  
+
   .mobileVideoTitle {
     display: inline;
     text-transform: none;
@@ -71,7 +125,7 @@
     display: none;
   }
 
-  .videoControls {
+  .videoControls, .liveVideoControls {
     background: #fff;
     height: 50px;
     width: 100%;
@@ -85,5 +139,9 @@
 
   .videoPlayerWrapper {
     height: calc(100vh - 50px);
+  }
+
+  .desktopLiveTitle {
+    display: none;
   }
 }
