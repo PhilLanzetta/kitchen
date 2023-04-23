@@ -43,11 +43,11 @@ const CalendarTile = ({ data, onView }) => {
       </article>
       <figure className={styles.featuredImage}>
         <GatsbyImage
-          image={featuredImage.image.gatsbyImageData}
-          alt={featuredImage.image.description}
+          image={featuredImage?.image?.gatsbyImageData}
+          alt={featuredImage?.image?.description}
           style={{ width: "100%" }}
         ></GatsbyImage>
-        <figcaption>{featuredImage.creditText}</figcaption>
+        <figcaption>{featuredImage?.creditText}</figcaption>
       </figure>
     </section>
   )
