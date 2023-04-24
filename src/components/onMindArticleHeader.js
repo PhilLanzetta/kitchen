@@ -36,18 +36,9 @@ const OnMindArticleHeader = ({ category }) => {
         </Link>
         <Link
           to="/on-mind"
-          state={{ category: "Diaries" }}
+          state={{ category: "From the Archives" }}
           className={`${
-            category === "Diaries" ? styles.active : styles.hoverUnderline
-          }`}
-        >
-          Diaries
-        </Link>
-        <Link
-          to="/on-mind"
-          state={{ category: "The Kitchen Archives" }}
-          className={`${
-            category === "The Kitchen Archives"
+            category === "From the Archives"
               ? styles.active
               : styles.hoverUnderline
           }`}
