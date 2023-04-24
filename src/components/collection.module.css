@@ -10,6 +10,7 @@
   flex-direction: column;
   width: 33.3vw;
   height: calc(33.3vw * 1.5);
+  overflow: hidden;
   justify-content: flex-end;
 }
 
