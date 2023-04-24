@@ -12,6 +12,11 @@
   left: 0;
 }
 
+.videoPlayer iframe {
+  height: 100% !important;
+  width: 100% !important;
+}
+
 .videoControlsContainer {
   display: flex;
   align-items: center;
@@ -125,7 +130,8 @@
     display: none;
   }
 
-  .videoControls, .liveVideoControls {
+  .videoControls,
+  .liveVideoControls {
     background: #fff;
     height: 50px;
     width: 100%;
