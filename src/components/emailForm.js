@@ -9,7 +9,6 @@ function encode(data) {
 
 const EmailForm = () => {
   const [email, setEmail] = useState("")
-  const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState("")
 
   const handleChange = e => {
@@ -18,7 +17,6 @@ const EmailForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault()
-    setLoading(true)
     const form = e.target
     fetch("/", {
       method: "POST",
@@ -30,11 +28,10 @@ const EmailForm = () => {
     })
       .then(() => {
         setMessage("Thank you!")
-        setLoading(false)
       })
       .catch(error => {
         setMessage(error)
-        setLoading(false)
+        setTimeout(() => setMessage(""), 3000)
       })
   }
 
@@ -44,8 +41,8 @@ const EmailForm = () => {
       method="POST"
       data-netlify-honeypot="bot-field"
       data-netlify="true"
-      action="/success/"
       onSubmit={handleSubmit}
+      className={styles.form}
     >
       <input type="hidden" name="form-name" value="contact" />
       <p hidden>
@@ -54,6 +51,7 @@ const EmailForm = () => {
           <input name="bot-field" onChange={handleChange} />
         </label>
       </p>
+      {message && <div className={styles.message}>{message}</div>}
       <input
         type="email"
         name="email"
