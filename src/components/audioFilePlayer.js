@@ -8,7 +8,7 @@ const AudioFilePlayer = ({ data, dark }) => {
       <p>{data.title}</p>
       <p>{data.audioDescription}</p>
       <AudioPlayer
-        src={data.audioFile.file.url}
+        src={data.audioFile?.file?.url || data.audioUrl}
         layout={"horizontal-reverse"}
         showJumpControls={false}
         className={styles.audioPlayer}
