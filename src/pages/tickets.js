@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 import * as styles from "../components/ticketsPage.module.css"
 import { marked } from "marked"
 import FlexLinkBox from "../components/flexLinkBox"
+import Seo from "../components/seo"
 
 const Tickets = ({ location, data }) => {
   const [events, setEvents] = useState(null)
@@ -185,5 +186,6 @@ export const query = graphql`
     }
   }
 `
+export const Head = () => <Seo title="TICKETS" />
 
 export default Tickets

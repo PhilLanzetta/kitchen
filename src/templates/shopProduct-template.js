@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import ProductInfo from "../components/productInfo"
+import Seo from "../components/seo"
 
 const ShopProduct = ({ data, location }) => {
   return (
@@ -55,5 +56,7 @@ export const query = graphql`
     }
   }
 `
+
+export const Head = () => <Seo title="SHOP" />
 
 export default ShopProduct

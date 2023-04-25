@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 import { HiArrowDown } from "react-icons/hi2"
 import { GatsbyImage } from "gatsby-plugin-image"
 import * as styles from "../components/pressPage.module.css"
+import Seo from "../components/seo"
 
 const Press = ({ location, data }) => {
   const { nodes } = data.allContentfulPressRelease
@@ -118,5 +119,6 @@ export const query = graphql`
     }
   }
 `
+export const Head = () => <Seo title="PRESS" />
 
 export default Press

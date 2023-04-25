@@ -7,6 +7,7 @@ import Team from "../components/team"
 import Timeline from "../components/timeline"
 import Board from "../components/board"
 import VisitLink from "../components/visitLink"
+import Seo from "../components/seo"
 
 const About = ({ location, data }) => {
   const { missionValues, history, landAcknowledgment, timeline } =
@@ -62,5 +63,7 @@ export const query = graphql`
     }
   }
 `
+
+export const Head = () => <Seo title="ABOUT" />
 
 export default About

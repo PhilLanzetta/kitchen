@@ -83,6 +83,7 @@ export const query = graphql`
         ... on ContentfulAudio {
           audioId: id
           audioDescription
+          audioUrl
           audioFile {
             file {
               url

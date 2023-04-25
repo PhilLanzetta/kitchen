@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SupportTile from "../components/supportTile"
 import * as styles from "../components/supportTile.module.css"
+import Seo from "../components/seo"
 
 const Support = ({ location, data }) => {
   const { nodes } = data.allContentfulSupportTile
@@ -35,5 +36,6 @@ export const query = graphql`
     }
   }
 `
+export const Head = () => <Seo title="SUPPORT" />
 
 export default Support

@@ -1,6 +1,7 @@
 import React from "react"
 import Layout from "../components/layout"
 import Search from "../components/search"
+import Seo from "../components/seo"
 
 const SearchPage = ({ location }) => {
   return (
@@ -12,5 +13,7 @@ const SearchPage = ({ location }) => {
     </Layout>
   )
 }
+
+export const Head = () => <Seo title="SEARCH" />
 
 export default SearchPage

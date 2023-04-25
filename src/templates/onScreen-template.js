@@ -242,6 +242,6 @@ export const query = graphql`
   }
 `
 
-export const Head = () => <Seo title="ON VIEW" />
+export const Head = () => <Seo title="ON SCREEN" />
 
 export default OnScreenVideo

@@ -2,6 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 import { graphql } from "gatsby"
 import TagGrid from "../components/tagGrid"
+import Seo from "../components/seo"
 
 const TagPage = ({ data, pageContext, location }) => {
   const shuffleData = array => {
@@ -149,5 +150,7 @@ export const query = graphql`
     }
   }
 `
+
+export const Head = () => <Seo title="SEARCH" />
 
 export default TagPage

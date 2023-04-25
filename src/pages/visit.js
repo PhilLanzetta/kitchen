@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import PlanVisit from "../components/planVisit"
 import VisitContact from "../components/visitContact"
 import VisitLink from "../components/visitLink"
+import Seo from "../components/seo"
 
 const Visit = ({ location }) => {
   return (
@@ -18,5 +19,7 @@ const Visit = ({ location }) => {
     </Layout>
   )
 }
+
+export const Head = () => <Seo title="VISIT" />
 
 export default Visit

@@ -5,6 +5,7 @@ import * as styles from "../components/calendarPage.module.css"
 import { graphql, Link } from "gatsby"
 import { HiArrowUpRight } from "react-icons/hi2"
 import CalendarTile from "../components/calendarTile"
+import Seo from "../components/seo"
 
 const Calendar = ({ location, data }) => {
   const [value, onChange] = useState(new Date())
@@ -204,5 +205,6 @@ export const query = graphql`
     }
   }
 `
+export const Head = () => <Seo title="CALENDAR" />
 
 export default Calendar

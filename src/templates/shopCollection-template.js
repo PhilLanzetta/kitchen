@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby"
 import * as styles from "../components/collection.module.css"
 import Layout from "../components/layout"
 import { GatsbyImage } from "gatsby-plugin-image"
+import Seo from "../components/seo"
 
 const ShopCollection = ({ data, location }) => {
   const { products } = data.shopifyCollection
@@ -61,5 +62,7 @@ export const query = graphql`
     }
   }
 `
+
+export const Head = () => <Seo title="SHOP" />
 
 export default ShopCollection
