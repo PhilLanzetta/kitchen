@@ -1,0 +1,27 @@
+.emailInput {
+  background: none;
+  border: 1px solid #fff;
+  padding: 8px 12px;
+  width: 100%;
+  margin-top: 16px;
+  font-size: 20px;
+  color: #fff;
+  text-align: left;
+}
+
+.emailSubmit {
+  background: none;
+  border: 1px solid #fff;
+  padding: 8px 12px;
+  width: 100%;
+  margin-top: 16px;
+  font-size: 20px;
+  color: #fff;
+  text-align: left;
+}
+
+.emailSubmit:hover {
+  background: #fff;
+  color: #000;
+  opacity: 100%;
+}

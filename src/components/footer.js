@@ -1,5 +1,6 @@
 import { Link, Script, graphql, useStaticQuery } from "gatsby"
 import React from "react"
+import EmailForm from "./emailForm"
 import * as styles from "./footer.module.css"
 
 const Footer = ({ location }) => {
@@ -107,13 +108,8 @@ const Footer = ({ location }) => {
               <Link to="/shipping-and-returns">Shipping & Returns</Link>
             </article>
             <article className={styles.footerFormContainer}>
-              <form>
-                JOIN OUR COMMUNITY
-                <div
-                  className="ctct-inline-form"
-                  data-form-id="19ca2047-86ba-41bd-a393-d9b54085c2ef"
-                ></div>
-              </form>
+              JOIN OUR COMMUNITY
+              <EmailForm></EmailForm>
             </article>
             <article className={styles.hoursLocationMobile}>
               <section>
@@ -145,13 +141,6 @@ const Footer = ({ location }) => {
           <section className={styles.footerCredit}>
             Site Designed and Developed by Pacific
           </section>
-          <Script>var _ctct_m = "c856d4cf1f0033afd6454d37c7fc8431"</Script>
-          <Script
-            id="signupScript"
-            src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js"
-            async
-            defer
-          ></Script>
         </footer>
       )}
     </>
