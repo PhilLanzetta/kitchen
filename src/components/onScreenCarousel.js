@@ -69,8 +69,8 @@ const OnScreenCarousel = ({ heading, data, padding }) => {
             >
               <GatsbyImage
                 image={
-                  item.featuredImage?.image.gatsbyImageData ||
-                  item.seriesCoverPhoto?.image.gatsbyImageData
+                  item.featuredImage?.image?.gatsbyImageData ||
+                  item.seriesCoverPhoto?.image?.gatsbyImageData
                 }
                 className={styles.image}
               ></GatsbyImage>

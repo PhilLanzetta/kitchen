@@ -187,46 +187,50 @@ const OnMindHome = ({ location }) => {
         }`}
       >
         {list.map(post => (
-          <article key={post.id}>
-            <Link to={`/on-mind/${post.slug}`}>
-              <GatsbyImage
-                image={post.featuredImage?.image.gatsbyImageData}
-                alt={post.featuredImage?.image.description}
-                className={styles.previewImg}
-              ></GatsbyImage>
-            </Link>
-            <div
-              className={styles.background}
-              style={{ background: `#${post.backgroundColor}` }}
-            ></div>
-            <section className={styles.infoContainer}>
-              <p className={styles.date}>
-                {new Intl.DateTimeFormat("en-US", {
-                  month: "long",
-                  day: "numeric",
-                  year: "numeric",
-                }).format(new Date(post.articleDate))}{" "}
-              </p>
-              <Link to={`/on-mind/${post.slug}`}>
-                <h2>{post.title}</h2>
-              </Link>
-              <p className={styles.excerpt}>{post.previewTextExcerpt}</p>
-              <aside className={styles.creditTagContainer}>
-                {post.credits && (
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: marked.parse(post.credits.credits),
-                    }}
-                  ></div>
-                )}
-                <div className={styles.tagContainer}>
-                  {post.metadata.tags.map(tag => (
-                    <TagLink tag={tag} key={tag.id} light></TagLink>
-                  ))}
-                </div>
-              </aside>
-            </section>
-          </article>
+          <>
+            {post.title !== "Dummy" && (
+              <article key={post.id}>
+                <Link to={`/on-mind/${post.slug}`}>
+                  <GatsbyImage
+                    image={post.featuredImage?.image.gatsbyImageData}
+                    alt={post.featuredImage?.image.description}
+                    className={styles.previewImg}
+                  ></GatsbyImage>
+                </Link>
+                <div
+                  className={styles.background}
+                  style={{ background: `#${post.backgroundColor}` }}
+                ></div>
+                <section className={styles.infoContainer}>
+                  <p className={styles.date}>
+                    {new Intl.DateTimeFormat("en-US", {
+                      month: "long",
+                      day: "numeric",
+                      year: "numeric",
+                    }).format(new Date(post.articleDate))}{" "}
+                  </p>
+                  <Link to={`/on-mind/${post.slug}`}>
+                    <h2>{post.title}</h2>
+                  </Link>
+                  <p className={styles.excerpt}>{post.previewTextExcerpt}</p>
+                  <aside className={styles.creditTagContainer}>
+                    {post.credits && (
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: marked.parse(post.credits.credits),
+                        }}
+                      ></div>
+                    )}
+                    <div className={styles.tagContainer}>
+                      {post.metadata.tags.map(tag => (
+                        <TagLink tag={tag} key={tag.id} light></TagLink>
+                      ))}
+                    </div>
+                  </aside>
+                </section>
+              </article>
+            )}
+          </>
         ))}
       </section>
       <section className={styles.loadMore}>
