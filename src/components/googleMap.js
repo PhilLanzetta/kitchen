@@ -6,13 +6,10 @@ import LocationPin from "./locationPin"
 const GoogleMap = ({ location }) => {
   const mapLocation = { lat: location.lat, lng: location.lon }
 
-  const API_KEY = process.env.GOOGLE_MAP_KEY
-  console.log(API_KEY)
-
   return (
     <section className={styles.mapContainer}>
       <GoogleMapReact
-        bootstrapURLKeys={{ key: API_KEY }}
+        bootstrapURLKeys={{ key: process.env.GATSBY_GOOGLE_MAP_KEY }}
         defaultCenter={mapLocation}
         defaultZoom={16}
       >
