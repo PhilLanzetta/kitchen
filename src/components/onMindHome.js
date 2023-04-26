@@ -49,7 +49,7 @@ const OnMindHome = ({ location }) => {
   const [category, setCategory] = useState(location.state?.category || "")
   const [allData, setAllData] = useState(
     data.allContentfulOnMindArticle.nodes.filter(item =>
-      item.category.includes(category)
+      item.category?.includes(category)
     )
   )
 
@@ -70,7 +70,7 @@ const OnMindHome = ({ location }) => {
       setCategory(newCategory)
       setAllData(
         data.allContentfulOnMindArticle.nodes.filter(item =>
-          item.category.includes(newCategory)
+          item.category?.includes(newCategory)
         )
       )
     }
@@ -190,8 +190,8 @@ const OnMindHome = ({ location }) => {
           <article key={post.id}>
             <Link to={`/on-mind/${post.slug}`}>
               <GatsbyImage
-                image={post.featuredImage.image.gatsbyImageData}
-                alt={post.featuredImage.image.description}
+                image={post.featuredImage?.image.gatsbyImageData}
+                alt={post.featuredImage?.image.description}
                 className={styles.previewImg}
               ></GatsbyImage>
             </Link>

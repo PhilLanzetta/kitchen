@@ -33,6 +33,10 @@ const ProductInfo = ({ data }) => {
     metafield => metafield.key === "body_media_link"
   )
 
+  const relatedProducts = metafields.filter(
+    metafield => metafield.key === "related_products"
+  )
+
   const settings = {
     dots: true,
     appendDots: dots => (

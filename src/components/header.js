@@ -163,7 +163,7 @@ const Header = ({
             className={`${styles.navPageSingleLink} tge`}
             onClick={isOpen ? toggleMenu : () => {}}
           >
-            ON FILE<p>Explore our Archive</p>
+            ON FILE<p>Explore Our Archive</p>
           </Link>
           <Link
             to="/on-mind"

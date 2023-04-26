@@ -1,4 +1,4 @@
-import { Link, Script, graphql, useStaticQuery } from "gatsby"
+import { Link, graphql, useStaticQuery } from "gatsby"
 import React from "react"
 import EmailForm from "./emailForm"
 import * as styles from "./footer.module.css"

@@ -9,8 +9,8 @@ const OnView = ({ location, data }) => {
   return (
     <Layout location={location}>
       <OnViewHero exhibits={exhibits} width="full"></OnViewHero>
-      <Link className="on-view-past-link" to="/on-view/past/">
-        <p className="tgnHeavyItalic upper on-view-past">Past Events</p>
+      <Link className="on-view-past-link" to="/on-view/all/">
+        <p className="tgnHeavyItalic upper on-view-past">All Events</p>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 171.707 107.317"

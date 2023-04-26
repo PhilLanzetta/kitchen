@@ -10,18 +10,14 @@ const OnViewPastList = ({ data, location, pageContext }) => {
   return (
     <Layout location={location}>
       <OnViewHero exhibits={exhibits} width="oneThird"></OnViewHero>
-      <Pagination data={pageContext} location="/on-view/past"></Pagination>
+      <Pagination data={pageContext} location="/on-view/all"></Pagination>
     </Layout>
   )
 }
 
 export const query = graphql`
   query getPastExhibits($skip: Int!, $limit: Int!) {
-    allContentfulOnView(
-      sort: { endDate: DESC }
-      limit: $limit
-      skip: $skip
-    ) {
+    allContentfulOnView(sort: { endDate: DESC }, limit: $limit, skip: $skip) {
       edges {
         node {
           id
