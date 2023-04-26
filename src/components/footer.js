@@ -117,8 +117,12 @@ const Footer = ({ location }) => {
             </article>
             <article className={styles.hoursLocationMobile}>
               <section>
-                512 W 19th St,
-                <br /> New York, NY 10011
+                Temporary Satellite Address
+                <br />
+                Building 163B Bank Street,
+                <br />
+                4th Floor Loft
+                <br /> New York, NY 10014
               </section>
               <section>
                 Sun–Fri, 10:30 a.m.–5:30 p.m.
