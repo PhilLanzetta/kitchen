@@ -298,7 +298,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const postsPerPage = 6
   const videosPerPage = 8
-  const numPages = Math.ceil(pastEvents.length / postsPerPage)
+  const numPages = Math.ceil(events.length / postsPerPage)
   const vidNumPages = Math.ceil(onScreenVideos.length / videosPerPage)
 
   Array.from({ length: numPages }).forEach((_, i) => {
