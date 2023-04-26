@@ -22,7 +22,7 @@ const LinkButton = ({ data, onFile }) => {
     <>
       {data.pdfId && (
         <a
-          href={data.pdf.url}
+          href={data.pdf?.url}
           className={`${styles.linkButton} ${onFile ? styles.onFile : ""}`}
         >
           <p>{data.linkText}</p>

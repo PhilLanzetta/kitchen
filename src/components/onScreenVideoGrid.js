@@ -7,7 +7,7 @@ import TagLink from "./tagLink"
 const OnScreenVideoGrid = ({ data }) => {
   return (
     <section className={styles.heroContainer}>
-      {data.map(video => {
+      {data?.map(video => {
         return (
           <article
             key={video.node?.id || video.id}

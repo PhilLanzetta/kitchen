@@ -117,10 +117,10 @@ const OnFileSearch = ({ location }) => {
     tableData = {
       nodes: data.allContentfulOnFileArchivePost.nodes.filter(
         item =>
-          item.title.toLowerCase().includes(search.toLowerCase()) ||
-          item.artist.toLowerCase().includes(search.toLowerCase()) ||
-          item.category.toLowerCase().includes(search.toLowerCase()) ||
-          item.endDate.includes(search.toLowerCase())
+          item.title?.toLowerCase().includes(search.toLowerCase()) ||
+          item.artist?.toLowerCase().includes(search.toLowerCase()) ||
+          item.category?.toLowerCase().includes(search.toLowerCase()) ||
+          item.endDate?.includes(search.toLowerCase())
       ),
     }
   }
