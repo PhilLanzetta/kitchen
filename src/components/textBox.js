@@ -2,13 +2,12 @@ import React from "react"
 import * as styles from "./textBox.module.css"
 import { marked } from "marked"
 
-const TextBox = ({ text }) => {
+const TextBox = ({ text, values }) => {
   return (
     <section
-      className={styles.textBox}
+      className={`${styles.textBox} ${values ? styles.values : ""}`}
       dangerouslySetInnerHTML={{ __html: marked.parse(text) }}
-    >
-    </section>
+    ></section>
   )
 }
 

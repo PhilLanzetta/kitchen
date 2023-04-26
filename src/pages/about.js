@@ -10,12 +10,13 @@ import VisitLink from "../components/visitLink"
 import Seo from "../components/seo"
 
 const About = ({ location, data }) => {
-  const { missionValues, history, landAcknowledgment, timeline } =
+  const { mission, values, history, landAcknowledgment, timeline } =
     data.contentfulAboutPage
   return (
     <Layout location={location}>
       <section className="about-page">
-        <TextBox text={missionValues.missionValues}></TextBox>
+        <TextBox text={mission.mission}></TextBox>
+        <TextBox text={values.values} values></TextBox>
         <TextBox text={history.history}></TextBox>
         <Timeline data={timeline}></Timeline>
         <TextBox text={landAcknowledgment.landAcknowledgment}></TextBox>
@@ -37,8 +38,11 @@ const About = ({ location, data }) => {
 export const query = graphql`
   query {
     contentfulAboutPage {
-      missionValues {
-        missionValues
+      mission {
+        mission
+      }
+      values {
+        values
       }
       history {
         history
