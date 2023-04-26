@@ -24,13 +24,6 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
-        passedOnView: allContentfulOnView(filter: { hasEnded: { eq: true } }) {
-          edges {
-            node {
-              id
-            }
-          }
-        }
         allOnScreen: allContentfulOnScreenVideo(sort: { endDate: DESC }) {
           edges {
             node {
@@ -153,8 +146,6 @@ exports.createPages = async ({ graphql, actions }) => {
   )
 
   const events = result.data.allContentfulOnView.edges
-
-  const pastEvents = result.data.passedOnView.edges
 
   const archivePosts = result.data.allContentfulOnFileArchivePost.edges
 
@@ -312,10 +303,10 @@ exports.createPages = async ({ graphql, actions }) => {
 
   Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
-      path: i === 0 ? `on-view/past/` : `on-view/past/${i + 1}`,
+      path: i === 0 ? `on-view/all/` : `on-view/all/${i + 1}`,
       component: path.resolve(`src/templates/onViewPastList-template.js`),
       context: {
-        node: { title: "Past On View" },
+        node: { title: "On View" },
         limit: postsPerPage,
         skip: i * postsPerPage,
         numPages,
@@ -331,7 +322,7 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`src/templates/onScreenAll-template.js`),
       context: {
         node: {
-          title: "Past On Screen",
+          title: "On Screen",
         },
         limit: videosPerPage,
         skip: i * videosPerPage,

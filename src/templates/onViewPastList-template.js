@@ -18,7 +18,6 @@ const OnViewPastList = ({ data, location, pageContext }) => {
 export const query = graphql`
   query getPastExhibits($skip: Int!, $limit: Int!) {
     allContentfulOnView(
-      filter: { hasEnded: { eq: true } }
       sort: { endDate: DESC }
       limit: $limit
       skip: $skip

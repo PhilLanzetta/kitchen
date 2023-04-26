@@ -98,7 +98,7 @@ const ShopNew = () => {
             <article key={item.id} className={styles.productContainer}>
               <GatsbyImage
                 image={
-                  item.featuredImage.localFile.childImageSharp.gatsbyImageData
+                  item.featuredImage?.localFile?.childImageSharp.gatsbyImageData
                 }
                 className={styles.image}
               ></GatsbyImage>
@@ -109,13 +109,13 @@ const ShopNew = () => {
                       <span className={styles.newTag}>New!</span>
                     </p>
                     <p className={`tgn upper`}>
-                      <span>{item.metafield.value}</span>
+                      <span>{item.metafield?.value}</span>
                     </p>
                     <p className={`tgnHeavyItalic upper`}>
                       <span>{item.title}</span>
                     </p>
                     <p className={`tgnHeavyItalic`}>
-                      <span>{`$${item.priceRangeV2.minVariantPrice.amount}`}</span>
+                      <span>{`$${item.priceRangeV2?.minVariantPrice.amount}`}</span>
                     </p>
                   </article>
                 </Link>

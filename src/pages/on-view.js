@@ -33,12 +33,9 @@ export const Head = () => <Seo title="ON VIEW" />
 
 export const query = graphql`
   query {
-    allContentfulOnView(
-      sort: { startDate: ASC }
-      filter: { hasEnded: { eq: false } }
-    ) {
-      edges {
-        node {
+    contentfulOnViewHome {
+        featuredOnViewEvents {
+          ... on ContentfulOnView {
           id
           artist
           exhibitionTitle
