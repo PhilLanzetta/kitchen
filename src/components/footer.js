@@ -80,7 +80,7 @@ const Footer = ({ location }) => {
               <section>
                 Temporary Satellite Address
                 <br />
-                Building 163B Bank Street,
+                Building 163B Bank Street
                 <br />
                 4th Floor Loft
                 <br /> New York, NY 10014
@@ -119,7 +119,7 @@ const Footer = ({ location }) => {
               <section>
                 Temporary Satellite Address
                 <br />
-                Building 163B Bank Street,
+                Building 163B Bank Street
                 <br />
                 4th Floor Loft
                 <br /> New York, NY 10014
