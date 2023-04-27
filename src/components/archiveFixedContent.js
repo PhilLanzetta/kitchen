@@ -42,8 +42,10 @@ const ArchiveFixedContent = ({ data }) => {
           </article>
           <article>
             <p className="tgn">
-              <strong className={styles.artist}>Date:</strong> {archiveStart} -{" "}
-              {archiveEnd}
+              <strong className={styles.artist}>Date:</strong>{" "}
+              {archiveStart === archiveEnd
+                ? archiveStart
+                : `${archiveStart}-${archiveEnd}`}
             </p>
           </article>
           {metadata?.tags && (

@@ -61,7 +61,7 @@ const FixedContent = ({ data }) => {
           <article>
             <p className="tgnBold upper">
               On View:{" "}
-              {startDate === endDate
+              {exhibitStart === exhibitEnd
                 ? exhibitStart
                 : `${exhibitStart}-${exhibitEnd}`}
             </p>
