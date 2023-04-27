@@ -115,13 +115,15 @@ const OnFileSearch = ({ location }) => {
     }
   } else {
     tableData = {
-      nodes: data.allContentfulOnFileArchivePost.nodes.filter(
-        item =>
-          item.title?.toLowerCase().includes(search.toLowerCase()) ||
-          item.artist?.toLowerCase().includes(search.toLowerCase()) ||
-          item.category?.toLowerCase().includes(search.toLowerCase()) ||
-          item.endDate?.includes(search.toLowerCase())
-      ),
+      nodes: data.allContentfulOnFileArchivePost.nodes
+        .filter(
+          item =>
+            item.title?.toLowerCase().includes(search.toLowerCase()) ||
+            item.artist?.toLowerCase().includes(search.toLowerCase()) ||
+            item.category?.toLowerCase().includes(search.toLowerCase()) ||
+            item.endDate?.includes(search.toLowerCase())
+        )
+        .filter(item => item.title !== "Dummy"),
     }
   }
 
@@ -376,7 +378,10 @@ const OnFileSearch = ({ location }) => {
                       }}
                     >
                       <td className={styles.previewRow}>
-                        <Link to={`/on-file/${item.slug}`} className={styles.previewImgText}>
+                        <Link
+                          to={`/on-file/${item.slug}`}
+                          className={styles.previewImgText}
+                        >
                           <GatsbyImage
                             image={item.featuredImage.image.gatsbyImageData}
                             alt={item.featuredImage.image.description}
