@@ -34,6 +34,18 @@
   margin-bottom: 20px;
 }
 
+.intro h3,
+.intro h1,
+.intro h2,
+.intro p {
+  margin-bottom: 20px;
+}
+
+.intro h1,
+.intro h2 {
+  font-size: calc(1rem + 0.5vw);
+}
+
 .imageGrid {
   width: 100%;
   gap: 10px;

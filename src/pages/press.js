@@ -19,7 +19,7 @@ const Press = ({ location, data }) => {
     )
   }
 
-  const [year, setYear] = useState(currentYear)
+  const [year, setYear] = useState(currentYear.toString())
 
   const entries = nodes.map(node => {
     if (node.year.toString() === year) {
@@ -79,8 +79,10 @@ const Press = ({ location, data }) => {
               written permission.{" "}
             </p>
             <p>
-              For more information email:<br></br>{" "}
-              <a href="mailto:sample@thekitchen.org">sample@thekitchen.org</a>
+              For more information email:<br></br> Angelique Rosales Salgado at{" "}
+              <a href="mailto:angelique@thekitchen.org">
+                angelique@thekitchen.org
+              </a>
             </p>
           </article>
           <article className={styles.releaseContainer}>

@@ -66,7 +66,12 @@ const PressRelease = ({ data, location }) => {
                 </article>
               ))}
             </section>
-            <p className={styles.intro}>{additionalText.additionalText}</p>
+            <div
+              className={styles.intro}
+              dangerouslySetInnerHTML={{
+                __html: marked.parse(additionalText.additionalText),
+              }}
+            ></div>
           </article>
         </section>
       </section>
