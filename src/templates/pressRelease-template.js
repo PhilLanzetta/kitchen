@@ -5,6 +5,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import * as styles from "../components/pressRelease.module.css"
 import { HiArrowDown } from "react-icons/hi2"
 import Seo from "../components/seo"
+import { marked } from "marked"
 
 const PressRelease = ({ data, location }) => {
   const {
@@ -23,13 +24,27 @@ const PressRelease = ({ data, location }) => {
         <h2>{subtitle}</h2>
         <section className={styles.content}>
           <article className={styles.download}>
-            <a href={pressRelease.file.url} download className={styles.downloadPress}>
+            <a
+              href={pressRelease.file.url}
+              download
+              className={styles.downloadPress}
+            >
               Download Press Release <HiArrowDown></HiArrowDown>
             </a>
           </article>
           <article className={styles.infoContainer}>
-            <h3 className={styles.intro}>{introHeading.introHeading}</h3>
-            <p className={styles.intro}>{introBody.introBody}</p>
+            <div
+              className={styles.intro}
+              dangerouslySetInnerHTML={{
+                __html: marked.parse(introHeading.introHeading),
+              }}
+            ></div>
+            <div
+              className={styles.intro}
+              dangerouslySetInnerHTML={{
+                __html: marked.parse(introBody.introBody),
+              }}
+            ></div>
             <section className={styles.imageGrid}>
               {images?.map((image, index) => (
                 <article className={styles.imageContainer} key={index}>
@@ -41,7 +56,11 @@ const PressRelease = ({ data, location }) => {
                     ></GatsbyImage>
                     <figcaption>{image.creditText}</figcaption>
                   </figure>
-                  <a href={image.image.file.url} className={styles.downloadImage} download>
+                  <a
+                    href={image.image.file.url}
+                    className={styles.downloadImage}
+                    download
+                  >
                     Download <HiArrowDown></HiArrowDown>
                   </a>
                 </article>
