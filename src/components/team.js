@@ -18,11 +18,17 @@ const Team = () => {
           email
           title
         }
+        consultants {
+          name
+          id
+          email
+          title
+        }
       }
     }
   `)
 
-  const { teamLeadership, staff } = data.contentfulAboutPage
+  const { teamLeadership, staff, consultants } = data.contentfulAboutPage
   return (
     <section className={styles.teamContainer}>
       <h2>Team</h2>
@@ -43,6 +49,14 @@ const Team = () => {
           <h3>Staff</h3>
           <section className={styles.staffList}>
             {staff.map(person => (
+              <article className={styles.staffMember} key={person.id}>
+                <p className={styles.name}>{person.name}</p>
+                <p>{person.title}</p>
+                <a href={`mailto:${person.email}`}>e-mail</a>
+              </article>
+            ))}
+            <h3>Consultants</h3>
+            {consultants.map(person => (
               <article className={styles.staffMember} key={person.id}>
                 <p className={styles.name}>{person.name}</p>
                 <p>{person.title}</p>
