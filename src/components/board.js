@@ -80,11 +80,11 @@ const Board = () => {
             ),
           }}
         ></div>
-        {advisoryBoard.map(person => (
-          <article key={person.id}>
-            <p>{person.name}</p>
-          </article>
-        ))}
+        <article className={styles.advisory}>
+          {advisoryBoard.map(person => (
+            <p key={person.id}>{person.name}</p>
+          ))}
+        </article>
       </section>
     </section>
   )

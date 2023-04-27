@@ -52,9 +52,8 @@ const pageLabels = [
     slug: "/visit",
   },
   {
-    label: "About:",
-    labelTagline:
-      "Mission & Values, History & Timeline, Land Acknowledgement, Team, Board,  Contact",
+    label: "About",
+    labelTagline: "",
     labelClass: `tgn ${styles.aboutTagline}`,
     slug: "/about",
   },

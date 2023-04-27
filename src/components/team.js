@@ -32,7 +32,7 @@ const Team = () => {
           <section className={styles.leadersList}>
             {teamLeadership.map(person => (
               <article key={person.id}>
-                <p>{person.name}</p>
+                <p className={styles.name}>{person.name}</p>
                 <p>{person.title}</p>
                 <a href={`mailto:${person.email}`}>e-mail</a>
               </article>
@@ -44,7 +44,7 @@ const Team = () => {
           <section className={styles.staffList}>
             {staff.map(person => (
               <article className={styles.staffMember} key={person.id}>
-                <p>{person.name}</p>
+                <p className={styles.name}>{person.name}</p>
                 <p>{person.title}</p>
                 <a href={`mailto:${person.email}`}>e-mail</a>
               </article>

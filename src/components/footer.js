@@ -78,16 +78,19 @@ const Footer = ({ location }) => {
           <section className={styles.footerMenu}>
             <article className={styles.hoursLocationDesktop}>
               <section>
-                Temporary Satellite Address
+                Temporary Satellite Address:
                 <br />
-                Building 163B Bank Street
-                <br />
-                4th Floor Loft
+                163B Bank Street, 4th Floor Loft
                 <br /> New York, NY 10014
               </section>
               <section>
-                Sun–Fri, 10:30 a.m.–5:30 p.m.
-                <br /> Sat, 10:30 a.m.–7:00 p.m.
+                Office Hours:<br></br> Monday-Friday, 10a-6p <br />
+                <br />
+                Program Hours Vary.{" "}
+                <Link to="/calendar/" className={styles.exploreLink}>
+                  Explore upcoming programs
+                </Link>{" "}
+                for more information.
               </section>
             </article>
             <article className={styles.footerPageLinks}>
@@ -117,16 +120,19 @@ const Footer = ({ location }) => {
             </article>
             <article className={styles.hoursLocationMobile}>
               <section>
-                Temporary Satellite Address
+                Temporary Satellite Address:
                 <br />
-                Building 163B Bank Street
-                <br />
-                4th Floor Loft
+                163B Bank Street, 4th Floor Loft
                 <br /> New York, NY 10014
               </section>
               <section>
-                Sun–Fri, 10:30 a.m.–5:30 p.m.
-                <br /> Sat, 10:30 a.m.–7:00 p.m.
+                Office Hours:<br></br> Monday-Friday, 10a-6p <br />
+                <br />
+                Program Hours Vary.{" "}
+                <Link to="/calendar/" className={styles.exploreLink}>
+                  Explore upcoming programs
+                </Link>{" "}
+                for more information.
               </section>
             </article>
             <article className={styles.footerIconContainer}>
