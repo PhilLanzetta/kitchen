@@ -31,7 +31,7 @@ const PressRelease = ({ data, location }) => {
             <h3 className={styles.intro}>{introHeading.introHeading}</h3>
             <p className={styles.intro}>{introBody.introBody}</p>
             <section className={styles.imageGrid}>
-              {images.map((image, index) => (
+              {images?.map((image, index) => (
                 <article className={styles.imageContainer} key={index}>
                   <figure>
                     <GatsbyImage
@@ -61,16 +61,6 @@ export const query = graphql`
       id
       additionalText {
         additionalText
-      }
-      images {
-        creditText
-        image {
-          description
-          gatsbyImageData
-          file {
-            url
-          }
-        }
       }
       introBody {
         introBody
