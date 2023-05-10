@@ -89,6 +89,9 @@ export const query = graphql`
               url
             }
           }
+          audioEmbed {
+            audioEmbed
+          }
           title
         }
         ... on ContentfulBlockquote {

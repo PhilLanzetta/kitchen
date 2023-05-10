@@ -92,6 +92,9 @@ export const query = graphql`
               url
             }
           }
+          audioEmbed {
+            audioEmbed
+          }
           audioUrl
           title
         }
