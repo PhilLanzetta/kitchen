@@ -153,7 +153,13 @@ const Footer = ({ location }) => {
             </article>
           </section>
           <section className={styles.footerCredit}>
-            Site Designed and Developed by Pacific
+            <a
+              href="https://www.pacificpacific.pub"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Site Designed and Developed by Pacific
+            </a>
           </section>
         </footer>
       )}
