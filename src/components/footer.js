@@ -158,7 +158,7 @@ const Footer = ({ location }) => {
               target="_blank"
               rel="noreferrer"
             >
-              Site Designed and Developed by Pacific
+              Website Designed and Developed by Pacific
             </a>
           </section>
         </footer>
