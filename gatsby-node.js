@@ -135,9 +135,6 @@ exports.createPages = async ({ graphql, actions }) => {
                   name
                 }
               }
-              introductionText {
-                introductionText
-              }
             }
           }
         }
