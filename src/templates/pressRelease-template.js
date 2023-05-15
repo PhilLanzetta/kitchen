@@ -42,7 +42,7 @@ const PressRelease = ({ data, location }) => {
             <div
               className={styles.intro}
               dangerouslySetInnerHTML={{
-                __html: marked.parse(introBody?.introBody),
+                __html: introBody ? marked.parse(introBody?.introBody) : "",
               }}
             ></div>
             <section className={styles.imageGrid}>
@@ -69,7 +69,9 @@ const PressRelease = ({ data, location }) => {
             <div
               className={styles.intro}
               dangerouslySetInnerHTML={{
-                __html: marked.parse(additionalText?.additionalText),
+                __html: additionalText
+                  ? marked.parse(additionalText?.additionalText)
+                  : "",
               }}
             ></div>
           </article>
