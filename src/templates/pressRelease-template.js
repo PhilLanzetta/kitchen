@@ -25,7 +25,7 @@ const PressRelease = ({ data, location }) => {
         <section className={styles.content}>
           <article className={styles.download}>
             <a
-              href={pressRelease.file.url}
+              href={pressRelease?.file?.url}
               download
               className={styles.downloadPress}
             >
@@ -36,13 +36,13 @@ const PressRelease = ({ data, location }) => {
             <div
               className={styles.intro}
               dangerouslySetInnerHTML={{
-                __html: marked.parse(introHeading.introHeading),
+                __html: marked.parse(introHeading?.introHeading),
               }}
             ></div>
             <div
               className={styles.intro}
               dangerouslySetInnerHTML={{
-                __html: marked.parse(introBody.introBody),
+                __html: marked.parse(introBody?.introBody),
               }}
             ></div>
             <section className={styles.imageGrid}>
@@ -50,14 +50,14 @@ const PressRelease = ({ data, location }) => {
                 <article className={styles.imageContainer} key={index}>
                   <figure>
                     <GatsbyImage
-                      image={image.image.gatsbyImageData}
-                      alt={image.image.description}
+                      image={image?.image?.gatsbyImageData}
+                      alt={image?.image?.description}
                       className={styles.image}
                     ></GatsbyImage>
-                    <figcaption>{image.creditText}</figcaption>
+                    <figcaption>{image?.creditText}</figcaption>
                   </figure>
                   <a
-                    href={image.image.file.url}
+                    href={image?.image?.file?.url}
                     className={styles.downloadImage}
                     download
                   >
@@ -69,7 +69,7 @@ const PressRelease = ({ data, location }) => {
             <div
               className={styles.intro}
               dangerouslySetInnerHTML={{
-                __html: marked.parse(additionalText.additionalText),
+                __html: marked.parse(additionalText?.additionalText),
               }}
             ></div>
           </article>
