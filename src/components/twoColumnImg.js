@@ -6,10 +6,10 @@ const TwoColumnImg = ({ data }) => {
   return (
     <section className={styles.imgContainer}>
       {data.map(image => (
-        <figure key={image.image.id}>
+        <figure key={image.image?.id}>
           <GatsbyImage
-            image={image.image.gatsbyImageData}
-            alt={image.image.description}
+            image={image.image?.gatsbyImageData}
+            alt={image.image?.description}
           ></GatsbyImage>
           <figcaption>{image.creditText}</figcaption>
         </figure>
