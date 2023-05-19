@@ -73,7 +73,10 @@ const Footer = ({ location }) => {
           <section className={styles.footerTagline}>
             New York CITY’s <span className="ftpItalic">center for</span>{" "}
             <span className="tgnHeavy">experimental art</span> &{" "}
-            <span className="tgnHeavyItalic">the AVANT GARDE</span> SINCE 1971
+            <span className="tgnHeavyItalic">
+              the <span style={{ whiteSpace: "nowrap" }}>AVANT-GARDE</span>
+            </span>{" "}
+            SINCE 1971
           </section>
           <section className={styles.footerMenu}>
             <article className={styles.hoursLocationDesktop}>
