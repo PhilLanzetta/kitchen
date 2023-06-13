@@ -225,6 +225,7 @@ const Header = ({
             ></input>
             <button
               type="submit"
+              name="Submit"
               disabled={title === "Search" || searchTerm.length < 1}
             >
               <IoSearch></IoSearch>
