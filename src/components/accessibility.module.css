@@ -15,6 +15,13 @@
   margin-left: 10px;
 }
 
+.anchor {
+  display: block;
+  height: 50px;
+  margin-top: -50px;
+  visibility: hidden;
+}
+
 @media screen and (max-width: 720px) {
   .container {
     margin: 0;
@@ -29,5 +36,12 @@
   .container p {
     display: block;
     margin-left: 0;
+  }
+
+  .anchor {
+    display: block;
+    height: 100px;
+    margin-top: -100px;
+    visibility: hidden;
   }
 }

@@ -18,15 +18,18 @@ const Accessibility = () => {
 
   const { accessibility } = data.allContentfulVisitPage.nodes[0]
   return (
-    <section className={styles.container}>
-      <h2>Accessibility</h2>
-      <div
-        style={{ display: "inline" }}
-        dangerouslySetInnerHTML={{
-          __html: marked.parse(accessibility.accessibility),
-        }}
-      ></div>
-    </section>
+    <>
+      <div id="accessibility" className={styles.anchor}></div>
+      <section className={styles.container}>
+        <h2>Accessibility</h2>
+        <div
+          style={{ display: "inline" }}
+          dangerouslySetInnerHTML={{
+            __html: marked.parse(accessibility.accessibility),
+          }}
+        ></div>
+      </section>
+    </>
   )
 }
 
