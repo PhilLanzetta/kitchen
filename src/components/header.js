@@ -226,6 +226,7 @@ const Header = ({
             <button
               type="submit"
               name="Submit"
+              aria-label="Submit your search"
               disabled={title === "Search" || searchTerm.length < 1}
             >
               <IoSearch></IoSearch>
