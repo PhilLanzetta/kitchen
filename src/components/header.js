@@ -131,6 +131,8 @@ const Header = ({
             id={styles.navIcon}
             className={`${isOpen ? styles.open : ""}`}
             onClick={toggleMenu}
+            aria-label={`${isOpen ? "Close Menu" : "Open Menu"}`}
+            name="Menu"
           >
             <span></span>
             <span></span>
