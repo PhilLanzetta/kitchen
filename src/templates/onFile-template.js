@@ -105,6 +105,7 @@ export const query = graphql`
         }
         ... on ContentfulFullWidthVideo {
           fullVideoId: id
+          youtubeVideoId
           videoId
           videoCredit
         }
@@ -132,6 +133,7 @@ export const query = graphql`
         ... on ContentfulInTextVideo {
           inTextVidId: id
           videoCredit
+          youtubeVideoId
           videoId
         }
         ... on ContentfulTwoColumnImage {
