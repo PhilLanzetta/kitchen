@@ -4,6 +4,10 @@
   margin: 40px 20px;
 }
 
+.textBox a {
+  text-decoration: underline;
+}
+
 .textBox h2 {
   font-size: calc(1rem + 1.5vw);
   text-transform: uppercase;

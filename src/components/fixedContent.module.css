@@ -42,6 +42,10 @@
   width: 50%;
 }
 
+.exhibitCopy a {
+  text-decoration: underline;
+}
+
 .exhibitCopy h3,
 .exhibitCopy h1,
 .exhibitCopy h2,

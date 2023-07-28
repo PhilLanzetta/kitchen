@@ -3,6 +3,10 @@
   margin: 0 auto;
 }
 
+.textContainer a {
+  text-decoration: underline;
+}
+
 .textContainer h3,
 .textContainer h1,
 .textContainer h2,

@@ -4,6 +4,10 @@
  padding: 20px;
 }
 
+.container a {
+  text-decoration: underline;
+}
+
 .container h2 {
   font-size: calc(1rem + 1.5vw);
   margin-bottom: 20px;
