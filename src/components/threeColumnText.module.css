@@ -3,6 +3,10 @@
   width: 75%;
 }
 
+.textContainer a {
+  text-decoration: underline;
+}
+
 .textContainer p {
   margin-bottom: 20px;
 }

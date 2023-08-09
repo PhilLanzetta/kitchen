@@ -54,6 +54,10 @@
   font-size: calc(1rem + 0.5vw);
 }
 
+.exhibitCopy a {
+  text-decoration: underline;
+}
+
 .date {
   margin-bottom: 20px;
 }

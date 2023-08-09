@@ -100,7 +100,7 @@ const Footer = ({ location }) => {
               <Link to="/contact">Contact</Link>
               <Link to="/jobs-internships">Jobs & Internships</Link>
               <Link to="/press">Press Room</Link>
-              <Link to="/accessibility">Accessibility</Link>
+              <Link to="/visit#accessibility">Accessibility</Link>
               <Link to="/support">Support</Link>
               <Link to="/donate">Donate</Link>
               <a
@@ -139,7 +139,10 @@ const Footer = ({ location }) => {
               </section>
             </article>
             <article className={styles.footerIconContainer}>
-              <Link to={`/on-file/${randomArchive[0].slug}`}>
+              <Link
+                to={`/on-file/${randomArchive[0].slug}`}
+                aria-label="Easter Egg link to Random Archive Post"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 268.978 228.09"

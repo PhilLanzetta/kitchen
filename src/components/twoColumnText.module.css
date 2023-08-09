@@ -12,6 +12,10 @@
   margin-bottom: 20px;
 }
 
+.twoColumn a {
+  text-decoration: underline;
+}
+
 @media screen and (max-width: 920px) {
   .columnContainer {
     width: 100%;

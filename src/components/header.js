@@ -131,6 +131,8 @@ const Header = ({
             id={styles.navIcon}
             className={`${isOpen ? styles.open : ""}`}
             onClick={toggleMenu}
+            aria-label={`${isOpen ? "Close Menu" : "Open Menu"}`}
+            name="Menu"
           >
             <span></span>
             <span></span>
@@ -223,6 +225,8 @@ const Header = ({
             ></input>
             <button
               type="submit"
+              name="Submit"
+              aria-label="Submit your search"
               disabled={title === "Search" || searchTerm.length < 1}
             >
               <IoSearch></IoSearch>

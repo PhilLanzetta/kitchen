@@ -20,6 +20,10 @@
   padding-bottom: 20px;
 }
 
+.text a {
+  text-decoration: underline;
+}
+
 @media screen and (max-width: 920px) {
   .half {
     width: 100%;
