@@ -288,6 +288,14 @@
   margin-top: 5px;
 }
 
+.aboutSubMenu {
+  position: fixed;
+  font-size: 24px;
+  left: 375px;
+  top: 13px;
+  padding-right: 10px;
+}
+
 @media screen and (max-width: 920px) {
   .menuHeader,
   .navPageLinks {
@@ -341,6 +349,26 @@
     display: block;
     min-height: 50px;
   }
+
+  .aboutSubMenu {
+    font-size: calc(0.75rem + 1vw);
+    left: 12vw;
+    top: 65px;
+    padding-right: 10px;
+  }
+}
+
+@media screen and (max-width: 785px) {
+  .aboutSubMenu {
+    left: 95px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .aboutSubMenu {
+    left: 85px;
+    top: 66px;
+  }
 }
 
 @media screen and (max-width: 470px) {
@@ -358,5 +386,9 @@
     display: block;
     width: 85%;
     min-height: 50px;
+  }
+
+  .aboutSubMenu {
+    top: 67px;
   }
 }

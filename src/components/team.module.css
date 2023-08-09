@@ -82,11 +82,12 @@
   .leadersList {
     flex-direction: row;
     padding-right: 0;
+    flex-wrap: wrap;
   }
 
-  .leadersList article:first-of-type {
-    width: calc(50% + 10px);
-    padding-right: 20px;
+  .leadersList article {
+    width: 50%;
+    padding-right: 10px;
   }
 
   .staff {

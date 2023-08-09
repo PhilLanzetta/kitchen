@@ -70,6 +70,7 @@ const Board = () => {
           </article>
         </section>
       </section>
+      <div id="advisory" className="about-anchor"></div>
       <h2 className={styles.advisoryTitle}>Advisory Council</h2>
       <section>
         <div

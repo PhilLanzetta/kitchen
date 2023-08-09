@@ -561,6 +561,13 @@ p {
   padding-top: 100px;
 }
 
+.about-anchor {
+  display: block;
+  height: 100px;
+  margin-top: -100px;
+  visibility: hidden;
+}
+
 .module-carousel {
   width: 100%;
 }
@@ -579,7 +586,7 @@ p {
   }
 
   .about-page {
-    padding-top: 100px;
+    padding-top: 150px;
   }
 }
 
@@ -587,6 +594,12 @@ p {
   .about-page {
     border-left: 1px solid #000;
     border-right: 1px solid #000;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  .about-page {
+    padding-top: 160px;
   }
 }
 

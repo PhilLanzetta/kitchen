@@ -52,7 +52,7 @@ const pageLabels = [
     slug: "/visit",
   },
   {
-    label: "About",
+    label: "About:",
     labelTagline: "",
     labelClass: `tgn ${styles.aboutTagline}`,
     slug: "/about",
@@ -287,6 +287,19 @@ const Header = ({
                 <Link to="/shop/apparel">Apparel</Link>
                 <Link to="/shop/books">Books</Link>
               </article>
+            )}
+            {pageHeader.label === "About:" && (
+              <span className={styles.aboutSubMenu}>
+                <a href="#mission">Mission & Vision, </a>
+                <a href="#values">Values, </a>
+                <a href="#history">History, </a>
+                <a href="#timeline">Timeline, </a>
+                <a href="#site">Site Acknowledgment, </a>
+                <a href="#team">Team, </a>
+                <a href="#board">Board of Directors, </a>
+                <a href="#advisory">Advisory Council, </a>
+                <a href="#contact">Contact</a>
+              </span>
             )}
           </div>
         </Fade>

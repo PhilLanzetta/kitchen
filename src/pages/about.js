@@ -14,14 +14,22 @@ const About = ({ location, data }) => {
     data.contentfulAboutPage
   return (
     <Layout location={location}>
-      <section className="about-page">
+      <section className="about-page" style={{ scrollBehavior: "smooth" }}>
+        <div id="mission" className="about-anchor"></div>
         <TextBox text={mission.mission}></TextBox>
+        <div id="values" className="about-anchor"></div>
         <TextBox text={values.values} values></TextBox>
+        <div id="history" className="about-anchor"></div>
         <TextBox text={history.history}></TextBox>
+        <div id="timeline" className="about-anchor"></div>
         <Timeline data={timeline}></Timeline>
+        <div id="site" className="about-anchor"></div>
         <TextBox text={landAcknowledgment.landAcknowledgment}></TextBox>
+        <div id="team" className="about-anchor"></div>
         <Team></Team>
+        <div id="board" className="about-anchor"></div>
         <Board></Board>
+        <div id="contact" className="about-anchor"></div>
         <VisitContact></VisitContact>
         <div style={{ display: "flex" }}>
           <VisitLink
