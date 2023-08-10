@@ -63,12 +63,6 @@ const Team = () => {
                 <a href={`mailto:${person.email}`}>e-mail</a>
               </article>
             ))}
-            <article>
-              <p>Box Office</p>
-              <p>
-                ext. 11, <a href="mailto:boxoffice@thekitchen.org">e-mail</a>
-              </p>
-            </article>
           </section>
         </section>
       </article>
