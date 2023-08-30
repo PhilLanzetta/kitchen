@@ -33,18 +33,22 @@ const PressRelease = ({ data, location }) => {
             </a>
           </article>
           <article className={styles.infoContainer}>
-            <div
-              className={styles.intro}
-              dangerouslySetInnerHTML={{
-                __html: marked.parse(introHeading?.introHeading),
-              }}
-            ></div>
-            <div
-              className={styles.intro}
-              dangerouslySetInnerHTML={{
-                __html: introBody ? marked.parse(introBody?.introBody) : "",
-              }}
-            ></div>
+            {introHeading && (
+              <div
+                className={styles.intro}
+                dangerouslySetInnerHTML={{
+                  __html: marked.parse(introHeading?.introHeading),
+                }}
+              ></div>
+            )}
+            {introBody && (
+              <div
+                className={styles.intro}
+                dangerouslySetInnerHTML={{
+                  __html: introBody ? marked.parse(introBody?.introBody) : "",
+                }}
+              ></div>
+            )}
             <section className={styles.imageGrid}>
               {images?.map((image, index) => (
                 <article className={styles.imageContainer} key={index}>
@@ -66,14 +70,16 @@ const PressRelease = ({ data, location }) => {
                 </article>
               ))}
             </section>
-            <div
-              className={styles.intro}
-              dangerouslySetInnerHTML={{
-                __html: additionalText
-                  ? marked.parse(additionalText?.additionalText)
-                  : "",
-              }}
-            ></div>
+            {additionalText && (
+              <div
+                className={styles.intro}
+                dangerouslySetInnerHTML={{
+                  __html: additionalText
+                    ? marked.parse(additionalText?.additionalText)
+                    : "",
+                }}
+              ></div>
+            )}
           </article>
         </section>
       </section>
