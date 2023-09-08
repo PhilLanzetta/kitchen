@@ -41,7 +41,7 @@ const Calendar = ({ location, data }) => {
         : new Date(
             formattedStart.getFullYear(),
             formattedStart.getMonth(),
-            formattedStart.getDate() + 7
+            formattedStart.getDate() + 30
           )
 
     console.log(formattedEnd)
