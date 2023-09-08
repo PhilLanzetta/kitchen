@@ -252,7 +252,7 @@ export const query = graphql`
 
 export const Head = ({ data }) => (
   <Seo
-    title={data.contentfulOnScreenVideo.artist}
+    title={`ON SCREEN: ${data.contentfulOnScreenVideo.artist}`}
     description={data.contentfulOnScreenVideo.videoTitle}
     image={data.contentfulOnScreenVideo.featuredImage.image.file.url}
   />

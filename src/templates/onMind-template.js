@@ -232,7 +232,7 @@ export const query = graphql`
 
 export const Head = ({ data }) => (
   <Seo
-    title={data.contentfulOnMindArticle.title}
+    title={`ON MIND: ${data.contentfulOnMindArticle.title}`}
     image={data.contentfulOnMindArticle.featuredImage.image.file.url}
   />
 )

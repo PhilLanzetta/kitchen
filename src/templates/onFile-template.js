@@ -250,7 +250,7 @@ export const query = graphql`
 
 export const Head = ({ data }) => (
   <Seo
-    title={data.contentfulOnFileArchivePost.artist}
+    title={`ON FILE: ${data.contentfulOnFileArchivePost.artist}`}
     description={data.contentfulOnFileArchivePost.title}
     image={data.contentfulOnFileArchivePost.featuredImage.image.file.url}
   />
