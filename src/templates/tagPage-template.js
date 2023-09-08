@@ -114,6 +114,7 @@ export const query = graphql`
       filter: {
         metadata: { tags: { elemMatch: { contentful_id: { eq: $slug } } } }
       }
+      sort: { startDate: DESC }
     ) {
       nodes {
         id
