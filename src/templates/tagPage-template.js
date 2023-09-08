@@ -5,6 +5,11 @@ import TagGrid from "../components/tagGrid"
 import Seo from "../components/seo"
 
 const TagPage = ({ data, pageContext, location }) => {
+  const onFile = data.allContentfulOnFileArchivePost.nodes
+  const onScreen = data.allContentfulOnScreenVideo.nodes
+  const onMind = data.allContentfulOnMindArticle.nodes
+  const onView = data.allContentfulOnView.nodes
+
   const shuffleData = array => {
     let currentIndex = array.length,
       randomIndex
@@ -24,15 +29,22 @@ const TagPage = ({ data, pageContext, location }) => {
     return array
   }
 
-  const tagData = shuffleData(
-    data.allContentfulOnFileArchivePost.nodes.concat(
-      data.allContentfulOnMindArticle.nodes.concat(
-        data.allContentfulOnScreenVideo.nodes.concat(
-          data.allContentfulOnView.nodes
+  let tagData = []
+
+  if (onView?.length > 0 || onMind?.length > 0 || onFile?.length > 0) {
+    tagData = shuffleData(
+      data.allContentfulOnFileArchivePost.nodes.concat(
+        data.allContentfulOnMindArticle.nodes.concat(
+          data.allContentfulOnScreenVideo.nodes.concat(
+            data.allContentfulOnView.nodes
+          )
         )
       )
     )
-  )
+  } else {
+    tagData = onScreen
+  }
+
   return (
     <Layout location={location}>
       <h1

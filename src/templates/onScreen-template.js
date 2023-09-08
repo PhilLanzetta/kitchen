@@ -49,7 +49,6 @@ export const query = graphql`
         }
       }
       startDate
-      endDate
       links {
         ... on ContentfulPdfLink {
           pdfId: id

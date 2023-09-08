@@ -24,7 +24,7 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
-        allOnScreen: allContentfulOnScreenVideo(sort: { endDate: DESC }) {
+        allOnScreen: allContentfulOnScreenVideo(sort: { startDate: DESC }) {
           edges {
             node {
               id
