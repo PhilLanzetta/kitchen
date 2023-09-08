@@ -46,9 +46,13 @@ export const query = graphql`
         image {
           description
           gatsbyImageData
+          file {
+            url
+          }
         }
       }
       startDate
+      endDate
       links {
         ... on ContentfulPdfLink {
           pdfId: id
@@ -246,6 +250,12 @@ export const query = graphql`
   }
 `
 
-export const Head = () => <Seo title="ON SCREEN" />
+export const Head = ({ data }) => (
+  <Seo
+    title={data.contentfulOnScreenVideo.artist}
+    description={data.contentfulOnScreenVideo.videoTitle}
+    image={data.contentfulOnScreenVideo.featuredImage.image.file.url}
+  />
+)
 
 export default OnScreenVideo

@@ -49,6 +49,13 @@ export const query = graphql`
       startDate
       endDate
       category
+      featuredImage {
+        image {
+          file {
+            url
+          }
+        }
+      }
       introductionText {
         introductionText
       }
@@ -241,6 +248,12 @@ export const query = graphql`
   }
 `
 
-export const Head = () => <Seo title="ON FILE" />
+export const Head = ({ data }) => (
+  <Seo
+    title={data.contentfulOnFileArchivePost.artist}
+    description={data.contentfulOnFileArchivePost.title}
+    image={data.contentfulOnFileArchivePost.featuredImage.image.file.url}
+  />
+)
 
 export default OnFilePost

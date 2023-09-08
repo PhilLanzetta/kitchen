@@ -9,7 +9,8 @@ import OnMindArticleHeader from "../components/onMindArticleHeader"
 import TagGrid from "../components/tagGrid"
 
 const OnMindArticle = ({ data, location }) => {
-  const { featuredImage, moduleContent, category, relatedContent } = data.contentfulOnMindArticle
+  const { featuredImage, moduleContent, category, relatedContent } =
+    data.contentfulOnMindArticle
   return (
     <Layout location={location}>
       <OnMindArticleHeader category={category}></OnMindArticleHeader>
@@ -48,6 +49,9 @@ export const query = graphql`
         image {
           description
           gatsbyImageData
+          file {
+            url
+          }
         }
       }
       id
@@ -226,6 +230,11 @@ export const query = graphql`
   }
 `
 
-export const Head = () => <Seo title="ON MIND" />
+export const Head = ({ data }) => (
+  <Seo
+    title={data.contentfulOnMindArticle.title}
+    image={data.contentfulOnMindArticle.featuredImage.image.file.url}
+  />
+)
 
 export default OnMindArticle

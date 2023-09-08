@@ -70,6 +70,9 @@ export const query = graphql`
         image {
           description
           gatsbyImageData
+          file {
+            url
+          }
         }
       }
       metadata {
@@ -244,6 +247,12 @@ export const query = graphql`
   }
 `
 
-export const Head = () => <Seo title="ON VIEW" />
+export const Head = ({ data }) => (
+  <Seo
+    title={data.contentfulOnView.artist}
+    description={data.contentfulOnView.exhibitionTitle}
+    image={data.contentfulOnView.heroImage.image.file.url}
+  />
+)
 
 export default OnViewExhibit
