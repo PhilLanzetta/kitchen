@@ -2,9 +2,11 @@ import React from "react"
 import * as styles from "./onMindFixedContent.module.css"
 import TagLink from "./tagLink"
 import { marked } from "marked"
+import LinkButton from "./linkButton"
 
 const OnMindFixedContent = ({ data }) => {
-  const { credits, title, articleDate, metadata, introductionText } = data
+  const { credits, title, articleDate, metadata, introductionText, links } =
+    data
 
   const dateOptions = {
     month: "long",
@@ -28,7 +30,8 @@ const OnMindFixedContent = ({ data }) => {
               <p className={styles.creditsLabel}>
                 <strong>Credits:</strong>
               </p>
-              <div className={styles.credits}
+              <div
+                className={styles.credits}
                 dangerouslySetInnerHTML={{
                   __html: marked.parse(credits.credits),
                 }}
@@ -41,6 +44,13 @@ const OnMindFixedContent = ({ data }) => {
                 <TagLink key={tag.id} tag={tag} light={true}></TagLink>
               ))}
             </article>
+          )}
+          {links?.map && (
+            <aside className={styles.linksContainer}>
+              {links.map((item, index) => (
+                <LinkButton key={index} data={item}></LinkButton>
+              ))}
+            </aside>
           )}
         </section>
         <section className={styles.exhibitCopy}>

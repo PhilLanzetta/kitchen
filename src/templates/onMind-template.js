@@ -44,6 +44,22 @@ export const query = graphql`
       credits {
         credits
       }
+      links {
+        ... on ContentfulPdfLink {
+          pdfId: id
+          linkText
+          pdf {
+            url
+          }
+          linkIcon
+        }
+        ... on ContentfulUrlLink {
+          linkId: id
+          linkText
+          linkUrl
+          linkIcon
+        }
+      }
       featuredImage {
         creditText
         image {
