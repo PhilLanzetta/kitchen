@@ -74,6 +74,11 @@ p {
   font-size: 0.85rem;
 }
 
+blockquote {
+  margin-left: 8%;
+  line-height: 2;
+}
+
 @font-face {
   font-family: "freight-text-pro";
   src: url("https://use.typekit.net/af/ac6334/000000000000000000012059/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3")
