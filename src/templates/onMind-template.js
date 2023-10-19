@@ -117,7 +117,7 @@ export const query = graphql`
           videoCredit
         }
         ... on ContentfulImageCarousel {
-          id
+          carouselId: id
           images {
             creditText
             image {
