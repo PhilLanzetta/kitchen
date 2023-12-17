@@ -6,7 +6,11 @@ const SingleColText = ({ data }) => {
   return (
     <div
       className={styles.textContainer}
-      dangerouslySetInnerHTML={{ __html: marked.parse(data.text) }}
+      dangerouslySetInnerHTML={{
+        __html: marked
+          .parse(data.text)
+          .replace(/href="h/g, `target="_blank" rel="noreferrer" href="h`),
+      }}
     ></div>
   )
 }

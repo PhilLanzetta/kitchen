@@ -8,7 +8,11 @@ const CreditText = ({ data }) => {
       <div id="credits" className={styles.anchor}></div>
       <section
         className={styles.creditContainer}
-        dangerouslySetInnerHTML={{ __html: marked.parse(data.text) }}
+        dangerouslySetInnerHTML={{
+          __html: marked
+            .parse(data.text)
+            .replace(/href/g, `target="_blank" rel="noreferrer" href`),
+        }}
       ></section>
     </>
   )
