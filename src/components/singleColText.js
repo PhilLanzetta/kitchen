@@ -9,7 +9,8 @@ const SingleColText = ({ data }) => {
       dangerouslySetInnerHTML={{
         __html: marked
           .parse(data.text)
-          .replace(/href="h/g, `target="_blank" rel="noreferrer" href="h`),
+          .replace(/href="h/g, `target="_blank" rel="noreferrer" href="h`)
+          .replace(/href="\//g, `target="_blank" rel="noreferrer" href="/`),
       }}
     ></div>
   )
