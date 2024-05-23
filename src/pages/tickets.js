@@ -65,7 +65,12 @@ const Tickets = ({ location, data }) => {
   }
 
   useEffect(() => {
-    fetch("https://api.ovationtix.com/public/events/client(35572)")
+    fetch("https://api.ovationtix.com/public/events/client(35572)", {
+      headers: {
+        clientId: "35572",
+        origin: "https://thekitchen.org",
+      },
+    })
       .then(res => res.json())
       .then(result => {
         setEvents(result)
