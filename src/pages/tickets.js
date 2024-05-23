@@ -68,7 +68,7 @@ const Tickets = ({ location, data }) => {
     fetch("https://api.ovationtix.com/public/events/client(35572)", {
       headers: {
         clientid: "35572",
-        origin: "https://thekitchen.org/tickets/",
+        origin: "https://thekitchen.org",
       },
     })
       .then(res => res.json())
