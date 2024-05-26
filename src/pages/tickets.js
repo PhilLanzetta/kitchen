@@ -64,12 +64,14 @@ const Tickets = ({ location, data }) => {
     )[0].hasAvailableTickets
   }
 
+  const fetchHeaders = JSON.stringify({
+    clientId: "35572",
+    Origin: "https://thekitchen.org",
+  })
+
   useEffect(() => {
     fetch("https://api.ovationtix.com/public/events/client(35572)", {
-      headers: {
-        'clientId': "35572",
-        'Origin': "https://thekitchen.org",
-      },
+      headers: { fetchHeaders },
     })
       .then(res => res.json())
       .then(result => {
