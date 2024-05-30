@@ -66,7 +66,7 @@ const Tickets = ({ location, data }) => {
 
   const fetchHeaders = JSON.stringify({
     clientId: "35572",
-    Origin: "https://thekitchen.org",
+    origin: "https://thekitchen.org",
   })
 
   useEffect(() => {
