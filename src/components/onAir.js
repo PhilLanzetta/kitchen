@@ -10,12 +10,15 @@ const OnAir = () => {
     {
       contentfulOnAir {
         isLive
-        vimeoLink
+        vimeoEmbed {
+          vimeoEmbed
+          id
+        }
       }
     }
   `)
 
-  const { isLive, vimeoLink } = liveData.contentfulOnAir
+  const { isLive, vimeoEmbed } = liveData.contentfulOnAir
 
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -100,7 +103,7 @@ const OnAir = () => {
           </p>
         )}
       </section>
-      <section className={styles.videoPlayerWrapper}>
+      <section className={isLive ? styles.videoWrapperLive : styles.videoPlayerWrapper}>
         {loading && <Loader></Loader>}
         {data && (
           <ReactPlayer
@@ -117,17 +120,10 @@ const OnAir = () => {
           />
         )}
         {isLive && (
-          <ReactPlayer
-            url={vimeoLink}
-            className={styles.videoPlayer}
-            playing={playing}
-            muted={muted}
-            volume={1}
-            playsinline={true}
-            width={"100%"}
-            height={"100%"}
-            onPause={() => setPlaying(false)}
-          />
+          <div
+            className={styles.videoPlayerLive}
+            dangerouslySetInnerHTML={{ __html: vimeoEmbed.vimeoEmbed }}
+          ></div>
         )}
       </section>
       <section className={styles.videoControlsContainer}>
