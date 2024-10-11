@@ -252,7 +252,7 @@ export const Head = ({ data }) => (
   <Seo
     title={`ON FILE: ${data.contentfulOnFileArchivePost.artist}`}
     description={data.contentfulOnFileArchivePost.title}
-    image={data.contentfulOnFileArchivePost.featuredImage.image.file.url}
+    image={data.contentfulOnFileArchivePost.featuredImage?.image?.file.url}
   />
 )
 
