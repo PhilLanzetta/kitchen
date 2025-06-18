@@ -62,16 +62,14 @@ export const StoreProvider = ({ children }) => {
           const existingCheckout = await client.checkout.fetch(
             existingCheckoutID
           )
-          if (!existingCheckout.completedAt) {
-            setCheckoutItem(existingCheckout)
-            return
-          }
+          setCheckoutItem(existingCheckout)
         } catch (e) {
           localStorage.setItem(localStorageKey, null)
         }
       } else {
         const newCheckout = await client.checkout.create()
         setCheckoutItem(newCheckout)
+        setCart([])
       }
     }
 
