@@ -14,11 +14,12 @@ const OnAir = () => {
           vimeoEmbed
           id
         }
+        vimeoShowcaseId
       }
     }
   `)
 
-  const { isLive, vimeoEmbed } = liveData.contentfulOnAir
+  const { isLive, vimeoEmbed, vimeoShowcaseId } = liveData.contentfulOnAir
 
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -50,14 +51,18 @@ const OnAir = () => {
 
   useEffect(() => {
     if (!isLive) {
-      fetch("https://api.vimeo.com/users/4252371/albums/10302071/videos", {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${Token}`,
-        },
-      })
+      fetch(
+        `https://api.vimeo.com/users/4252371/albums/${vimeoShowcaseId}/videos`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${Token}`,
+          },
+        }
+      )
         .then(res => res.json())
         .then(result => {
+          console.log(result)
           setData(shuffleData(result.data))
           setLoading(false)
         })
@@ -103,7 +108,9 @@ const OnAir = () => {
           </p>
         )}
       </section>
-      <section className={isLive ? styles.videoWrapperLive : styles.videoPlayerWrapper}>
+      <section
+        className={isLive ? styles.videoWrapperLive : styles.videoPlayerWrapper}
+      >
         {loading && <Loader></Loader>}
         {data && (
           <ReactPlayer
