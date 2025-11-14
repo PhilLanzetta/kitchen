@@ -135,7 +135,7 @@ const OnFileHero = () => {
               : null
           }
         >
-          Literature,
+          Posters,
         </Link>
         <Link
           to="/on-file/search"

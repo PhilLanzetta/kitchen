@@ -18,10 +18,10 @@ const OnFileSpotlight = ({ data }) => {
   return (
     <section className={styles.container}>
       <h2 className="tge">Spotlight: {title}</h2>
-      <p className={styles.introText}>{spotlightText.spotlightText}</p>
+      <p className={styles.introText}>{spotlightText?.spotlightText}</p>
       {width > 920 && (
         <article className={`${styles.previewContainer} tge`}>
-          {spotlightArchivePosts.map(post => (
+          {spotlightArchivePosts?.map(post => (
             <OnFilePreview key={post.id} data={post}></OnFilePreview>
           ))}
         </article>

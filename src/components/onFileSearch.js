@@ -1,4 +1,4 @@
-import React, { useState, useRef, useLayoutEffect } from "react"
+import React, { useState, useRef, useLayoutEffect, useEffect } from "react"
 import { marked } from "marked"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import {
@@ -22,7 +22,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 const OnFileSearch = ({ location }) => {
   const data = useStaticQuery(graphql`
     query {
-      allContentfulOnFileArchivePost {
+      allContentfulOnFileArchivePost(sort: { startDate: ASC }) {
         nodes {
           id
           artist
@@ -110,7 +110,7 @@ const OnFileSearch = ({ location }) => {
   } else if (category) {
     tableData = {
       nodes: data.allContentfulOnFileArchivePost.nodes.filter(item =>
-        item.category.includes(category)
+        item.category?.includes(category)
       ),
     }
   } else {
@@ -140,6 +140,10 @@ const OnFileSearch = ({ location }) => {
   })
 
   const theme = useTheme(THEME)
+
+  useEffect(() => {
+    setIds(tableData.nodes.map(item => item.id))
+  }, [])
 
   return (
     <>
@@ -241,7 +245,7 @@ const OnFileSearch = ({ location }) => {
               onClick={() => handleCategoryClick("Literature")}
               className={`${category === "Literature" ? styles.active : ""}`}
             >
-              Literature
+              Posters
             </button>
           </article>
         </section>
@@ -356,7 +360,11 @@ const OnFileSearch = ({ location }) => {
                     <Cell>
                       <Link to={`/on-file/${item.slug}`}>{item.artist}</Link>
                     </Cell>
-                    <Cell>{item.category}</Cell>
+                    <Cell>
+                      {item.category === "Literature"
+                        ? "Posters"
+                        : item.category}
+                    </Cell>
                     <Cell>
                       {new Intl.DateTimeFormat("en-US", {
                         year: "numeric",
@@ -399,7 +407,6 @@ const OnFileSearch = ({ location }) => {
                             ></article>
                           ) : (
                             <article className={styles.previewText}>
-                              <p>No Preview Text Available</p>
                             </article>
                           )}
                         </Link>
