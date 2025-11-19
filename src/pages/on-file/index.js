@@ -30,6 +30,12 @@ export const query = graphql`
         spotlightText {
           spotlightText
         }
+        externalLink {
+          linkId: id
+          linkIcon
+          linkText
+          linkUrl
+        }
         spotlightArchivePosts {
           artist
           endDate
