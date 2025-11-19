@@ -5,9 +5,11 @@ import Seo from "../../components/seo"
 import OnFileHero from "../../components/onFileHero"
 import OnFileSpotlight from "../../components/onFileSpotlight"
 import OnFileYearLinks from "../../components/onFileYearLinks"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 const OnFile = ({ location, data }) => {
-  const spotlightPosts = data.allContentfulOnFileSpotlight.nodes
+  const spotlightPosts = data.contentfulOnFilePageHero.spotlights
+  const { bloombergLogo, bloombergCreditText } = data.contentfulOnFilePageHero
   return (
     <Layout location={location}>
       <OnFileHero></OnFileHero>
@@ -15,6 +17,27 @@ const OnFile = ({ location, data }) => {
         <OnFileSpotlight key={spotlight.id} data={spotlight}></OnFileSpotlight>
       ))}
       <OnFileYearLinks></OnFileYearLinks>
+      {bloombergLogo && (
+        <div style={{ background: "#000", color: "#fff", padding: "20px" }}>
+          <div
+            style={{
+              border: "1px solid #fff",
+              display: "flex",
+              padding: "20px",
+              gap: "20px",
+            }}
+          >
+            <div style={{ width: "25%", minWidth: "150px" }}>
+              <GatsbyImage
+                image={bloombergLogo.gatsbyImageData}
+                alt={bloombergLogo.description}
+                style={{ width: "100%" }}
+              ></GatsbyImage>
+            </div>
+            <div>{bloombergCreditText.bloombergCreditText}</div>
+          </div>
+        </div>
+      )}
     </Layout>
   )
 }
@@ -23,8 +46,8 @@ export const Head = () => <Seo title="ON FILE" />
 
 export const query = graphql`
   query {
-    allContentfulOnFileSpotlight(limit: 2, sort: { updatedAt: DESC }) {
-      nodes {
+    contentfulOnFilePageHero {
+      spotlights {
         id
         title
         spotlightText {
@@ -58,6 +81,13 @@ export const query = graphql`
             }
           }
         }
+      }
+      bloombergCreditText {
+        bloombergCreditText
+      }
+      bloombergLogo {
+        gatsbyImageData(layout: FULL_WIDTH)
+        description
       }
     }
   }
