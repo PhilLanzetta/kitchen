@@ -46,6 +46,9 @@ export const query = graphql`
         image {
           description
           gatsbyImageData
+          file {
+            url
+          }
         }
       }
       startDate
@@ -247,6 +250,12 @@ export const query = graphql`
   }
 `
 
-export const Head = () => <Seo title="ON SCREEN" />
+export const Head = ({ data }) => (
+  <Seo
+    title={`ON SCREEN: ${data.contentfulOnScreenVideo.artist}`}
+    description={data.contentfulOnScreenVideo.videoTitle}
+    image={data.contentfulOnScreenVideo.featuredImage?.image?.file.url}
+  />
+)
 
 export default OnScreenVideo

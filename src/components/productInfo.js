@@ -58,7 +58,7 @@ const ProductInfo = ({ data }) => {
                 <div className={styles.imageSlide}>
                   <GatsbyImage
                     image={
-                      image.image.localFile.childImageSharp.gatsbyImageData
+                      image?.image?.localFile?.childImageSharp?.gatsbyImageData
                     }
                     className={styles.productImage}
                     imgStyle={{ objectFit: "contain" }}

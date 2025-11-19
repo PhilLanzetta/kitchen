@@ -35,7 +35,16 @@ const Calendar = ({ location, data }) => {
   const getDatesBetween = (startDate, endDate) => {
     const dates = []
     const formattedStart = new Date(startDate)
-    const formattedEnd = new Date(endDate)
+    const formattedEnd =
+      endDate !== undefined
+        ? new Date(endDate)
+        : new Date(
+            formattedStart.getFullYear(),
+            formattedStart.getMonth(),
+            formattedStart.getDate() + 30
+          )
+
+    console.log(formattedEnd)
 
     // Strip hours minutes seconds etc.
     let currentDate = new Date(
@@ -152,9 +161,8 @@ const Calendar = ({ location, data }) => {
 
 export const query = graphql`
   query {
-    allContentfulOnScreenVideo(sort: { endDate: ASC }) {
+    allContentfulOnScreenVideo(sort: { startDate: ASC }) {
       nodes {
-        endDate
         id
         links {
           ... on ContentfulUrlLink {

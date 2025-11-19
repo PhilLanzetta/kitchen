@@ -4,7 +4,7 @@ import { IoTicket } from "react-icons/io5"
 import { HiArrowDown, HiArrowRight, HiArrowUpRight } from "react-icons/hi2"
 import { Link } from "gatsby"
 
-const LinkButton = ({ data, onFile }) => {
+const LinkButton = ({ data, onFile, spotlight }) => {
   let linkIcon
   if (data.linkIcon?.toLowerCase() === "tickets icon") {
     linkIcon = <IoTicket></IoTicket>
@@ -32,7 +32,9 @@ const LinkButton = ({ data, onFile }) => {
       {data.linkId && (
         <a
           href={data.linkUrl}
-          className={`${styles.linkButton} ${onFile ? styles.onFile : ""}`}
+          className={`${styles.linkButton} ${onFile ? styles.onFile : ""} ${
+            spotlight ? styles.spotlightLink : ""
+          }`}
           target="_blank"
           rel="noreferrer"
         >

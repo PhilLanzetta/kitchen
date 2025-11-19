@@ -40,7 +40,6 @@ const Team = () => {
               <article key={person.id}>
                 <p className={styles.name}>{person.name}</p>
                 <p>{person.title}</p>
-                <a href={`mailto:${person.email}`}>e-mail</a>
               </article>
             ))}
           </section>
@@ -52,7 +51,6 @@ const Team = () => {
               <article className={styles.staffMember} key={person.id}>
                 <p className={styles.name}>{person.name}</p>
                 <p>{person.title}</p>
-                <a href={`mailto:${person.email}`}>e-mail</a>
               </article>
             ))}
             <h3>Consultants</h3>
@@ -60,15 +58,8 @@ const Team = () => {
               <article className={styles.staffMember} key={person.id}>
                 <p className={styles.name}>{person.name}</p>
                 <p>{person.title}</p>
-                <a href={`mailto:${person.email}`}>e-mail</a>
               </article>
             ))}
-            <article>
-              <p>Box Office</p>
-              <p>
-                ext. 11, <a href="mailto:boxoffice@thekitchen.org">e-mail</a>
-              </p>
-            </article>
           </section>
         </section>
       </article>

@@ -38,14 +38,16 @@ const FixedContent = ({ data }) => {
 
   let exhibitEnd
 
-  if (new Date().getFullYear() > new Date(endDate).getFullYear()) {
-    exhibitEnd = new Intl.DateTimeFormat("en-US", fullDateOptions).format(
-      new Date(endDate)
-    )
-  } else {
-    exhibitEnd = new Intl.DateTimeFormat("en-US", dateOptions).format(
-      new Date(endDate)
-    )
+  if (endDate) {
+    if (new Date().getFullYear() > new Date(endDate).getFullYear()) {
+      exhibitEnd = new Intl.DateTimeFormat("en-US", fullDateOptions).format(
+        new Date(endDate)
+      )
+    } else {
+      exhibitEnd = new Intl.DateTimeFormat("en-US", dateOptions).format(
+        new Date(endDate)
+      )
+    }
   }
 
   return (
@@ -61,7 +63,7 @@ const FixedContent = ({ data }) => {
           <article>
             <p className="tgnBold upper">
               On View:{" "}
-              {exhibitStart === exhibitEnd
+              {exhibitStart === exhibitEnd || exhibitEnd === undefined
                 ? exhibitStart
                 : `${exhibitStart}-${exhibitEnd}`}
             </p>

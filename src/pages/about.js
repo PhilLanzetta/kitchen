@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import TextBox from "../components/textBox"
-import VisitContact from "../components/visitContact"
+import Contact from "../components/contact"
 import Team from "../components/team"
 import Timeline from "../components/timeline"
 import Board from "../components/board"
@@ -10,7 +10,7 @@ import VisitLink from "../components/visitLink"
 import Seo from "../components/seo"
 
 const About = ({ location, data }) => {
-  const { mission, values, history, landAcknowledgment, timeline } =
+  const { mission, values, history, landAcknowledgment, timeline, contact } =
     data.contentfulAboutPage
   return (
     <Layout location={location}>
@@ -29,8 +29,7 @@ const About = ({ location, data }) => {
         <Team></Team>
         <div id="board" className="about-anchor"></div>
         <Board></Board>
-        <div id="contact" className="about-anchor"></div>
-        <VisitContact></VisitContact>
+        <Contact text={contact.contact}></Contact>
         <div style={{ display: "flex" }}>
           <VisitLink
             text="Jobs + Internships"
@@ -57,6 +56,9 @@ export const query = graphql`
       }
       landAcknowledgment {
         landAcknowledgment
+      }
+      contact {
+        contact
       }
       timeline {
         id

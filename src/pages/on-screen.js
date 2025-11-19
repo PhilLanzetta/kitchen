@@ -61,7 +61,7 @@ export const query = graphql`
         slug
       }
     }
-    allContentfulOnScreenVideo(limit: 4, sort: { endDate: DESC }) {
+    allContentfulOnScreenVideo(limit: 4, sort: { startDate: DESC }) {
       nodes {
         artist
         id

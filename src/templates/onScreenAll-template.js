@@ -18,7 +18,7 @@ const OnScreenAll = ({ data, location, pageContext }) => {
 export const query = graphql`
   query getAllVideos($skip: Int!, $limit: Int!) {
     allContentfulOnScreenVideo(
-      sort: { endDate: DESC }
+      sort: { startDate: DESC }
       limit: $limit
       skip: $skip
     ) {

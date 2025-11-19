@@ -10,12 +10,16 @@ const OnAir = () => {
     {
       contentfulOnAir {
         isLive
-        vimeoLink
+        vimeoEmbed {
+          vimeoEmbed
+          id
+        }
+        vimeoShowcaseId
       }
     }
   `)
 
-  const { isLive, vimeoLink } = liveData.contentfulOnAir
+  const { isLive, vimeoEmbed, vimeoShowcaseId } = liveData.contentfulOnAir
 
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -47,14 +51,18 @@ const OnAir = () => {
 
   useEffect(() => {
     if (!isLive) {
-      fetch("https://api.vimeo.com/users/4252371/albums/10302071/videos", {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${Token}`,
-        },
-      })
+      fetch(
+        `https://api.vimeo.com/users/4252371/albums/${vimeoShowcaseId}/videos`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${Token}`,
+          },
+        }
+      )
         .then(res => res.json())
         .then(result => {
+          console.log(result)
           setData(shuffleData(result.data))
           setLoading(false)
         })
@@ -100,7 +108,9 @@ const OnAir = () => {
           </p>
         )}
       </section>
-      <section className={styles.videoPlayerWrapper}>
+      <section
+        className={isLive ? styles.videoWrapperLive : styles.videoPlayerWrapper}
+      >
         {loading && <Loader></Loader>}
         {data && (
           <ReactPlayer
@@ -117,17 +127,10 @@ const OnAir = () => {
           />
         )}
         {isLive && (
-          <ReactPlayer
-            url={vimeoLink}
-            className={styles.videoPlayer}
-            playing={playing}
-            muted={muted}
-            volume={1}
-            playsinline={true}
-            width={"100%"}
-            height={"100%"}
-            onPause={() => setPlaying(false)}
-          />
+          <div
+            className={styles.videoPlayerLive}
+            dangerouslySetInnerHTML={{ __html: vimeoEmbed.vimeoEmbed }}
+          ></div>
         )}
       </section>
       <section className={styles.videoControlsContainer}>

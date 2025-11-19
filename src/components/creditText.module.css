@@ -8,7 +8,8 @@
   text-decoration: underline;
 }
 
-.creditContainer p {
+.creditContainer p,
+.creditContainer li {
   font-size: 0.5rem;
 }
 

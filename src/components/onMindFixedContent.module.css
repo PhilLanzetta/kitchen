@@ -38,6 +38,14 @@
   gap: 10px;
 }
 
+.linksContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 1rem;
+}
+
 .exhibitCopy {
   width: 50%;
 }
@@ -105,7 +113,8 @@
     gap: 0;
   }
 
-  .creditsLabel, .credits {
+  .creditsLabel,
+  .credits {
     padding: 0 10px;
   }
 
